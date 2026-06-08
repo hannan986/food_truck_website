@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Taste on Wheels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/gallery.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Taste on Wheels — Home">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="logo-img" onerror="this.style.display='none'" />
+      <div class="logo-text">
+        <span class="logo-taste">TASTE</span>
+        <span class="logo-on-wheels">ON WHEELS</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="order.html">Order</a></li>
+      <li><a href="contact.html">Find Us</a></li>
+    </ul>
+    <button class="btn-nav-order" onclick="openOrderModal()">ORDER NOW</button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="gallery.html" onclick="closeMobileNav()">Gallery</a>
+    <a href="menu.html"    onclick="closeMobileNav()">Menu</a>
+    <a href="order.html"   onclick="closeMobileNav()">Order</a>
+    <a href="contact.html" onclick="closeMobileNav()">Find Us</a>
+    <button class="btn-nav-order" onclick="openOrderModal(); closeMobileNav()">ORDER NOW</button>
+  </div>
+</nav>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <h1 class="page-hero-title">GALLERY</h1>
+    <p class="page-hero-sub">The truck. The food. The experience.</p>
+  </div>
+</div>
+
+<!-- ===== GALLERY GRID ===== -->
+<section class="gallery-section">
+  <div class="container">
+    <h2 class="section-title reveal">OUR STORY IN PHOTOS</h2>
+    <p class="section-subtitle reveal reveal-d1">Click any photo to open the full-screen viewer</p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <!-- Item 0: Truck + banner scene (hero shot, span 2) -->
+    <div class="gallery-item g-span2 reveal" data-index="0" data-caption="Taste on Wheels — ready to serve!" onclick="openLightbox(0)">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%287%29.jpeg"
+           alt="Taste on Wheels — truck and banner scene"
+           onerror="this.src=''; this.alt='Image unavailable'" />
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">&#x1F50D;</div>
+        <div class="gallery-caption">Taste on Wheels in action</div>
+      </div>
+    </div>
+
+    <!-- Item 1: Action shot / customer being served -->
+    <div class="gallery-item reveal reveal-d1" data-index="1" data-caption="Fresh food — fast service" onclick="openLightbox(1)">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.55.42%20PM.jpeg"
+           alt="Customer being served from the truck"
+           onerror="this.src=''; this.alt='Image unavailable'" />
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">&#x1F50D;</div>
+        <div class="gallery-caption">Fresh food — fast service</div>
+      </div>
+    </div>
+
+    <!-- Item 2: Truck right side -->
+    <div class="gallery-item reveal reveal-d2" data-index="2" data-caption="Truck — right side view" onclick="openLightbox(2)">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM.jpeg"
+           alt="Taste on Wheels truck right side"
+           onerror="this.src=''; this.alt='Image unavailable'" />
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">&#x1F50D;</div>
+        <div class="gallery-caption">Right side view</div>
+      </div>
+    </div>
+
+    <!-- Item 3: Truck left side -->
+    <div class="gallery-item reveal reveal-d1" data-index="3" data-caption="Truck — left side view" onclick="openLightbox(3)">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%281%29.jpeg"
+           alt="Taste on Wheels truck left side"
+           onerror="this.src=''; this.alt='Image unavailable'" />
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">&#x1F50D;</div>
+        <div class="gallery-caption">Left side view</div>
+      </div>
+    </div>
+
+    <!-- Item 4: Truck front -->
+    <div class="gallery-item reveal reveal-d2" data-index="4" data-caption="Truck — front view" onclick="openLightbox(4)">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%282%29.jpeg"
+           alt="Taste on Wheels truck front view"
+           onerror="this.src=''; this.alt='Image unavailable'" />
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">&#x1F50D;</div>
+        <div class="gallery-caption">Front view</div>
+      </div>
+    </div>
+
+    <!-- Item 5: Truck back -->
+    <div class="gallery-item reveal reveal-d3" data-index="5" data-caption="Truck — back view" onclick="openLightbox(5)">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%283%29.jpeg"
+           alt="Taste on Wheels truck back view"
+           onerror="this.src=''; this.alt='Image unavailable'" />
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">&#x1F50D;</div>
+        <div class="gallery-caption">Back view</div>
+      </div>
+    </div>
+
+    <!-- Item 6: Roll-up banner -->
+    <div class="gallery-item reveal reveal-d1" data-index="6" data-caption="Our brand roll-up banner" onclick="openLightbox(6)">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%284%29.jpeg"
+           alt="Taste on Wheels roll-up banner"
+           onerror="this.src=''; this.alt='Image unavailable'" />
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">&#x1F50D;</div>
+        <div class="gallery-caption">Brand roll-up banner</div>
+      </div>
+    </div>
+
+    <!-- Item 7: Brochure flat -->
+    <div class="gallery-item reveal reveal-d2" data-index="7" data-caption="Our brochure" onclick="openLightbox(7)">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%285%29.jpeg"
+           alt="Taste on Wheels brochure"
+           onerror="this.src=''; this.alt='Image unavailable'" />
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">&#x1F50D;</div>
+        <div class="gallery-caption">Our menu brochure</div>
+      </div>
+    </div>
+
+    <!-- Item 8: Brochure held in hands (span 2) -->
+    <div class="gallery-item g-span2 reveal reveal-d3" data-index="8" data-caption="Brochure in hands" onclick="openLightbox(8)">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%286%29.jpeg"
+           alt="Taste on Wheels brochure held in hands"
+           onerror="this.src=''; this.alt='Image unavailable'" />
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">&#x1F50D;</div>
+        <div class="gallery-caption">Take the menu with you!</div>
+      </div>
+    </div>
+
+    <!-- Item 9: T-shirts -->
+    <div class="gallery-item reveal reveal-d1" data-index="9" data-caption="Official Taste on Wheels tees" onclick="openLightbox(9)">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%288%29.jpeg"
+           alt="Taste on Wheels branded t-shirts"
+           onerror="this.src=''; this.alt='Image unavailable'" />
+      <div class="gallery-overlay">
+        <div class="gallery-zoom-icon">&#x1F50D;</div>
+        <div class="gallery-caption">Official TOW merch!</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox" onclick="lbOverlayClick(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">&#x2715;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    <button class="lb-nav lb-prev" onclick="lbNav(-1)" aria-label="Previous">&#x2039;</button>
+    <button class="lb-nav lb-next" onclick="lbNav(1)"  aria-label="Next">&#x203A;</button>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="footer-logo-img" onerror="this.style.display='none'" />
+  <p class="footer-tagline">FAST &nbsp;&middot;&nbsp; FRESH &nbsp;&middot;&nbsp; FLAVORFUL</p>
+  <p class="footer-copy">&copy; 2025 Taste on Wheels. All Rights Reserved.<br>Made Fresh. Made to Satisfy.</p>
+</footer>
+
+<!-- ===== CART FAB ===== -->
+<button class="cart-fab" id="cartFab" onclick="openOrderModal()" aria-label="View cart">
+  &#x1F6D2;
+  <span class="cart-badge" id="cartBadge"></span>
+</button>
+
+<!-- ===== ORDER MODAL ===== -->
+<div class="modal-overlay" id="orderModal" onclick="overlayClick(event,'orderModal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('orderModal')" aria-label="Close">&#x2715;</button>
+    <div id="orderModalBody"></div>
+  </div>
+</div>
+
+<!-- ===== CALL MODAL ===== -->
+<div class="modal-overlay" id="callModal" onclick="overlayClick(event,'callModal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('callModal')" aria-label="Close">&#x2715;</button>
+    <h2 class="modal-title">&#x1F4DE; CALL AHEAD</h2>
+    <p style="color:var(--light-gray); margin-bottom:22px; font-size:0.92rem; line-height:1.65;">
+      Call us to place your order and we&rsquo;ll have it hot &amp; ready when you arrive!
+    </p>
+    <div class="call-body">
+      <div class="call-number">[YOUR PHONE NUMBER]</div>
+      <div class="call-avail">Available during business hours</div>
+      <a href="tel:+15551234567" class="btn-call-now">CALL NOW &#x1F4DE;</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>

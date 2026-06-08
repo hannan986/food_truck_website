@@ -1,0 +1,37 @@
+/* ============================================================
+   contact.css — Find Us / Contact page
+   ============================================================ */
+
+.findus-section { background: var(--dark); padding: 80px 0; }
+
+.findus-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px; max-width: 1000px; margin: 0 auto; padding: 0 20px;
+}
+.findus-card {
+  background: var(--card-bg); border: 1px solid var(--gray); border-radius: 8px;
+  padding: 28px 22px; text-align: center;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.findus-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+.findus-icon  { font-size: 2.2rem; margin-bottom: 12px; }
+.findus-label {
+  font-family: 'Oswald', sans-serif; font-size: 1rem;
+  font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+.findus-info  { color: var(--light-gray); font-size: 0.88rem; line-height: 1.65; }
+.findus-info a { color: var(--gold); }
+.findus-info a:hover { text-decoration: underline; }
+.social-row   { display: flex; flex-direction: column; gap: 5px; margin-top: 8px; }
+.social-link  { color: var(--gold) !important; font-size: 0.82rem; }
+
+/* Map placeholder */
+.map-placeholder {
+  background: var(--card-bg); border: 2px dashed var(--gray); border-radius: 8px;
+  min-height: 220px; display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 40px 20px;
+  transition: border-color 0.25s;
+}
+.map-placeholder:hover { border-color: var(--gold); }
+.map-overlay-text { max-width: 380px; }

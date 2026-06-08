@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Us — Taste on Wheels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Taste on Wheels — Home">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="logo-img" onerror="this.style.display='none'" />
+      <div class="logo-text">
+        <span class="logo-taste">TASTE</span>
+        <span class="logo-on-wheels">ON WHEELS</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="order.html">Order</a></li>
+      <li><a href="contact.html" class="active">Find Us</a></li>
+    </ul>
+    <button class="btn-nav-order" onclick="openOrderModal()">ORDER NOW</button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="gallery.html" onclick="closeMobileNav()">Gallery</a>
+    <a href="menu.html"    onclick="closeMobileNav()">Menu</a>
+    <a href="order.html"   onclick="closeMobileNav()">Order</a>
+    <a href="contact.html" onclick="closeMobileNav()">Find Us</a>
+    <button class="btn-nav-order" onclick="openOrderModal(); closeMobileNav()">ORDER NOW</button>
+  </div>
+</nav>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <h1 class="page-hero-title">FIND US</h1>
+    <p class="page-hero-sub">Come find us — we&rsquo;re rolling your way!</p>
+  </div>
+</div>
+
+<!-- ===== FIND US GRID ===== -->
+<section class="findus-section">
+  <div class="container" style="max-width:860px;">
+    <h2 class="section-title reveal">GET IN TOUCH</h2>
+    <p class="section-subtitle reveal reveal-d1">Location, hours, phone and social — everything you need</p>
+  </div>
+
+  <div class="findus-grid">
+
+    <div class="findus-card reveal">
+      <div class="findus-icon">&#x1F4CD;</div>
+      <div class="findus-label">Location</div>
+      <div class="findus-info">
+        We move around — follow us on social media<br>for today&rsquo;s location!<br><br>
+        <a href="https://www.google.com/maps" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>
+      </div>
+    </div>
+
+    <div class="findus-card reveal reveal-d1">
+      <div class="findus-icon">&#x1F4DE;</div>
+      <div class="findus-label">Phone</div>
+      <div class="findus-info">
+        <a href="tel:+15551234567">[YOUR PHONE NUMBER]</a><br><br>
+        Call or text us to place an order or ask about today&rsquo;s location.
+        <br><br>
+        <button class="btn-call-now" style="width:100%; font-size:0.8rem; padding:10px;" onclick="openCallModal()">
+          CALL AHEAD &#x1F4DE;
+        </button>
+      </div>
+    </div>
+
+    <div class="findus-card reveal reveal-d2">
+      <div class="findus-icon">&#x23F0;</div>
+      <div class="findus-label">Hours</div>
+      <div class="findus-info">
+        <strong style="color:var(--gold)">Mon – Fri</strong><br>11:00 AM – 8:00 PM<br><br>
+        <strong style="color:var(--gold)">Sat – Sun</strong><br>12:00 PM – 9:00 PM<br><br>
+        <em style="font-size:0.78rem; color:#777;">Hours may vary — check social for updates</em>
+      </div>
+    </div>
+
+    <div class="findus-card reveal reveal-d3">
+      <div class="findus-icon">&#x1F4F1;</div>
+      <div class="findus-label">Follow Us</div>
+      <div class="findus-info">
+        Stay up to date with our location, specials and new menu items!
+        <div class="social-row">
+          <a href="#" class="social-link" target="_blank" rel="noopener">&#x1F4F7; Instagram — @tasteonwheels</a>
+          <a href="#" class="social-link" target="_blank" rel="noopener">&#x1F1EB;&#x1F1E7; Facebook — Taste on Wheels</a>
+          <a href="#" class="social-link" target="_blank" rel="noopener">&#x1F4F9; TikTok — @tasteonwheels</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Map placeholder -->
+  <div class="container" style="margin-top:50px;">
+    <div class="map-placeholder reveal">
+      <div class="map-overlay-text">
+        <div style="font-size:2.5rem; margin-bottom:10px;">&#x1F4CD;</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:1.1rem; letter-spacing:2px; color:var(--gold); margin-bottom:8px;">FIND US TODAY</div>
+        <p style="color:var(--light-gray); font-size:0.88rem; margin-bottom:18px;">Check our social media for today&rsquo;s spot!</p>
+        <a href="#" target="_blank" rel="noopener" class="btn-primary">FOLLOW ON INSTAGRAM &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAYMENT BAR ===== -->
+<div class="payment-bar">
+  <div class="payment-inner">
+    <span>&#x1F4B3; VISA</span>
+    <span>&#x1F4B3; MASTERCARD</span>
+    <span>&#x1F4B3; AMEX</span>
+    <span>&#x1F4B3; DISCOVER</span>
+    <span>&#x1F4B5; CASH</span>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="footer-logo-img" onerror="this.style.display='none'" />
+  <p class="footer-tagline">FAST &nbsp;&middot;&nbsp; FRESH &nbsp;&middot;&nbsp; FLAVORFUL</p>
+  <p class="footer-copy">&copy; 2025 Taste on Wheels. All Rights Reserved.<br>Made Fresh. Made to Satisfy.</p>
+</footer>
+
+<!-- ===== CART FAB ===== -->
+<button class="cart-fab" id="cartFab" onclick="openOrderModal()" aria-label="View cart">
+  &#x1F6D2;
+  <span class="cart-badge" id="cartBadge"></span>
+</button>
+
+<!-- ===== ORDER MODAL ===== -->
+<div class="modal-overlay" id="orderModal" onclick="overlayClick(event,'orderModal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('orderModal')" aria-label="Close">&#x2715;</button>
+    <div id="orderModalBody"></div>
+  </div>
+</div>
+
+<!-- ===== CALL MODAL ===== -->
+<div class="modal-overlay" id="callModal" onclick="overlayClick(event,'callModal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('callModal')" aria-label="Close">&#x2715;</button>
+    <h2 class="modal-title">&#x1F4DE; CALL AHEAD</h2>
+    <p style="color:var(--light-gray); margin-bottom:22px; font-size:0.92rem; line-height:1.65;">
+      Call us to place your order and we&rsquo;ll have it hot &amp; ready when you arrive!
+    </p>
+    <div class="call-body">
+      <div class="call-number">[YOUR PHONE NUMBER]</div>
+      <div class="call-avail">Available during business hours</div>
+      <a href="tel:+15551234567" class="btn-call-now">CALL NOW &#x1F4DE;</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>

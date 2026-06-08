@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order — Taste on Wheels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/order.css" />
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo" aria-label="Taste on Wheels — Home">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="logo-img" onerror="this.style.display='none'" />
+      <div class="logo-text">
+        <span class="logo-taste">TASTE</span>
+        <span class="logo-on-wheels">ON WHEELS</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="order.html" class="active">Order</a></li>
+      <li><a href="contact.html">Find Us</a></li>
+    </ul>
+    <button class="btn-nav-order" onclick="openOrderModal()">ORDER NOW</button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="gallery.html" onclick="closeMobileNav()">Gallery</a>
+    <a href="menu.html"    onclick="closeMobileNav()">Menu</a>
+    <a href="order.html"   onclick="closeMobileNav()">Order</a>
+    <a href="contact.html" onclick="closeMobileNav()">Find Us</a>
+    <button class="btn-nav-order" onclick="openOrderModal(); closeMobileNav()">ORDER NOW</button>
+  </div>
+</nav>
+
+<!-- ===== PAGE HERO ===== -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <h1 class="page-hero-title">ORDER</h1>
+    <p class="page-hero-sub">Skip the wait — order ahead, pick up hot &amp; fresh.</p>
+  </div>
+</div>
+
+<!-- ===== ORDER OPTIONS ===== -->
+<section class="order-section">
+  <div class="container">
+    <h2 class="section-title reveal">HOW WOULD YOU LIKE TO ORDER?</h2>
+    <p class="section-subtitle reveal reveal-d1">Two quick ways to get your food fresh and fast</p>
+  </div>
+
+  <div class="order-cards">
+
+    <div class="order-card featured reveal">
+      <div class="order-card-icon">&#x1F6D2;</div>
+      <div class="order-card-title">ORDER ONLINE</div>
+      <div class="order-card-text">
+        Browse our full menu, add items to your cart, and place your order in seconds.
+        We&rsquo;ll have it hot &amp; ready for pickup!
+      </div>
+      <button class="btn-primary-full" onclick="openOrderModal()">
+        &#x1F525; OPEN MY CART
+      </button>
+      <a href="menu.html" class="btn-outline-full" style="margin-top:10px; display:block;">
+        BROWSE MENU FIRST
+      </a>
+    </div>
+
+    <div class="order-card reveal reveal-d1">
+      <div class="order-card-icon">&#x1F4DE;</div>
+      <div class="order-card-title">CALL AHEAD</div>
+      <div class="order-card-text">
+        Prefer to call? Give us a ring and we&rsquo;ll take your order over the phone.
+        Just show up and your food will be waiting!
+      </div>
+      <button class="btn-primary-full" onclick="openCallModal()">
+        CALL US NOW
+      </button>
+      <a href="contact.html" class="btn-outline-full" style="margin-top:10px; display:block;">
+        VIEW HOURS &amp; LOCATION
+      </a>
+    </div>
+
+  </div>
+
+  <!-- How it works -->
+  <div class="container" style="margin-top: 60px;">
+    <h2 class="section-title reveal">HOW IT WORKS</h2>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="how-step-num">1</div>
+        <div class="how-step-label">Browse the Menu</div>
+        <div class="how-step-desc">Check out our full lineup of bowls, wraps, burgers, steak &amp; cheese and more.</div>
+      </div>
+      <div class="how-step reveal reveal-d1">
+        <div class="how-step-num">2</div>
+        <div class="how-step-label">Add to Cart</div>
+        <div class="how-step-desc">Tap "+ ADD" on any item. Your cart travels with you across all pages.</div>
+      </div>
+      <div class="how-step reveal reveal-d2">
+        <div class="how-step-num">3</div>
+        <div class="how-step-label">Place Your Order</div>
+        <div class="how-step-desc">Enter your name, phone and pickup time. Hit PLACE ORDER.</div>
+      </div>
+      <div class="how-step reveal reveal-d3">
+        <div class="how-step-num">4</div>
+        <div class="how-step-label">Pick Up &amp; Enjoy!</div>
+        <div class="how-step-desc">Show up at the truck at your chosen time. Hot, fresh, ready — just for you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PAYMENT BAR ===== -->
+<div class="payment-bar">
+  <div class="payment-inner">
+    <span>&#x1F4B3; VISA</span>
+    <span>&#x1F4B3; MASTERCARD</span>
+    <span>&#x1F4B3; AMEX</span>
+    <span>&#x1F4B3; DISCOVER</span>
+    <span>&#x1F4B5; CASH</span>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="footer-logo-img" onerror="this.style.display='none'" />
+  <p class="footer-tagline">FAST &nbsp;&middot;&nbsp; FRESH &nbsp;&middot;&nbsp; FLAVORFUL</p>
+  <p class="footer-copy">&copy; 2025 Taste on Wheels. All Rights Reserved.<br>Made Fresh. Made to Satisfy.</p>
+</footer>
+
+<!-- ===== CART FAB ===== -->
+<button class="cart-fab" id="cartFab" onclick="openOrderModal()" aria-label="View cart">
+  &#x1F6D2;
+  <span class="cart-badge" id="cartBadge"></span>
+</button>
+
+<!-- ===== ORDER MODAL ===== -->
+<div class="modal-overlay" id="orderModal" onclick="overlayClick(event,'orderModal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('orderModal')" aria-label="Close">&#x2715;</button>
+    <div id="orderModalBody"></div>
+  </div>
+</div>
+
+<!-- ===== CALL MODAL ===== -->
+<div class="modal-overlay" id="callModal" onclick="overlayClick(event,'callModal')">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal('callModal')" aria-label="Close">&#x2715;</button>
+    <h2 class="modal-title">&#x1F4DE; CALL AHEAD</h2>
+    <p style="color:var(--light-gray); margin-bottom:22px; font-size:0.92rem; line-height:1.65;">
+      Call us to place your order and we&rsquo;ll have it hot &amp; ready when you arrive!
+    </p>
+    <div class="call-body">
+      <div class="call-number">[YOUR PHONE NUMBER]</div>
+      <div class="call-avail">Available during business hours</div>
+      <a href="tel:+15551234567" class="btn-call-now">CALL NOW &#x1F4DE;</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>

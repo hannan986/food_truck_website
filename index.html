@@ -7,1096 +7,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <style>
-    /* =============================================
-       CSS VARIABLES
-    ============================================= */
-    :root {
-      --black:      #111111;
-      --dark:       #1a1a1a;
-      --card-bg:    #222222;
-      --gold:       #F5C107;
-      --gold-dark:  #d4a30a;
-      --red:        #C0392B;
-      --red-dark:   #a93226;
-      --white:      #ffffff;
-      --gray:       #333333;
-      --mid-gray:   #555555;
-      --light-gray: #888888;
-    }
-
-    /* =============================================
-       RESET & BASE
-    ============================================= */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html  { scroll-behavior: smooth; }
-    body  {
-      background: var(--black);
-      color: var(--white);
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    img   { display: block; max-width: 100%; }
-    a     { text-decoration: none; color: inherit; }
-    button { cursor: pointer; font-family: inherit; border: none; }
-    ul    { list-style: none; }
-
-    ::-webkit-scrollbar        { width: 6px; }
-    ::-webkit-scrollbar-track  { background: var(--dark); }
-    ::-webkit-scrollbar-thumb  { background: var(--gray); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .section-title {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--gold);
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .section-subtitle {
-      text-align: center;
-      color: var(--light-gray);
-      margin-bottom: 48px;
-      font-size: 1rem;
-      font-style: italic;
-      letter-spacing: 0.5px;
-    }
-
-    /* =============================================
-       SCROLL REVEAL
-    ============================================= */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-d1 { transition-delay: 0.1s; }
-    .reveal-d2 { transition-delay: 0.2s; }
-    .reveal-d3 { transition-delay: 0.3s; }
-    .reveal-d4 { transition-delay: 0.4s; }
-    .reveal-d5 { transition-delay: 0.5s; }
-
-    /* =============================================
-       NAVBAR
-    ============================================= */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(17,17,17,0.97);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 2px solid var(--gold);
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-      padding: 0 20px;
-    }
-    .logo { display: flex; align-items: center; gap: 10px; }
-    .logo-img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      flex-shrink: 0;
-      border-radius: 4px;
-    }
-    .logo-text { display: flex; flex-direction: column; }
-    .logo-taste {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: 1.45rem;
-      color: var(--gold);
-      letter-spacing: 4px;
-      line-height: 1;
-    }
-    .logo-on-wheels {
-      background: var(--red);
-      color: var(--white);
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      padding: 2px 6px;
-      margin-top: 3px;
-      text-transform: uppercase;
-      border-radius: 2px;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-    .nav-links a {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--white);
-      transition: color 0.2s;
-      padding-bottom: 3px;
-      border-bottom: 2px solid transparent;
-    }
-    .nav-links a:hover { color: var(--gold); border-bottom-color: var(--gold); }
-    .btn-nav-order {
-      background: var(--gold);
-      color: var(--black);
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 10px 22px;
-      border-radius: 4px;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-nav-order:hover { background: var(--gold-dark); transform: translateY(-1px); }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: none;
-      border: none;
-      padding: 6px;
-    }
-    .hamburger span {
-      display: block;
-      width: 25px; height: 3px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      background: var(--dark);
-      border-top: 1px solid var(--gray);
-      padding: 8px 20px 20px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.3s ease;
-    }
-    .mobile-nav.open { display: flex; max-height: 400px; }
-    .mobile-nav a {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--white);
-      padding: 13px 0;
-      border-bottom: 1px solid var(--gray);
-      transition: color 0.2s;
-    }
-    .mobile-nav a:hover { color: var(--gold); }
-    .mobile-nav .btn-nav-order {
-      margin-top: 16px;
-      text-align: center;
-      display: block;
-      padding: 13px;
-      font-size: 1rem;
-      border-radius: 4px;
-    }
-
-    /* =============================================
-       MARQUEE
-    ============================================= */
-    .marquee-wrap {
-      background: var(--gold);
-      overflow: hidden;
-      padding: 11px 0;
-      border-bottom: 3px solid var(--gold-dark);
-    }
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marqueeRoll 22s linear infinite;
-    }
-    .marquee-track:hover { animation-play-state: paused; }
-    @keyframes marqueeRoll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .marquee-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      padding: 0 28px;
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--black);
-      white-space: nowrap;
-    }
-    .marquee-star { color: var(--red); font-size: 1rem; }
-
-    /* =============================================
-       HERO
-    ============================================= */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      text-align: center;
-      padding: 80px 20px 220px;
-      background:
-        linear-gradient(to bottom,
-          rgba(17,17,17,0.88) 0%,
-          rgba(17,17,17,0.55) 45%,
-          rgba(17,17,17,0.95) 100%),
-        url('images/WhatsApp%20Image%202026-06-07%20at%208.55.42%20PM.jpeg')
-        center 35% / cover no-repeat;
-    }
-    .hero-glow {
-      position: absolute; top: 25%; left: 50%;
-      transform: translateX(-50%);
-      width: 700px; height: 500px;
-      background: radial-gradient(ellipse, rgba(192,57,43,0.18) 0%, transparent 65%);
-      pointer-events: none; z-index: 0;
-    }
-    .hero-glow-gold {
-      position: absolute; top: 30%; left: 50%;
-      transform: translateX(-50%);
-      width: 500px; height: 300px;
-      background: radial-gradient(ellipse, rgba(245,193,7,0.1) 0%, transparent 70%);
-      pointer-events: none; z-index: 0;
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 900px; }
-    .hero-kicker {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 8px;
-      opacity: 0.9;
-    }
-    .hero-taste {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: clamp(7rem, 20vw, 15rem);
-      color: var(--gold);
-      line-height: 0.82;
-      letter-spacing: 4px;
-      text-shadow: 0 0 80px rgba(245,193,7,0.3), 0 4px 30px rgba(0,0,0,0.8);
-    }
-    .hero-on-wheels {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: clamp(2.2rem, 7vw, 5.5rem);
-      color: var(--white);
-      letter-spacing: 10px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-      opacity: 0.92;
-    }
-    .hero-tagline {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(0.9rem, 2vw, 1.25rem);
-      letter-spacing: 5px;
-      color: rgba(255,255,255,0.75);
-      text-transform: uppercase;
-      margin-bottom: 40px;
-    }
-    .hero-tagline .dot { color: var(--gold); margin: 0 8px; }
-    .hero-btns {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 44px;
-    }
-    .btn-hero-fill {
-      background: var(--gold); color: var(--black);
-      font-family: 'Oswald', sans-serif; font-size: 1.05rem;
-      font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      padding: 15px 34px; border-radius: 4px; border: none;
-      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-hero-fill:hover {
-      background: var(--gold-dark); transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(245,193,7,0.4);
-    }
-    .btn-hero-outline {
-      background: transparent; color: var(--white);
-      font-family: 'Oswald', sans-serif; font-size: 1.05rem;
-      font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
-      padding: 13px 34px; border-radius: 4px;
-      border: 2px solid rgba(255,255,255,0.7);
-      transition: border-color 0.2s, color 0.2s, transform 0.2s;
-    }
-    .btn-hero-outline:hover {
-      border-color: var(--gold); color: var(--gold); transform: translateY(-2px);
-    }
-    .hero-pills {
-      display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
-    }
-    .cat-pill {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.8);
-      font-family: 'Oswald', sans-serif; font-size: 0.75rem;
-      font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 8px 16px; border-radius: 100px; cursor: pointer;
-      transition: all 0.2s;
-    }
-    .cat-pill:hover {
-      background: var(--gold); color: var(--black);
-      border-color: var(--gold); transform: translateY(-1px);
-    }
-
-    /* =============================================
-       FLAME EFFECT
-    ============================================= */
-    .flames-wrap {
-      position: absolute; bottom: 0; left: 0;
-      width: 100%; height: 220px; z-index: 1; pointer-events: none;
-    }
-    .flame-svg {
-      position: absolute; bottom: 0; left: 0;
-      width: 100%; transform-origin: bottom center;
-    }
-    .flame-l1 { animation: flk1 1.9s ease-in-out infinite alternate; }
-    .flame-l2 { animation: flk2 1.4s ease-in-out infinite alternate; }
-    .flame-l3 { animation: flk3 2.2s ease-in-out infinite alternate; }
-    .flame-l4 { animation: flk4 1.6s ease-in-out infinite alternate; }
-    @keyframes flk1 {
-      0%   { transform: scaleY(1)    scaleX(1);    opacity: 0.95; }
-      50%  { transform: scaleY(1.07) scaleX(0.98); opacity: 1;    }
-      100% { transform: scaleY(0.93) scaleX(1.02); opacity: 0.88; }
-    }
-    @keyframes flk2 {
-      0%   { transform: scaleY(0.9)  scaleX(1.02); opacity: 0.75; }
-      50%  { transform: scaleY(1.1)  scaleX(0.96); opacity: 0.9;  }
-      100% { transform: scaleY(0.95) scaleX(1.04); opacity: 0.7;  }
-    }
-    @keyframes flk3 {
-      0%   { transform: scaleY(1.06) scaleX(1);    opacity: 0.55; }
-      50%  { transform: scaleY(0.87) scaleX(1.05); opacity: 0.7;  }
-      100% { transform: scaleY(1.13) scaleX(0.95); opacity: 0.5;  }
-    }
-    @keyframes flk4 {
-      0%   { transform: scaleY(1)    scaleX(1);    opacity: 0.3;  }
-      50%  { transform: scaleY(1.15) scaleX(0.97); opacity: 0.45; }
-      100% { transform: scaleY(0.88) scaleX(1.03); opacity: 0.25; }
-    }
-
-    /* =============================================
-       COMBO BANNER
-    ============================================= */
-    .combo-banner {
-      background: var(--red);
-      padding: 16px 20px;
-    }
-    .combo-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: center;
-      gap: 20px; flex-wrap: wrap;
-    }
-    .combo-badge {
-      background: var(--gold); color: var(--black);
-      font-family: 'Anton', Impact, sans-serif; font-size: 1.5rem;
-      padding: 5px 16px; border-radius: 4px;
-      white-space: nowrap; letter-spacing: 1px;
-    }
-    .combo-text {
-      font-family: 'Oswald', sans-serif;
-      font-size: clamp(0.8rem, 2.2vw, 1.15rem);
-      font-weight: 700; letter-spacing: 2.5px;
-      text-transform: uppercase; color: var(--white); text-align: center;
-    }
-
-    /* =============================================
-       GALLERY
-    ============================================= */
-    .gallery-section {
-      background: var(--dark);
-      padding: 80px 0;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .g-span2 { grid-column: span 2; }
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 5px;
-      cursor: pointer;
-      background: var(--gray);
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-    .g-span2 img { height: 320px; }
-    .gallery-item:hover img { transform: scale(1.07); }
-    .gallery-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .gallery-item:hover .gallery-overlay { opacity: 1; }
-    .gallery-zoom-icon {
-      background: rgba(245,193,7,0.92); color: var(--black);
-      font-size: 1.6rem;
-      width: 54px; height: 54px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      transform: scale(0); transition: transform 0.3s;
-    }
-    .gallery-item:hover .gallery-zoom-icon { transform: scale(1); }
-    .gallery-caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 12px 14px;
-      font-family: 'Oswald', sans-serif; font-size: 0.8rem;
-      font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--white);
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
-      transform: translateY(4px); opacity: 0;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-    .gallery-item:hover .gallery-caption { transform: translateY(0); opacity: 1; }
-
-    /* =============================================
-       LIGHTBOX
-    ============================================= */
-    .lightbox {
-      position: fixed; inset: 0; z-index: 3000;
-      background: rgba(0,0,0,0.96);
-      display: flex; align-items: center; justify-content: center;
-      padding: 20px;
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.3s, visibility 0.3s;
-    }
-    .lightbox.open { opacity: 1; visibility: visible; }
-    .lightbox-inner {
-      position: relative;
-      max-width: 1100px; width: 100%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .lightbox-img {
-      max-width: 100%; max-height: 85vh;
-      object-fit: contain; border-radius: 4px;
-      display: block;
-      box-shadow: 0 0 60px rgba(245,193,7,0.15);
-    }
-    .lightbox-close {
-      position: absolute; top: -44px; right: 0;
-      background: none; border: none; color: var(--white);
-      font-size: 2rem; cursor: pointer; line-height: 1;
-      transition: color 0.2s;
-    }
-    .lightbox-close:hover { color: var(--gold); }
-    .lb-nav {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(245,193,7,0.85); color: var(--black);
-      border: none; font-size: 1.5rem;
-      width: 48px; height: 48px; border-radius: 50%;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s; z-index: 1;
-    }
-    .lb-nav:hover { background: var(--gold); }
-    .lb-prev { left: -64px; }
-    .lb-next { right: -64px; }
-    .lb-counter {
-      position: absolute; bottom: -36px; left: 0; right: 0;
-      text-align: center;
-      font-family: 'Oswald', sans-serif; font-size: 0.8rem;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--light-gray);
-    }
-
-    /* =============================================
-       STATS
-    ============================================= */
-    .stats-section {
-      background: var(--black);
-      padding: 70px 0;
-      border-top: 3px solid var(--gold);
-      border-bottom: 3px solid var(--gold);
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 30px;
-      max-width: 900px;
-      margin: 0 auto; padding: 0 20px;
-      text-align: center;
-    }
-    .stat-number {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: 3.8rem; color: var(--gold);
-      line-height: 1; margin-bottom: 6px;
-      text-shadow: 0 0 30px rgba(245,193,7,0.25);
-    }
-    .stat-label {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: var(--light-gray);
-    }
-
-    /* =============================================
-       MENU SECTION
-    ============================================= */
-    .menu-section {
-      background: var(--dark);
-      padding: 80px 0 90px;
-    }
-    .menu-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 6px; flex-wrap: wrap;
-      padding: 0 20px; margin-bottom: 44px;
-    }
-    .tab-btn {
-      font-family: 'Oswald', sans-serif;
-      font-size: 0.82rem; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 10px 18px;
-      background: rgba(255,255,255,0.04);
-      color: var(--light-gray);
-      border: 1px solid var(--gray);
-      border-radius: 4px; transition: all 0.2s;
-    }
-    .tab-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
-    .tab-btn.active { background: var(--gold); color: var(--black); border-color: var(--gold); }
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
-      gap: 18px;
-      max-width: 1200px; margin: 0 auto; padding: 0 20px;
-    }
-    .menu-card {
-      background: #1e1e1e;
-      border: 1px solid var(--gray);
-      border-radius: 8px;
-      padding: 22px 18px 18px;
-      display: flex; flex-direction: column; gap: 8px;
-      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-      position: relative;
-    }
-    .menu-card:hover {
-      border-color: var(--gold); transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(245,193,7,0.12);
-    }
-    .menu-icon { font-size: 2.4rem; line-height: 1; margin-bottom: 2px; }
-    .menu-name {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1.05rem; font-weight: 700;
-      letter-spacing: 0.5px; text-transform: uppercase; color: var(--white);
-    }
-    .menu-desc { font-size: 0.83rem; color: var(--light-gray); line-height: 1.55; flex: 1; }
-    .menu-footer {
-      display: flex; align-items: center;
-      justify-content: space-between; margin-top: 10px;
-    }
-    .menu-price {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: 1.45rem; color: var(--gold); letter-spacing: 0.5px;
-    }
-    .btn-add {
-      background: var(--red); color: var(--white);
-      font-family: 'Oswald', sans-serif; font-size: 0.8rem;
-      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 8px 16px; border: none; border-radius: 4px;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-add:hover { background: var(--red-dark); transform: scale(1.06); }
-
-    /* =============================================
-       BYOB SECTION
-    ============================================= */
-    .byob-section {
-      background: var(--black);
-      padding: 80px 20px;
-    }
-    .byob-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border: 2px solid var(--gold);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .byob-img-col {
-      position: relative;
-      min-height: 400px;
-    }
-    .byob-img-col img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-    }
-    .byob-img-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, transparent 60%, rgba(17,17,17,0.4) 100%);
-    }
-    .byob-content-col {
-      background: var(--dark);
-      padding: 52px 44px;
-      display: flex; flex-direction: column;
-      justify-content: center; text-align: left;
-      position: relative;
-    }
-    .byob-new {
-      display: inline-block;
-      background: var(--red); color: var(--white);
-      font-family: 'Oswald', sans-serif; font-size: 0.75rem;
-      font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-      padding: 4px 16px; border-radius: 100px;
-      margin-bottom: 18px;
-    }
-    .byob-title {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
-      text-transform: uppercase; letter-spacing: 2px;
-      color: var(--gold); margin-bottom: 16px; line-height: 1.1;
-    }
-    .byob-desc {
-      color: var(--light-gray); font-size: 0.97rem;
-      line-height: 1.72; margin-bottom: 28px;
-    }
-    .byob-proteins {
-      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px;
-    }
-    .byob-pill {
-      background: rgba(245,193,7,0.1);
-      border: 1px solid var(--gold); color: var(--gold);
-      font-family: 'Oswald', sans-serif; font-size: 0.8rem;
-      font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 7px 14px; border-radius: 100px;
-    }
-    .byob-brands { color: var(--light-gray); font-size: 0.88rem; font-style: italic; }
-    .byob-brands strong { color: var(--white); font-style: normal; }
-    .btn-byob {
-      display: inline-block; margin-top: 26px;
-      background: var(--gold); color: var(--black);
-      font-family: 'Oswald', sans-serif; font-size: 0.95rem;
-      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 14px 28px; border: none; border-radius: 4px;
-      cursor: pointer; transition: background 0.2s, transform 0.15s;
-      align-self: flex-start;
-    }
-    .btn-byob:hover { background: var(--gold-dark); transform: translateY(-1px); }
-
-    /* =============================================
-       ORDER SECTION
-    ============================================= */
-    .order-section {
-      background: var(--dark);
-      padding: 80px 20px;
-    }
-    .order-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 22px; max-width: 760px; margin: 0 auto;
-    }
-    .order-card {
-      background: var(--black);
-      border: 2px solid var(--gray);
-      border-radius: 8px; padding: 38px 28px;
-      text-align: center;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .order-card:hover { transform: translateY(-5px); }
-    .order-card.featured {
-      border-color: var(--gold);
-      box-shadow: 0 0 40px rgba(245,193,7,0.1);
-    }
-    .order-card-icon { font-size: 3rem; margin-bottom: 14px; }
-    .order-card-title {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: 1.55rem; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--white); margin-bottom: 12px;
-    }
-    .order-card-text { color: var(--light-gray); font-size: 0.92rem; margin-bottom: 26px; line-height: 1.65; }
-    .btn-primary-full {
-      display: block; width: 100%;
-      background: var(--gold); color: var(--black);
-      font-family: 'Oswald', sans-serif; font-size: 0.95rem;
-      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 14px; border: none; border-radius: 4px;
-      cursor: pointer; transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary-full:hover { background: var(--gold-dark); transform: translateY(-1px); }
-    .btn-outline-full {
-      display: block; width: 100%;
-      background: transparent; color: var(--gold);
-      font-family: 'Oswald', sans-serif; font-size: 0.95rem;
-      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 12px; border: 2px solid var(--gold); border-radius: 4px;
-      cursor: pointer; transition: all 0.2s;
-    }
-    .btn-outline-full:hover { background: var(--gold); color: var(--black); }
-
-    /* =============================================
-       MODALS (Order + Call)
-    ============================================= */
-    .modal-overlay {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.88);
-      z-index: 2000;
-      display: flex; align-items: center; justify-content: center;
-      padding: 20px;
-      opacity: 0; visibility: hidden;
-      transition: opacity 0.3s, visibility 0.3s;
-    }
-    .modal-overlay.open { opacity: 1; visibility: visible; }
-    .modal-box {
-      background: var(--dark);
-      border: 1px solid var(--gray); border-radius: 8px;
-      width: 100%; max-width: 540px; max-height: 90vh;
-      overflow-y: auto; padding: 32px; position: relative;
-      transform: translateY(24px) scale(0.97);
-      transition: transform 0.3s;
-    }
-    .modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
-    .modal-close {
-      position: absolute; top: 14px; right: 16px;
-      background: none; border: none; color: var(--mid-gray);
-      font-size: 1.4rem; line-height: 1; cursor: pointer;
-      transition: color 0.2s;
-    }
-    .modal-close:hover { color: var(--white); }
-    .modal-title {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: 1.55rem; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 22px; padding-right: 24px;
-    }
-    .cart-list { max-height: 240px; overflow-y: auto; margin-bottom: 18px; }
-    .cart-empty {
-      text-align: center; color: var(--mid-gray);
-      padding: 22px 0; font-style: italic; font-size: 0.9rem;
-    }
-    .cart-item {
-      display: flex; justify-content: space-between;
-      align-items: center; padding: 9px 0;
-      border-bottom: 1px solid var(--gray); gap: 10px;
-    }
-    .cart-item-name { color: var(--white); font-size: 0.88rem; flex: 1; }
-    .cart-item-right { display: flex; align-items: center; gap: 6px; }
-    .cart-item-price {
-      color: var(--gold); font-family: 'Anton', sans-serif;
-      font-size: 1rem; white-space: nowrap;
-    }
-    .btn-item-remove {
-      background: none; border: none; color: var(--red);
-      font-size: 0.9rem; cursor: pointer; padding: 2px 6px;
-      transition: color 0.2s; line-height: 1;
-    }
-    .btn-item-remove:hover { color: #e74c3c; }
-    .cart-total-row {
-      display: flex; justify-content: space-between;
-      align-items: center; padding: 12px 0;
-      border-top: 2px solid var(--gold); margin-bottom: 22px;
-    }
-    .cart-total-label {
-      font-family: 'Oswald', sans-serif; font-size: 0.95rem;
-      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-    }
-    .cart-total-val {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: 1.5rem; color: var(--gold);
-    }
-    .order-form { display: flex; flex-direction: column; gap: 14px; margin-bottom: 22px; }
-    .form-group { display: flex; flex-direction: column; gap: 5px; }
-    .form-group label {
-      font-family: 'Oswald', sans-serif; font-size: 0.8rem;
-      font-weight: 600; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--light-gray);
-    }
-    .form-group input, .form-group select {
-      background: #272727; border: 1px solid var(--gray);
-      border-radius: 4px; color: var(--white); font-size: 0.95rem;
-      font-family: 'Inter', sans-serif; padding: 11px 14px;
-      outline: none; transition: border-color 0.2s;
-    }
-    .form-group input:focus, .form-group select:focus { border-color: var(--gold); }
-    .form-group input::placeholder { color: var(--mid-gray); }
-    .form-group select option { background: var(--dark); }
-    .modal-actions { display: flex; gap: 10px; }
-    .btn-modal-cancel {
-      flex: 1; background: transparent; color: var(--light-gray);
-      font-family: 'Oswald', sans-serif; font-size: 0.9rem;
-      font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-      padding: 13px; border: 1px solid var(--gray); border-radius: 4px;
-      cursor: pointer; transition: all 0.2s;
-    }
-    .btn-modal-cancel:hover { border-color: var(--white); color: var(--white); }
-    .btn-place-order {
-      flex: 2; background: var(--red); color: var(--white);
-      font-family: 'Oswald', sans-serif; font-size: 0.95rem;
-      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 13px; border: none; border-radius: 4px;
-      cursor: pointer; transition: background 0.2s;
-    }
-    .btn-place-order:hover { background: var(--red-dark); }
-    .order-confirm { text-align: center; padding: 12px 0; }
-    .confirm-icon  { font-size: 4rem; margin-bottom: 14px; }
-    .confirm-title {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: 1.7rem; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
-    }
-    .confirm-text  { color: var(--light-gray); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
-    .confirm-fire  {
-      color: var(--red); font-family: 'Oswald', sans-serif;
-      font-size: 1.05rem; font-weight: 700; margin-bottom: 24px;
-    }
-    .call-body { text-align: center; padding: 16px 0; }
-    .call-number {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: 2.3rem; color: var(--gold);
-      letter-spacing: 2px; margin-bottom: 8px;
-    }
-    .call-avail { color: var(--mid-gray); font-size: 0.82rem; margin-bottom: 28px; }
-    .btn-call-now {
-      display: block; width: 100%;
-      background: var(--gold); color: var(--black);
-      font-family: 'Oswald', sans-serif; font-size: 1.05rem;
-      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 15px; border: none; border-radius: 4px;
-      cursor: pointer; transition: background 0.2s; text-align: center;
-    }
-    .btn-call-now:hover { background: var(--gold-dark); }
-
-    /* =============================================
-       FIND US
-    ============================================= */
-    .findus-section { background: var(--dark); padding: 80px 0; }
-    .findus-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 18px; max-width: 1000px;
-      margin: 0 auto; padding: 0 20px;
-    }
-    .findus-card {
-      background: var(--card-bg); border: 1px solid var(--gray);
-      border-radius: 8px; padding: 28px 22px; text-align: center;
-      transition: border-color 0.25s, transform 0.25s;
-    }
-    .findus-card:hover { border-color: var(--gold); transform: translateY(-3px); }
-    .findus-icon { font-size: 2.2rem; margin-bottom: 12px; }
-    .findus-label {
-      font-family: 'Oswald', sans-serif;
-      font-size: 1rem; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
-    }
-    .findus-info { color: var(--light-gray); font-size: 0.88rem; line-height: 1.65; }
-    .findus-info a { color: var(--gold); }
-    .findus-info a:hover { text-decoration: underline; }
-    .social-row { display: flex; flex-direction: column; gap: 5px; margin-top: 8px; }
-    .social-link { color: var(--gold) !important; font-size: 0.82rem; }
-
-    /* =============================================
-       PAYMENT BAR
-    ============================================= */
-    .payment-bar {
-      background: var(--black);
-      border-top: 1px solid var(--gray); border-bottom: 1px solid var(--gray);
-      padding: 18px 20px;
-    }
-    .payment-inner {
-      max-width: 900px; margin: 0 auto;
-      display: flex; align-items: center;
-      justify-content: center; gap: 18px; flex-wrap: wrap;
-    }
-    .payment-label {
-      font-family: 'Oswald', sans-serif; font-size: 0.82rem;
-      font-weight: 600; letter-spacing: 2.5px;
-      text-transform: uppercase; color: var(--light-gray);
-    }
-    .payment-pills { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-    .pay-pill {
-      background: var(--dark); border: 1px solid var(--gray);
-      color: var(--white); font-family: 'Oswald', sans-serif;
-      font-size: 0.78rem; font-weight: 700; letter-spacing: 1px;
-      padding: 6px 14px; border-radius: 4px;
-    }
-
-    /* =============================================
-       FOOTER
-    ============================================= */
-    footer {
-      background: var(--black); padding: 56px 20px;
-      text-align: center; border-top: 1px solid var(--gray);
-    }
-    .footer-logo-img {
-      width: 90px; height: 90px;
-      object-fit: contain; margin: 0 auto 18px;
-      border-radius: 8px;
-    }
-    .footer-tagline {
-      font-family: 'Anton', Impact, sans-serif;
-      font-size: clamp(1.4rem, 4vw, 2.4rem);
-      letter-spacing: 7px; color: var(--gold);
-      text-transform: uppercase; margin-bottom: 14px;
-    }
-    .footer-copy { color: var(--mid-gray); font-size: 0.82rem; line-height: 1.7; }
-
-    /* =============================================
-       FLOATING CART
-    ============================================= */
-    .cart-fab {
-      position: fixed; bottom: 26px; right: 26px; z-index: 999;
-      background: var(--gold); color: var(--black);
-      width: 60px; height: 60px; border-radius: 50%; border: none;
-      font-size: 1.55rem;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 22px rgba(245,193,7,0.45);
-      cursor: pointer; transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .cart-fab:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(245,193,7,0.55); }
-    .cart-fab.bounce { animation: cartPop 0.42s ease; }
-    @keyframes cartPop {
-      0%   { transform: scale(1); }
-      30%  { transform: scale(1.32); }
-      60%  { transform: scale(0.88); }
-      80%  { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    .cart-badge {
-      position: absolute; top: -3px; right: -3px;
-      background: var(--red); color: var(--white);
-      font-family: 'Oswald', sans-serif; font-size: 0.72rem; font-weight: 700;
-      min-width: 20px; height: 20px; border-radius: 10px;
-      display: none; align-items: center; justify-content: center;
-      padding: 0 4px; border: 2px solid var(--black);
-    }
-    .cart-badge.show { display: flex; }
-
-    /* =============================================
-       TOAST
-    ============================================= */
-    .toast {
-      position: fixed; bottom: 100px; right: 26px; z-index: 9999;
-      font-family: 'Oswald', sans-serif; font-size: 0.88rem;
-      font-weight: 700; letter-spacing: 0.5px;
-      padding: 10px 18px; border-radius: 4px;
-      animation: toastIn 0.3s ease; max-width: 240px; pointer-events: none;
-    }
-    @keyframes toastIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* =============================================
-       RESPONSIVE
-    ============================================= */
-    @media (max-width: 900px) {
-      .byob-inner { grid-template-columns: 1fr; }
-      .byob-img-col { min-height: 260px; }
-      .byob-content-col { padding: 36px 28px; }
-      .lb-prev { left: -46px; }
-      .lb-next { right: -46px; }
-    }
-    @media (max-width: 768px) {
-      .nav-links, .btn-nav-order { display: none; }
-      .hamburger { display: flex; }
-      .hero { padding-bottom: 170px; }
-      .hero-on-wheels { letter-spacing: 5px; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; }
-      .g-span2 { grid-column: span 2; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 540px) {
-      .hero-btns { flex-direction: column; align-items: center; }
-      .btn-hero-fill, .btn-hero-outline { width: 100%; max-width: 290px; }
-      .modal-box { padding: 24px 18px; }
-      .order-cards { grid-template-columns: 1fr; }
-      .combo-inner { gap: 12px; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .g-span2 { grid-column: span 1; }
-      .lb-prev { left: -36px; }
-      .lb-next { right: -36px; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
 
-<!-- ======================================================
-     NAVBAR
-====================================================== -->
-<nav class="navbar" id="navbar">
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
   <div class="nav-inner">
-    <a href="#home" class="logo" aria-label="Taste on Wheels — Home">
-      <img
-        src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg"
-        alt="Taste on Wheels Logo"
-        class="logo-img"
-        onerror="this.style.display='none'"
-      />
+    <a href="index.html" class="logo" aria-label="Taste on Wheels — Home">
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="logo-img" onerror="this.style.display='none'" />
       <div class="logo-text">
         <span class="logo-taste">TASTE</span>
         <span class="logo-on-wheels">ON WHEELS</span>
       </div>
     </a>
-
     <ul class="nav-links">
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#byob">BYOB</a></li>
-      <li><a href="#order">Order</a></li>
-      <li><a href="#findus">Find Us</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="order.html">Order</a></li>
+      <li><a href="contact.html">Find Us</a></li>
     </ul>
-
     <button class="btn-nav-order" onclick="openOrderModal()">ORDER NOW</button>
-
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
     </button>
   </div>
-
   <div class="mobile-nav" id="mobileNav">
-    <a href="#gallery" onclick="closeMobileNav()">Gallery</a>
-    <a href="#menu"    onclick="closeMobileNav()">Menu</a>
-    <a href="#byob"    onclick="closeMobileNav()">BYOB</a>
-    <a href="#order"   onclick="closeMobileNav()">Order</a>
-    <a href="#findus"  onclick="closeMobileNav()">Find Us</a>
+    <a href="gallery.html" onclick="closeMobileNav()">Gallery</a>
+    <a href="menu.html"    onclick="closeMobileNav()">Menu</a>
+    <a href="order.html"   onclick="closeMobileNav()">Order</a>
+    <a href="contact.html" onclick="closeMobileNav()">Find Us</a>
     <button class="btn-nav-order" onclick="openOrderModal(); closeMobileNav()">ORDER NOW</button>
   </div>
 </nav>
 
-
-<!-- ======================================================
-     MARQUEE
-====================================================== -->
+<!-- ===== MARQUEE ===== -->
 <div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
-    <!-- duplicated for seamless loop -->
     <span class="marquee-item"><span class="marquee-star">&#9733;</span> STEAK &amp; CHEESE <span class="marquee-star">&#9733;</span></span>
     <span class="marquee-item">BURGERS <span class="marquee-star">&#9733;</span></span>
     <span class="marquee-item">WRAPS <span class="marquee-star">&#9733;</span></span>
@@ -1116,10 +64,7 @@
   </div>
 </div>
 
-
-<!-- ======================================================
-     HERO
-====================================================== -->
+<!-- ===== HERO ===== -->
 <section class="hero" id="home">
   <div class="hero-glow"></div>
   <div class="hero-glow-gold"></div>
@@ -1128,9 +73,7 @@
     <p class="hero-kicker">&#9733; Fast Food Done Right &#9733;</p>
     <h1 class="hero-taste">TASTE</h1>
     <h2 class="hero-on-wheels">ON WHEELS</h2>
-    <p class="hero-tagline">
-      Fast<span class="dot">&middot;</span>Fresh<span class="dot">&middot;</span>Flavorful
-    </p>
+    <p class="hero-tagline">Fast<span class="dot">&middot;</span>Fresh<span class="dot">&middot;</span>Flavorful</p>
 
     <div class="hero-btns">
       <button class="btn-hero-fill"    onclick="openOrderModal()">&#x1F6D2; ORDER ONLINE</button>
@@ -1138,62 +81,37 @@
     </div>
 
     <div class="hero-pills">
-      <span class="cat-pill" onclick="goMenu('steak')">STEAK &amp; CHEESE</span>
-      <span class="cat-pill" onclick="goMenu('burgers')">BURGERS</span>
-      <span class="cat-pill" onclick="goMenu('wraps')">WRAPS</span>
-      <span class="cat-pill" onclick="goMenu('bowls')">BOWLS</span>
-      <span class="cat-pill" onclick="goMenu('sides')">FRIES</span>
-      <span class="cat-pill" onclick="scrollToEl('byob')">BYOB</span>
+      <a href="menu.html#steak"   class="cat-pill">STEAK &amp; CHEESE</a>
+      <a href="menu.html#burgers" class="cat-pill">BURGERS</a>
+      <a href="menu.html#wraps"   class="cat-pill">WRAPS</a>
+      <a href="menu.html#bowls"   class="cat-pill">BOWLS</a>
+      <a href="menu.html#sides"   class="cat-pill">FRIES</a>
+      <button class="cat-pill" onclick="scrollToEl('byob')">BYOB</button>
     </div>
   </div>
 
+  <!-- Animated flames -->
   <div class="flames-wrap" aria-hidden="true">
     <svg class="flame-svg flame-l4" viewBox="0 0 1440 60" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="flg4" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%" stop-color="#5D0C0C" stop-opacity="1"/>
-          <stop offset="100%" stop-color="#C0392B" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
+      <defs><linearGradient id="flg4" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#5D0C0C" stop-opacity="1"/><stop offset="100%" stop-color="#C0392B" stop-opacity="0"/></linearGradient></defs>
       <rect x="0" y="0" width="1440" height="60" fill="url(#flg4)"/>
     </svg>
     <svg class="flame-svg flame-l1" viewBox="0 0 1440 200" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="flg1" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%"   stop-color="#C0392B" stop-opacity="1"/>
-          <stop offset="55%"  stop-color="#e67e22" stop-opacity="0.75"/>
-          <stop offset="100%" stop-color="#f39c12" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
+      <defs><linearGradient id="flg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#C0392B" stop-opacity="1"/><stop offset="55%" stop-color="#e67e22" stop-opacity="0.75"/><stop offset="100%" stop-color="#f39c12" stop-opacity="0"/></linearGradient></defs>
       <path d="M0,200 L0,130 Q50,65 100,110 Q150,150 200,90 Q250,30 310,80 Q370,130 430,65 Q490,10 550,60 Q610,110 670,50 Q730,0 790,55 Q850,110 910,55 Q970,10 1030,70 Q1090,130 1150,75 Q1210,25 1270,90 Q1330,155 1380,115 Q1410,95 1440,120 L1440,200 Z" fill="url(#flg1)"/>
     </svg>
     <svg class="flame-svg flame-l2" viewBox="0 0 1440 160" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="flg2" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%"   stop-color="#922B21" stop-opacity="1"/>
-          <stop offset="65%"  stop-color="#C0392B" stop-opacity="0.6"/>
-          <stop offset="100%" stop-color="#e67e22" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
+      <defs><linearGradient id="flg2" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#922B21" stop-opacity="1"/><stop offset="65%" stop-color="#C0392B" stop-opacity="0.6"/><stop offset="100%" stop-color="#e67e22" stop-opacity="0"/></linearGradient></defs>
       <path d="M0,160 L0,100 Q90,35 180,80 Q270,120 360,55 Q450,0 540,60 Q630,120 720,50 Q810,0 900,65 Q990,130 1080,60 Q1170,0 1260,70 Q1350,130 1440,85 L1440,160 Z" fill="url(#flg2)"/>
     </svg>
     <svg class="flame-svg flame-l3" viewBox="0 0 1440 110" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="flg3" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%"   stop-color="#641E16" stop-opacity="1"/>
-          <stop offset="60%"  stop-color="#C0392B" stop-opacity="0.4"/>
-          <stop offset="100%" stop-color="#f39c12" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
+      <defs><linearGradient id="flg3" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#641E16" stop-opacity="1"/><stop offset="60%" stop-color="#C0392B" stop-opacity="0.4"/><stop offset="100%" stop-color="#f39c12" stop-opacity="0"/></linearGradient></defs>
       <path d="M0,110 L0,65 Q120,10 240,55 Q360,100 480,40 Q600,0 720,50 Q840,100 960,42 Q1080,0 1200,55 Q1320,105 1440,60 L1440,110 Z" fill="url(#flg3)"/>
     </svg>
   </div>
 </section>
 
-
-<!-- ======================================================
-     COMBO BANNER
-====================================================== -->
+<!-- ===== COMBO BANNER ===== -->
 <div class="combo-banner">
   <div class="combo-inner">
     <div class="combo-badge">$4.99</div>
@@ -1202,10 +120,7 @@
   </div>
 </div>
 
-
-<!-- ======================================================
-     STATS
-====================================================== -->
+<!-- ===== STATS ===== -->
 <section class="stats-section">
   <div class="stats-grid">
     <div class="reveal reveal-d1">
@@ -1218,7 +133,7 @@
     </div>
     <div class="reveal reveal-d3">
       <div class="stat-number">4</div>
-      <div class="stat-label">Card Types Accepted</div>
+      <div class="stat-label">Cards Accepted</div>
     </div>
     <div class="reveal reveal-d4">
       <div class="stat-number">100%</div>
@@ -1227,446 +142,73 @@
   </div>
 </section>
 
-
-<!-- ======================================================
-     PHOTO GALLERY
-====================================================== -->
-<section class="gallery-section" id="gallery">
+<!-- ===== FEATURED MENU ===== -->
+<section class="featured-section">
   <div class="container">
-    <h2 class="section-title reveal">OUR TRUCK</h2>
-    <p class="section-subtitle reveal reveal-d1">Bold. Bold. Unmissable on the street.</p>
+    <h2 class="section-title reveal">POPULAR PICKS</h2>
+    <p class="section-subtitle reveal reveal-d1">Fan favourites — add to cart from any page</p>
   </div>
-
-  <div class="gallery-grid">
-
-    <!-- Row 1: truck + banner scene (wide) + right-side truck -->
-    <div class="gallery-item g-span2 reveal"
-         onclick="openLightbox(0)"
-         data-caption="Taste on Wheels — Out on the Street">
-      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%287%29.jpeg"
-           alt="Taste on Wheels truck with banner"
-           loading="lazy"
-           onerror="this.parentElement.style.display='none'">
-      <div class="gallery-overlay">
-        <div class="gallery-zoom-icon">&#x1F50D;</div>
+  <div class="featured-grid">
+    <div class="featured-card reveal">
+      <div class="fc-icon">&#x1F356;</div>
+      <div class="fc-cat">Bowls</div>
+      <div class="fc-name">Lamb Over Rice</div>
+      <div class="fc-desc">Savory seasoned lamb over fluffy rice with fresh veggies and signature sauces</div>
+      <div class="fc-footer">
+        <span class="fc-price">$10.99</span>
+        <button class="btn-add-fc" onclick="addToCart('Lamb Over Rice', 10.99)">+ ADD</button>
       </div>
-      <div class="gallery-caption">Taste on Wheels — Out on the Street</div>
     </div>
-
-    <div class="gallery-item reveal reveal-d1"
-         onclick="openLightbox(1)"
-         data-caption="Serving Fresh — Action Shot">
-      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.55.42%20PM.jpeg"
-           alt="Food truck serving customers"
-           loading="lazy"
-           onerror="this.parentElement.style.display='none'">
-      <div class="gallery-overlay">
-        <div class="gallery-zoom-icon">&#x1F50D;</div>
+    <div class="featured-card reveal reveal-d1">
+      <div class="fc-icon">&#x1F32F;</div>
+      <div class="fc-cat">Wraps</div>
+      <div class="fc-name">Chicken Gyro Wrap</div>
+      <div class="fc-desc">Marinated chicken, crisp lettuce, tomatoes, onions and signature sauce</div>
+      <div class="fc-footer">
+        <span class="fc-price">$9.99</span>
+        <button class="btn-add-fc" onclick="addToCart('Chicken Gyro Wrap', 9.99)">+ ADD</button>
       </div>
-      <div class="gallery-caption">Serving Fresh Daily</div>
     </div>
-
-    <!-- Row 2 -->
-    <div class="gallery-item reveal"
-         onclick="openLightbox(2)"
-         data-caption="Right Side — Full Menu Wrap">
-      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM.jpeg"
-           alt="Truck right side wrap"
-           loading="lazy"
-           onerror="this.parentElement.style.display='none'">
-      <div class="gallery-overlay">
-        <div class="gallery-zoom-icon">&#x1F50D;</div>
+    <div class="featured-card reveal reveal-d2">
+      <div class="fc-icon">&#x1F354;</div>
+      <div class="fc-cat">Burgers</div>
+      <div class="fc-name">Cheeseburger</div>
+      <div class="fc-desc">Melted cheese, fresh veggies, pickles and our signature sauce</div>
+      <div class="fc-footer">
+        <span class="fc-price">$8.99</span>
+        <button class="btn-add-fc" onclick="addToCart('Cheeseburger', 8.99)">+ ADD</button>
       </div>
-      <div class="gallery-caption">Right Side — Full Menu Wrap</div>
     </div>
-
-    <div class="gallery-item reveal reveal-d1"
-         onclick="openLightbox(3)"
-         data-caption="Left Side — Full Menu Wrap">
-      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%281%29.jpeg"
-           alt="Truck left side wrap"
-           loading="lazy"
-           onerror="this.parentElement.style.display='none'">
-      <div class="gallery-overlay">
-        <div class="gallery-zoom-icon">&#x1F50D;</div>
+    <div class="featured-card reveal reveal-d3">
+      <div class="fc-icon">&#x1F336;&#xFE0F;</div>
+      <div class="fc-cat">Sides</div>
+      <div class="fc-name">Chilli Cheese Fries</div>
+      <div class="fc-desc">Crispy fries topped with chilli and melted cheese</div>
+      <div class="fc-footer">
+        <span class="fc-price">$5.99</span>
+        <button class="btn-add-fc" onclick="addToCart('Chilli Cheese Fries', 5.99)">+ ADD</button>
       </div>
-      <div class="gallery-caption">Left Side — Full Menu Wrap</div>
     </div>
-
-    <div class="gallery-item reveal reveal-d2"
-         onclick="openLightbox(4)"
-         data-caption="Front of the Truck">
-      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%282%29.jpeg"
-           alt="Front of truck"
-           loading="lazy"
-           onerror="this.parentElement.style.display='none'">
-      <div class="gallery-overlay">
-        <div class="gallery-zoom-icon">&#x1F50D;</div>
-      </div>
-      <div class="gallery-caption">Front of the Truck</div>
-    </div>
-
-    <!-- Row 3 -->
-    <div class="gallery-item reveal"
-         onclick="openLightbox(5)"
-         data-caption="Back of the Truck">
-      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%283%29.jpeg"
-           alt="Back of truck"
-           loading="lazy"
-           onerror="this.parentElement.style.display='none'">
-      <div class="gallery-overlay">
-        <div class="gallery-zoom-icon">&#x1F50D;</div>
-      </div>
-      <div class="gallery-caption">Back of the Truck</div>
-    </div>
-
-    <div class="gallery-item reveal reveal-d1"
-         onclick="openLightbox(6)"
-         data-caption="Roll-Up Banner">
-      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%284%29.jpeg"
-           alt="Roll-up banner"
-           loading="lazy"
-           onerror="this.parentElement.style.display='none'">
-      <div class="gallery-overlay">
-        <div class="gallery-zoom-icon">&#x1F50D;</div>
-      </div>
-      <div class="gallery-caption">Roll-Up Banner</div>
-    </div>
-
-    <div class="gallery-item reveal reveal-d2"
-         onclick="openLightbox(7)"
-         data-caption="Our Menu Brochure">
-      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%286%29.jpeg"
-           alt="Menu brochure held open"
-           loading="lazy"
-           onerror="this.parentElement.style.display='none'">
-      <div class="gallery-overlay">
-        <div class="gallery-zoom-icon">&#x1F50D;</div>
-      </div>
-      <div class="gallery-caption">Our Full Menu Brochure</div>
-    </div>
-
+  </div>
+  <div class="featured-cta reveal">
+    <a href="menu.html" class="btn-primary">VIEW FULL MENU &rarr;</a>
   </div>
 </section>
 
-
-<!-- ======================================================
-     MENU SECTION
-====================================================== -->
-<section class="menu-section" id="menu">
-  <div class="container">
-    <h2 class="section-title reveal">OUR MENU</h2>
-    <p class="section-subtitle reveal reveal-d1">Made Fresh. Made to Satisfy.</p>
-  </div>
-
-  <div class="menu-tabs" role="tablist">
-    <button class="tab-btn active" role="tab" data-tab="bowls"   onclick="switchTab('bowls')">&#x1F35A; BOWLS</button>
-    <button class="tab-btn"        role="tab" data-tab="wraps"   onclick="switchTab('wraps')">&#x1F32F; WRAPS</button>
-    <button class="tab-btn"        role="tab" data-tab="burgers" onclick="switchTab('burgers')">&#x1F354; BURGERS</button>
-    <button class="tab-btn"        role="tab" data-tab="steak"   onclick="switchTab('steak')">&#x1F969; STEAK &amp; CHEESE</button>
-    <button class="tab-btn"        role="tab" data-tab="sides"   onclick="switchTab('sides')">&#x1F35F; SIDES</button>
-    <button class="tab-btn"        role="tab" data-tab="snacks"  onclick="switchTab('snacks')">&#x1F357; SNACKS</button>
-  </div>
-
-  <!-- BOWLS -->
-  <div class="tab-panel active" id="tab-bowls">
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F356;</div>
-        <div class="menu-name">Lamb Over Rice</div>
-        <div class="menu-desc">Savory seasoned lamb over fluffy rice with fresh veggies and signature sauces</div>
-        <div class="menu-footer">
-          <span class="menu-price">$10.99</span>
-          <button class="btn-add" onclick="addToCart('Lamb Over Rice', 10.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F357;</div>
-        <div class="menu-name">Chicken Over Rice</div>
-        <div class="menu-desc">Juicy marinated chicken over fluffy rice with fresh veggies and signature sauces</div>
-        <div class="menu-footer">
-          <span class="menu-price">$10.99</span>
-          <button class="btn-add" onclick="addToCart('Chicken Over Rice', 10.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F37D;&#xFE0F;</div>
-        <div class="menu-name">Lamb &amp; Chicken Over Rice</div>
-        <div class="menu-desc">Best of both worlds — seasoned lamb &amp; chicken over rice with fresh veggies</div>
-        <div class="menu-footer">
-          <span class="menu-price">$12.99</span>
-          <button class="btn-add" onclick="addToCart('Lamb & Chicken Over Rice', 12.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F9C6;</div>
-        <div class="menu-name">Falafel Over Rice</div>
-        <div class="menu-desc">Crispy falafel over fluffy rice with fresh veggies and signature sauces</div>
-        <div class="menu-footer">
-          <span class="menu-price">$9.99</span>
-          <button class="btn-add" onclick="addToCart('Falafel Over Rice', 9.99)">+ ADD</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WRAPS -->
-  <div class="tab-panel" id="tab-wraps">
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F32F;</div>
-        <div class="menu-name">Chicken Gyro Wrap</div>
-        <div class="menu-desc">Marinated chicken, crisp lettuce, tomatoes, onions, signature sauce</div>
-        <div class="menu-footer">
-          <span class="menu-price">$9.99</span>
-          <button class="btn-add" onclick="addToCart('Chicken Gyro Wrap', 9.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F32F;</div>
-        <div class="menu-name">Lamb Gyro Wrap</div>
-        <div class="menu-desc">Savory lamb, lettuce, tomatoes, onions, signature sauce</div>
-        <div class="menu-footer">
-          <span class="menu-price">$9.99</span>
-          <button class="btn-add" onclick="addToCart('Lamb Gyro Wrap', 9.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F9C6;</div>
-        <div class="menu-name">Falafel Wrap</div>
-        <div class="menu-desc">Crispy falafel, fresh lettuce, tomatoes, onions, tahini sauce</div>
-        <div class="menu-footer">
-          <span class="menu-price">$8.99</span>
-          <button class="btn-add" onclick="addToCart('Falafel Wrap', 8.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F357;</div>
-        <div class="menu-name">Fried Chicken Wrap</div>
-        <div class="menu-desc">Crispy fried chicken, lettuce, tomatoes, pickles, signature sauce</div>
-        <div class="menu-footer">
-          <span class="menu-price">$9.99</span>
-          <button class="btn-add" onclick="addToCart('Fried Chicken Wrap', 9.99)">+ ADD</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BURGERS -->
-  <div class="tab-panel" id="tab-burgers">
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F354;</div>
-        <div class="menu-name">Hamburger</div>
-        <div class="menu-desc">Classic &amp; juicy with lettuce, tomato, onion, pickles, signature sauce</div>
-        <div class="menu-footer">
-          <span class="menu-price">$7.99</span>
-          <button class="btn-add" onclick="addToCart('Hamburger', 7.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F354;</div>
-        <div class="menu-name">Cheeseburger</div>
-        <div class="menu-desc">Melted cheese, fresh veggies, pickles, signature sauce</div>
-        <div class="menu-footer">
-          <span class="menu-price">$8.99</span>
-          <button class="btn-add" onclick="addToCart('Cheeseburger', 8.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F357;</div>
-        <div class="menu-name">Chicken Sandwich</div>
-        <div class="menu-desc">Grilled or crispy chicken with lettuce, tomato, signature sauce</div>
-        <div class="menu-footer">
-          <span class="menu-price">$9.99</span>
-          <button class="btn-add" onclick="addToCart('Chicken Sandwich', 9.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F96C;</div>
-        <div class="menu-name">Veggie Burger</div>
-        <div class="menu-desc">Flavorful veggie patty with lettuce, tomato, onion, signature sauce</div>
-        <div class="menu-footer">
-          <span class="menu-price">$8.99</span>
-          <button class="btn-add" onclick="addToCart('Veggie Burger', 8.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F354;</div>
-        <div class="menu-name">Double Cheeseburger</div>
-        <div class="menu-desc">Double the beef, double the cheese, double the satisfaction</div>
-        <div class="menu-footer">
-          <span class="menu-price">$11.99</span>
-          <button class="btn-add" onclick="addToCart('Double Cheeseburger', 11.99)">+ ADD</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- STEAK & CHEESE -->
-  <div class="tab-panel" id="tab-steak">
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F969;</div>
-        <div class="menu-name">Original Steak or Chicken</div>
-        <div class="menu-desc">Classic steak or chicken on a hoagie with melted cheese and special sauce</div>
-        <div class="menu-footer">
-          <span class="menu-price">$11.99</span>
-          <button class="btn-add" onclick="addToCart('Original Steak or Chicken', 11.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F525;</div>
-        <div class="menu-name">Supreme Steak or Chicken</div>
-        <div class="menu-desc">Loaded with extra toppings, melted cheese and premium sauce</div>
-        <div class="menu-footer">
-          <span class="menu-price">$13.99</span>
-          <button class="btn-add" onclick="addToCart('Supreme Steak or Chicken', 13.99)">+ ADD</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SIDES -->
-  <div class="tab-panel" id="tab-sides">
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F35F;</div>
-        <div class="menu-name">French Fries</div>
-        <div class="menu-desc">Crispy golden fries, perfectly seasoned</div>
-        <div class="menu-footer">
-          <span class="menu-price">$3.99</span>
-          <button class="btn-add" onclick="addToCart('French Fries', 3.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F9C0;</div>
-        <div class="menu-name">Cheese Fries</div>
-        <div class="menu-desc">Crispy fries topped with melted cheese</div>
-        <div class="menu-footer">
-          <span class="menu-price">$4.99</span>
-          <button class="btn-add" onclick="addToCart('Cheese Fries', 4.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F336;&#xFE0F;</div>
-        <div class="menu-name">Chilli Cheese Fries</div>
-        <div class="menu-desc">Crispy fries topped with chilli and melted cheese</div>
-        <div class="menu-footer">
-          <span class="menu-price">$5.99</span>
-          <button class="btn-add" onclick="addToCart('Chilli Cheese Fries', 5.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F33D;</div>
-        <div class="menu-name">Corn on the Cob</div>
-        <div class="menu-desc">Sweet, buttery corn on the cob</div>
-        <div class="menu-footer">
-          <span class="menu-price">$2.99</span>
-          <button class="btn-add" onclick="addToCart('Corn on the Cob', 2.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F952;</div>
-        <div class="menu-name">Fried Pickles</div>
-        <div class="menu-desc">Golden crispy fried pickles</div>
-        <div class="menu-footer">
-          <span class="menu-price">$3.99</span>
-          <button class="btn-add" onclick="addToCart('Fried Pickles', 3.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F9C7;</div>
-        <div class="menu-name">Mozzarella Sticks</div>
-        <div class="menu-desc">Crispy mozzarella sticks with marinara dipping sauce</div>
-        <div class="menu-footer">
-          <span class="menu-price">$4.99</span>
-          <button class="btn-add" onclick="addToCart('Mozzarella Sticks', 4.99)">+ ADD</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SNACKS -->
-  <div class="tab-panel" id="tab-snacks">
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F357;</div>
-        <div class="menu-name">Chicken Tenders</div>
-        <div class="menu-desc">Crispy, juicy chicken tenders — perfect for dipping</div>
-        <div class="menu-footer">
-          <span class="menu-price">$7.99</span>
-          <button class="btn-add" onclick="addToCart('Chicken Tenders', 7.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F357;</div>
-        <div class="menu-name">Chicken Wings</div>
-        <div class="menu-desc">Crispy seasoned chicken wings, your way</div>
-        <div class="menu-footer">
-          <span class="menu-price">$8.99</span>
-          <button class="btn-add" onclick="addToCart('Chicken Wings', 8.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F357;</div>
-        <div class="menu-name">Chicken Nuggets</div>
-        <div class="menu-desc">Golden crispy chicken nuggets, bite-sized and delicious</div>
-        <div class="menu-footer">
-          <span class="menu-price">$5.99</span>
-          <button class="btn-add" onclick="addToCart('Chicken Nuggets', 5.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F32D;</div>
-        <div class="menu-name">Hot Dogs</div>
-        <div class="menu-desc">Classic hot dogs, grilled to perfection</div>
-        <div class="menu-footer">
-          <span class="menu-price">$3.99</span>
-          <button class="btn-add" onclick="addToCart('Hot Dogs', 3.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F32D;</div>
-        <div class="menu-name">Corn Dogs</div>
-        <div class="menu-desc">Golden battered corn dogs — a classic fair-food favorite</div>
-        <div class="menu-footer">
-          <span class="menu-price">$3.99</span>
-          <button class="btn-add" onclick="addToCart('Corn Dogs', 3.99)">+ ADD</button>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-icon">&#x1F33D;</div>
-        <div class="menu-name">Nachos</div>
-        <div class="menu-desc">Loaded nachos with your choice of toppings and sauces</div>
-        <div class="menu-footer">
-          <span class="menu-price">$5.99</span>
-          <button class="btn-add" onclick="addToCart('Nachos', 5.99)">+ ADD</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ======================================================
-     BYOB SECTION
-====================================================== -->
+<!-- ===== BYOB ===== -->
 <section class="byob-section" id="byob">
   <div class="byob-inner reveal">
     <div class="byob-img-col">
-      <img
-        src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%284%29.jpeg"
-        alt="BYOB — Bring Your Own Bag of Chips"
-        onerror="this.parentElement.style.background='var(--gray)'; this.style.display='none'"
-      />
+      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%284%29.jpeg"
+           alt="BYOB — Bring Your Own Bag of Chips"
+           onerror="this.parentElement.style.background='var(--gray)'; this.style.display='none'" />
       <div class="byob-img-overlay"></div>
     </div>
     <div class="byob-content-col">
       <span class="byob-new">&#9733; NEW</span>
       <h2 class="byob-title">BRING YOUR OWN BAG OF CHIPS</h2>
       <p class="byob-desc">
-        Bring your favorite bag of chips and let us fill it up with seasoned meat and all our delicious fixings.
+        Bring your favourite bag of chips and let us fill it up with seasoned meat and all our delicious fixings.
         The ultimate street-food experience — your way.
       </p>
       <div class="byob-proteins">
@@ -1676,7 +218,7 @@
         <span class="byob-pill">CHEESE &amp; SAUCES</span>
       </div>
       <p class="byob-brands">
-        Works great with: <strong>Doritos &nbsp;&middot;&nbsp; Lay's &nbsp;&middot;&nbsp; Takis &nbsp;&middot;&nbsp; Cheetos</strong> &amp; more!
+        Works great with: <strong>Doritos &nbsp;&middot;&nbsp; Lay's &nbsp;&middot;&nbsp; Takis &nbsp;&middot;&nbsp; Cheetos</strong>
       </p>
       <button class="btn-byob" onclick="addToCart('BYOB — Bring Your Own Bag of Chips', 8.99)">
         &#x1F954; TRY BYOB NOW
@@ -1685,138 +227,20 @@
   </div>
 </section>
 
-
-<!-- ======================================================
-     ORDER SECTION
-====================================================== -->
-<section class="order-section" id="order">
-  <div class="container">
-    <h2 class="section-title reveal">PLACE YOUR ORDER</h2>
-    <p class="section-subtitle reveal reveal-d1">Skip the line &mdash; order ahead and pick it up hot &amp; fresh</p>
-  </div>
-  <div class="order-cards">
-    <div class="order-card featured reveal">
-      <div class="order-card-icon">&#x1F6D2;</div>
-      <div class="order-card-title">ORDER ONLINE</div>
-      <p class="order-card-text">Browse the full menu, customize your order and pick it up hot &amp; fresh.</p>
-      <button class="btn-primary-full" onclick="openOrderModal()">START YOUR ORDER &rarr;</button>
-    </div>
-    <div class="order-card reveal reveal-d1">
-      <div class="order-card-icon">&#x1F4DE;</div>
-      <div class="order-card-title">CALL AHEAD</div>
-      <p class="order-card-text">Call us directly, place your order over the phone, come pick it up!</p>
-      <button class="btn-outline-full" onclick="openCallModal()">CALL NOW &rarr;</button>
-    </div>
-  </div>
-</section>
-
-
-<!-- ======================================================
-     FIND US SECTION
-====================================================== -->
-<section class="findus-section" id="findus">
-  <div class="container">
-    <h2 class="section-title reveal">FIND US</h2>
-    <p class="section-subtitle reveal reveal-d1">We're out there — serving hot &amp; fresh every day</p>
-  </div>
-  <div class="findus-grid">
-    <div class="findus-card reveal">
-      <div class="findus-icon">&#x1F4CD;</div>
-      <div class="findus-label">Location</div>
-      <p class="findus-info">Follow us on social media for daily locations &amp; events!</p>
-    </div>
-    <div class="findus-card reveal reveal-d1">
-      <div class="findus-icon">&#x1F4DE;</div>
-      <div class="findus-label">Call Ahead</div>
-      <p class="findus-info">
-        <a href="tel:+15551234567">[YOUR PHONE NUMBER]</a><br>
-        <span style="font-size:0.78rem; display:block; margin-top:4px;">Call to place your order</span>
-      </p>
-    </div>
-    <div class="findus-card reveal reveal-d2">
-      <div class="findus-icon">&#x23F0;</div>
-      <div class="findus-label">Hours</div>
-      <p class="findus-info">
-        Mon &ndash; Fri: 11am &ndash; 9pm<br>
-        Sat &ndash; Sun: 10am &ndash; 10pm
-      </p>
-    </div>
-    <div class="findus-card reveal reveal-d3">
-      <div class="findus-icon">&#x1F4F1;</div>
-      <div class="findus-label">Follow Us</div>
-      <p class="findus-info">
-        @TasteOnWheels
-        <div class="social-row">
-          <a href="#" class="social-link">&#x1F4F8; Instagram</a>
-          <a href="#" class="social-link">&#x1F44D; Facebook</a>
-          <a href="#" class="social-link">&#x1F3B5; TikTok</a>
-        </div>
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<!-- ======================================================
-     PAYMENT BAR
-====================================================== -->
-<div class="payment-bar">
-  <div class="payment-inner">
-    <span class="payment-label">WE ACCEPT ALL CARDS</span>
-    <div class="payment-pills">
-      <span class="pay-pill">VISA</span>
-      <span class="pay-pill">MASTERCARD</span>
-      <span class="pay-pill">DISCOVER</span>
-      <span class="pay-pill">APPLE PAY</span>
-    </div>
-  </div>
-</div>
-
-
-<!-- ======================================================
-     FOOTER
-====================================================== -->
+<!-- ===== FOOTER ===== -->
 <footer>
-  <img
-    src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg"
-    alt="Taste on Wheels Logo"
-    class="footer-logo-img"
-    onerror="this.style.display='none'"
-  />
+  <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="footer-logo-img" onerror="this.style.display='none'" />
   <p class="footer-tagline">FAST &nbsp;&middot;&nbsp; FRESH &nbsp;&middot;&nbsp; FLAVORFUL</p>
-  <p class="footer-copy">
-    &copy; 2025 Taste on Wheels. All Rights Reserved.<br>
-    Made Fresh. Made to Satisfy.
-  </p>
+  <p class="footer-copy">&copy; 2025 Taste on Wheels. All Rights Reserved.<br>Made Fresh. Made to Satisfy.</p>
 </footer>
 
-
-<!-- ======================================================
-     FLOATING CART
-====================================================== -->
+<!-- ===== CART FAB ===== -->
 <button class="cart-fab" id="cartFab" onclick="openOrderModal()" aria-label="View cart">
   &#x1F6D2;
   <span class="cart-badge" id="cartBadge"></span>
 </button>
 
-
-<!-- ======================================================
-     LIGHTBOX
-====================================================== -->
-<div class="lightbox" id="lightbox" onclick="lbOverlayClick(event)">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
-    <button class="lb-nav lb-prev" onclick="lbNav(-1)" aria-label="Previous">&#8249;</button>
-    <img src="" alt="" class="lightbox-img" id="lightboxImg" />
-    <button class="lb-nav lb-next" onclick="lbNav(1)"  aria-label="Next">&#8250;</button>
-    <div class="lb-counter" id="lbCounter"></div>
-  </div>
-</div>
-
-
-<!-- ======================================================
-     ORDER MODAL
-====================================================== -->
+<!-- ===== ORDER MODAL ===== -->
 <div class="modal-overlay" id="orderModal" onclick="overlayClick(event,'orderModal')">
   <div class="modal-box" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal('orderModal')" aria-label="Close">&#x2715;</button>
@@ -1824,16 +248,13 @@
   </div>
 </div>
 
-
-<!-- ======================================================
-     CALL MODAL
-====================================================== -->
+<!-- ===== CALL MODAL ===== -->
 <div class="modal-overlay" id="callModal" onclick="overlayClick(event,'callModal')">
   <div class="modal-box" onclick="event.stopPropagation()">
     <button class="modal-close" onclick="closeModal('callModal')" aria-label="Close">&#x2715;</button>
     <h2 class="modal-title">&#x1F4DE; CALL AHEAD</h2>
     <p style="color:var(--light-gray); margin-bottom:22px; font-size:0.92rem; line-height:1.65;">
-      Call us to place your order and we&rsquo;ll have it hot &amp; ready when you arrive. No waiting!
+      Call us to place your order and we&rsquo;ll have it hot &amp; ready when you arrive!
     </p>
     <div class="call-body">
       <div class="call-number">[YOUR PHONE NUMBER]</div>
@@ -1843,254 +264,7 @@
   </div>
 </div>
 
-
-<!-- ======================================================
-     JAVASCRIPT
-====================================================== -->
-<script>
-  /* ---- CART STATE ---- */
-  var cart = [];
-  var _id  = 0;
-
-  /* ---- MOBILE NAV ---- */
-  function toggleMobileNav() {
-    var nav = document.getElementById('mobileNav');
-    var btn = document.getElementById('hamburger');
-    var open = nav.classList.toggle('open');
-    btn.classList.toggle('open', open);
-  }
-  function closeMobileNav() {
-    document.getElementById('mobileNav').classList.remove('open');
-    document.getElementById('hamburger').classList.remove('open');
-  }
-
-  /* ---- SCROLL HELPER ---- */
-  function scrollToEl(id) {
-    var el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  /* ---- TAB SWITCHING ---- */
-  function switchTab(name) {
-    document.querySelectorAll('.tab-btn').forEach(function(b) {
-      b.classList.toggle('active', b.dataset.tab === name);
-    });
-    document.querySelectorAll('.tab-panel').forEach(function(p) {
-      p.classList.remove('active');
-    });
-    var panel = document.getElementById('tab-' + name);
-    if (panel) panel.classList.add('active');
-  }
-  function goMenu(name) {
-    scrollToEl('menu');
-    setTimeout(function() { switchTab(name); }, 380);
-  }
-
-  /* ---- CART ---- */
-  function addToCart(name, price) {
-    cart.push({ id: ++_id, name: name, price: price });
-    updateBadge();
-    bounceFab();
-    toast('✓ ' + name + ' added!', 'success');
-  }
-  function removeFromCart(id) {
-    cart = cart.filter(function(i) { return i.id !== id; });
-    updateBadge();
-    renderOrderBody();
-  }
-  function cartTotal() {
-    return cart.reduce(function(s, i) { return s + i.price; }, 0);
-  }
-  function updateBadge() {
-    var badge = document.getElementById('cartBadge');
-    badge.textContent = cart.length;
-    badge.classList.toggle('show', cart.length > 0);
-  }
-  function bounceFab() {
-    var fab = document.getElementById('cartFab');
-    fab.classList.remove('bounce');
-    void fab.offsetWidth;
-    fab.classList.add('bounce');
-    fab.addEventListener('animationend', function() { fab.classList.remove('bounce'); }, { once: true });
-  }
-
-  /* ---- ORDER MODAL ---- */
-  function renderOrderBody() {
-    var body = document.getElementById('orderModalBody');
-    if (!body) return;
-    var listHTML = cart.length === 0
-      ? '<div class="cart-empty">Your cart is empty &mdash; add items from the menu!</div>'
-      : cart.map(function(item) {
-          return '<div class="cart-item">'
-            + '<span class="cart-item-name">' + escHTML(item.name) + '</span>'
-            + '<div class="cart-item-right">'
-            + '<span class="cart-item-price">$' + item.price.toFixed(2) + '</span>'
-            + '<button class="btn-item-remove" onclick="removeFromCart(' + item.id + ')" aria-label="Remove">&times;</button>'
-            + '</div></div>';
-        }).join('');
-
-    body.innerHTML = ''
-      + '<h2 class="modal-title">&#x1F6D2; YOUR ORDER</h2>'
-      + '<div class="cart-list">' + listHTML + '</div>'
-      + '<div class="cart-total-row">'
-      +   '<span class="cart-total-label">TOTAL</span>'
-      +   '<span class="cart-total-val">$' + cartTotal().toFixed(2) + '</span>'
-      + '</div>'
-      + '<form class="order-form" onsubmit="placeOrder(event)">'
-      +   '<div class="form-group"><label for="cName">Your Name</label>'
-      +     '<input type="text" id="cName" placeholder="Enter your name" required autocomplete="name"></div>'
-      +   '<div class="form-group"><label for="cPhone">Phone Number</label>'
-      +     '<input type="tel" id="cPhone" placeholder="(555) 555-5555" required autocomplete="tel"></div>'
-      +   '<div class="form-group"><label for="cPickup">Pickup Time</label>'
-      +     '<input type="text" id="cPickup" placeholder="e.g. 1:30 PM" required></div>'
-      +   '<div class="form-group"><label for="cNotes">Special Instructions</label>'
-      +     '<input type="text" id="cNotes" placeholder="Any special requests?"></div>'
-      +   '<div class="modal-actions">'
-      +     '<button type="button" class="btn-modal-cancel" onclick="closeModal(\'orderModal\')">Cancel</button>'
-      +     '<button type="submit" class="btn-place-order" ' + (cart.length === 0 ? 'disabled style="opacity:0.5"' : '') + '>PLACE ORDER &#x1F525;</button>'
-      +   '</div>'
-      + '</form>';
-  }
-  function openOrderModal() {
-    renderOrderBody();
-    openModal('orderModal');
-  }
-  function openCallModal() { openModal('callModal'); }
-
-  /* ---- MODAL HELPERS ---- */
-  function openModal(id) {
-    document.getElementById(id).classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function overlayClick(e, id) {
-    if (e.target === e.currentTarget) closeModal(id);
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      if (document.getElementById('lightbox').classList.contains('open')) {
-        closeLightbox(); return;
-      }
-      document.querySelectorAll('.modal-overlay.open').forEach(function(m) { closeModal(m.id); });
-    }
-    if (e.key === 'ArrowLeft'  && document.getElementById('lightbox').classList.contains('open')) lbNav(-1);
-    if (e.key === 'ArrowRight' && document.getElementById('lightbox').classList.contains('open')) lbNav(1);
-  });
-
-  /* ---- PLACE ORDER ---- */
-  function placeOrder(e) {
-    e.preventDefault();
-    if (cart.length === 0) { toast('Please add items first!', 'error'); return; }
-    var name   = document.getElementById('cName').value.trim();
-    var phone  = document.getElementById('cPhone').value.trim();
-    var pickup = document.getElementById('cPickup').value.trim();
-    var total  = cartTotal();
-    document.getElementById('orderModalBody').innerHTML = ''
-      + '<div class="order-confirm">'
-      +   '<div class="confirm-icon">&#x1F389;</div>'
-      +   '<div class="confirm-title">ORDER PLACED!</div>'
-      +   '<p class="confirm-text">'
-      +     'Thanks, <strong style="color:var(--gold)">' + escHTML(name) + '</strong>!<br>'
-      +     'Your order of <strong style="color:var(--gold)">$' + total.toFixed(2) + '</strong> is confirmed.<br><br>'
-      +     'Hot &amp; ready for pickup at <strong style="color:var(--gold)">' + escHTML(pickup) + '</strong>.<br>'
-      +     'We\'ll call <strong style="color:var(--gold)">' + escHTML(phone) + '</strong> if we have any questions.'
-      +   '</p>'
-      +   '<p class="confirm-fire">&#x1F525; MADE FRESH. MADE TO SATISFY. &#x1F525;</p>'
-      +   '<button class="btn-primary-full" onclick="closeModal(\'orderModal\')">CLOSE &mdash; SEE YOU SOON!</button>'
-      + '</div>';
-    cart = [];
-    updateBadge();
-  }
-
-  /* ---- TOAST ---- */
-  function toast(msg, type) {
-    var old = document.querySelector('.toast');
-    if (old) old.remove();
-    var t = document.createElement('div');
-    t.className = 'toast';
-    t.textContent = msg;
-    t.style.background = (type === 'error') ? 'var(--red)' : 'var(--gold)';
-    t.style.color       = (type === 'error') ? 'var(--white)' : 'var(--black)';
-    document.body.appendChild(t);
-    setTimeout(function() { if (t.parentNode) t.remove(); }, 2600);
-  }
-
-  /* ---- XSS SAFE ESCAPE ---- */
-  function escHTML(str) {
-    return String(str)
-      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-  }
-
-  /* ---- LIGHTBOX ---- */
-  var lbItems = [];
-  var lbCurrent = 0;
-
-  (function buildLbItems() {
-    document.querySelectorAll('.gallery-item[onclick]').forEach(function(el) {
-      var img = el.querySelector('img');
-      var cap = el.getAttribute('data-caption') || '';
-      if (img) lbItems.push({ src: img.src, alt: img.alt, cap: cap });
-    });
-  })();
-
-  function openLightbox(idx) {
-    lbCurrent = idx;
-    lbShow();
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function lbOverlayClick(e) {
-    if (e.target === e.currentTarget || e.target === document.getElementById('lightbox')) closeLightbox();
-  }
-  function lbNav(dir) {
-    lbCurrent = (lbCurrent + dir + lbItems.length) % lbItems.length;
-    lbShow();
-  }
-  function lbShow() {
-    var item = lbItems[lbCurrent];
-    if (!item) return;
-    var img = document.getElementById('lightboxImg');
-    img.src = item.src;
-    img.alt = item.alt;
-    document.getElementById('lbCounter').textContent =
-      (lbCurrent + 1) + ' / ' + lbItems.length + (item.cap ? '  —  ' + item.cap : '');
-  }
-
-  /* ---- SCROLL REVEAL ---- */
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  document.querySelectorAll('.reveal').forEach(function(el) {
-    revealObserver.observe(el);
-  });
-
-  /* ---- INIT ---- */
-  document.addEventListener('DOMContentLoaded', function() {
-    updateBadge();
-    renderOrderBody();
-    /* rebuild lightbox items after DOM ready (in case of late rendering) */
-    lbItems = [];
-    document.querySelectorAll('.gallery-item[onclick]').forEach(function(el) {
-      var img = el.querySelector('img');
-      var cap = el.getAttribute('data-caption') || '';
-      if (img) lbItems.push({ src: img.src, alt: img.alt, cap: cap });
-    });
-  });
-</script>
-
+<script src="js/app.js"></script>
+<script src="js/gallery.js"></script>
 </body>
 </html>

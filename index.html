@@ -4,267 +4,543 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Taste on Wheels — Fast · Fresh · Flavorful</title>
+  <meta name="description" content="Taste on Wheels food truck — bold flavors made fresh to order. Halal burgers, gyro wraps, steak & cheese, rice bowls and more." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/home.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/nav.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+  <style>
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 68px);
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg-glow {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 60% at 70% 50%, rgba(245,193,7,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(192,57,43,0.08) 0%, transparent 60%);
+    }
+    .hero-embers { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .ember {
+      position: absolute; bottom: 80px; border-radius: 50%; opacity: 0;
+      animation: emberRise linear infinite;
+    }
+    @keyframes emberRise {
+      0%   { opacity:0;   transform:translateY(0)     translateX(0)    scale(1); }
+      12%  { opacity:0.9; }
+      80%  { opacity:0.3; }
+      100% { opacity:0;   transform:translateY(-65vh) translateX(22px) scale(0.25); }
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      padding: 80px 0 120px; width: 100%;
+    }
+    .hero-kicker {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+    }
+    .hero-kicker::before { content:''; width:32px; height:2px; background:var(--gold); display:inline-block; }
+    .hero-h1-white {
+      font-family: var(--font-head); display: block;
+      font-size: clamp(3.2rem, 7.5vw, 6.5rem);
+      letter-spacing: 2px; text-transform: uppercase; color: var(--white); line-height: 0.95;
+    }
+    .hero-h1-gold {
+      font-family: var(--font-head); display: block;
+      font-size: clamp(3.2rem, 7.5vw, 6.5rem);
+      letter-spacing: 2px; text-transform: uppercase; color: var(--gold); line-height: 0.95;
+    }
+    .hero-sub { font-size:1.05rem; color:#aaa; line-height:1.7; max-width:440px; margin:24px 0 36px; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+    .hero-scroll {
+      margin-top:48px; display:flex; align-items:center; gap:10px;
+      font-size:0.65rem; font-weight:700; letter-spacing:2.5px;
+      text-transform:uppercase; color:#444;
+    }
+    .hero-scroll-arrow {
+      width:28px; height:28px; border:1px solid #2a2a2a; border-radius:50%;
+      display:flex; align-items:center; justify-content:center; font-size:0.7rem;
+      animation: arrowBounce 1.8s ease-in-out infinite;
+    }
+    @keyframes arrowBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+    .hero-visual { display:flex; align-items:center; justify-content:center; position:relative; }
+    .hero-plate {
+      width:400px; height:400px; max-width:90vw;
+      border-radius:50%;
+      background: radial-gradient(circle at 35% 35%, #2d1800 0%, #1a0e00 40%, #0a0600 100%);
+      border: 2px solid rgba(245,193,7,0.18);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      position:relative; overflow:hidden;
+    }
+    .hero-plate-glow {
+      position:absolute; inset:-30px;
+      background: radial-gradient(circle, rgba(245,193,7,0.13) 0%, transparent 65%);
+      animation: plateGlow 3s ease-in-out infinite;
+    }
+    @keyframes plateGlow { 0%,100%{opacity:0.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.06)} }
+    .hero-plate-emoji { font-size:7rem; line-height:1; z-index:1; }
+    .hero-plate-label {
+      font-family:var(--font-head); font-size:0.75rem; letter-spacing:4px;
+      color:var(--gold); text-transform:uppercase; margin-top:14px; z-index:1;
+    }
+    .hero-ring {
+      position:absolute; inset:-16px; border-radius:50%;
+      border:1px dashed rgba(245,193,7,0.14);
+      animation: spinSlow 20s linear infinite;
+    }
+    @keyframes spinSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    .hero-flame {
+      position:absolute; bottom:0; left:0; right:0;
+      height:80px; pointer-events:none;
+    }
+
+    /* CATEGORY CARDS */
+    .categories-section { background:var(--dark); border-bottom:1px solid #191919; }
+    .cat-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:0; }
+    .cat-card {
+      position:relative; background:var(--dark-2);
+      border-right:1px solid #191919;
+      padding:36px 18px; text-align:center;
+      display:flex; flex-direction:column; align-items:center; gap:14px;
+      cursor:pointer; text-decoration:none;
+      transition: background var(--ease);
+      overflow:hidden;
+    }
+    .cat-card:last-child { border-right:none; }
+    .cat-card:hover { background:#1f1f1f; }
+    .cat-card::after {
+      content:''; position:absolute; bottom:0; left:0; right:0;
+      height:3px; background:var(--gold);
+      transform:scaleX(0); transition:transform 0.3s ease;
+    }
+    .cat-card:hover::after { transform:scaleX(1); }
+    .cat-overlay {
+      position:absolute; inset:0;
+      background:rgba(245,193,7,0.07);
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; transition:opacity var(--ease);
+    }
+    .cat-card:hover .cat-overlay { opacity:1; }
+    .cat-overlay-txt { font-size:0.62rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); }
+    .cat-emoji { font-size:2.6rem; line-height:1; }
+    .cat-name { font-family:var(--font-head); font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; color:#bbb; }
+
+    /* COMBO BANNER */
+    .starburst {
+      width:88px; height:88px; border-radius:50%;
+      background:var(--gold);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      flex-shrink:0; position:relative;
+    }
+    .starburst-price { font-family:var(--font-head); font-size:1.7rem; color:var(--black); line-height:1; }
+    .starburst-lbl { font-size:0.52rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--black); }
+
+    /* WHY US */
+    .why-section { background:var(--black); }
+    .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+    .why-card {
+      background:var(--dark-2); padding:44px 36px;
+      border-top:3px solid transparent;
+      transition: border-color var(--ease), background var(--ease), transform var(--ease);
+    }
+    .why-card:hover { border-top-color:var(--gold); background:#1f1f1f; transform:translateY(-3px); }
+    .why-icon { font-size:2.4rem; line-height:1; margin-bottom:18px; display:block; }
+    .why-title { font-family:var(--font-head); font-size:1.4rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+    .why-desc { font-size:0.92rem; color:var(--light-gray); line-height:1.7; }
+
+    /* BYOB TEASER */
+    .byob-section { background:var(--dark); }
+    .byob-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .byob-img {
+      background:radial-gradient(135deg,#1a0e00,#0e0800);
+      border:2px solid rgba(245,193,7,0.18); border-radius:var(--radius);
+      aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;
+      font-size:6rem; position:relative; overflow:hidden;
+    }
+    .byob-img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .byob-new {
+      display:inline-block; background:var(--red); color:var(--white);
+      font-size:0.65rem; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+      padding:4px 12px; margin-bottom:16px;
+    }
+    .byob-title {
+      font-family:var(--font-head); font-size:clamp(1.8rem,4vw,2.8rem);
+      letter-spacing:1.5px; text-transform:uppercase; color:var(--white);
+      line-height:1.05; margin-bottom:18px;
+    }
+    .byob-desc { font-size:1rem; color:var(--light-gray); line-height:1.7; margin-bottom:24px; }
+    .chip-pills { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; }
+    .chip-pill {
+      font-size:0.68rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+      padding:5px 12px; border:1px solid var(--gray-2); color:var(--lighter-gray);
+    }
+
+    /* SOCIAL */
+    .social-section { background:var(--black); }
+    .social-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-top:40px; }
+    .social-img {
+      aspect-ratio:1; background:var(--dark-2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:3.5rem; border:1px solid #1a1a1a;
+      position:relative; overflow:hidden; cursor:pointer;
+      transition:border-color var(--ease);
+    }
+    .social-img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .social-img:hover { border-color:var(--gold); }
+    .social-img-ov {
+      position:absolute; inset:0; background:rgba(245,193,7,0.1);
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; transition:opacity var(--ease); font-size:2rem;
+    }
+    .social-img:hover .social-img-ov { opacity:1; }
+    .social-handle { font-family:var(--font-head); font-size:1.4rem; letter-spacing:2px; color:var(--white); margin-bottom:20px; }
+
+    /* RESPONSIVE */
+    @media (max-width:1024px) {
+      .cat-grid { grid-template-columns:repeat(3,1fr); }
+      .cat-card { border-bottom:1px solid #191919; }
+    }
+    @media (max-width:860px) {
+      .hero-inner { grid-template-columns:1fr; gap:40px; text-align:center; }
+      .hero-kicker { justify-content:center; }
+      .hero-sub { margin-left:auto; margin-right:auto; }
+      .hero-btns { justify-content:center; }
+      .hero-scroll { justify-content:center; }
+      .hero-visual { display:none; }
+      .byob-inner { grid-template-columns:1fr; }
+      .why-grid { grid-template-columns:1fr; gap:2px; }
+    }
+    @media (max-width:600px) {
+      .social-grid { grid-template-columns:repeat(2,1fr); }
+      .cat-grid { grid-template-columns:repeat(2,1fr); }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<nav class="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="logo" aria-label="Taste on Wheels — Home">
-      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="logo-img" onerror="this.style.display='none'" />
-      <div class="logo-text">
-        <span class="logo-taste">TASTE</span>
-        <span class="logo-on-wheels">ON WHEELS</span>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner container-wide">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-hex" viewBox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 0L38 10.97V33.03L19 44L0 33.03V10.97L19 0Z" fill="#F5C107"/>
+        <path d="M19 5L33.5 13.5V30.5L19 39L4.5 30.5V13.5L19 5Z" fill="#111111"/>
+        <text x="19" y="28" text-anchor="middle" fill="#F5C107" font-family="Impact,sans-serif" font-size="17">T</text>
+      </svg>
+      <div class="nav-logo-text">
+        <span class="nav-logo-taste">TASTE</span>
+        <span class="nav-logo-sub">ON WHEELS</span>
       </div>
     </a>
     <ul class="nav-links">
-      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="menu.html">Menu</a></li>
       <li><a href="order.html">Order</a></li>
-      <li><a href="contact.html">Find Us</a></li>
+      <li><a href="byob.html">BYOB</a></li>
+      <li><a href="find-us.html">Find Us</a></li>
+      <li><a href="about.html">About</a></li>
     </ul>
-    <button class="btn-nav-order" onclick="openOrderModal()">ORDER NOW</button>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
+    <div class="nav-right">
+      <button class="nav-cart-btn" onclick="window.location.href='order.html'" aria-label="Cart">
+        &#x1F6D2;<span class="cart-badge" id="cartBadge"></span>
+      </button>
+      <a href="order.html" class="btn-nav-order desktop-only">ORDER NOW</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="gallery.html" onclick="closeMobileNav()">Gallery</a>
-    <a href="menu.html"    onclick="closeMobileNav()">Menu</a>
-    <a href="order.html"   onclick="closeMobileNav()">Order</a>
-    <a href="contact.html" onclick="closeMobileNav()">Find Us</a>
-    <button class="btn-nav-order" onclick="openOrderModal(); closeMobileNav()">ORDER NOW</button>
-  </div>
 </nav>
-
-<!-- ===== MARQUEE ===== -->
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-track">
-    <span class="marquee-item"><span class="marquee-star">&#9733;</span> STEAK &amp; CHEESE <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">BURGERS <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">WRAPS <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">BOWLS OVER RICE <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">FRIES &amp; SIDES <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">BYOB <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">MAKE IT A COMBO $4.99 <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">FAST &bull; FRESH &bull; FLAVORFUL <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item"><span class="marquee-star">&#9733;</span> STEAK &amp; CHEESE <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">BURGERS <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">WRAPS <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">BOWLS OVER RICE <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">FRIES &amp; SIDES <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">BYOB <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">MAKE IT A COMBO $4.99 <span class="marquee-star">&#9733;</span></span>
-    <span class="marquee-item">FAST &bull; FRESH &bull; FLAVORFUL <span class="marquee-star">&#9733;</span></span>
-  </div>
+<div class="mobile-overlay" id="mobileOverlay">
+  <a href="index.html"   onclick="closeMobileNav()">Home</a>
+  <a href="menu.html"    onclick="closeMobileNav()">Menu</a>
+  <a href="order.html"   onclick="closeMobileNav()">Order</a>
+  <a href="byob.html"    onclick="closeMobileNav()">BYOB</a>
+  <a href="find-us.html" onclick="closeMobileNav()">Find Us</a>
+  <a href="about.html"   onclick="closeMobileNav()">About</a>
+  <a href="order.html" class="btn-nav-order" onclick="closeMobileNav()">ORDER NOW</a>
 </div>
 
-<!-- ===== HERO ===== -->
-<section class="hero" id="home">
-  <div class="hero-glow"></div>
-  <div class="hero-glow-gold"></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-embers" aria-hidden="true">
+    <span class="ember" style="left:5%;width:3px;height:3px;background:#F5C107;animation-duration:3.2s;animation-delay:0s"></span>
+    <span class="ember" style="left:15%;width:2px;height:2px;background:#C0392B;animation-duration:2.7s;animation-delay:0.7s"></span>
+    <span class="ember" style="left:28%;width:4px;height:4px;background:#F5C107;animation-duration:3.8s;animation-delay:0.3s"></span>
+    <span class="ember" style="left:38%;width:2px;height:2px;background:#e67e22;animation-duration:2.5s;animation-delay:1.2s"></span>
+    <span class="ember" style="left:52%;width:3px;height:3px;background:#F5C107;animation-duration:3.5s;animation-delay:0.5s"></span>
+    <span class="ember" style="left:63%;width:2px;height:2px;background:#C0392B;animation-duration:2.9s;animation-delay:1.8s"></span>
+    <span class="ember" style="left:74%;width:4px;height:4px;background:#F5C107;animation-duration:3.1s;animation-delay:0.9s"></span>
+    <span class="ember" style="left:84%;width:2px;height:2px;background:#e67e22;animation-duration:2.6s;animation-delay:2.1s"></span>
+    <span class="ember" style="left:91%;width:3px;height:3px;background:#F5C107;animation-duration:3.4s;animation-delay:0.2s"></span>
+    <span class="ember" style="left:45%;width:2px;height:2px;background:#C0392B;animation-duration:2.4s;animation-delay:1.5s"></span>
+  </div>
 
-  <div class="hero-content">
-    <p class="hero-kicker">&#9733; Fast Food Done Right &#9733;</p>
-    <h1 class="hero-taste">TASTE</h1>
-    <h2 class="hero-on-wheels">ON WHEELS</h2>
-    <p class="hero-tagline">Fast<span class="dot">&middot;</span>Fresh<span class="dot">&middot;</span>Flavorful</p>
-
-    <div class="hero-btns">
-      <button class="btn-hero-fill"    onclick="openOrderModal()">&#x1F6D2; ORDER ONLINE</button>
-      <button class="btn-hero-outline" onclick="openCallModal()">&#x1F4DE; CALL AHEAD</button>
+  <div class="container hero-inner">
+    <div>
+      <p class="hero-kicker">&#9733; Taste on Wheels &#9733;</p>
+      <h1>
+        <span class="hero-h1-white">FAST. FRESH.</span>
+        <span class="hero-h1-gold">FLAVORFUL.</span>
+      </h1>
+      <p class="hero-sub">Bold flavors made fresh to order, every single time. Halal. Always quality. Always fast.</p>
+      <div class="hero-btns">
+        <a href="menu.html" class="btn btn-gold btn-lg">EXPLORE MENU &rarr;</a>
+        <a href="order.html" class="btn btn-red btn-lg">ORDER NOW &rarr;</a>
+      </div>
+      <div class="hero-scroll">
+        <span class="hero-scroll-arrow">&#x2193;</span>
+        SCROLL TO EXPLORE
+      </div>
     </div>
-
-    <div class="hero-pills">
-      <a href="menu.html#steak"   class="cat-pill">STEAK &amp; CHEESE</a>
-      <a href="menu.html#burgers" class="cat-pill">BURGERS</a>
-      <a href="menu.html#wraps"   class="cat-pill">WRAPS</a>
-      <a href="menu.html#bowls"   class="cat-pill">BOWLS</a>
-      <a href="menu.html#sides"   class="cat-pill">FRIES</a>
-      <button class="cat-pill" onclick="scrollToEl('byob')">BYOB</button>
+    <div class="hero-visual">
+      <div class="hero-plate">
+        <div class="hero-plate-glow"></div>
+        <div class="hero-ring"></div>
+        <span class="hero-plate-emoji">&#x1F356;</span>
+        <span class="hero-plate-label">Lamb Over Rice</span>
+      </div>
     </div>
   </div>
 
-  <!-- Animated flames -->
-  <div class="flames-wrap" aria-hidden="true">
-    <svg class="flame-svg flame-l4" viewBox="0 0 1440 60" preserveAspectRatio="none">
-      <defs><linearGradient id="flg4" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#5D0C0C" stop-opacity="1"/><stop offset="100%" stop-color="#C0392B" stop-opacity="0"/></linearGradient></defs>
-      <rect x="0" y="0" width="1440" height="60" fill="url(#flg4)"/>
-    </svg>
-    <svg class="flame-svg flame-l1" viewBox="0 0 1440 200" preserveAspectRatio="none">
-      <defs><linearGradient id="flg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#C0392B" stop-opacity="1"/><stop offset="55%" stop-color="#e67e22" stop-opacity="0.75"/><stop offset="100%" stop-color="#f39c12" stop-opacity="0"/></linearGradient></defs>
-      <path d="M0,200 L0,130 Q50,65 100,110 Q150,150 200,90 Q250,30 310,80 Q370,130 430,65 Q490,10 550,60 Q610,110 670,50 Q730,0 790,55 Q850,110 910,55 Q970,10 1030,70 Q1090,130 1150,75 Q1210,25 1270,90 Q1330,155 1380,115 Q1410,95 1440,120 L1440,200 Z" fill="url(#flg1)"/>
-    </svg>
-    <svg class="flame-svg flame-l2" viewBox="0 0 1440 160" preserveAspectRatio="none">
-      <defs><linearGradient id="flg2" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#922B21" stop-opacity="1"/><stop offset="65%" stop-color="#C0392B" stop-opacity="0.6"/><stop offset="100%" stop-color="#e67e22" stop-opacity="0"/></linearGradient></defs>
-      <path d="M0,160 L0,100 Q90,35 180,80 Q270,120 360,55 Q450,0 540,60 Q630,120 720,50 Q810,0 900,65 Q990,130 1080,60 Q1170,0 1260,70 Q1350,130 1440,85 L1440,160 Z" fill="url(#flg2)"/>
-    </svg>
-    <svg class="flame-svg flame-l3" viewBox="0 0 1440 110" preserveAspectRatio="none">
-      <defs><linearGradient id="flg3" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#641E16" stop-opacity="1"/><stop offset="60%" stop-color="#C0392B" stop-opacity="0.4"/><stop offset="100%" stop-color="#f39c12" stop-opacity="0"/></linearGradient></defs>
-      <path d="M0,110 L0,65 Q120,10 240,55 Q360,100 480,40 Q600,0 720,50 Q840,100 960,42 Q1080,0 1200,55 Q1320,105 1440,60 L1440,110 Z" fill="url(#flg3)"/>
+  <div class="hero-flame" aria-hidden="true">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hfg1" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0%" stop-color="#C0392B" stop-opacity="1"/>
+          <stop offset="55%" stop-color="#e67e22" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#f39c12" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,80 L0,48 Q120,8 240,35 Q360,60 480,24 Q600,0 720,32 Q840,62 960,22 Q1080,0 1200,34 Q1320,62 1440,30 L1440,80 Z" fill="url(#hfg1)"/>
+      <path d="M0,80 L0,60 Q180,30 360,52 Q540,70 720,44 Q900,22 1080,52 Q1260,68 1440,48 L1440,80 Z" fill="#7B241C" opacity="0.5"/>
     </svg>
   </div>
 </section>
 
-<!-- ===== COMBO BANNER ===== -->
+<!-- CATEGORY SHOWCASE -->
+<section class="categories-section">
+  <div class="cat-grid">
+    <a href="menu.html#steak"   class="cat-card reveal">
+      <span class="cat-emoji">&#x1F969;</span><span class="cat-name">Steak &amp; Cheese</span>
+      <div class="cat-overlay"><span class="cat-overlay-txt">VIEW ALL &rarr;</span></div>
+    </a>
+    <a href="menu.html#burgers" class="cat-card reveal reveal-d1">
+      <span class="cat-emoji">&#x1F354;</span><span class="cat-name">Burgers</span>
+      <div class="cat-overlay"><span class="cat-overlay-txt">VIEW ALL &rarr;</span></div>
+    </a>
+    <a href="menu.html#wraps"   class="cat-card reveal reveal-d2">
+      <span class="cat-emoji">&#x1F32F;</span><span class="cat-name">Wraps</span>
+      <div class="cat-overlay"><span class="cat-overlay-txt">VIEW ALL &rarr;</span></div>
+    </a>
+    <a href="menu.html#bowls"   class="cat-card reveal reveal-d3">
+      <span class="cat-emoji">&#x1F35A;</span><span class="cat-name">Bowls</span>
+      <div class="cat-overlay"><span class="cat-overlay-txt">VIEW ALL &rarr;</span></div>
+    </a>
+    <a href="menu.html#sides"   class="cat-card reveal reveal-d4">
+      <span class="cat-emoji">&#x1F35F;</span><span class="cat-name">Fries</span>
+      <div class="cat-overlay"><span class="cat-overlay-txt">VIEW ALL &rarr;</span></div>
+    </a>
+    <a href="byob.html"         class="cat-card reveal reveal-d5">
+      <span class="cat-emoji">&#x1F954;</span><span class="cat-name">BYOB</span>
+      <div class="cat-overlay"><span class="cat-overlay-txt">LEARN MORE &rarr;</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- COMBO DEAL BANNER -->
 <div class="combo-banner">
-  <div class="combo-inner">
-    <div class="combo-badge">$4.99</div>
-    <p class="combo-text">MAKE IT A COMBO &mdash; ANY MAIN &plus; REGULAR FRIES &plus; DRINK</p>
-    <div class="combo-badge">$4.99</div>
+  <div class="container">
+    <div class="combo-banner-inner">
+      <div>
+        <div class="combo-banner-title">MAKE IT A COMBO</div>
+        <div class="combo-banner-desc">Any Main &nbsp;+&nbsp; Regular Fries &nbsp;+&nbsp; Drink &nbsp;&mdash;&nbsp; <strong style="color:var(--gold)">Add just $4.99</strong></div>
+      </div>
+      <div class="starburst">
+        <span class="starburst-price">$4.99</span>
+        <span class="starburst-lbl">COMBO</span>
+      </div>
+      <a href="order.html" class="btn btn-outline-white">ADD A COMBO &rarr;</a>
+    </div>
   </div>
 </div>
 
-<!-- ===== STATS ===== -->
-<section class="stats-section">
-  <div class="stats-grid">
-    <div class="reveal reveal-d1">
-      <div class="stat-number">20+</div>
-      <div class="stat-label">Menu Items</div>
-    </div>
-    <div class="reveal reveal-d2">
-      <div class="stat-number">$4.99</div>
-      <div class="stat-label">Combo Deal</div>
-    </div>
-    <div class="reveal reveal-d3">
-      <div class="stat-number">4</div>
-      <div class="stat-label">Cards Accepted</div>
-    </div>
-    <div class="reveal reveal-d4">
-      <div class="stat-number">100%</div>
-      <div class="stat-label">Made Fresh Daily</div>
-    </div>
+<!-- WHY TASTE ON WHEELS -->
+<section class="why-section section">
+  <div class="container" style="margin-bottom:44px;text-align:center;">
+    <span class="eyebrow">Why Choose Us</span>
+    <h2 class="section-title">THE <span class="gold">TASTE ON WHEELS</span> PROMISE</h2>
+    <div class="divider divider-center"></div>
   </div>
-</section>
-
-<!-- ===== FEATURED MENU ===== -->
-<section class="featured-section">
   <div class="container">
-    <h2 class="section-title reveal">POPULAR PICKS</h2>
-    <p class="section-subtitle reveal reveal-d1">Fan favourites — add to cart from any page</p>
-  </div>
-  <div class="featured-grid">
-    <div class="featured-card reveal">
-      <div class="fc-icon">&#x1F356;</div>
-      <div class="fc-cat">Bowls</div>
-      <div class="fc-name">Lamb Over Rice</div>
-      <div class="fc-desc">Savory seasoned lamb over fluffy rice with fresh veggies and signature sauces</div>
-      <div class="fc-footer">
-        <span class="fc-price">$10.99</span>
-        <button class="btn-add-fc" onclick="addToCart('Lamb Over Rice', 10.99)">+ ADD</button>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span class="why-icon">&#x26A1;</span>
+        <div class="why-title">FAST</div>
+        <p class="why-desc">Ready in minutes, not a moment longer. We respect your time and your hunger equally.</p>
       </div>
-    </div>
-    <div class="featured-card reveal reveal-d1">
-      <div class="fc-icon">&#x1F32F;</div>
-      <div class="fc-cat">Wraps</div>
-      <div class="fc-name">Chicken Gyro Wrap</div>
-      <div class="fc-desc">Marinated chicken, crisp lettuce, tomatoes, onions and signature sauce</div>
-      <div class="fc-footer">
-        <span class="fc-price">$9.99</span>
-        <button class="btn-add-fc" onclick="addToCart('Chicken Gyro Wrap', 9.99)">+ ADD</button>
+      <div class="why-card reveal reveal-d1">
+        <span class="why-icon">&#x1F33F;</span>
+        <div class="why-title">FRESH</div>
+        <p class="why-desc">Every item is made fresh to order. No shortcuts, no reheated food — quality you can taste in every bite.</p>
       </div>
-    </div>
-    <div class="featured-card reveal reveal-d2">
-      <div class="fc-icon">&#x1F354;</div>
-      <div class="fc-cat">Burgers</div>
-      <div class="fc-name">Cheeseburger</div>
-      <div class="fc-desc">Melted cheese, fresh veggies, pickles and our signature sauce</div>
-      <div class="fc-footer">
-        <span class="fc-price">$8.99</span>
-        <button class="btn-add-fc" onclick="addToCart('Cheeseburger', 8.99)">+ ADD</button>
+      <div class="why-card reveal reveal-d2">
+        <span class="why-icon">&#x1F525;</span>
+        <div class="why-title">FLAVORFUL</div>
+        <p class="why-desc">Bold spices, signature sauces, and recipes crafted to deliver unforgettable street food every single time.</p>
       </div>
-    </div>
-    <div class="featured-card reveal reveal-d3">
-      <div class="fc-icon">&#x1F336;&#xFE0F;</div>
-      <div class="fc-cat">Sides</div>
-      <div class="fc-name">Chilli Cheese Fries</div>
-      <div class="fc-desc">Crispy fries topped with chilli and melted cheese</div>
-      <div class="fc-footer">
-        <span class="fc-price">$5.99</span>
-        <button class="btn-add-fc" onclick="addToCart('Chilli Cheese Fries', 5.99)">+ ADD</button>
-      </div>
-    </div>
-  </div>
-  <div class="featured-cta reveal">
-    <a href="menu.html" class="btn-primary">VIEW FULL MENU &rarr;</a>
-  </div>
-</section>
-
-<!-- ===== BYOB ===== -->
-<section class="byob-section" id="byob">
-  <div class="byob-inner reveal">
-    <div class="byob-img-col">
-      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%284%29.jpeg"
-           alt="BYOB — Bring Your Own Bag of Chips"
-           onerror="this.parentElement.style.background='var(--gray)'; this.style.display='none'" />
-      <div class="byob-img-overlay"></div>
-    </div>
-    <div class="byob-content-col">
-      <span class="byob-new">&#9733; NEW</span>
-      <h2 class="byob-title">BRING YOUR OWN BAG OF CHIPS</h2>
-      <p class="byob-desc">
-        Bring your favourite bag of chips and let us fill it up with seasoned meat and all our delicious fixings.
-        The ultimate street-food experience — your way.
-      </p>
-      <div class="byob-proteins">
-        <span class="byob-pill">CHICKEN / BEEF</span>
-        <span class="byob-pill">LAMB / GYRO</span>
-        <span class="byob-pill">FALAFEL</span>
-        <span class="byob-pill">CHEESE &amp; SAUCES</span>
-      </div>
-      <p class="byob-brands">
-        Works great with: <strong>Doritos &nbsp;&middot;&nbsp; Lay's &nbsp;&middot;&nbsp; Takis &nbsp;&middot;&nbsp; Cheetos</strong>
-      </p>
-      <button class="btn-byob" onclick="addToCart('BYOB — Bring Your Own Bag of Chips', 8.99)">
-        &#x1F954; TRY BYOB NOW
-      </button>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="footer-logo-img" onerror="this.style.display='none'" />
-  <p class="footer-tagline">FAST &nbsp;&middot;&nbsp; FRESH &nbsp;&middot;&nbsp; FLAVORFUL</p>
-  <p class="footer-copy">&copy; 2025 Taste on Wheels. All Rights Reserved.<br>Made Fresh. Made to Satisfy.</p>
+<!-- BYOB TEASER -->
+<section class="byob-section section">
+  <div class="container">
+    <div class="byob-inner">
+      <div class="byob-img reveal">
+        <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%284%29.jpeg"
+             alt="BYOB" onerror="this.style.display='none'" />
+        &#x1F954;
+      </div>
+      <div class="reveal reveal-d1">
+        <span class="byob-new">&#9733; NEW</span>
+        <h2 class="byob-title">BRING YOUR OWN BAG OF CHIPS</h2>
+        <p class="byob-desc">Bring any bag of your favourite chips and we&rsquo;ll fill it up with your choice of seasoned meat, melted cheese and all our signature fixings. The ultimate street-food experience.</p>
+        <div class="chip-pills">
+          <span class="chip-pill">DORITOS</span>
+          <span class="chip-pill">LAY&rsquo;S</span>
+          <span class="chip-pill">TAKIS</span>
+          <span class="chip-pill">CHEETOS</span>
+          <span class="chip-pill">&amp; MORE</span>
+        </div>
+        <a href="byob.html" class="btn btn-gold btn-lg">LEARN MORE &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="social-section section">
+  <div class="container" style="text-align:center;">
+    <span class="eyebrow">Follow Along</span>
+    <h2 class="section-title">TASTE ON WHEELS <span class="gold">IN ACTION</span></h2>
+    <div class="divider divider-center"></div>
+    <div class="social-grid">
+      <div class="social-img reveal">
+        <img src="images/WhatsApp%20Image%202026-06-07%20at%208.55.42%20PM.jpeg" alt="Food truck in action" onerror="this.style.display='none'" />
+        &#x1F356;
+        <div class="social-img-ov">&#x1F4F7;</div>
+      </div>
+      <div class="social-img reveal reveal-d1">
+        <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%287%29.jpeg" alt="Truck and banner" onerror="this.style.display='none'" />
+        &#x1F69A;
+        <div class="social-img-ov">&#x1F4F7;</div>
+      </div>
+      <div class="social-img reveal reveal-d2">
+        <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM.jpeg" alt="The truck" onerror="this.style.display='none'" />
+        &#x1F32F;
+        <div class="social-img-ov">&#x1F4F7;</div>
+      </div>
+    </div>
+    <div style="margin-top:36px;">
+      <div class="social-handle">@TASTEONWHEELS</div>
+      <a href="#" class="btn btn-outline-gold">FOLLOW ON INSTAGRAM &#x1F4F7;</a>
+    </div>
+  </div>
+</section>
+
+<!-- FLAME STRIP -->
+<div class="flame-strip" aria-hidden="true">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="ffg1" x1="0" y1="1" x2="0" y2="0">
+        <stop offset="0%" stop-color="#C0392B" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#C0392B" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,70 L0,40 Q180,5 360,32 Q540,58 720,24 Q900,0 1080,36 Q1260,62 1440,28 L1440,70 Z" fill="url(#ffg1)" opacity="0.85"/>
+    <path d="M0,70 L0,52 Q240,22 480,46 Q720,66 960,38 Q1200,16 1440,46 L1440,70 Z" fill="#7B241C" opacity="0.4"/>
+  </svg>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="footer-logo-hex" viewBox="0 0 38 44" fill="none">
+            <path d="M19 0L38 10.97V33.03L19 44L0 33.03V10.97L19 0Z" fill="#F5C107"/>
+            <path d="M19 5L33.5 13.5V30.5L19 39L4.5 30.5V13.5L19 5Z" fill="#111111"/>
+            <text x="19" y="28" text-anchor="middle" fill="#F5C107" font-family="Impact,sans-serif" font-size="17">T</text>
+          </svg>
+          <div class="footer-logo-text">
+            <span class="footer-logo-taste">TASTE</span>
+            <span class="footer-logo-sub">ON WHEELS</span>
+          </div>
+        </div>
+        <p class="footer-tagline">Fast &middot; Fresh &middot; Flavorful<br>Made Fresh. Made to Satisfy.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">&#x1F4F7;</a>
+          <a href="#" aria-label="Facebook">&#x1F4D8;</a>
+          <a href="#" aria-label="TikTok">&#x1F3B5;</a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Quick Links</span>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="order.html">Order Online</a>
+          <a href="byob.html">BYOB</a>
+          <a href="find-us.html">Find Us</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Hours</span>
+        <div class="footer-hours">
+          <div class="footer-hour-row"><strong>Mon &ndash; Fri</strong>11:00 AM &ndash; 9:00 PM</div>
+          <div class="footer-hour-row"><strong>Sat &ndash; Sun</strong>10:00 AM &ndash; 10:00 PM</div>
+          <div class="footer-hour-row" style="color:#444;font-size:0.78rem;margin-top:4px;">Hours may vary — check social for updates</div>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Contact</span>
+        <div class="footer-contact-item"><span class="footer-contact-icon">&#x1F4CD;</span><span>Check Instagram for today&rsquo;s spot!</span></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">&#x1F4DE;</span><a href="tel:+10000000000">[YOUR PHONE NUMBER]</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">&#x2709;</span><a href="mailto:hello@tasteonwheels.com">hello@tasteonwheels.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Taste on Wheels. All Rights Reserved.</p>
+      <div class="footer-payment">
+        <span class="footer-payment-label">We Accept:</span>
+        <span class="footer-payment-item">VISA</span>
+        <span class="footer-payment-item">MASTERCARD</span>
+        <span class="footer-payment-item">DISCOVER</span>
+        <span class="footer-payment-item">APPLE PAY</span>
+      </div>
+    </div>
+  </div>
 </footer>
 
-<!-- ===== CART FAB ===== -->
-<button class="cart-fab" id="cartFab" onclick="openOrderModal()" aria-label="View cart">
-  &#x1F6D2;
-  <span class="cart-badge" id="cartBadge"></span>
+<!-- CART FAB -->
+<button class="cart-fab" id="cartFab" onclick="window.location.href='order.html'" aria-label="View cart">
+  &#x1F6D2;<span class="cart-fab-badge" id="cartFabBadge"></span>
 </button>
 
-<!-- ===== ORDER MODAL ===== -->
-<div class="modal-overlay" id="orderModal" onclick="overlayClick(event,'orderModal')">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal('orderModal')" aria-label="Close">&#x2715;</button>
-    <div id="orderModalBody"></div>
-  </div>
-</div>
-
-<!-- ===== CALL MODAL ===== -->
-<div class="modal-overlay" id="callModal" onclick="overlayClick(event,'callModal')">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal('callModal')" aria-label="Close">&#x2715;</button>
-    <h2 class="modal-title">&#x1F4DE; CALL AHEAD</h2>
-    <p style="color:var(--light-gray); margin-bottom:22px; font-size:0.92rem; line-height:1.65;">
-      Call us to place your order and we&rsquo;ll have it hot &amp; ready when you arrive!
-    </p>
-    <div class="call-body">
-      <div class="call-number">[YOUR PHONE NUMBER]</div>
-      <div class="call-avail">Available during business hours</div>
-      <a href="tel:+15551234567" class="btn-call-now">CALL NOW &#x1F4DE;</a>
-    </div>
-  </div>
-</div>
-
-<script src="js/app.js"></script>
-<script src="js/gallery.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>

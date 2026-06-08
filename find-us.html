@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Us | Taste on Wheels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/nav.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+  <style>
+    /* HERO */
+    .find-hero {
+      background: var(--dark); padding: 72px 0 60px;
+      border-bottom: 3px solid var(--gold);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .find-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 80%, rgba(245,193,7,0.06) 0%, transparent 60%);
+    }
+    .find-hero-inner { position: relative; z-index: 1; }
+    .find-hero-title {
+      font-family: var(--font-head); font-size: clamp(3rem, 10vw, 8rem);
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); line-height: 0.9; margin-bottom: 14px;
+    }
+    .find-hero-sub {
+      font-size: 1.05rem; color: var(--light-gray); max-width: 520px;
+      margin: 0 auto; line-height: 1.7;
+    }
+
+    /* LOCATION INFO */
+    .location-section { background: var(--black); }
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+    .location-map-placeholder {
+      background: var(--dark-2); aspect-ratio: 16/9; border: 1px solid #222;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px; position: relative; overflow: hidden;
+    }
+    .location-map-placeholder img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      opacity: 0.4;
+    }
+    .location-map-placeholder > *:not(img) { position: relative; z-index: 1; }
+    .map-icon { font-size: 3rem; }
+    .map-label {
+      font-family: var(--font-head); font-size: 1rem; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .location-details {
+      background: var(--dark-2); padding: 48px 40px;
+      border: 1px solid #222; display: flex; flex-direction: column; justify-content: center;
+    }
+    .location-detail-row {
+      display: flex; gap: 16px; margin-bottom: 28px; align-items: flex-start;
+    }
+    .ld-icon {
+      font-size: 1.6rem; width: 44px; flex-shrink: 0; text-align: center;
+    }
+    .ld-content {}
+    .ld-label {
+      font-family: var(--font-head); font-size: 0.7rem; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 4px;
+    }
+    .ld-value { font-size: 0.95rem; color: var(--white); line-height: 1.6; }
+    .ld-value a { color: var(--white); text-decoration: none; }
+    .ld-value a:hover { color: var(--gold); }
+
+    /* CONTACT CARDS */
+    .contact-cards-section { background: var(--dark); }
+    .contact-cards-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .contact-card {
+      background: var(--black); border: 1px solid #1a1a1a;
+      padding: 36px 24px; text-align: center;
+      transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
+      border-radius: var(--radius);
+    }
+    .contact-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+      box-shadow: 0 8px 32px rgba(245,193,7,0.1);
+    }
+    .contact-card-icon { font-size: 2.5rem; margin-bottom: 14px; display: block; }
+    .contact-card-title {
+      font-family: var(--font-head); font-size: 0.85rem; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+    }
+    .contact-card-value {
+      font-size: 0.9rem; color: var(--white); line-height: 1.6; margin-bottom: 16px;
+    }
+    .contact-card-value a { color: var(--white); text-decoration: none; }
+    .contact-card-value a:hover { color: var(--gold); }
+    .contact-card-btn {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; padding: 8px 18px;
+      border: 1px solid #333; background: transparent;
+      color: var(--light-gray); cursor: pointer;
+      transition: all var(--ease);
+    }
+    .contact-card-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .contact-card-btn a { color: inherit; text-decoration: none; }
+
+    /* CALL AHEAD BOX */
+    .call-ahead-section { background: var(--red); padding: 72px 0; }
+    .call-ahead-inner {
+      display: grid; grid-template-columns: 1fr auto; gap: 40px;
+      align-items: center; background: rgba(0,0,0,0.15);
+      padding: 48px 56px; border: 1px solid rgba(255,255,255,0.1);
+    }
+    .call-ahead-text {}
+    .call-ahead-badge {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; background: #fff; color: var(--red);
+      display: inline-block; padding: 4px 12px; margin-bottom: 14px;
+    }
+    .call-ahead-title {
+      font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 3rem);
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--white); margin-bottom: 12px; line-height: 1.1;
+    }
+    .call-ahead-desc { font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.7; max-width: 480px; }
+    .call-ahead-phone {
+      text-align: center; min-width: 200px;
+    }
+    .call-ahead-num {
+      font-family: var(--font-head); font-size: 2rem; letter-spacing: 2px;
+      color: var(--white); display: block; margin-bottom: 8px;
+    }
+    .call-ahead-small { font-size: 0.75rem; color: rgba(255,255,255,0.7); letter-spacing: 1px; margin-bottom: 18px; }
+    .btn-call-white {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; padding: 14px 28px;
+      background: var(--white); color: var(--red); border: none;
+      cursor: pointer; transition: all var(--ease); white-space: nowrap;
+    }
+    .btn-call-white:hover { background: var(--gold); color: var(--black); }
+    .btn-call-white a { color: inherit; text-decoration: none; }
+
+    /* HOURS TABLE */
+    .hours-section { background: var(--black); }
+    .hours-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table tr { border-bottom: 1px solid #1a1a1a; }
+    .hours-table td { padding: 14px 0; font-size: 0.9rem; }
+    .hours-table td:first-child { color: var(--light-gray); }
+    .hours-table td:last-child { text-align: right; color: var(--white); font-weight: 600; }
+    .hours-table tr.today td { color: var(--gold); }
+    .hours-note {
+      margin-top: 20px; font-size: 0.8rem; color: var(--light-gray);
+      border-left: 3px solid var(--gold); padding-left: 14px; line-height: 1.7;
+    }
+    .hours-img-box {
+      position: relative; aspect-ratio: 4/3; background: var(--dark-2);
+      overflow: hidden; border: 1px solid #222;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+    }
+    .hours-img-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+    /* PAYMENT SECTION */
+    .payment-section { background: var(--dark); text-align: center; }
+    .payment-cards-row {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      justify-content: center; margin-top: 32px;
+    }
+    .payment-card {
+      background: var(--black); border: 1px solid #222;
+      padding: 18px 28px; min-width: 120px;
+      text-align: center; transition: border-color var(--ease);
+    }
+    .payment-card:hover { border-color: var(--gold); }
+    .payment-card-icon { font-size: 2rem; display: block; margin-bottom: 6px; }
+    .payment-card-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--light-gray);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .contact-cards-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 900px) {
+      .location-grid { grid-template-columns: 1fr; }
+      .call-ahead-inner { grid-template-columns: 1fr; text-align: center; padding: 36px 28px; }
+      .call-ahead-phone { margin-top: 20px; }
+      .hours-inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .contact-cards-grid { grid-template-columns: 1fr; }
+      .location-details { padding: 32px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner container-wide">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-hex" viewBox="0 0 38 44" fill="none">
+        <path d="M19 0L38 10.97V33.03L19 44L0 33.03V10.97L19 0Z" fill="#F5C107"/>
+        <path d="M19 5L33.5 13.5V30.5L19 39L4.5 30.5V13.5L19 5Z" fill="#111111"/>
+        <text x="19" y="28" text-anchor="middle" fill="#F5C107" font-family="Impact,sans-serif" font-size="17">T</text>
+      </svg>
+      <div class="nav-logo-text"><span class="nav-logo-taste">TASTE</span><span class="nav-logo-sub">ON WHEELS</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="order.html">Order</a></li>
+      <li><a href="byob.html">BYOB</a></li>
+      <li><a href="find-us.html">Find Us</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-cart-btn" onclick="window.location.href='order.html'" aria-label="Cart">&#x1F6D2;<span class="cart-badge" id="cartBadge"></span></button>
+      <a href="order.html" class="btn-nav-order desktop-only">ORDER NOW</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay">
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="menu.html"  onclick="closeMobileNav()">Menu</a>
+  <a href="order.html" onclick="closeMobileNav()">Order</a>
+  <a href="byob.html"  onclick="closeMobileNav()">BYOB</a>
+  <a href="find-us.html" onclick="closeMobileNav()">Find Us</a>
+  <a href="about.html"   onclick="closeMobileNav()">About</a>
+  <a href="order.html" class="btn-nav-order" onclick="closeMobileNav()">ORDER NOW</a>
+</div>
+
+<!-- HERO -->
+<section class="find-hero">
+  <div class="container find-hero-inner">
+    <h1 class="find-hero-title">FIND US</h1>
+    <p class="find-hero-sub">We&rsquo;re a food truck &mdash; we move! Check our Instagram for today&rsquo;s location and hours before you head out.</p>
+  </div>
+</section>
+
+<!-- LOCATION INFO -->
+<section class="location-section section">
+  <div class="container" style="text-align:center; margin-bottom:48px;">
+    <span class="eyebrow">Our Location</span>
+    <h2 class="section-title">WHERE TO <span class="gold">FIND US</span></h2>
+    <div class="divider divider-center"></div>
+  </div>
+  <div class="container">
+    <div class="location-grid">
+      <div class="location-map-placeholder reveal">
+        <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%283%29.jpeg"
+             alt="Truck location" onerror="this.style.display='none'" />
+        <span class="map-icon">&#x1F4CD;</span>
+        <span class="map-label">Check Instagram for Live Location</span>
+        <a href="#" class="btn btn-gold btn-sm" style="margin-top:8px">&#x1F4F8; Follow on Instagram</a>
+      </div>
+      <div class="location-details reveal reveal-d1">
+        <div class="location-detail-row">
+          <div class="ld-icon">&#x1F4CD;</div>
+          <div class="ld-content">
+            <div class="ld-label">Home Base</div>
+            <div class="ld-value">Greater Toronto Area, Ontario<br>We post daily location updates on Instagram!</div>
+          </div>
+        </div>
+        <div class="location-detail-row">
+          <div class="ld-icon">&#x1F550;</div>
+          <div class="ld-content">
+            <div class="ld-label">Typical Hours</div>
+            <div class="ld-value">Mon &ndash; Fri: 11:00 AM &ndash; 9:00 PM<br>Sat &ndash; Sun: 10:00 AM &ndash; 10:00 PM</div>
+          </div>
+        </div>
+        <div class="location-detail-row">
+          <div class="ld-icon">&#x1F4F8;</div>
+          <div class="ld-content">
+            <div class="ld-label">Live Updates</div>
+            <div class="ld-value">Follow us on Instagram for real-time location, daily specials and truck schedule updates.</div>
+          </div>
+        </div>
+        <div class="location-detail-row">
+          <div class="ld-icon">&#x2615;</div>
+          <div class="ld-content">
+            <div class="ld-label">Catering & Events</div>
+            <div class="ld-value">We do private events, weddings and corporate catering!<br><a href="mailto:hello@tasteonwheels.com">hello@tasteonwheels.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CARDS -->
+<section class="contact-cards-section section">
+  <div class="container" style="text-align:center; margin-bottom:48px;">
+    <span class="eyebrow">Get In Touch</span>
+    <h2 class="section-title">CONTACT <span class="gold">US</span></h2>
+    <div class="divider divider-center"></div>
+  </div>
+  <div class="container">
+    <div class="contact-cards-grid">
+      <div class="contact-card reveal">
+        <span class="contact-card-icon">&#x1F4DE;</span>
+        <div class="contact-card-title">Call Us</div>
+        <div class="contact-card-value"><a href="tel:+10000000000">[YOUR PHONE NUMBER]</a></div>
+        <button class="contact-card-btn"><a href="tel:+10000000000">CALL NOW</a></button>
+      </div>
+      <div class="contact-card reveal reveal-d1">
+        <span class="contact-card-icon">&#x2709;&#xFE0F;</span>
+        <div class="contact-card-title">Email Us</div>
+        <div class="contact-card-value"><a href="mailto:hello@tasteonwheels.com">hello@tasteonwheels.com</a></div>
+        <button class="contact-card-btn"><a href="mailto:hello@tasteonwheels.com">SEND EMAIL</a></button>
+      </div>
+      <div class="contact-card reveal reveal-d2">
+        <span class="contact-card-icon">&#x1F4F8;</span>
+        <div class="contact-card-title">Instagram</div>
+        <div class="contact-card-value">@tasteonwheels<br>Daily location updates</div>
+        <button class="contact-card-btn"><a href="#">FOLLOW US</a></button>
+      </div>
+      <div class="contact-card reveal reveal-d3">
+        <span class="contact-card-icon">&#x1F3B5;</span>
+        <div class="contact-card-title">TikTok</div>
+        <div class="contact-card-value">@tasteonwheels<br>Food reels & behind the scenes</div>
+        <button class="contact-card-btn"><a href="#">WATCH REELS</a></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALL AHEAD BOX -->
+<section class="call-ahead-section">
+  <div class="container">
+    <div class="call-ahead-inner">
+      <div class="call-ahead-text">
+        <span class="call-ahead-badge">&#9733; PRO TIP</span>
+        <h2 class="call-ahead-title">CALL AHEAD &amp;<br>SKIP THE WAIT</h2>
+        <p class="call-ahead-desc">
+          Heading over? Call ahead and your order will be ready when you arrive. No waiting around — just hot food in your hands. We recommend calling at least 15 minutes before you arrive, especially during peak hours.
+        </p>
+      </div>
+      <div class="call-ahead-phone reveal">
+        <span class="call-ahead-num">[YOUR #]</span>
+        <div class="call-ahead-small">CALL AHEAD TO PRE-ORDER</div>
+        <button class="btn-call-white"><a href="tel:+10000000000">CALL NOW &rarr;</a></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS TABLE -->
+<section class="hours-section section">
+  <div class="container" style="text-align:center; margin-bottom:48px;">
+    <span class="eyebrow">When We&rsquo;re Open</span>
+    <h2 class="section-title">OUR <span class="gold">HOURS</span></h2>
+    <div class="divider divider-center"></div>
+  </div>
+  <div class="container">
+    <div class="hours-inner">
+      <div class="reveal">
+        <table class="hours-table">
+          <tr>
+            <td>Monday</td><td>11:00 AM &ndash; 9:00 PM</td>
+          </tr>
+          <tr>
+            <td>Tuesday</td><td>11:00 AM &ndash; 9:00 PM</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td><td>11:00 AM &ndash; 9:00 PM</td>
+          </tr>
+          <tr>
+            <td>Thursday</td><td>11:00 AM &ndash; 9:00 PM</td>
+          </tr>
+          <tr>
+            <td>Friday</td><td>11:00 AM &ndash; 10:00 PM</td>
+          </tr>
+          <tr>
+            <td>Saturday</td><td>10:00 AM &ndash; 10:00 PM</td>
+          </tr>
+          <tr>
+            <td>Sunday</td><td>10:00 AM &ndash; 9:00 PM</td>
+          </tr>
+        </table>
+        <div class="hours-note">
+          Hours may vary on holidays and special events. Always check Instagram for the most up-to-date schedule and location info before visiting.
+        </div>
+      </div>
+      <div class="hours-img-box reveal reveal-d1">
+        <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%282%29.jpeg"
+             alt="Food truck" onerror="this.style.display='none'" />
+        &#x1F69A;
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT METHODS -->
+<section class="payment-section section">
+  <div class="container">
+    <span class="eyebrow">How To Pay</span>
+    <h2 class="section-title">WE ACCEPT <span class="gold">ALL MAJOR PAYMENTS</span></h2>
+    <div class="divider divider-center"></div>
+    <p class="section-sub" style="text-align:center; margin:0 auto;">Pay fast. Pay easy. No cash? No problem.</p>
+    <div class="payment-cards-row">
+      <div class="payment-card reveal">
+        <span class="payment-card-icon">&#x1F4B3;</span>
+        <span class="payment-card-label">Visa</span>
+      </div>
+      <div class="payment-card reveal reveal-d1">
+        <span class="payment-card-icon">&#x1F4B3;</span>
+        <span class="payment-card-label">Mastercard</span>
+      </div>
+      <div class="payment-card reveal reveal-d2">
+        <span class="payment-card-icon">&#x1F34E;</span>
+        <span class="payment-card-label">Apple Pay</span>
+      </div>
+      <div class="payment-card reveal reveal-d3">
+        <span class="payment-card-icon">&#x1F4F1;</span>
+        <span class="payment-card-label">Google Pay</span>
+      </div>
+      <div class="payment-card reveal reveal-d4">
+        <span class="payment-card-icon">&#x1F4B5;</span>
+        <span class="payment-card-label">Cash</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLAME + FOOTER -->
+<div class="flame-strip" aria-hidden="true">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+    <defs><linearGradient id="fg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#C0392B" stop-opacity="1"/><stop offset="100%" stop-color="#C0392B" stop-opacity="0"/></linearGradient></defs>
+    <path d="M0,70 L0,40 Q180,5 360,32 Q540,58 720,24 Q900,0 1080,36 Q1260,62 1440,28 L1440,70 Z" fill="url(#fg1)" opacity="0.85"/>
+  </svg>
+</div>
+<footer class="footer">
+  <div class="container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="footer-logo-hex" viewBox="0 0 38 44" fill="none"><path d="M19 0L38 10.97V33.03L19 44L0 33.03V10.97L19 0Z" fill="#F5C107"/><path d="M19 5L33.5 13.5V30.5L19 39L4.5 30.5V13.5L19 5Z" fill="#111111"/><text x="19" y="28" text-anchor="middle" fill="#F5C107" font-family="Impact,sans-serif" font-size="17">T</text></svg>
+          <div class="footer-logo-text"><span class="footer-logo-taste">TASTE</span><span class="footer-logo-sub">ON WHEELS</span></div>
+        </div>
+        <p class="footer-tagline">Fast &middot; Fresh &middot; Flavorful<br>Made Fresh. Made to Satisfy.</p>
+        <div class="footer-social"><a href="#">&#x1F4F7;</a><a href="#">&#x1F4D8;</a><a href="#">&#x1F3B5;</a></div>
+      </div>
+      <div><span class="footer-col-title">Quick Links</span><div class="footer-links"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="order.html">Order Online</a><a href="byob.html">BYOB</a><a href="find-us.html">Find Us</a><a href="about.html">About</a></div></div>
+      <div><span class="footer-col-title">Hours</span><div class="footer-hours"><div class="footer-hour-row"><strong>Mon &ndash; Fri</strong>11:00 AM &ndash; 9:00 PM</div><div class="footer-hour-row"><strong>Sat &ndash; Sun</strong>10:00 AM &ndash; 10:00 PM</div></div></div>
+      <div><span class="footer-col-title">Contact</span><div class="footer-contact-item"><span class="footer-contact-icon">&#x1F4CD;</span><span>Check Instagram for today&rsquo;s spot!</span></div><div class="footer-contact-item"><span class="footer-contact-icon">&#x1F4DE;</span><a href="tel:+10000000000">[YOUR PHONE NUMBER]</a></div><div class="footer-contact-item"><span class="footer-contact-icon">&#x2709;</span><a href="mailto:hello@tasteonwheels.com">hello@tasteonwheels.com</a></div></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">&copy; 2025 Taste on Wheels. All Rights Reserved.</p><div class="footer-payment"><span class="footer-payment-label">We Accept:</span><span class="footer-payment-item">VISA</span><span class="footer-payment-item">MASTERCARD</span><span class="footer-payment-item">DISCOVER</span><span class="footer-payment-item">APPLE PAY</span></div></div>
+  </div>
+</footer>
+
+<button class="cart-fab" id="cartFab" onclick="window.location.href='order.html'" aria-label="Cart">
+  &#x1F6D2;<span class="cart-fab-badge" id="cartFabBadge"></span>
+</button>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

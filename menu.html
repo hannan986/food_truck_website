@@ -6,686 +6,742 @@
   <title>Menu — Taste on Wheels</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/menu.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/nav.css" />
+  <link rel="stylesheet" href="assets/css/footer.css" />
+  <style>
+    /* STICKY SIDEBAR + SCROLL LAYOUT */
+    .menu-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    /* Desktop sidebar */
+    .menu-sidebar {
+      position: sticky;
+      top: 68px;
+      background: var(--dark);
+      border-right: 1px solid #1f1f1f;
+      min-height: calc(100vh - 68px);
+      padding: 32px 0;
+    }
+    .sidebar-label {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--gold);
+      padding: 0 20px; margin-bottom: 12px; display: block;
+    }
+    .sidebar-nav { list-style: none; }
+    .sidebar-nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 20px;
+      font-size: 0.82rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1px;
+      color: #777;
+      text-decoration: none;
+      transition: all var(--ease);
+      border-left: 3px solid transparent;
+    }
+    .sidebar-nav a:hover, .sidebar-nav a.active {
+      color: var(--gold);
+      background: rgba(245,193,7,0.05);
+      border-left-color: var(--gold);
+    }
+    .sidebar-nav-icon { font-size: 1.1rem; width: 20px; text-align: center; }
+
+    /* Mobile tab bar */
+    .menu-tab-bar {
+      display: none;
+      position: sticky;
+      top: 68px;
+      z-index: 90;
+      background: #0a0a0a;
+      border-bottom: 1px solid #1a1a1a;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .menu-tab-bar::-webkit-scrollbar { display: none; }
+    .menu-tab-bar-inner { display: flex; white-space: nowrap; padding: 0 12px; }
+    .tab-bar-btn {
+      flex-shrink: 0; background: none; border: none;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: #666;
+      padding: 16px 14px; cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: color var(--ease), border-color var(--ease);
+    }
+    .tab-bar-btn:hover, .tab-bar-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+    /* Menu body */
+    .menu-body { background: var(--black); }
+
+    /* Category section */
+    .menu-cat {
+      padding: 64px 40px 48px;
+      border-bottom: 1px solid #141414;
+    }
+    .menu-cat:last-child { border-bottom: none; }
+    .cat-header {
+      display: flex; align-items: center; gap: 18px;
+      margin-bottom: 36px;
+    }
+    .cat-num {
+      font-family: var(--font-head); font-size: 0.9rem; letter-spacing: 2px;
+      color: var(--gold); opacity: 0.6; flex-shrink: 0;
+    }
+    .cat-title {
+      font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.6rem);
+      letter-spacing: 2px; text-transform: uppercase; color: var(--white);
+      line-height: 1;
+    }
+    .cat-rule { flex: 1; height: 1px; background: #1f1f1f; }
+
+    /* Item grid — 3 cols */
+    .item-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    /* Menu item card */
+    .item-card {
+      background: var(--dark-2);
+      border: 1px solid #222;
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
+    }
+    .item-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+      box-shadow: 0 8px 32px rgba(245,193,7,0.12);
+    }
+    .item-visual {
+      height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .item-visual::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: var(--gold); opacity: 0;
+      transition: opacity var(--ease);
+    }
+    .item-card:hover .item-visual::after { opacity: 1; }
+    /* Category-specific gradient backgrounds */
+    .vc-bowls   { background: linear-gradient(145deg, #1a1000 0%, #2e1c00 100%); }
+    .vc-wraps   { background: linear-gradient(145deg, #0e160e 0%, #142214 100%); }
+    .vc-burgers { background: linear-gradient(145deg, #1a0800 0%, #2c1000 100%); }
+    .vc-steak   { background: linear-gradient(145deg, #141000 0%, #201800 100%); }
+    .vc-sides   { background: linear-gradient(145deg, #0a0a18 0%, #10101e 100%); }
+    .vc-snacks  { background: linear-gradient(145deg, #180a00 0%, #241200 100%); }
+
+    .item-body { padding: 18px 18px 16px; flex: 1; display: flex; flex-direction: column; }
+    .item-name {
+      font-family: var(--font-head); font-size: 1.05rem; letter-spacing: 0.8px;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 8px; line-height: 1.15;
+    }
+    .item-desc { font-size: 0.83rem; color: #888; line-height: 1.6; flex: 1; margin-bottom: 14px; }
+    .item-note { font-size: 0.72rem; color: #555; font-style: italic; margin-bottom: 12px; }
+    .item-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 12px; border-top: 1px solid #1c1c1c;
+      margin-top: auto;
+    }
+    .item-price { font-family: var(--font-head); font-size: 1.5rem; color: var(--gold); }
+    .btn-add-item {
+      background: var(--red); color: var(--white);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 9px 16px; border: none; cursor: pointer;
+      transition: background var(--ease), transform 0.15s;
+    }
+    .btn-add-item:hover { background: var(--red-dark); transform: scale(1.05); }
+
+    /* Combo upsell bar between sections */
+    .combo-upsell {
+      background: var(--red); padding: 14px 40px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .combo-upsell-text {
+      font-family: var(--font-head); font-size: 1.05rem; letter-spacing: 1px; color: var(--white);
+    }
+    .combo-upsell-text span { color: var(--gold); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) { .item-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 900px) {
+      .menu-sidebar { display: none; }
+      .menu-tab-bar { display: block; }
+      .menu-layout { grid-template-columns: 1fr; }
+      .menu-cat { padding: 44px 24px 36px; }
+    }
+    @media (max-width: 600px) {
+      .item-grid { grid-template-columns: 1fr; }
+      .menu-cat { padding: 36px 18px 28px; }
+      .combo-upsell { padding: 14px 18px; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
-<nav class="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="logo" aria-label="Taste on Wheels — Home">
-      <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="logo-img" onerror="this.style.display='none'" />
-      <div class="logo-text">
-        <span class="logo-taste">TASTE</span>
-        <span class="logo-on-wheels">ON WHEELS</span>
-      </div>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner container-wide">
+    <a href="index.html" class="nav-logo">
+      <svg class="nav-logo-hex" viewBox="0 0 38 44" fill="none">
+        <path d="M19 0L38 10.97V33.03L19 44L0 33.03V10.97L19 0Z" fill="#F5C107"/>
+        <path d="M19 5L33.5 13.5V30.5L19 39L4.5 30.5V13.5L19 5Z" fill="#111111"/>
+        <text x="19" y="28" text-anchor="middle" fill="#F5C107" font-family="Impact,sans-serif" font-size="17">T</text>
+      </svg>
+      <div class="nav-logo-text"><span class="nav-logo-taste">TASTE</span><span class="nav-logo-sub">ON WHEELS</span></div>
     </a>
     <ul class="nav-links">
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="menu.html" class="active">Menu</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
       <li><a href="order.html">Order</a></li>
-      <li><a href="contact.html">Find Us</a></li>
+      <li><a href="byob.html">BYOB</a></li>
+      <li><a href="find-us.html">Find Us</a></li>
+      <li><a href="about.html">About</a></li>
     </ul>
-    <button class="btn-nav-order" onclick="openOrderModal()">ORDER NOW</button>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" onclick="toggleMobileNav()">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="gallery.html" onclick="closeMobileNav()">Gallery</a>
-    <a href="menu.html"    onclick="closeMobileNav()">Menu</a>
-    <a href="order.html"   onclick="closeMobileNav()">Order</a>
-    <a href="contact.html" onclick="closeMobileNav()">Find Us</a>
-    <button class="btn-nav-order" onclick="openOrderModal(); closeMobileNav()">ORDER NOW</button>
+    <div class="nav-right">
+      <button class="nav-cart-btn" onclick="window.location.href='order.html'" aria-label="Cart">&#x1F6D2;<span class="cart-badge" id="cartBadge"></span></button>
+      <a href="order.html" class="btn-nav-order desktop-only">ORDER NOW</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<div class="mobile-overlay" id="mobileOverlay">
+  <a href="index.html" onclick="closeMobileNav()">Home</a>
+  <a href="menu.html"  onclick="closeMobileNav()">Menu</a>
+  <a href="order.html" onclick="closeMobileNav()">Order</a>
+  <a href="byob.html"  onclick="closeMobileNav()">BYOB</a>
+  <a href="find-us.html" onclick="closeMobileNav()">Find Us</a>
+  <a href="about.html"   onclick="closeMobileNav()">About</a>
+  <a href="order.html" class="btn-nav-order" onclick="closeMobileNav()">ORDER NOW</a>
+</div>
 
-<!-- ===== PAGE HERO ===== -->
+<!-- PAGE HERO -->
 <div class="page-hero">
-  <div class="page-hero-content">
-    <h1 class="page-hero-title">OUR MENU</h1>
-    <p class="page-hero-sub">Fresh ingredients. Bold flavours. Your choice.</p>
+  <div class="container page-hero-inner">
+    <p class="page-hero-eyebrow">Taste on Wheels</p>
+    <h1 class="page-hero-title">OUR <span class="gold">MENU</span></h1>
+    <p class="page-hero-sub">Fresh ingredients. Bold flavors. Made to order every single time.</p>
   </div>
 </div>
 
-<!-- ===== COMBO BANNER ===== -->
+<!-- COMBO BANNER -->
 <div class="combo-banner">
-  <div class="combo-inner">
-    <div class="combo-badge">$4.99</div>
-    <p class="combo-text">MAKE IT A COMBO &mdash; ANY MAIN &plus; REGULAR FRIES &plus; DRINK</p>
-    <div class="combo-badge">$4.99</div>
+  <div class="container-wide">
+    <div class="combo-banner-inner">
+      <div><div class="combo-banner-title">MAKE IT A COMBO</div>
+      <div class="combo-banner-desc">Any Main + Regular Fries + Drink &mdash; <strong style="color:var(--gold)">Only $4.99 extra</strong></div></div>
+      <div style="font-family:var(--font-head);font-size:2.8rem;color:var(--gold);line-height:1">$4.99</div>
+      <a href="order.html" class="btn btn-outline-white btn-sm">ADD A COMBO &rarr;</a>
+    </div>
   </div>
 </div>
 
-<!-- ===== MENU ===== -->
-<section class="menu-section" id="menu">
-
-  <!-- Sticky category nav -->
-  <div class="menu-nav-wrap">
-    <div class="menu-tabs">
-      <button class="tab-btn active" data-tab="bowls"   onclick="switchTab('bowls')">Bowls</button>
-      <button class="tab-btn"        data-tab="wraps"   onclick="switchTab('wraps')">Wraps</button>
-      <button class="tab-btn"        data-tab="burgers" onclick="switchTab('burgers')">Burgers</button>
-      <button class="tab-btn"        data-tab="steak"   onclick="switchTab('steak')">Steak &amp; Cheese</button>
-      <button class="tab-btn"        data-tab="sides"   onclick="switchTab('sides')">Sides</button>
-      <button class="tab-btn"        data-tab="snacks"  onclick="switchTab('snacks')">Snacks</button>
-    </div>
+<!-- MOBILE TAB BAR -->
+<div class="menu-tab-bar" id="menuTabBar">
+  <div class="menu-tab-bar-inner">
+    <button class="tab-bar-btn active" onclick="tabScroll('bowls',this)">&#x1F35A; Bowls</button>
+    <button class="tab-bar-btn" onclick="tabScroll('wraps',this)">&#x1F32F; Wraps</button>
+    <button class="tab-bar-btn" onclick="tabScroll('burgers',this)">&#x1F354; Burgers</button>
+    <button class="tab-bar-btn" onclick="tabScroll('steak',this)">&#x1F969; Steak &amp; Cheese</button>
+    <button class="tab-bar-btn" onclick="tabScroll('sides',this)">&#x1F35F; Sides</button>
+    <button class="tab-bar-btn" onclick="tabScroll('snacks',this)">&#x1F357; Snacks</button>
   </div>
+</div>
 
-  <!-- ===== BOWLS ===== -->
-  <div class="tab-panel active" id="tab-bowls">
-    <div class="menu-cat-header">
-      <span class="menu-cat-num">No. 01</span>
-      <h2 class="menu-cat-title">BOWLS</h2>
-      <div class="menu-cat-rule"></div>
+<!-- MENU LAYOUT -->
+<div class="menu-layout">
+
+  <!-- DESKTOP SIDEBAR -->
+  <aside class="menu-sidebar">
+    <span class="sidebar-label">Categories</span>
+    <ul class="sidebar-nav">
+      <li><a href="#bowls"   class="active"><span class="sidebar-nav-icon">&#x1F35A;</span>Bowls</a></li>
+      <li><a href="#wraps"><span class="sidebar-nav-icon">&#x1F32F;</span>Wraps</a></li>
+      <li><a href="#burgers"><span class="sidebar-nav-icon">&#x1F354;</span>Burgers</a></li>
+      <li><a href="#steak"><span class="sidebar-nav-icon">&#x1F969;</span>Steak &amp; Cheese</a></li>
+      <li><a href="#sides"><span class="sidebar-nav-icon">&#x1F35F;</span>Sides</a></li>
+      <li><a href="#snacks"><span class="sidebar-nav-icon">&#x1F357;</span>Snacks</a></li>
+    </ul>
+  </aside>
+
+  <!-- MENU BODY -->
+  <main class="menu-body">
+
+    <!-- BOWLS -->
+    <section class="menu-cat" id="bowls">
+      <div class="cat-header">
+        <span class="cat-num">No. 01</span>
+        <h2 class="cat-title">BOWLS</h2>
+        <div class="cat-rule"></div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-visual vc-bowls">&#x1F35A;</div>
+          <div class="item-body">
+            <div class="item-name">Lamb Over Rice</div>
+            <div class="item-desc">Savory seasoned lamb over fluffy rice with fresh veggies and our signature white and hot sauce.</div>
+            <div class="item-note">&#x2713; Halal &nbsp;&#x2713; Rice Base</div>
+            <div class="item-footer">
+              <span class="item-price">$10.99</span>
+              <button class="btn-add-item" onclick="addToCart('Lamb Over Rice',10.99)">ADD TO ORDER &rarr;</button>
+            </div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d1">
+          <div class="item-visual vc-bowls">&#x1F357;</div>
+          <div class="item-body">
+            <div class="item-name">Chicken Over Rice</div>
+            <div class="item-desc">Juicy marinated chicken over fluffy rice with fresh veggies and our signature sauces.</div>
+            <div class="item-note">&#x2713; Halal &nbsp;&#x2713; Rice Base</div>
+            <div class="item-footer">
+              <span class="item-price">$10.99</span>
+              <button class="btn-add-item" onclick="addToCart('Chicken Over Rice',10.99)">ADD TO ORDER &rarr;</button>
+            </div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d2">
+          <div class="item-visual vc-bowls">&#x1F9C6;</div>
+          <div class="item-body">
+            <div class="item-name">Lamb &amp; Chicken Over Rice</div>
+            <div class="item-desc">The best of both worlds — seasoned lamb &amp; chicken over rice with fresh veggies and signature sauces.</div>
+            <div class="item-note">&#x2713; Halal &nbsp;&#x2713; Best Seller</div>
+            <div class="item-footer">
+              <span class="item-price">$12.99</span>
+              <button class="btn-add-item" onclick="addToCart('Lamb & Chicken Over Rice',12.99)">ADD TO ORDER &rarr;</button>
+            </div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d3">
+          <div class="item-visual vc-bowls">&#x1F9C5;</div>
+          <div class="item-body">
+            <div class="item-name">Falafel Over Rice</div>
+            <div class="item-desc">Crispy golden falafel over fluffy rice with fresh veggies and our tahini signature sauce.</div>
+            <div class="item-note">&#x2713; Vegetarian &nbsp;&#x2713; Tahini</div>
+            <div class="item-footer">
+              <span class="item-price">$9.99</span>
+              <button class="btn-add-item" onclick="addToCart('Falafel Over Rice',9.99)">ADD TO ORDER &rarr;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMBO UPSELL -->
+    <div class="combo-upsell">
+      <span class="combo-upsell-text">MAKE IT A COMBO FOR JUST <span>$4.99</span> — ADD FRIES + DRINK</span>
+      <a href="order.html" class="btn btn-sm btn-outline-white">ADD COMBO</a>
     </div>
-    <div class="menu-grid">
 
-      <div class="menu-card reveal">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-bowls">&#x1F35A;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Bowl &mdash; No. 01</div>
-          <div class="menu-name">Lamb Over Rice</div>
-          <div class="menu-desc">Savory seasoned lamb piled over fluffy white rice with fresh lettuce, diced tomatoes, onions, and our signature white &amp; hot sauce.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal</span>
-            <span class="menu-tag">Rice Base</span>
-            <span class="menu-tag">White Sauce</span>
-            <span class="menu-tag">Hot Sauce</span>
+    <!-- WRAPS -->
+    <section class="menu-cat" id="wraps">
+      <div class="cat-header">
+        <span class="cat-num">No. 02</span>
+        <h2 class="cat-title">WRAPS</h2>
+        <div class="cat-rule"></div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-visual vc-wraps">&#x1F32F;</div>
+          <div class="item-body">
+            <div class="item-name">Chicken Gyro Wrap</div>
+            <div class="item-desc">Marinated chicken, crisp lettuce, tomatoes, onions, and our signature sauce, wrapped in warm pita.</div>
+            <div class="item-note">&#x2713; Halal &nbsp;&#x2713; Pita</div>
+            <div class="item-footer">
+              <span class="item-price">$9.99</span>
+              <button class="btn-add-item" onclick="addToCart('Chicken Gyro Wrap',9.99)">ADD TO ORDER &rarr;</button>
+            </div>
           </div>
-          <div class="menu-footer">
-            <span class="menu-price">$10.99</span>
-            <button class="btn-add" onclick="addToCart('Lamb Over Rice', 10.99)">ADD TO CART</button>
+        </div>
+        <div class="item-card reveal reveal-d1">
+          <div class="item-visual vc-wraps">&#x1F32F;</div>
+          <div class="item-body">
+            <div class="item-name">Lamb Gyro Wrap</div>
+            <div class="item-desc">Savory seasoned lamb, lettuce, tomatoes, onions, and our signature sauce in warm pita.</div>
+            <div class="item-note">&#x2713; Halal &nbsp;&#x2713; Pita</div>
+            <div class="item-footer">
+              <span class="item-price">$9.99</span>
+              <button class="btn-add-item" onclick="addToCart('Lamb Gyro Wrap',9.99)">ADD TO ORDER &rarr;</button>
+            </div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d2">
+          <div class="item-visual vc-wraps">&#x1F9C6;</div>
+          <div class="item-body">
+            <div class="item-name">Falafel Wrap</div>
+            <div class="item-desc">Crispy falafel, fresh lettuce, tomatoes, onions, and our tahini sauce wrapped in warm pita.</div>
+            <div class="item-note">&#x2713; Vegetarian &nbsp;&#x2713; Tahini</div>
+            <div class="item-footer">
+              <span class="item-price">$8.99</span>
+              <button class="btn-add-item" onclick="addToCart('Falafel Wrap',8.99)">ADD TO ORDER &rarr;</button>
+            </div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d3">
+          <div class="item-visual vc-wraps">&#x1F32F;</div>
+          <div class="item-body">
+            <div class="item-name">Fried Chicken Wrap</div>
+            <div class="item-desc">Crispy fried chicken, lettuce, tomatoes, pickles, and our signature sauce in a warm tortilla.</div>
+            <div class="item-note">&#x2713; Halal &nbsp;&#x2713; Tortilla</div>
+            <div class="item-footer">
+              <span class="item-price">$9.99</span>
+              <button class="btn-add-item" onclick="addToCart('Fried Chicken Wrap',9.99)">ADD TO ORDER &rarr;</button>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="menu-card reveal reveal-d1">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-bowls">&#x1F357;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Bowl &mdash; No. 02</div>
-          <div class="menu-name">Chicken Over Rice</div>
-          <div class="menu-desc">Marinated and grilled chicken over fluffy rice with crisp lettuce, tomatoes, onions, and your choice of signature sauces.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal</span>
-            <span class="menu-tag">Rice Base</span>
-            <span class="menu-tag">Grilled</span>
-            <span class="menu-tag">White Sauce</span>
+    <!-- BURGERS -->
+    <section class="menu-cat" id="burgers">
+      <div class="cat-header">
+        <span class="cat-num">No. 03</span>
+        <h2 class="cat-title">BURGERS</h2>
+        <div class="cat-rule"></div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-visual vc-burgers">&#x1F354;</div>
+          <div class="item-body">
+            <div class="item-name">Hamburger</div>
+            <div class="item-desc">Classic juicy beef patty with lettuce, tomato, onion, pickles and our signature sauce.</div>
+            <div class="item-note">&#x2713; Halal Beef &nbsp;&#x2713; Classic</div>
+            <div class="item-footer">
+              <span class="item-price">$7.99</span>
+              <button class="btn-add-item" onclick="addToCart('Hamburger',7.99)">ADD TO ORDER &rarr;</button>
+            </div>
           </div>
-          <div class="menu-footer">
-            <span class="menu-price">$9.99</span>
-            <button class="btn-add" onclick="addToCart('Chicken Over Rice', 9.99)">ADD TO CART</button>
+        </div>
+        <div class="item-card reveal reveal-d1">
+          <div class="item-visual vc-burgers">&#x1F354;</div>
+          <div class="item-body">
+            <div class="item-name">Cheeseburger</div>
+            <div class="item-desc">Juicy beef patty with melted cheese, fresh veggies, pickles and our signature sauce.</div>
+            <div class="item-note">&#x2713; Halal Beef &nbsp;&#x2713; Cheddar</div>
+            <div class="item-footer">
+              <span class="item-price">$8.99</span>
+              <button class="btn-add-item" onclick="addToCart('Cheeseburger',8.99)">ADD TO ORDER &rarr;</button>
+            </div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d2">
+          <div class="item-visual vc-burgers">&#x1F357;</div>
+          <div class="item-body">
+            <div class="item-name">Chicken Sandwich</div>
+            <div class="item-desc">Grilled or crispy chicken with lettuce, tomato and our signature sauce on a toasted bun.</div>
+            <div class="item-note">&#x2713; Halal Chicken &nbsp;&#x2713; Grilled or Crispy</div>
+            <div class="item-footer">
+              <span class="item-price">$9.99</span>
+              <button class="btn-add-item" onclick="addToCart('Chicken Sandwich',9.99)">ADD TO ORDER &rarr;</button>
+            </div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d3">
+          <div class="item-visual vc-burgers">&#x1F354;</div>
+          <div class="item-body">
+            <div class="item-name">Veggie Burger</div>
+            <div class="item-desc">Flavorful veggie patty with lettuce, tomato, onion and our signature sauce.</div>
+            <div class="item-note">&#x2713; Vegetarian</div>
+            <div class="item-footer">
+              <span class="item-price">$8.99</span>
+              <button class="btn-add-item" onclick="addToCart('Veggie Burger',8.99)">ADD TO ORDER &rarr;</button>
+            </div>
+          </div>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-visual vc-burgers">&#x1F354;</div>
+          <div class="item-body">
+            <div class="item-name">Double Cheeseburger</div>
+            <div class="item-desc">Double the beef, double the cheese, double the satisfaction — stacked high and loaded with flavor.</div>
+            <div class="item-note">&#x2713; Halal Beef &nbsp;&#x2713; Best Seller</div>
+            <div class="item-footer">
+              <span class="item-price">$11.99</span>
+              <button class="btn-add-item" onclick="addToCart('Double Cheeseburger',11.99)">ADD TO ORDER &rarr;</button>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="menu-card reveal reveal-d2">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-bowls">&#x1F9C6;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Bowl &mdash; No. 03</div>
-          <div class="menu-name">Mixed Platter Over Rice</div>
-          <div class="menu-desc">The best of both worlds — seasoned lamb &amp; grilled chicken together over rice with fresh toppings and signature sauces.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal</span>
-            <span class="menu-tag">Lamb + Chicken</span>
-            <span class="menu-tag">Best Seller</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$11.99</span>
-            <button class="btn-add" onclick="addToCart('Mixed Platter Over Rice', 11.99)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d3">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-bowls">&#x1F9C5;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Bowl &mdash; No. 04</div>
-          <div class="menu-name">Falafel Over Rice</div>
-          <div class="menu-desc">Golden crispy falafel balls over fluffy rice with fresh lettuce, tomatoes, cucumbers, tahini and creamy white sauce.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Vegetarian</span>
-            <span class="menu-tag">Falafel</span>
-            <span class="menu-tag">Tahini</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$9.49</span>
-            <button class="btn-add" onclick="addToCart('Falafel Over Rice', 9.49)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
+    <!-- COMBO UPSELL -->
+    <div class="combo-upsell">
+      <span class="combo-upsell-text">MAKE IT A COMBO FOR JUST <span>$4.99</span> — ADD FRIES + DRINK</span>
+      <a href="order.html" class="btn btn-sm btn-outline-white">ADD COMBO</a>
     </div>
-  </div>
 
-  <!-- ===== WRAPS ===== -->
-  <div class="tab-panel" id="tab-wraps">
-    <div class="menu-cat-header">
-      <span class="menu-cat-num">No. 02</span>
-      <h2 class="menu-cat-title">WRAPS</h2>
-      <div class="menu-cat-rule"></div>
-    </div>
-    <div class="menu-grid">
-
-      <div class="menu-card reveal">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-wraps">&#x1F32F;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Wrap &mdash; No. 01</div>
-          <div class="menu-name">Chicken Gyro Wrap</div>
-          <div class="menu-desc">Marinated chicken, crisp lettuce, diced tomatoes, onions and our signature white sauce wrapped in warm pita bread.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal</span>
-            <span class="menu-tag">Pita Bread</span>
-            <span class="menu-tag">Gyro Style</span>
+    <!-- STEAK & CHEESE -->
+    <section class="menu-cat" id="steak">
+      <div class="cat-header">
+        <span class="cat-num">No. 04</span>
+        <h2 class="cat-title">STEAK &amp; CHEESE</h2>
+        <div class="cat-rule"></div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-visual vc-steak">&#x1F969;</div>
+          <div class="item-body">
+            <div class="item-name">Original Steak or Chicken</div>
+            <div class="item-desc">Thinly sliced steak or chicken on a toasted hoagie with melted cheese and our special sauce.</div>
+            <div class="item-note">&#x2713; Halal &nbsp;&#x2713; Hoagie Roll</div>
+            <div class="item-footer">
+              <span class="item-price">$11.99</span>
+              <button class="btn-add-item" onclick="addToCart('Original Steak or Chicken',11.99)">ADD TO ORDER &rarr;</button>
+            </div>
           </div>
-          <div class="menu-footer">
-            <span class="menu-price">$9.99</span>
-            <button class="btn-add" onclick="addToCart('Chicken Gyro Wrap', 9.99)">ADD TO CART</button>
+        </div>
+        <div class="item-card reveal reveal-d1">
+          <div class="item-visual vc-steak">&#x1F969;</div>
+          <div class="item-body">
+            <div class="item-name">Supreme Steak or Chicken</div>
+            <div class="item-desc">Loaded with sautéed peppers, onions, mushrooms, melted cheese and our premium sauce.</div>
+            <div class="item-note">&#x2713; Halal &nbsp;&#x2713; Loaded &nbsp;&#x2713; Premium</div>
+            <div class="item-footer">
+              <span class="item-price">$13.99</span>
+              <button class="btn-add-item" onclick="addToCart('Supreme Steak or Chicken',13.99)">ADD TO ORDER &rarr;</button>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="menu-card reveal reveal-d1">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-wraps">&#x1F32F;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Wrap &mdash; No. 02</div>
-          <div class="menu-name">Lamb Gyro Wrap</div>
-          <div class="menu-desc">Thinly sliced seasoned lamb with fresh veggies, tzatziki and hot sauce wrapped in warm toasted pita.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal</span>
-            <span class="menu-tag">Pita Bread</span>
-            <span class="menu-tag">Tzatziki</span>
+    <!-- SIDES -->
+    <section class="menu-cat" id="sides">
+      <div class="cat-header">
+        <span class="cat-num">No. 05</span>
+        <h2 class="cat-title">SIDES</h2>
+        <div class="cat-rule"></div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-visual vc-sides">&#x1F35F;</div>
+          <div class="item-body">
+            <div class="item-name">French Fries</div>
+            <div class="item-desc">Crispy golden fries, perfectly seasoned. The classic companion.</div>
+            <div class="item-footer"><span class="item-price">$3.99</span><button class="btn-add-item" onclick="addToCart('French Fries',3.99)">ADD TO ORDER &rarr;</button></div>
           </div>
-          <div class="menu-footer">
-            <span class="menu-price">$10.99</span>
-            <button class="btn-add" onclick="addToCart('Lamb Gyro Wrap', 10.99)">ADD TO CART</button>
+        </div>
+        <div class="item-card reveal reveal-d1">
+          <div class="item-visual vc-sides">&#x1F35F;</div>
+          <div class="item-body">
+            <div class="item-name">Cheese Fries</div>
+            <div class="item-desc">Crispy fries topped with warm melted cheese sauce.</div>
+            <div class="item-footer"><span class="item-price">$4.99</span><button class="btn-add-item" onclick="addToCart('Cheese Fries',4.99)">ADD TO ORDER &rarr;</button></div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d2">
+          <div class="item-visual vc-sides">&#x1F336;</div>
+          <div class="item-body">
+            <div class="item-name">Chilli Cheese Fries</div>
+            <div class="item-desc">Crispy fries loaded with chilli and melted cheese. Next level comfort food.</div>
+            <div class="item-footer"><span class="item-price">$5.99</span><button class="btn-add-item" onclick="addToCart('Chilli Cheese Fries',5.99)">ADD TO ORDER &rarr;</button></div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d3">
+          <div class="item-visual vc-sides">&#x1F33D;</div>
+          <div class="item-body">
+            <div class="item-name">Corn on the Cob</div>
+            <div class="item-desc">Sweet buttery corn on the cob — a fresh and satisfying side.</div>
+            <div class="item-footer"><span class="item-price">$2.99</span><button class="btn-add-item" onclick="addToCart('Corn on the Cob',2.99)">ADD TO ORDER &rarr;</button></div>
+          </div>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-visual vc-sides">&#x1F9C3;</div>
+          <div class="item-body">
+            <div class="item-name">Fried Pickles</div>
+            <div class="item-desc">Golden crispy fried pickles with a satisfying crunch.</div>
+            <div class="item-footer"><span class="item-price">$3.99</span><button class="btn-add-item" onclick="addToCart('Fried Pickles',3.99)">ADD TO ORDER &rarr;</button></div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d1">
+          <div class="item-visual vc-sides">&#x1F9C0;</div>
+          <div class="item-body">
+            <div class="item-name">Mozzarella Sticks</div>
+            <div class="item-desc">Crispy mozzarella sticks with marinara dipping sauce.</div>
+            <div class="item-footer"><span class="item-price">$4.99</span><button class="btn-add-item" onclick="addToCart('Mozzarella Sticks',4.99)">ADD TO ORDER &rarr;</button></div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="menu-card reveal reveal-d2">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-wraps">&#x1F32F;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Wrap &mdash; No. 03</div>
-          <div class="menu-name">Mixed Gyro Wrap</div>
-          <div class="menu-desc">Half lamb, half chicken — the ultimate combo wrap with all the toppings and both signature sauces in warm pita.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal</span>
-            <span class="menu-tag">Lamb + Chicken</span>
-            <span class="menu-tag">Popular</span>
+    <!-- SNACKS -->
+    <section class="menu-cat" id="snacks">
+      <div class="cat-header">
+        <span class="cat-num">No. 06</span>
+        <h2 class="cat-title">SNACKS</h2>
+        <div class="cat-rule"></div>
+      </div>
+      <div class="item-grid">
+        <div class="item-card reveal">
+          <div class="item-visual vc-snacks">&#x1F357;</div>
+          <div class="item-body">
+            <div class="item-name">Chicken Tenders</div>
+            <div class="item-desc">Golden crispy chicken tenders served with your choice of dipping sauce.</div>
+            <div class="item-footer"><span class="item-price">$7.99</span><button class="btn-add-item" onclick="addToCart('Chicken Tenders',7.99)">ADD TO ORDER &rarr;</button></div>
           </div>
-          <div class="menu-footer">
-            <span class="menu-price">$11.49</span>
-            <button class="btn-add" onclick="addToCart('Mixed Gyro Wrap', 11.49)">ADD TO CART</button>
+        </div>
+        <div class="item-card reveal reveal-d1">
+          <div class="item-visual vc-snacks">&#x1F357;</div>
+          <div class="item-body">
+            <div class="item-name">Chicken Wings</div>
+            <div class="item-desc">Juicy chicken wings with your choice of sauce — classic, buffalo or honey garlic.</div>
+            <div class="item-footer"><span class="item-price">$8.99</span><button class="btn-add-item" onclick="addToCart('Chicken Wings',8.99)">ADD TO ORDER &rarr;</button></div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d2">
+          <div class="item-visual vc-snacks">&#x1F357;</div>
+          <div class="item-body">
+            <div class="item-name">Chicken Nuggets</div>
+            <div class="item-desc">Classic crispy chicken nuggets — a crowd pleaser every time.</div>
+            <div class="item-footer"><span class="item-price">$5.99</span><button class="btn-add-item" onclick="addToCart('Chicken Nuggets',5.99)">ADD TO ORDER &rarr;</button></div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d3">
+          <div class="item-visual vc-snacks">&#x1F32D;</div>
+          <div class="item-body">
+            <div class="item-name">Hot Dogs</div>
+            <div class="item-desc">Classic halal hot dog in a toasted bun with your choice of toppings.</div>
+            <div class="item-footer"><span class="item-price">$3.99</span><button class="btn-add-item" onclick="addToCart('Hot Dog',3.99)">ADD TO ORDER &rarr;</button></div>
+          </div>
+        </div>
+        <div class="item-card reveal">
+          <div class="item-visual vc-snacks">&#x1F32D;</div>
+          <div class="item-body">
+            <div class="item-name">Corn Dogs</div>
+            <div class="item-desc">Golden battered corn dogs — crispy outside, juicy inside.</div>
+            <div class="item-footer"><span class="item-price">$3.99</span><button class="btn-add-item" onclick="addToCart('Corn Dog',3.99)">ADD TO ORDER &rarr;</button></div>
+          </div>
+        </div>
+        <div class="item-card reveal reveal-d1">
+          <div class="item-visual vc-snacks">&#x1F9C3;</div>
+          <div class="item-body">
+            <div class="item-name">Nachos</div>
+            <div class="item-desc">Loaded tortilla chips with cheese, jalapeños, sour cream and your choice of toppings.</div>
+            <div class="item-footer"><span class="item-price">$5.99</span><button class="btn-add-item" onclick="addToCart('Nachos',5.99)">ADD TO ORDER &rarr;</button></div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="menu-card reveal reveal-d3">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-wraps">&#x1F9C6;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Wrap &mdash; No. 04</div>
-          <div class="menu-name">Falafel Wrap</div>
-          <div class="menu-desc">Crispy falafel balls with fresh tomatoes, cucumbers, pickled turnips, tahini and white sauce in warm pita bread.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Vegetarian</span>
-            <span class="menu-tag">Falafel</span>
-            <span class="menu-tag">Tahini</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$8.99</span>
-            <button class="btn-add" onclick="addToCart('Falafel Wrap', 8.99)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
+  </main>
+</div>
 
-    </div>
-  </div>
-
-  <!-- ===== BURGERS ===== -->
-  <div class="tab-panel" id="tab-burgers">
-    <div class="menu-cat-header">
-      <span class="menu-cat-num">No. 03</span>
-      <h2 class="menu-cat-title">BURGERS</h2>
-      <div class="menu-cat-rule"></div>
-    </div>
-    <div class="menu-grid">
-
-      <div class="menu-card reveal">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-burgers">&#x1F354;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Burger &mdash; No. 01</div>
-          <div class="menu-name">Cheeseburger</div>
-          <div class="menu-desc">Juicy beef patty on a toasted brioche bun with melted cheese, fresh lettuce, tomatoes, pickles and our signature sauce.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal Beef</span>
-            <span class="menu-tag">Cheddar</span>
-            <span class="menu-tag">Pickles</span>
-            <span class="menu-tag">Brioche Bun</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$8.99</span>
-            <button class="btn-add" onclick="addToCart('Cheeseburger', 8.99)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d1">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-burgers">&#x1F354;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Burger &mdash; No. 02</div>
-          <div class="menu-name">Double Smash Burger</div>
-          <div class="menu-desc">Two smashed beef patties, double melted cheese, caramelised onions and our house special sauce on a toasted bun.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal Beef</span>
-            <span class="menu-tag">Double Patty</span>
-            <span class="menu-tag">Smashed</span>
-            <span class="menu-tag">Caramelised Onion</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$11.99</span>
-            <button class="btn-add" onclick="addToCart('Double Smash Burger', 11.99)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d2">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-burgers">&#x1F357;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Burger &mdash; No. 03</div>
-          <div class="menu-name">Crispy Chicken Burger</div>
-          <div class="menu-desc">Golden crispy fried chicken fillet with coleslaw, pickles and honey mustard drizzle on a soft toasted bun.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal Chicken</span>
-            <span class="menu-tag">Crispy Fried</span>
-            <span class="menu-tag">Coleslaw</span>
-            <span class="menu-tag">Honey Mustard</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$9.49</span>
-            <button class="btn-add" onclick="addToCart('Crispy Chicken Burger', 9.49)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d3">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-burgers">&#x1F354;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Burger &mdash; No. 04</div>
-          <div class="menu-name">BBQ Bacon Burger</div>
-          <div class="menu-desc">Beef patty topped with crispy chicken bacon, BBQ sauce, onion rings and melted cheddar on a toasted brioche bun.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal Beef</span>
-            <span class="menu-tag">Chicken Bacon</span>
-            <span class="menu-tag">BBQ Sauce</span>
-            <span class="menu-tag">Onion Rings</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$10.49</span>
-            <button class="btn-add" onclick="addToCart('BBQ Bacon Burger', 10.49)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ===== STEAK & CHEESE ===== -->
-  <div class="tab-panel" id="tab-steak">
-    <div class="menu-cat-header">
-      <span class="menu-cat-num">No. 04</span>
-      <h2 class="menu-cat-title">STEAK &amp; CHEESE</h2>
-      <div class="menu-cat-rule"></div>
-    </div>
-    <div class="menu-grid">
-
-      <div class="menu-card reveal">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-steak">&#x1F969;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Steak &mdash; No. 01</div>
-          <div class="menu-name">Classic Philly</div>
-          <div class="menu-desc">Thin-sliced seasoned steak with sautéed green peppers, onions and melted provolone on a toasted hoagie roll.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal Steak</span>
-            <span class="menu-tag">Provolone</span>
-            <span class="menu-tag">Hoagie Roll</span>
-            <span class="menu-tag">Sautéed Peppers</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$10.99</span>
-            <button class="btn-add" onclick="addToCart('Classic Philly', 10.99)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d1">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-steak">&#x1F9C0;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Steak &mdash; No. 02</div>
-          <div class="menu-name">Cheese Steak Sub</div>
-          <div class="menu-desc">Seasoned steak slices with mushrooms, caramelised onions, double melted cheese and house hot sauce on a sub roll.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal Steak</span>
-            <span class="menu-tag">Mushrooms</span>
-            <span class="menu-tag">Double Cheese</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$11.49</span>
-            <button class="btn-add" onclick="addToCart('Cheese Steak Sub', 11.49)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d2">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-steak">&#x1F969;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Steak &mdash; No. 03</div>
-          <div class="menu-name">Steak &amp; Cheese Wrap</div>
-          <div class="menu-desc">Grilled steak strips with sautéed peppers, jalapeños, melted cheese and our signature sauce wrapped in a flour tortilla.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal Steak</span>
-            <span class="menu-tag">Jalapeños</span>
-            <span class="menu-tag">Flour Tortilla</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$10.49</span>
-            <button class="btn-add" onclick="addToCart('Steak & Cheese Wrap', 10.49)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d3">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-steak">&#x1F969;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Steak &mdash; No. 04</div>
-          <div class="menu-name">Loaded Steak Bowl</div>
-          <div class="menu-desc">Grilled steak over seasoned rice with sautéed veggies, creamy cheese sauce and garlic aioli drizzle.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal Steak</span>
-            <span class="menu-tag">Rice Base</span>
-            <span class="menu-tag">Cheese Sauce</span>
-            <span class="menu-tag">Garlic Aioli</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$11.99</span>
-            <button class="btn-add" onclick="addToCart('Loaded Steak Bowl', 11.99)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ===== SIDES ===== -->
-  <div class="tab-panel" id="tab-sides">
-    <div class="menu-cat-header">
-      <span class="menu-cat-num">No. 05</span>
-      <h2 class="menu-cat-title">SIDES</h2>
-      <div class="menu-cat-rule"></div>
-    </div>
-    <div class="menu-grid">
-
-      <div class="menu-card reveal">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-sides">&#x1F35F;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Side &mdash; No. 01</div>
-          <div class="menu-name">Regular Fries</div>
-          <div class="menu-desc">Golden crispy fries lightly salted and fried to perfection. The perfect sidekick to any main.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Crispy</span>
-            <span class="menu-tag">Salted</span>
-            <span class="menu-tag">Vegan</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$3.99</span>
-            <button class="btn-add" onclick="addToCart('Regular Fries', 3.99)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d1">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-sides">&#x1F35F;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Side &mdash; No. 02</div>
-          <div class="menu-name">Seasoned Fries</div>
-          <div class="menu-desc">Crispy fries tossed in our house seasoning blend — smoky paprika, garlic, and just the right kick of spice.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">House Seasoning</span>
-            <span class="menu-tag">Smoky</span>
-            <span class="menu-tag">Spicy</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$4.49</span>
-            <button class="btn-add" onclick="addToCart('Seasoned Fries', 4.49)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d2">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-sides">&#x1F336;&#xFE0F;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Side &mdash; No. 03</div>
-          <div class="menu-name">Chilli Cheese Fries</div>
-          <div class="menu-desc">Crispy fries loaded with our house chilli and drizzled with melted cheese sauce. Game changing side.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Chilli</span>
-            <span class="menu-tag">Cheese Sauce</span>
-            <span class="menu-tag">Loaded</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$5.99</span>
-            <button class="btn-add" onclick="addToCart('Chilli Cheese Fries', 5.99)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d3">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-sides">&#x1F35F;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Side &mdash; No. 04</div>
-          <div class="menu-name">Loaded Fries</div>
-          <div class="menu-desc">Fries topped with your choice of seasoned meat, melted cheese, pickled jalapeños and all our sauces.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Choice of Meat</span>
-            <span class="menu-tag">Jalapeños</span>
-            <span class="menu-tag">All Sauces</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$7.99</span>
-            <button class="btn-add" onclick="addToCart('Loaded Fries', 7.99)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ===== SNACKS ===== -->
-  <div class="tab-panel" id="tab-snacks">
-    <div class="menu-cat-header">
-      <span class="menu-cat-num">No. 06</span>
-      <h2 class="menu-cat-title">SNACKS</h2>
-      <div class="menu-cat-rule"></div>
-    </div>
-    <div class="menu-grid">
-
-      <div class="menu-card reveal">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-snacks">&#x1F9C6;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Snack &mdash; No. 01</div>
-          <div class="menu-name">Falafel Bites (6pc)</div>
-          <div class="menu-desc">Six golden crispy falafel balls made fresh daily, served with creamy tahini dipping sauce on the side.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Vegetarian</span>
-            <span class="menu-tag">6 Pieces</span>
-            <span class="menu-tag">Tahini Dip</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$5.49</span>
-            <button class="btn-add" onclick="addToCart('Falafel Bites (6pc)', 5.49)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d1">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-snacks">&#x1F357;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Snack &mdash; No. 02</div>
-          <div class="menu-name">Chicken Tenders (3pc)</div>
-          <div class="menu-desc">Three golden fried chicken tenders, crispy outside and juicy inside, served with your choice of dipping sauce.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Halal Chicken</span>
-            <span class="menu-tag">3 Pieces</span>
-            <span class="menu-tag">Choice of Dip</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$6.49</span>
-            <button class="btn-add" onclick="addToCart('Chicken Tenders (3pc)', 6.49)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d2">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-snacks">&#x1F954;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Snack &mdash; No. 03</div>
-          <div class="menu-name">BYOB</div>
-          <div class="menu-desc">Bring your own bag of chips and we fill it with seasoned meat, cheese and all our fixings. Doritos, Lay's, Takis — your call!</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Fan Favourite</span>
-            <span class="menu-tag">BYOB</span>
-            <span class="menu-tag">Choice of Protein</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$8.99</span>
-            <button class="btn-add" onclick="addToCart('BYOB — Bring Your Own Bag', 8.99)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-card reveal reveal-d3">
-        <div class="menu-card-visual-wrap">
-          <div class="menu-card-visual vc-snacks">&#x1F96B;</div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-item-num">Snack &mdash; No. 04</div>
-          <div class="menu-name">Hummus &amp; Pita</div>
-          <div class="menu-desc">Creamy house-made hummus with olive oil drizzle and paprika, served with warm toasted pita triangles.</div>
-          <div class="menu-tags">
-            <span class="menu-tag">Vegetarian</span>
-            <span class="menu-tag">House-Made</span>
-            <span class="menu-tag">Olive Oil</span>
-          </div>
-          <div class="menu-footer">
-            <span class="menu-price">$4.99</span>
-            <button class="btn-add" onclick="addToCart('Hummus & Pita', 4.99)">ADD TO CART</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</section>
-
-<!-- ===== PAYMENT BAR ===== -->
+<!-- PAYMENT BAR -->
 <div class="payment-bar">
-  <div class="payment-inner">
-    <span>&#x1F4B3; VISA</span>
-    <span>&#x1F4B3; MASTERCARD</span>
-    <span>&#x1F4B3; AMEX</span>
-    <span>&#x1F4B3; DISCOVER</span>
-    <span>&#x1F4B5; CASH</span>
+  <div class="container-wide">
+    <div class="payment-bar-inner">
+      <span class="payment-label">We Accept:</span>
+      <span class="payment-item">VISA</span>
+      <span class="payment-item">MASTERCARD</span>
+      <span class="payment-item">DISCOVER</span>
+      <span class="payment-item">APPLE PAY</span>
+      <span class="payment-item">CASH</span>
+    </div>
   </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.18%20PM.jpeg" alt="Taste on Wheels Logo" class="footer-logo-img" onerror="this.style.display='none'" />
-  <p class="footer-tagline">FAST &nbsp;&middot;&nbsp; FRESH &nbsp;&middot;&nbsp; FLAVORFUL</p>
-  <p class="footer-copy">&copy; 2025 Taste on Wheels. All Rights Reserved.<br>Made Fresh. Made to Satisfy.</p>
+<!-- FLAME + FOOTER -->
+<div class="flame-strip" aria-hidden="true">
+  <svg viewBox="0 0 1440 70" preserveAspectRatio="none">
+    <defs><linearGradient id="fg1" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#C0392B" stop-opacity="1"/><stop offset="100%" stop-color="#C0392B" stop-opacity="0"/></linearGradient></defs>
+    <path d="M0,70 L0,40 Q180,5 360,32 Q540,58 720,24 Q900,0 1080,36 Q1260,62 1440,28 L1440,70 Z" fill="url(#fg1)" opacity="0.85"/>
+    <path d="M0,70 L0,52 Q240,22 480,46 Q720,66 960,38 Q1200,16 1440,46 L1440,70 Z" fill="#7B241C" opacity="0.4"/>
+  </svg>
+</div>
+
+<footer class="footer">
+  <div class="container-wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="footer-logo-hex" viewBox="0 0 38 44" fill="none"><path d="M19 0L38 10.97V33.03L19 44L0 33.03V10.97L19 0Z" fill="#F5C107"/><path d="M19 5L33.5 13.5V30.5L19 39L4.5 30.5V13.5L19 5Z" fill="#111111"/><text x="19" y="28" text-anchor="middle" fill="#F5C107" font-family="Impact,sans-serif" font-size="17">T</text></svg>
+          <div class="footer-logo-text"><span class="footer-logo-taste">TASTE</span><span class="footer-logo-sub">ON WHEELS</span></div>
+        </div>
+        <p class="footer-tagline">Fast &middot; Fresh &middot; Flavorful<br>Made Fresh. Made to Satisfy.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">&#x1F4F7;</a>
+          <a href="#" aria-label="Facebook">&#x1F4D8;</a>
+          <a href="#" aria-label="TikTok">&#x1F3B5;</a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Quick Links</span>
+        <div class="footer-links">
+          <a href="index.html">Home</a><a href="menu.html">Menu</a>
+          <a href="order.html">Order Online</a><a href="byob.html">BYOB</a>
+          <a href="find-us.html">Find Us</a><a href="about.html">About</a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Hours</span>
+        <div class="footer-hours">
+          <div class="footer-hour-row"><strong>Mon &ndash; Fri</strong>11:00 AM &ndash; 9:00 PM</div>
+          <div class="footer-hour-row"><strong>Sat &ndash; Sun</strong>10:00 AM &ndash; 10:00 PM</div>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Contact</span>
+        <div class="footer-contact-item"><span class="footer-contact-icon">&#x1F4CD;</span><span>Check Instagram for today&rsquo;s spot!</span></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">&#x1F4DE;</span><a href="tel:+10000000000">[YOUR PHONE NUMBER]</a></div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">&#x2709;</span><a href="mailto:hello@tasteonwheels.com">hello@tasteonwheels.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 Taste on Wheels. All Rights Reserved.</p>
+      <div class="footer-payment">
+        <span class="footer-payment-label">We Accept:</span>
+        <span class="footer-payment-item">VISA</span><span class="footer-payment-item">MASTERCARD</span>
+        <span class="footer-payment-item">DISCOVER</span><span class="footer-payment-item">APPLE PAY</span>
+      </div>
+    </div>
+  </div>
 </footer>
 
-<!-- ===== CART FAB ===== -->
-<button class="cart-fab" id="cartFab" onclick="openOrderModal()" aria-label="View cart">
-  &#x1F6D2;
-  <span class="cart-badge" id="cartBadge"></span>
+<!-- CART FAB -->
+<button class="cart-fab" id="cartFab" onclick="window.location.href='order.html'" aria-label="View cart">
+  &#x1F6D2;<span class="cart-fab-badge" id="cartFabBadge"></span>
 </button>
 
-<!-- ===== ORDER MODAL ===== -->
-<div class="modal-overlay" id="orderModal" onclick="overlayClick(event,'orderModal')">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal('orderModal')" aria-label="Close">&#x2715;</button>
-    <div id="orderModalBody"></div>
-  </div>
-</div>
-
-<!-- ===== CALL MODAL ===== -->
-<div class="modal-overlay" id="callModal" onclick="overlayClick(event,'callModal')">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal('callModal')" aria-label="Close">&#x2715;</button>
-    <h2 class="modal-title">&#x1F4DE; CALL AHEAD</h2>
-    <p style="color:var(--light-gray); margin-bottom:22px; font-size:0.92rem; line-height:1.65;">
-      Call us to place your order and we&rsquo;ll have it hot &amp; ready when you arrive!
-    </p>
-    <div class="call-body">
-      <div class="call-number">[YOUR PHONE NUMBER]</div>
-      <div class="call-avail">Available during business hours</div>
-      <a href="tel:+15551234567" class="btn-call-now">CALL NOW &#x1F4DE;</a>
-    </div>
-  </div>
-</div>
-
-<script src="js/app.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/gallery.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+function tabScroll(id, btn) {
+  var el = document.getElementById(id);
+  if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  document.querySelectorAll('.tab-bar-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+}
+/* Activate sidebar link on scroll */
+(function() {
+  var cats = ['bowls','wraps','burgers','steak','sides','snacks'];
+  var links = document.querySelectorAll('.sidebar-nav a');
+  window.addEventListener('scroll', function() {
+    var current = cats[0];
+    cats.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    links.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }, { passive: true });
+  /* URL hash on load */
+  var hash = window.location.hash.replace('#','');
+  if (hash && document.getElementById(hash)) {
+    setTimeout(function() { document.getElementById(hash).scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 300);
+  }
+})();
+</script>
 </body>
 </html>

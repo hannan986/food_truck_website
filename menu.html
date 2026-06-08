@@ -145,6 +145,14 @@
     .vc-sides   { background: linear-gradient(145deg, #0a0a18 0%, #10101e 100%); }
     .vc-snacks  { background: linear-gradient(145deg, #180a00 0%, #241200 100%); }
 
+    /* Real image inside item-visual */
+    .item-visual img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+    .item-card:hover .item-visual img { transform: scale(1.07); }
+
     .item-body { padding: 18px 18px 16px; flex: 1; display: flex; flex-direction: column; }
     .item-name {
       font-family: var(--font-head); font-size: 1.05rem; letter-spacing: 0.8px;
@@ -290,7 +298,9 @@
       </div>
       <div class="item-grid">
         <div class="item-card reveal">
-          <div class="item-visual vc-bowls">&#x1F35A;</div>
+          <div class="item-visual vc-bowls">
+            <img src="images/menu_images/Steak%20Salad.jpg" alt="Lamb Over Rice" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Lamb Over Rice</div>
             <div class="item-desc">Savory seasoned lamb over fluffy rice with fresh veggies and our signature white and hot sauce.</div>
@@ -302,7 +312,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d1">
-          <div class="item-visual vc-bowls">&#x1F357;</div>
+          <div class="item-visual vc-bowls">
+            <img src="images/menu_images/Grilled%20Chicken%20Salad.jpg" alt="Chicken Over Rice" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Chicken Over Rice</div>
             <div class="item-desc">Juicy marinated chicken over fluffy rice with fresh veggies and our signature sauces.</div>
@@ -314,7 +326,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d2">
-          <div class="item-visual vc-bowls">&#x1F9C6;</div>
+          <div class="item-visual vc-bowls">
+            <img src="images/menu_images/Chef%20Salad.jpg" alt="Lamb and Chicken Over Rice" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Lamb &amp; Chicken Over Rice</div>
             <div class="item-desc">The best of both worlds — seasoned lamb &amp; chicken over rice with fresh veggies and signature sauces.</div>
@@ -326,7 +340,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d3">
-          <div class="item-visual vc-bowls">&#x1F9C5;</div>
+          <div class="item-visual vc-bowls">
+            <img src="images/menu_images/Garden%20Salad.jpg" alt="Falafel Over Rice" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Falafel Over Rice</div>
             <div class="item-desc">Crispy golden falafel over fluffy rice with fresh veggies and our tahini signature sauce.</div>
@@ -355,7 +371,9 @@
       </div>
       <div class="item-grid">
         <div class="item-card reveal">
-          <div class="item-visual vc-wraps">&#x1F32F;</div>
+          <div class="item-visual vc-wraps">
+            <img src="images/menu_images/Grilled%20Chicken%20Wrap.jpg" alt="Chicken Gyro Wrap" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Chicken Gyro Wrap</div>
             <div class="item-desc">Marinated chicken, crisp lettuce, tomatoes, onions, and our signature sauce, wrapped in warm pita.</div>
@@ -367,7 +385,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d1">
-          <div class="item-visual vc-wraps">&#x1F32F;</div>
+          <div class="item-visual vc-wraps">
+            <img src="images/menu_images/Steak%20%26%20Cheese%20Wrap.jpg" alt="Lamb Gyro Wrap" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Lamb Gyro Wrap</div>
             <div class="item-desc">Savory seasoned lamb, lettuce, tomatoes, onions, and our signature sauce in warm pita.</div>
@@ -379,7 +399,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d2">
-          <div class="item-visual vc-wraps">&#x1F9C6;</div>
+          <div class="item-visual vc-wraps">
+            <img src="images/menu_images/Veggie%20Wrap.jpg" alt="Falafel Wrap" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Falafel Wrap</div>
             <div class="item-desc">Crispy falafel, fresh lettuce, tomatoes, onions, and our tahini sauce wrapped in warm pita.</div>
@@ -391,7 +413,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d3">
-          <div class="item-visual vc-wraps">&#x1F32F;</div>
+          <div class="item-visual vc-wraps">
+            <img src="images/menu_images/Fried%20Chicken%20Wrap.jpg" alt="Fried Chicken Wrap" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Fried Chicken Wrap</div>
             <div class="item-desc">Crispy fried chicken, lettuce, tomatoes, pickles, and our signature sauce in a warm tortilla.</div>
@@ -414,7 +438,9 @@
       </div>
       <div class="item-grid">
         <div class="item-card reveal">
-          <div class="item-visual vc-burgers">&#x1F354;</div>
+          <div class="item-visual vc-burgers">
+            <img src="images/menu_images/hamburger_sub.jpg" alt="Hamburger" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Hamburger</div>
             <div class="item-desc">Classic juicy beef patty with lettuce, tomato, onion, pickles and our signature sauce.</div>
@@ -426,7 +452,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d1">
-          <div class="item-visual vc-burgers">&#x1F354;</div>
+          <div class="item-visual vc-burgers">
+            <img src="images/menu_images/cheese_burger_sub.avif" alt="Cheeseburger" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Cheeseburger</div>
             <div class="item-desc">Juicy beef patty with melted cheese, fresh veggies, pickles and our signature sauce.</div>
@@ -438,7 +466,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d2">
-          <div class="item-visual vc-burgers">&#x1F357;</div>
+          <div class="item-visual vc-burgers">
+            <img src="images/menu_images/Fried_chicken_sub.jpg" alt="Chicken Sandwich" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Chicken Sandwich</div>
             <div class="item-desc">Grilled or crispy chicken with lettuce, tomato and our signature sauce on a toasted bun.</div>
@@ -450,7 +480,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d3">
-          <div class="item-visual vc-burgers">&#x1F354;</div>
+          <div class="item-visual vc-burgers">
+            <img src="images/menu_images/Veggie_sub.avif" alt="Veggie Burger" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Veggie Burger</div>
             <div class="item-desc">Flavorful veggie patty with lettuce, tomato, onion and our signature sauce.</div>
@@ -462,7 +494,9 @@
           </div>
         </div>
         <div class="item-card reveal">
-          <div class="item-visual vc-burgers">&#x1F354;</div>
+          <div class="item-visual vc-burgers">
+            <img src="images/menu_images/cheese_burger_sub.avif" alt="Double Cheeseburger" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Double Cheeseburger</div>
             <div class="item-desc">Double the beef, double the cheese, double the satisfaction — stacked high and loaded with flavor.</div>
@@ -491,7 +525,9 @@
       </div>
       <div class="item-grid">
         <div class="item-card reveal">
-          <div class="item-visual vc-steak">&#x1F969;</div>
+          <div class="item-visual vc-steak">
+            <img src="images/menu_images/Grilled_chicken_sub.jpg" alt="Original Steak or Chicken" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Original Steak or Chicken</div>
             <div class="item-desc">Thinly sliced steak or chicken on a toasted hoagie with melted cheese and our special sauce.</div>
@@ -503,7 +539,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d1">
-          <div class="item-visual vc-steak">&#x1F969;</div>
+          <div class="item-visual vc-steak">
+            <img src="images/menu_images/combo_sub.avif" alt="Supreme Steak or Chicken" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Supreme Steak or Chicken</div>
             <div class="item-desc">Loaded with sautéed peppers, onions, mushrooms, melted cheese and our premium sauce.</div>
@@ -526,7 +564,9 @@
       </div>
       <div class="item-grid">
         <div class="item-card reveal">
-          <div class="item-visual vc-sides">&#x1F35F;</div>
+          <div class="item-visual vc-sides">
+            <img src="images/menu_images/French%20Fries.jpg" alt="French Fries" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">French Fries</div>
             <div class="item-desc">Crispy golden fries, perfectly seasoned. The classic companion.</div>
@@ -534,7 +574,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d1">
-          <div class="item-visual vc-sides">&#x1F35F;</div>
+          <div class="item-visual vc-sides">
+            <img src="images/menu_images/French%20Fries.jpg" alt="Cheese Fries" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Cheese Fries</div>
             <div class="item-desc">Crispy fries topped with warm melted cheese sauce.</div>
@@ -542,7 +584,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d2">
-          <div class="item-visual vc-sides">&#x1F336;</div>
+          <div class="item-visual vc-sides">
+            <img src="images/menu_images/Homemade%20Chili.jpg" alt="Chilli Cheese Fries" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Chilli Cheese Fries</div>
             <div class="item-desc">Crispy fries loaded with chilli and melted cheese. Next level comfort food.</div>
@@ -550,7 +594,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d3">
-          <div class="item-visual vc-sides">&#x1F33D;</div>
+          <div class="item-visual vc-sides">
+            <img src="images/menu_images/Onion_rings.jpg" alt="Corn on the Cob" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Corn on the Cob</div>
             <div class="item-desc">Sweet buttery corn on the cob — a fresh and satisfying side.</div>
@@ -558,7 +604,9 @@
           </div>
         </div>
         <div class="item-card reveal">
-          <div class="item-visual vc-sides">&#x1F9C3;</div>
+          <div class="item-visual vc-sides">
+            <img src="images/menu_images/Fried%20Pickles.jpg" alt="Fried Pickles" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Fried Pickles</div>
             <div class="item-desc">Golden crispy fried pickles with a satisfying crunch.</div>
@@ -566,7 +614,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d1">
-          <div class="item-visual vc-sides">&#x1F9C0;</div>
+          <div class="item-visual vc-sides">
+            <img src="images/menu_images/Cheese%20Sticks.jpg" alt="Mozzarella Sticks" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Mozzarella Sticks</div>
             <div class="item-desc">Crispy mozzarella sticks with marinara dipping sauce.</div>
@@ -585,7 +635,9 @@
       </div>
       <div class="item-grid">
         <div class="item-card reveal">
-          <div class="item-visual vc-snacks">&#x1F357;</div>
+          <div class="item-visual vc-snacks">
+            <img src="images/menu_images/Chicken%20Tenders.jpg" alt="Chicken Tenders" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Chicken Tenders</div>
             <div class="item-desc">Golden crispy chicken tenders served with your choice of dipping sauce.</div>
@@ -593,7 +645,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d1">
-          <div class="item-visual vc-snacks">&#x1F357;</div>
+          <div class="item-visual vc-snacks">
+            <img src="images/menu_images/8_pieces_wings.jpg" alt="Chicken Wings" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Chicken Wings</div>
             <div class="item-desc">Juicy chicken wings with your choice of sauce — classic, buffalo or honey garlic.</div>
@@ -601,7 +655,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d2">
-          <div class="item-visual vc-snacks">&#x1F357;</div>
+          <div class="item-visual vc-snacks">
+            <img src="images/menu_images/Chicken%20Tenders.jpg" alt="Chicken Nuggets" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Chicken Nuggets</div>
             <div class="item-desc">Classic crispy chicken nuggets — a crowd pleaser every time.</div>
@@ -609,7 +665,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d3">
-          <div class="item-visual vc-snacks">&#x1F32D;</div>
+          <div class="item-visual vc-snacks">
+            <img src="images/menu_images/Hot_dog.jpg" alt="Hot Dogs" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Hot Dogs</div>
             <div class="item-desc">Classic halal hot dog in a toasted bun with your choice of toppings.</div>
@@ -617,7 +675,9 @@
           </div>
         </div>
         <div class="item-card reveal">
-          <div class="item-visual vc-snacks">&#x1F32D;</div>
+          <div class="item-visual vc-snacks">
+            <img src="images/menu_images/streamer_dog.jpg" alt="Corn Dogs" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Corn Dogs</div>
             <div class="item-desc">Golden battered corn dogs — crispy outside, juicy inside.</div>
@@ -625,7 +685,9 @@
           </div>
         </div>
         <div class="item-card reveal reveal-d1">
-          <div class="item-visual vc-snacks">&#x1F9C3;</div>
+          <div class="item-visual vc-snacks">
+            <img src="images/menu_images/Funnel%20Cake%20Fries.jpg" alt="Nachos" onerror="this.style.display='none'" />
+          </div>
           <div class="item-body">
             <div class="item-name">Nachos</div>
             <div class="item-desc">Loaded tortilla chips with cheese, jalapeños, sour cream and your choice of toppings.</div>

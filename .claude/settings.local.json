@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Select-String -Path \"C:\\\\Users\\\\AbdulHannan\\\\OneDrive - impulsetechnology.net\\\\Desktop\\\\Abdul Personal Folder\\\\abdul_websites\\\\Food_truck_website\\\\index.html\" -Pattern \"addToCart\\\\\\(\")",
+      "Bash(Measure-Object)",
+      "Bash(Select-Object -ExpandProperty Count)",
+      "Bash(Select-String -Path \"C:\\\\Users\\\\AbdulHannan\\\\OneDrive - impulsetechnology.net\\\\Desktop\\\\Abdul Personal Folder\\\\abdul_websites\\\\Food_truck_website\\\\index.html\" -Pattern \"tab-panel\")",
+      "Bash(python -c ' *)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)"
+    ]
+  }
+}

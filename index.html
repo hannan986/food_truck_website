@@ -88,6 +88,12 @@
       animation: plateGlow 3s ease-in-out infinite;
     }
     @keyframes plateGlow { 0%,100%{opacity:0.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.06)} }
+    .hero-plate-img {
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; border-radius:50%; opacity:0.75;
+      transition: transform 0.6s ease;
+    }
+    .hero-plate:hover .hero-plate-img { transform:scale(1.05); }
     .hero-plate-emoji { font-size:7rem; line-height:1; z-index:1; }
     .hero-plate-label {
       font-family:var(--font-head); font-size:0.75rem; letter-spacing:4px;
@@ -132,8 +138,14 @@
     }
     .cat-card:hover .cat-overlay { opacity:1; }
     .cat-overlay-txt { font-size:0.62rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); }
-    .cat-emoji { font-size:2.6rem; line-height:1; }
-    .cat-name { font-family:var(--font-head); font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; color:#bbb; }
+    .cat-bg {
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; opacity:0.22;
+      transition: opacity 0.4s ease, transform 0.45s ease;
+    }
+    .cat-card:hover .cat-bg { opacity:0.38; transform:scale(1.07); }
+    .cat-emoji { font-size:2.6rem; line-height:1; position:relative; z-index:1; }
+    .cat-name { font-family:var(--font-head); font-size:0.78rem; letter-spacing:2px; text-transform:uppercase; color:#bbb; position:relative; z-index:1; }
 
     /* COMBO BANNER */
     .starburst {
@@ -306,9 +318,9 @@
     </div>
     <div class="hero-visual">
       <div class="hero-plate">
+        <img class="hero-plate-img" src="images/menu_images/lamb_over_rice.jpg" alt="Lamb Over Rice" onerror="this.style.display='none'" />
         <div class="hero-plate-glow"></div>
         <div class="hero-ring"></div>
-        <span class="hero-plate-emoji">&#x1F356;</span>
         <span class="hero-plate-label">Lamb Over Rice</span>
       </div>
     </div>
@@ -333,26 +345,32 @@
 <section class="categories-section">
   <div class="cat-grid">
     <a href="menu.html#steak"   class="cat-card reveal">
+      <img class="cat-bg" src="images/menu_images/combo_sub.avif" alt="" onerror="this.style.display='none'" />
       <span class="cat-emoji">&#x1F969;</span><span class="cat-name">Steak &amp; Cheese</span>
       <div class="cat-overlay"><span class="cat-overlay-txt">VIEW ALL &rarr;</span></div>
     </a>
     <a href="menu.html#burgers" class="cat-card reveal reveal-d1">
+      <img class="cat-bg" src="images/menu_images/cheese_burger_sub.avif" alt="" onerror="this.style.display='none'" />
       <span class="cat-emoji">&#x1F354;</span><span class="cat-name">Burgers</span>
       <div class="cat-overlay"><span class="cat-overlay-txt">VIEW ALL &rarr;</span></div>
     </a>
     <a href="menu.html#wraps"   class="cat-card reveal reveal-d2">
+      <img class="cat-bg" src="images/menu_images/Fried%20Chicken%20Wrap.jpg" alt="" onerror="this.style.display='none'" />
       <span class="cat-emoji">&#x1F32F;</span><span class="cat-name">Wraps</span>
       <div class="cat-overlay"><span class="cat-overlay-txt">VIEW ALL &rarr;</span></div>
     </a>
     <a href="menu.html#bowls"   class="cat-card reveal reveal-d3">
+      <img class="cat-bg" src="images/menu_images/lamb_over_rice.jpg" alt="" onerror="this.style.display='none'" />
       <span class="cat-emoji">&#x1F35A;</span><span class="cat-name">Bowls</span>
       <div class="cat-overlay"><span class="cat-overlay-txt">VIEW ALL &rarr;</span></div>
     </a>
     <a href="menu.html#sides"   class="cat-card reveal reveal-d4">
+      <img class="cat-bg" src="images/menu_images/French%20Fries.jpg" alt="" onerror="this.style.display='none'" />
       <span class="cat-emoji">&#x1F35F;</span><span class="cat-name">Fries</span>
       <div class="cat-overlay"><span class="cat-overlay-txt">VIEW ALL &rarr;</span></div>
     </a>
     <a href="byob.html"         class="cat-card reveal reveal-d5">
+      <img class="cat-bg" src="images/menu_images/Large%20Chip%20Bag.jpg" alt="" onerror="this.style.display='none'" />
       <span class="cat-emoji">&#x1F954;</span><span class="cat-name">BYOB</span>
       <div class="cat-overlay"><span class="cat-overlay-txt">LEARN MORE &rarr;</span></div>
     </a>

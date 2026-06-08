@@ -75,7 +75,7 @@
     .protein-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
     .protein-card {
       background: var(--dark-2); border: 1px solid #222; border-radius: var(--radius);
-      padding: 36px 24px; text-align: center;
+      padding: 0; text-align: center; overflow: hidden;
       transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
     }
     .protein-card:hover {
@@ -83,6 +83,12 @@
       border-color: var(--gold);
       box-shadow: 0 8px 32px rgba(245,193,7,0.12);
     }
+    .protein-img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;
+      transition: transform 0.45s ease;
+    }
+    .protein-card:hover .protein-img { transform: scale(1.05); }
+    .protein-card-body { padding: 24px 24px 28px; }
     .protein-icon { font-size: 3rem; margin-bottom: 14px; display: block; }
     .protein-name {
       font-family: var(--font-head); font-size: 1.2rem; letter-spacing: 2px;
@@ -241,22 +247,28 @@
   <div class="container">
     <div class="protein-grid">
       <div class="protein-card reveal">
-        <span class="protein-icon">&#x1F357;</span>
-        <div class="protein-name">Chicken / Beef</div>
-        <p class="protein-desc">Juicy seasoned chicken or halal beef — savory, smoky and satisfying. The crowd pleaser.</p>
-        <button class="btn-protein" onclick="addToCart('BYOB — Chicken/Beef', 8.99)">SELECT &rarr;</button>
+        <img class="protein-img" src="images/menu_images/Chicken%20Tenders.jpg" alt="Chicken / Beef" onerror="this.style.display='none'" />
+        <div class="protein-card-body">
+          <div class="protein-name">Chicken / Beef</div>
+          <p class="protein-desc">Juicy seasoned chicken or halal beef — savory, smoky and satisfying. The crowd pleaser.</p>
+          <button class="btn-protein" onclick="addToCart('BYOB — Chicken/Beef', 8.99)">SELECT &rarr;</button>
+        </div>
       </div>
       <div class="protein-card reveal reveal-d1">
-        <span class="protein-icon">&#x1F356;</span>
-        <div class="protein-name">Lamb / Gyro</div>
-        <p class="protein-desc">Our signature seasoned lamb or authentic gyro meat — bold, rich and full of flavor. The fan favourite.</p>
-        <button class="btn-protein" onclick="addToCart('BYOB — Lamb/Gyro', 9.99)">SELECT &rarr;</button>
+        <img class="protein-img" src="images/menu_images/lamb_over_rice.jpg" alt="Lamb / Gyro" onerror="this.style.display='none'" />
+        <div class="protein-card-body">
+          <div class="protein-name">Lamb / Gyro</div>
+          <p class="protein-desc">Our signature seasoned lamb or authentic gyro meat — bold, rich and full of flavor. The fan favourite.</p>
+          <button class="btn-protein" onclick="addToCart('BYOB — Lamb/Gyro', 9.99)">SELECT &rarr;</button>
+        </div>
       </div>
       <div class="protein-card reveal reveal-d2">
-        <span class="protein-icon">&#x1F9C6;</span>
-        <div class="protein-name">Falafel</div>
-        <p class="protein-desc">Crispy golden falafel made fresh daily — hearty, flavorful and fully vegetarian. Pairs perfectly with our tahini.</p>
-        <button class="btn-protein" onclick="addToCart('BYOB — Falafel', 8.49)">SELECT &rarr;</button>
+        <img class="protein-img" src="images/menu_images/Veggie%20Wrap.jpg" alt="Falafel" onerror="this.style.display='none'" />
+        <div class="protein-card-body">
+          <div class="protein-name">Falafel</div>
+          <p class="protein-desc">Crispy golden falafel made fresh daily — hearty, flavorful and fully vegetarian. Pairs perfectly with our tahini.</p>
+          <button class="btn-protein" onclick="addToCart('BYOB — Falafel', 8.49)">SELECT &rarr;</button>
+        </div>
       </div>
     </div>
   </div>

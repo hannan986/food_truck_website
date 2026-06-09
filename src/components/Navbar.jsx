@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
-import { useCart } from '../context/CartContext'
+import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 
 const Logo = () => (
@@ -20,8 +19,6 @@ const Logo = () => (
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const { cartCount } = useCart()
-  const navigate = useNavigate()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -60,10 +57,6 @@ export default function Navbar() {
           </ul>
 
           <div className="nav-right">
-            <button className="nav-cart-btn" onClick={() => navigate('/order')} aria-label="Cart">
-              🛒
-              {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
-            </button>
             <NavLink to="/order" className="btn btn-gold btn-sm nav-order-btn">ORDER NOW</NavLink>
           </div>
 

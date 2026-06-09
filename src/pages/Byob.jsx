@@ -1,4 +1,4 @@
-import { useCart } from '../context/CartContext'
+import { Link } from 'react-router-dom'
 import { Reveal } from '../components/useReveal'
 import Footer from '../components/Footer'
 import './Byob.css'
@@ -18,7 +18,6 @@ const PROTEINS = [
 const CHIPS = ['DORITOS','LAY\'S','TAKIS','CHEETOS','PRINGLES','ANY BRAND']
 
 export default function Byob() {
-  const { addToCart } = useCart()
   return (
     <main>
       {/* HERO */}
@@ -74,7 +73,7 @@ export default function Byob() {
                     <p className="protein-desc">{p.desc}</p>
                     <div className="protein-footer">
                       <span className="protein-price">${p.price.toFixed(2)}</span>
-                      <button className="btn btn-outline-gold btn-sm" onClick={() => addToCart(`BYOB — ${p.name}`, p.price)}>SELECT →</button>
+                      <Link to="/order" className="btn btn-outline-gold btn-sm">ORDER →</Link>
                     </div>
                   </div>
                 </div>

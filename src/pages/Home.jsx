@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { useCart } from '../context/CartContext'
 import { Reveal } from '../components/useReveal'
 import './Home.css'
 
@@ -21,7 +20,6 @@ const WHY = [
 ]
 
 export default function Home() {
-  const { addToCart } = useCart()
   return (
     <main>
       {/* HERO */}

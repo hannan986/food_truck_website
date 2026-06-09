@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLocation } from 'react-router-dom'
-import { useCart } from '../context/CartContext'
+import { useLocation, Link } from 'react-router-dom'
 import { Reveal } from '../components/useReveal'
 import Footer from '../components/Footer'
 import './Menu.css'
@@ -66,7 +65,7 @@ const MENU = {
 
 const KEYS = Object.keys(MENU)
 
-function ItemCard({ item, onAdd, delay }) {
+function ItemCard({ item, delay }) {
   return (
     <Reveal delay={delay} className="item-card-wrap">
       <div className="item-card">
@@ -79,7 +78,7 @@ function ItemCard({ item, onAdd, delay }) {
           <div className="item-note">{item.note}</div>
           <div className="item-footer">
             <span className="item-price">${item.price.toFixed(2)}</span>
-            <button className="btn-add-item" onClick={() => onAdd(item.name, item.price)}>ADD TO ORDER →</button>
+            <Link to="/order" className="btn-add-item">ORDER →</Link>
           </div>
         </div>
       </div>
@@ -88,7 +87,6 @@ function ItemCard({ item, onAdd, delay }) {
 }
 
 export default function Menu() {
-  const { addToCart } = useCart()
   const location = useLocation()
   const [active, setActive] = useState(KEYS[0])
   const sectionRefs = useRef({})
@@ -174,7 +172,7 @@ export default function Menu() {
                 </div>
                 <div className="item-grid">
                   {MENU[key].items.map((item, i) => (
-                    <ItemCard key={item.name} item={item} onAdd={addToCart} delay={i % 3} />
+                    <ItemCard key={item.name} item={item} delay={i % 3} />
                   ))}
                 </div>
               </section>

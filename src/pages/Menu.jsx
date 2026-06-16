@@ -76,10 +76,10 @@ function ItemCard({ item, delay }) {
           <div className="item-name">{item.name}</div>
           <p className="item-desc">{item.desc}</p>
           <div className="item-note">{item.note}</div>
-          <div className="item-footer">
-            <span className="item-price">${item.price.toFixed(2)}</span>
-            <Link to="/order" className="btn-add-item">ORDER →</Link>
-          </div>
+        </div>
+        <div className="item-footer">
+          <span className="item-price">${item.price.toFixed(2)}</span>
+          <Link to="/order" className="btn-add-item">ORDER →</Link>
         </div>
       </div>
     </Reveal>
@@ -131,7 +131,6 @@ export default function Menu() {
         </div>
       </div>
 
-      {/* mobile tab bar */}
       <div className="menu-tab-bar">
         <div className="menu-tab-inner">
           {KEYS.map(k => (
@@ -144,22 +143,6 @@ export default function Menu() {
       </div>
 
       <div className="menu-layout">
-        {/* sidebar */}
-        <aside className="menu-sidebar">
-          <span className="sidebar-label">CATEGORIES</span>
-          <ul className="sidebar-nav">
-            {KEYS.map(k => (
-              <li key={k}>
-                <button className={`sidebar-link${active===k?' active':''}`}
-                  onClick={() => sectionRefs.current[k]?.scrollIntoView({ behavior:'smooth', block:'start' })}>
-                  <span>{MENU[k].emoji}</span>
-                  {MENU[k].label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </aside>
-
         {/* menu body */}
         <div className="menu-body">
           {KEYS.map((key, ki) => (

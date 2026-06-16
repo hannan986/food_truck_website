@@ -5,8 +5,8 @@
   --black:       #111111;
   --dark:        #161616;
   --dark-2:      #1c1c1c;
-  --gold:        #F5C107;
-  --gold-dark:   #C89F00;
+  --gold:        #545454;
+  --gold-dark:   #3a3a3a;
   --red:         #C0392B;
   --red-dark:    #962d22;
   --white:       #ffffff;
@@ -123,10 +123,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 54px; height: 54px; border-radius: 50%;
   background: var(--gold); color: var(--black);
   font-size: 1.3rem; display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(245,193,7,0.35);
+  box-shadow: 0 4px 20px rgba(84,84,84,0.35);
   transition: transform var(--ease), box-shadow var(--ease);
 }
-.cart-fab:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(245,193,7,0.5); }
+.cart-fab:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(84,84,84,0.5); }
 .cart-fab-badge {
   position: absolute; top: -4px; right: -4px;
   width: 20px; height: 20px; border-radius: 50%;

@@ -29,7 +29,7 @@
 .value-card-wrap { display:flex; }
 .value-card { background:var(--dark-2); border:1px solid var(--border); padding:44px 32px; position:relative; overflow:hidden; width:100%; transition:transform var(--ease),border-color var(--ease); }
 .value-card:hover { transform:translateY(-3px); border-color:var(--gold); }
-.value-card::before { content:attr(data-num); position:absolute; top:12px; right:18px; font-family:var(--font-head); font-size:3.5rem; color:rgba(245,193,7,.05); line-height:1; }
+.value-card::before { content:attr(data-num); position:absolute; top:12px; right:18px; font-family:var(--font-head); font-size:3.5rem; color:rgba(84,84,84,.05); line-height:1; }
 .value-icon { font-size:2rem; display:block; margin-bottom:14px; }
 .value-title { font-family:var(--font-head); font-size:.9rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
 .value-desc { font-size:.8rem; color:var(--light-gray); line-height:1.7; }

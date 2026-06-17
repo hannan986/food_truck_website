@@ -4,24 +4,24 @@
 
 /* === VARIABLES === */
 :root {
-  --black:      #111111;
+  --black:      #545454;
   --gold:       #F5C107;
   --gold-dark:  #C89F00;
   --red:        #C0392B;
   --red-dark:   #9B2C20;
   --white:      #FFFFFF;
-  --dark:       #1A1A1A;
-  --dark-2:     #222222;
-  --dark-3:     #2A2A2A;
-  --gray:       #333333;
-  --gray-2:     #444444;
-  --light-gray: #888888;
-  --lighter-gray: #BBBBBB;
+  --dark:       #F2F2F2;
+  --dark-2:     #EBEBEB;
+  --dark-3:     #E3E3E3;
+  --gray:       #D0D0D0;
+  --gray-2:     #BEBEBE;
+  --light-gray: #666666;
+  --lighter-gray: #777777;
   --font-head:  'Anton', 'Impact', sans-serif;
   --font-body:  'Inter', Arial, sans-serif;
   --ease:       0.22s ease;
   --radius:     4px;
-  --shadow:     0 8px 40px rgba(0,0,0,0.5);
+  --shadow:     0 8px 40px rgba(0,0,0,0.12);
   --shadow-gold: 0 8px 40px rgba(245,193,7,0.18);
   --shadow-red:  0 8px 40px rgba(192,57,43,0.2);
 }
@@ -31,7 +31,7 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
   background: var(--black);
-  color: var(--white);
+  color: #1A1A1A;
   font-family: var(--font-body);
   line-height: 1.6;
   overflow-x: hidden;
@@ -74,7 +74,7 @@ input, select, textarea { font-family: var(--font-body); outline: none; }
   font-size: clamp(2.2rem, 5vw, 3.2rem);
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--white);
+  color: #1A1A1A;
   line-height: 1.05;
   margin-bottom: 14px;
 }
@@ -179,7 +179,7 @@ input, select, textarea { font-family: var(--font-body); outline: none; }
   font-size: clamp(3.5rem, 9vw, 7rem);
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--white);
+  color: #1A1A1A;
   line-height: 0.92;
   margin-bottom: 16px;
 }
@@ -267,9 +267,9 @@ input, select, textarea { font-family: var(--font-body); outline: none; }
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #555;
+  color: #444;
   padding: 5px 10px;
-  border: 1px solid #2a2a2a;
+  border: 1px solid #D0D0D0;
 }
 
 /* === TOAST === */
@@ -371,7 +371,7 @@ input, select, textarea { font-family: var(--font-body); outline: none; }
   top: 14px; right: 14px;
   width: 34px; height: 34px;
   background: var(--gray);
-  color: var(--white);
+  color: #1A1A1A;
   border: none;
   display: flex; align-items: center; justify-content: center;
   font-size: 1rem;

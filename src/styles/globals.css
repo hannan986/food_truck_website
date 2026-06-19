@@ -61,7 +61,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: 2px; text-transform: uppercase; color: var(--white);
   line-height: 1.05;
 }
-.section-title .gold { color: var(--gold); }
+.section-title .gold { color: #e3bc32; }
 .section-sub {
   font-size: 0.9rem; color: var(--light-gray);
   max-width: 540px; line-height: 1.7; margin-top: 12px;
@@ -70,7 +70,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 48px; height: 3px; background: var(--gold); margin: 16px 0;
 }
 .divider-center { margin-left: auto; margin-right: auto; }
-.gold { color: var(--gold); }
+.gold { color: #e3bc32; }
 
 /* ── BUTTONS ── */
 .btn {

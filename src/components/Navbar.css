@@ -50,7 +50,8 @@
   font-size: 0.58rem; font-weight: 700; font-family: var(--font-body);
   display: flex; align-items: center; justify-content: center;
 }
-.nav-order-btn { display: none; }
+.nav-order-btn { display: none; background: #e3bc32 !important; border-color: #e3bc32 !important; color: #111 !important; }
+.nav-order-btn:hover { background: #c9a620 !important; border-color: #c9a620 !important; }
 
 /* HAMBURGER */
 .hamburger {

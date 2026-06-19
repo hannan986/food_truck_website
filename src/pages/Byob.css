@@ -29,8 +29,8 @@
 
 .chips-row { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:28px; }
 .chip-tag { font-family:var(--font-head); font-size:.9rem; letter-spacing:3px; text-transform:uppercase; color:var(--white); padding:12px 24px; border:2px solid var(--border); background:var(--dark-2); transition:all var(--ease); }
-.chip-tag:hover { border-color:var(--gold); color:var(--gold); transform:scale(1.04); }
-.chip-featured { border-color:var(--gold); color:var(--gold); }
+.chip-tag:hover { border-color:#e3bc32; color:#e3bc32; transform:scale(1.04); }
+.chip-featured { border-color:#e3bc32; color:#e3bc32; }
 
 .byob-vis-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
 .byob-vis { aspect-ratio:3/2; overflow:hidden; background:var(--dark-2); border:1px solid var(--border); }

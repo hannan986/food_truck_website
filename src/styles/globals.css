@@ -81,8 +81,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: all var(--ease); cursor: pointer; white-space: nowrap;
   border-radius: var(--radius);
 }
-.btn-gold   { background: var(--gold); color: var(--black); border-color: var(--gold); }
-.btn-gold:hover { background: var(--gold-dark); border-color: var(--gold-dark); }
+.btn-gold   { background: #e3bc32; color: var(--black); border-color: #e3bc32; }
+.btn-gold:hover { background: #c9a620; border-color: #c9a620; }
 .btn-red    { background: var(--red); color: var(--white); border-color: var(--red); }
 .btn-red:hover { background: var(--red-dark); border-color: var(--red-dark); }
 .btn-outline-gold { background: transparent; color: var(--gold); border-color: var(--gold); }

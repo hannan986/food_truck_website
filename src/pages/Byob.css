@@ -25,7 +25,7 @@
 .protein-name { font-family:var(--font-head); font-size:1rem; letter-spacing:2px; text-transform:uppercase; color:var(--white); margin-bottom:6px; }
 .protein-desc { font-size:.78rem; color:var(--light-gray); line-height:1.65; flex:1; margin-bottom:14px; }
 .protein-footer { display:flex; align-items:center; justify-content:space-between; }
-.protein-price { font-family:var(--font-head); font-size:1.2rem; color:var(--gold); }
+.protein-price { font-family:var(--font-head); font-size:1.2rem; color:#e3bc32; }
 
 .chips-row { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:28px; }
 .chip-tag { font-family:var(--font-head); font-size:.9rem; letter-spacing:3px; text-transform:uppercase; color:var(--white); padding:12px 24px; border:2px solid var(--border); background:var(--dark-2); transition:all var(--ease); }

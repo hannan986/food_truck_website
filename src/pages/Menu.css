@@ -172,7 +172,7 @@
 .item-price {
   font-family:var(--font-head);
   font-size:1.2rem;
-  color:var(--gold);
+  color:#e3bc32;
   white-space:nowrap;
 }
 .btn-add-item {

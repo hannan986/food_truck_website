@@ -52,7 +52,7 @@
 .oi-price {
   font-family: var(--font-head);
   font-size: 1.05rem;
-  color: var(--gold);
+  color: #e3bc32;
   min-width: 52px;
   text-align: right;
 }

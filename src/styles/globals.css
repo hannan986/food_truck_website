@@ -2,16 +2,16 @@
 
 /* ── DESIGN TOKENS ── */
 :root {
-  --black:       #111111;
-  --dark:        #161616;
-  --dark-2:      #1c1c1c;
+  --black:       #252525;
+  --dark:        #2d2d2d;
+  --dark-2:      #333333;
   --gold:        #545454;
   --gold-dark:   #3a3a3a;
   --red:         #C0392B;
   --red-dark:    #962d22;
   --white:       #ffffff;
   --light-gray:  #9a9a9a;
-  --border:      #232323;
+  --border:      #3d3d3d;
 
   --font-head: 'Anton', Impact, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;

@@ -1,6 +1,6 @@
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  height: var(--nav-h); background: rgba(17,17,17,0.96);
+  height: var(--nav-h); background: rgba(37,37,37,0.96);
   border-bottom: 2px solid var(--gold);
   backdrop-filter: blur(10px);
   transition: box-shadow var(--ease);
@@ -68,7 +68,7 @@
 /* MOBILE OVERLAY */
 .mobile-overlay {
   display: none; position: fixed; inset: 0; top: var(--nav-h); z-index: 999;
-  background: rgba(17,17,17,0.98); backdrop-filter: blur(10px);
+  background: rgba(37,37,37,0.98); backdrop-filter: blur(10px);
   flex-direction: column; align-items: center; justify-content: center;
   gap: 8px; opacity: 0; pointer-events: none;
   transition: opacity 0.25s ease;

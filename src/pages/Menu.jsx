@@ -70,7 +70,7 @@ function ItemCard({ item, delay }) {
     <Reveal delay={delay} className="item-card-wrap">
       <div className="item-card">
         <div className="item-visual">
-          <img src={`images/menu_images/${item.img}`} alt={item.name} onError={e => e.target.style.display='none'} />
+          <img src={`${import.meta.env.BASE_URL}images/menu_images/${item.img}`} alt={item.name} onError={e => { e.target.style.opacity='0' }} />
         </div>
         <div className="item-body">
           <div className="item-name">{item.name}</div>

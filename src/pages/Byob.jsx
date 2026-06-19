@@ -10,9 +10,9 @@ const STEPS = [
 ]
 
 const PROTEINS = [
-  { emoji:'🍗', name:'Chicken / Beef', desc:'Juicy seasoned chicken or halal beef — savory, smoky and satisfying.', price:8.99, img:'Chicken_Tenders.jpg' },
-  { emoji:'🍖', name:'Lamb / Gyro',    desc:'Signature seasoned lamb or authentic gyro meat — bold, rich and full of flavor.', price:9.99, img:'lamb_over_rice.jpg' },
-  { emoji:'🧆', name:'Falafel',        desc:'Crispy golden falafel made fresh daily — hearty, flavorful and fully vegetarian.', price:8.49, img:'Veggie_Wrap.jpg' },
+  { emoji:'🍗', name:'Chicken / Beef', desc:'Juicy seasoned chicken or halal beef — savory, smoky and satisfying.', price:8.99, img:'Chicken Gyro Wrap.jpg' },
+  { emoji:'🍖', name:'Lamb / Gyro',    desc:'Signature seasoned lamb or authentic gyro meat — bold, rich and full of flavor.', price:9.99, img:'Lamb Gyro Wrap.jpg' },
+  { emoji:'🧆', name:'Falafel',        desc:'Crispy golden falafel made fresh daily — hearty, flavorful and fully vegetarian.', price:8.49, img:'Falafel Wrap.jpg' },
 ]
 
 const CHIPS = ['DORITOS','LAY\'S','TAKIS','CHEETOS','PRINGLES','ANY BRAND']

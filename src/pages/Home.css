@@ -28,7 +28,7 @@
 .hero-kicker-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); }
 .hero-h1 { font-family:var(--font-head); line-height:0.92; margin-bottom:18px; }
 .hero-h1 span { display:block; font-size:clamp(2.2rem,5.5vw,4.8rem); letter-spacing:2px; text-transform:uppercase; color:var(--white); }
-.hero-h1-gold { color:var(--gold) !important; }
+.hero-h1-gold { color:#e3bc32 !important; }
 .hero-sub { font-size:0.9rem; color:#888; line-height:1.75; max-width:420px; margin-bottom:28px; }
 .hero-btns { display:flex; gap:12px; flex-wrap:wrap; }
 /* visual */

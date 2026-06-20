@@ -83,9 +83,9 @@
 .why-section { background:var(--black); }
 .why-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
 .why-card { background:var(--dark-2); padding:40px 32px; border-top:2px solid transparent; transition:border-color var(--ease),background var(--ease),transform var(--ease); }
-.why-card:hover { border-top-color:var(--gold); background:#1e1e1e; transform:translateY(-3px); }
+.why-card:hover { border-top-color:#e3bc32; background:#1e1e1e; transform:translateY(-3px); }
 .why-icon { font-size:2rem; margin-bottom:14px; display:block; }
-.why-title { font-family:var(--font-head); font-size:1.1rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.why-title { font-family:var(--font-head); font-size:1.1rem; letter-spacing:2px; text-transform:uppercase; color:#e3bc32; margin-bottom:10px; }
 .why-desc { font-size:0.82rem; color:var(--light-gray); line-height:1.7; }
 
 /* ── BYOB TEASER ── */

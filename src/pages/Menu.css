@@ -68,8 +68,8 @@
   font-family:var(--font-head);
   font-size:.75rem;
   letter-spacing:2px;
-  color:var(--gold);
-  opacity:.5;
+  color:#e3bc32;
+  opacity:1;
   flex-shrink:0;
 }
 .cat-title {

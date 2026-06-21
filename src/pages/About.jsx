@@ -73,7 +73,7 @@ export default function About() {
           <div className="stats-strip">
             {STATS.map((s,i) => (
               <Reveal key={s.label} delay={i} className="stat-block">
-                <span className="stat-num" style={s.num==='♥'?{color:'var(--red)'}:{}}>{s.num}</span>
+                <span className="stat-num" style={s.num==='♥'?{color:'#C0392B'}:{}}>{s.num}</span>
                 <span className="stat-label">{s.label}</span>
               </Reveal>
             ))}

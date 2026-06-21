@@ -137,13 +137,13 @@
   line-height: 1.75;
   margin-bottom: 28px;
 }
-.clover-desc strong { color: var(--gold); }
+.clover-desc strong { color: #e3bc32; }
 
 .clover-btn { display: block; width: 100%; margin-bottom: 12px; }
 
 .clover-note {
   font-size: .68rem;
-  color: #555;
+  color: #e3bc32;
   letter-spacing: .5px;
   margin-bottom: 20px;
 }
@@ -153,13 +153,13 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #555;
+  color: var(--white);
   background: none;
   border: none;
   cursor: pointer;
   transition: color var(--ease);
 }
-.clover-cancel:hover { color: var(--white); }
+.clover-cancel:hover { color: var(--red); }
 
 @media (max-width: 600px) {
   .order-sticky-bar { padding: 12px 16px; }

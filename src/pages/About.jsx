@@ -60,7 +60,7 @@ export default function About() {
               <p className="story-p">So we built Taste on Wheels. We took everything we loved about great Middle Eastern and street food cooking and brought it to where people actually are.</p>
               <p className="story-p">Today we serve hundreds of people every week. We've kept one promise the entire time: every plate that leaves our window is made fresh, made with care, and made to satisfy.</p>
               <div className="story-highlight">
-                <p>Every item on our menu is <strong style={{color:'var(--gold)'}}>100% Halal certified</strong>. Our meat is sourced locally, halal-certified and prepared fresh daily. No shortcuts, no compromise.</p>
+                <p>Every item on our menu is <strong style={{color:'#e3bc32'}}>100% Halal certified</strong>. Our meat is sourced locally, halal-certified and prepared fresh daily. No shortcuts, no compromise.</p>
               </div>
             </Reveal>
           </div>

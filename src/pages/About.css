@@ -14,7 +14,7 @@
 .story-stat { text-align:center; }
 .sn { display:block; font-family:var(--font-head); font-size:1.4rem; color:var(--black); line-height:1; }
 .sl { font-size:.55rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(0,0,0,.65); }
-.story-quote { font-family:var(--font-head); font-size:clamp(.85rem,1.5vw,1.1rem); letter-spacing:1px; text-transform:uppercase; color:var(--gold); border-left:2px solid var(--gold); padding-left:16px; line-height:1.5; margin-bottom:22px; }
+.story-quote { font-family:var(--font-head); font-size:clamp(.85rem,1.5vw,1.1rem); letter-spacing:1px; text-transform:uppercase; color:#e3bc32; border-left:2px solid #e3bc32; padding-left:16px; line-height:1.5; margin-bottom:22px; }
 .story-p { font-size:.83rem; color:var(--light-gray); line-height:1.8; margin-bottom:14px; }
 .story-highlight { background:var(--dark-2); border:1px solid var(--border); border-left:2px solid var(--red); padding:16px 20px; margin-top:20px; }
 .story-highlight p { font-size:.8rem; color:var(--light-gray); line-height:1.7; margin:0; }

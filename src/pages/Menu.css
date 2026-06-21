@@ -1,8 +1,8 @@
 /* ── combo banner ── */
 .combo-banner-sm { background:var(--red); padding:14px 0; }
 .combo-banner-sm .combo-inner { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
-.combo-banner-sm .combo-title { font-family:var(--font-head); font-size:.9rem; letter-spacing:2px; text-transform:uppercase; color:#e3bc32; }
-.combo-banner-sm .combo-desc { font-size:.78rem; color:#e3bc32; margin-top:2px; }
+.combo-banner-sm .combo-title { font-family:var(--font-head); font-size:.9rem; letter-spacing:2px; text-transform:uppercase; color:#ffffff; }
+.combo-banner-sm .combo-desc { font-size:.78rem; color:#ffffff; margin-top:2px; }
 
 /* ── sticky category tabs ── */
 .menu-tab-bar {

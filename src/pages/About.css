@@ -5,7 +5,7 @@
 .about-hero-lead { font-size:.88rem; color:var(--light-gray); line-height:1.75; margin-bottom:22px; max-width:420px; }
 .about-hero-img { position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--dark-2); border:1px solid var(--border); }
 .about-hero-img img { width:100%; height:100%; object-fit:cover; }
-.about-hero-badge { position:absolute; bottom:18px; left:18px; background:var(--gold); color:var(--black); font-family:var(--font-head); font-size:.72rem; letter-spacing:2px; text-transform:uppercase; padding:8px 16px; }
+.about-hero-badge { position:absolute; bottom:18px; left:18px; background:#e3bc32; color:var(--black); font-family:var(--font-head); font-size:.72rem; letter-spacing:2px; text-transform:uppercase; padding:8px 16px; }
 
 .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
 .story-img-wrap { position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--dark-2); border:1px solid var(--border); }

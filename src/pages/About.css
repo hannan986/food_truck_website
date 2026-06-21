@@ -10,7 +10,7 @@
 .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
 .story-img-wrap { position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--dark-2); border:1px solid var(--border); }
 .story-img-wrap img { width:100%; height:100%; object-fit:cover; }
-.story-stat-bar { position:absolute; bottom:0; left:0; right:0; background:var(--gold); padding:14px 16px; display:flex; gap:24px; justify-content:center; }
+.story-stat-bar { position:absolute; bottom:0; left:0; right:0; background:#e3bc32; padding:14px 16px; display:flex; gap:24px; justify-content:center; }
 .story-stat { text-align:center; }
 .sn { display:block; font-family:var(--font-head); font-size:1.4rem; color:var(--black); line-height:1; }
 .sl { font-size:.55rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:rgba(0,0,0,.65); }

@@ -7,14 +7,14 @@
 .ld-row { display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--border); }
 .ld-row:last-child { border-bottom:none; }
 .ld-icon { font-size:1.4rem; width:36px; flex-shrink:0; text-align:center; margin-top:2px; }
-.ld-label { font-size:.58rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
+.ld-label { font-size:.58rem; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#e3bc32; margin-bottom:4px; }
 .ld-val { font-size:.82rem; color:#888; line-height:1.65; }
 
 .contact-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
 .contact-card { background:var(--black); border:1px solid var(--border); padding:32px 20px; text-align:center; transition:transform var(--ease),border-color var(--ease); }
 .contact-card:hover { transform:translateY(-3px); border-color:var(--gold); }
 .contact-icon { font-size:2rem; display:block; margin-bottom:12px; }
-.contact-title { font-family:var(--font-head); font-size:.72rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.contact-title { font-family:var(--font-head); font-size:.72rem; letter-spacing:3px; text-transform:uppercase; color:#e3bc32; margin-bottom:8px; }
 .contact-val { font-size:.8rem; color:#888; margin-bottom:16px; }
 .contact-val a { color:#888; transition:color var(--ease); }
 .contact-val a:hover { color:var(--gold); }
@@ -36,7 +36,7 @@
 .hours-table td { padding:12px 0; font-size:.82rem; }
 .hours-table td:first-child { color:var(--light-gray); }
 .hours-table td:last-child { text-align:right; color:var(--white); font-weight:600; }
-.hours-note { margin-top:18px; font-size:.75rem; color:#444; border-left:2px solid var(--gold); padding-left:12px; line-height:1.7; }
+.hours-note { margin-top:18px; font-size:.75rem; color:#e3bc32; border-left:2px solid #e3bc32; padding-left:12px; line-height:1.7; }
 .hours-img { aspect-ratio:4/3; overflow:hidden; background:var(--dark-2); border:1px solid var(--border); }
 .hours-img img { width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
 .hours-img:hover img { transform:scale(1.04); }

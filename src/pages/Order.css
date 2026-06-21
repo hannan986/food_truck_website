@@ -97,7 +97,7 @@
 .clover-modal {
   background: var(--dark-2);
   border: 1px solid var(--border);
-  border-top: 3px solid var(--gold);
+  border-top: 3px solid #e3bc32;
   max-width: 460px;
   width: 100%;
   padding: 48px 44px 40px;

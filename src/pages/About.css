@@ -22,7 +22,7 @@
 .stats-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
 .stat-block { background:var(--black); border:1px solid var(--border); padding:36px 24px; text-align:center; transition:border-color var(--ease); }
 .stat-block:hover { border-color:var(--gold); }
-.stat-num { display:block; font-family:var(--font-head); font-size:clamp(2rem,4vw,3.2rem); letter-spacing:2px; color:var(--gold); margin-bottom:6px; line-height:1; }
+.stat-num { display:block; font-family:var(--font-head); font-size:clamp(2rem,4vw,3.2rem); letter-spacing:2px; color:#e3bc32; margin-bottom:6px; line-height:1; }
 .stat-label { font-size:.6rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--light-gray); }
 
 .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }

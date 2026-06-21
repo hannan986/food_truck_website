@@ -21,14 +21,14 @@
 
 .stats-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
 .stat-block { background:var(--black); border:1px solid var(--border); padding:36px 24px; text-align:center; transition:border-color var(--ease); border-radius:1.5%; }
-.stat-block:hover { border-color:var(--gold); }
+.stat-block:hover { border-color:#e3bc32; }
 .stat-num { display:block; font-family:var(--font-head); font-size:clamp(2rem,4vw,3.2rem); letter-spacing:2px; color:#e3bc32; margin-bottom:6px; line-height:1; }
 .stat-label { font-size:.6rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--light-gray); }
 
 .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
 .value-card-wrap { display:flex; }
 .value-card { background:var(--dark-2); border:1px solid var(--border); padding:44px 32px; position:relative; overflow:hidden; width:100%; transition:transform var(--ease),border-color var(--ease); border-radius:1.5%; }
-.value-card:hover { transform:translateY(-3px); border-color:var(--gold); }
+.value-card:hover { transform:translateY(-3px); border-color:#e3bc32; }
 .value-card::before { content:attr(data-num); position:absolute; top:12px; right:18px; font-family:var(--font-head); font-size:3.5rem; color:rgba(227,188,50,.2); line-height:1; }
 .value-icon { font-size:2rem; display:block; margin-bottom:14px; }
 .value-title { font-family:var(--font-head); font-size:.9rem; letter-spacing:2px; text-transform:uppercase; color:#e3bc32; margin-bottom:8px; }
@@ -37,7 +37,7 @@
 .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
 .team-card-wrap { display:flex; }
 .team-card { background:var(--dark-2); border:1px solid var(--border); overflow:hidden; width:100%; transition:transform var(--ease),border-color var(--ease); border-radius:1.5%; }
-.team-card:hover { transform:translateY(-3px); border-color:var(--gold); }
+.team-card:hover { transform:translateY(-3px); border-color:#e3bc32; }
 .team-photo { aspect-ratio:1; overflow:hidden; background:var(--dark); }
 .team-photo img { width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
 .team-card:hover .team-photo img { transform:scale(1.05); }

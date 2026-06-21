@@ -12,7 +12,7 @@
 
 .contact-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
 .contact-card { background:var(--black); border:1px solid var(--border); padding:32px 20px; text-align:center; transition:transform var(--ease),border-color var(--ease); }
-.contact-card:hover { transform:translateY(-3px); border-color:var(--gold); }
+.contact-card:hover { transform:translateY(-3px); border-color:#e3bc32; }
 .contact-icon { font-size:2rem; display:block; margin-bottom:12px; }
 .contact-title { font-family:var(--font-head); font-size:.72rem; letter-spacing:3px; text-transform:uppercase; color:#e3bc32; margin-bottom:8px; }
 .contact-val { font-size:.8rem; color:#888; margin-bottom:16px; }
@@ -43,7 +43,7 @@
 
 .payment-cards-row { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:28px; }
 .payment-card { background:var(--black); border:1px solid var(--border); padding:16px 24px; min-width:100px; text-align:center; transition:border-color var(--ease); }
-.payment-card:hover { border-color:var(--gold); }
+.payment-card:hover { border-color:#e3bc32; }
 .payment-card-icon { font-size:1.6rem; display:block; margin-bottom:6px; }
 .payment-card-label { font-size:.6rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--light-gray); }
 

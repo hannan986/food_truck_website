@@ -107,7 +107,7 @@
 .social-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
 .social-img-wrap { aspect-ratio:1; }
 .social-img { width:100%; height:100%; position:relative; overflow:hidden; border:1px solid var(--border); transition:border-color var(--ease); cursor:pointer; }
-.social-img:hover { border-color:var(--gold); }
+.social-img:hover { border-color:#e3bc32; }
 .social-img img { width:100%; height:100%; object-fit:cover; transition:transform .4s ease; }
 .social-img:hover img { transform:scale(1.05); }
 .social-ov { position:absolute; inset:0; background:rgba(84,84,84,.1); display:flex; align-items:center; justify-content:center; font-size:1.8rem; opacity:0; transition:opacity var(--ease); }

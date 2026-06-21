@@ -20,7 +20,7 @@
   font-size: clamp(.85rem, 2vw, 1.1rem);
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: #e3bc32;
 }
 
 .order-items-grid {

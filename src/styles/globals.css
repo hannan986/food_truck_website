@@ -86,7 +86,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .btn-red    { background: var(--red); color: var(--white); border-color: var(--red); }
 .btn-red:hover { background: var(--red-dark); border-color: var(--red-dark); }
 .btn-outline-gold { background: transparent; color: #e3bc32; border-color: #e3bc32; }
-.btn-outline-gold:hover { background: #e3bc32; color: var(--black); }
+.btn-outline-gold:hover { background: #e3bc32; color: #111111; }
 .btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.35); }
 .btn-outline-white:hover { border-color: var(--white); }
 .btn-dark   { background: var(--dark-2); color: var(--white); border-color: var(--border); }

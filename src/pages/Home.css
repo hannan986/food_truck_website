@@ -46,7 +46,7 @@
 @keyframes plateGlow { 0%,100%{opacity:.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
 .hero-ring { position:absolute; inset:-16px; border-radius:50%; border:1px dashed rgba(84,84,84,.15); animation:spin 22s linear infinite; }
 @keyframes spin { to{transform:rotate(360deg)} }
-.hero-plate-label { font-family:var(--font-head); font-size:0.7rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); position:relative; z-index:1; margin-top:200px; }
+.hero-plate-label { font-family:var(--font-head); font-size:0.7rem; letter-spacing:4px; text-transform:uppercase; color:#e3bc32; position:relative; z-index:1; margin-top:200px; }
 .hero-flame { position:absolute; bottom:0; left:0; right:0; height:70px; pointer-events:none; }
 .hero-flame svg { width:100%; height:100%; }
 

@@ -99,7 +99,7 @@
 .byob-title { font-family:var(--font-head); font-size:clamp(1.5rem,3.5vw,2.5rem); letter-spacing:2px; text-transform:uppercase; color:var(--white); line-height:1.05; margin-bottom:14px; }
 .byob-desc { font-size:0.85rem; color:var(--light-gray); line-height:1.75; margin-bottom:18px; }
 .chip-pills { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:24px; }
-.chip-pill { font-size:.6rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 10px; border:1px solid #2a2a2a; color:#555; }
+.chip-pill { font-size:.6rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:4px 10px; border:1px solid #e3bc32; color:#e3bc32; }
 
 /* ── SOCIAL ── */
 .social-section { background:var(--black); }

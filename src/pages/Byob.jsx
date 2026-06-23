@@ -92,7 +92,7 @@ export default function Byob() {
           <div className="chips-row">
             {CHIPS.map((c,i) => <Reveal key={c} delay={i % 4} className={`chip-tag${i<2?' chip-featured':''}`}>{c}</Reveal>)}
           </div>
-          <p style={{ color:'#333', fontSize:'.75rem', marginTop:16 }}>Bring a larger (party size) bag for the full experience!</p>
+          <p style={{ color:'#e3bc32', fontSize:'.75rem', marginTop:16 }}>Bring a larger (party size) bag for the full experience!</p>
         </div>
       </section>
 

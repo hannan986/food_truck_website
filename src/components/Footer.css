@@ -37,8 +37,10 @@
 
 /* bottom */
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 20px 0; }
-.footer-copy { font-size: 0.72rem; color: #333; }
+.footer-copy { font-size: 0.72rem; color: #ffffff; }
 .footer-payment { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.payment-icon { display: inline-flex; align-items: center; opacity: 0.85; transition: opacity var(--ease); cursor: default; }
+.payment-icon:hover { opacity: 1; }
 
 @media (max-width: 1100px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) {

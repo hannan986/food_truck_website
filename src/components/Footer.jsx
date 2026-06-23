@@ -70,7 +70,18 @@ export default function Footer() {
             <p className="footer-copy">© 2025 Taste on Wheels. All Rights Reserved.</p>
             <div className="footer-payment">
               <span className="payment-label">We Accept:</span>
-              {['VISA','MASTERCARD','APPLE PAY','CASH'].map(p => <span key={p} className="payment-item">{p}</span>)}
+              <span className="payment-icon" title="Visa">
+                <svg width="50" height="30" viewBox="0 0 50 30" fill="none"><rect width="50" height="30" rx="4" fill="#1a1f71"/><text x="25" y="20" textAnchor="middle" fill="white" fontFamily="Arial,sans-serif" fontSize="13" fontWeight="700" fontStyle="italic">VISA</text></svg>
+              </span>
+              <span className="payment-icon" title="Mastercard">
+                <svg width="50" height="30" viewBox="0 0 50 30" fill="none"><rect width="50" height="30" rx="4" fill="#1c1c1c"/><circle cx="18" cy="15" r="10" fill="#EB001B"/><circle cx="32" cy="15" r="10" fill="#F79E1B" opacity="0.92"/></svg>
+              </span>
+              <span className="payment-icon" title="Apple Pay">
+                <svg width="56" height="30" viewBox="0 0 56 30" fill="none"><rect width="56" height="30" rx="4" fill="#000"/><text x="28" y="19" textAnchor="middle" fill="white" fontFamily="Helvetica,Arial,sans-serif" fontSize="11" fontWeight="400" letterSpacing="0.3">&#xF8FF; Pay</text></svg>
+              </span>
+              <span className="payment-icon" title="Cash">
+                <svg width="50" height="30" viewBox="0 0 50 30" fill="none"><rect width="50" height="30" rx="4" fill="#1a7a4a"/><text x="25" y="21" textAnchor="middle" fill="white" fontFamily="Arial,sans-serif" fontSize="17" fontWeight="700">$</text></svg>
+              </span>
             </div>
           </div>
         </div>

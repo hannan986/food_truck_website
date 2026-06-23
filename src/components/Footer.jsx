@@ -77,13 +77,7 @@ export default function Footer() {
                 <svg width="50" height="30" viewBox="0 0 50 30" fill="none"><rect width="50" height="30" rx="4" fill="#1c1c1c"/><circle cx="18" cy="15" r="10" fill="#EB001B"/><circle cx="32" cy="15" r="10" fill="#F79E1B" opacity="0.92"/></svg>
               </span>
               <span className="payment-icon" title="Apple Pay">
-                <svg width="56" height="30" viewBox="0 0 56 30" fill="none">
-                  <rect width="56" height="30" rx="4" fill="#000"/>
-                  <ellipse cx="21" cy="8" rx="1.5" ry="3.5" transform="rotate(-35 21 8)" fill="white"/>
-                  <circle cx="18" cy="18" r="8" fill="white"/>
-                  <circle cx="22" cy="12" r="4" fill="#000"/>
-                  <text x="40" y="19" textAnchor="middle" fill="white" fontFamily="Helvetica,Arial,sans-serif" fontSize="10" fontWeight="400">Pay</text>
-                </svg>
+                <img src={`${import.meta.env.BASE_URL}images/Apple_Pay.svg`} alt="Apple Pay" height="30" style={{borderRadius:'4px',background:'#000',padding:'0 6px'}} />
               </span>
               <span className="payment-icon" title="Cash">
                 <svg width="50" height="30" viewBox="0 0 50 30" fill="none"><rect width="50" height="30" rx="4" fill="#1a7a4a"/><text x="25" y="21" textAnchor="middle" fill="white" fontFamily="Arial,sans-serif" fontSize="17" fontWeight="700">$</text></svg>

@@ -11,7 +11,7 @@
 .how-card { background:var(--dark-2); padding:44px 32px; position:relative; overflow:hidden; border:1px solid var(--border); width:100%; border-radius:1.5%; }
 .how-icon { font-size:2.8rem; display:block; margin-bottom:14px; }
 .how-num { font-family:var(--font-head); font-size:3.5rem; color:rgba(227,188,50,.2); position:absolute; top:14px; right:20px; line-height:1; }
-.how-title { font-family:var(--font-head); font-size:.9rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.how-title { font-family:var(--font-head); font-size:.9rem; letter-spacing:2px; text-transform:uppercase; color:#e3bc32; margin-bottom:8px; }
 .how-desc { font-size:.8rem; color:var(--light-gray); line-height:1.7; }
 
 .protein-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }

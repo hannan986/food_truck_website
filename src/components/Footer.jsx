@@ -77,7 +77,7 @@ export default function Footer() {
                 <svg width="50" height="30" viewBox="0 0 50 30" fill="none"><rect width="50" height="30" rx="4" fill="#1c1c1c"/><circle cx="18" cy="15" r="10" fill="#EB001B"/><circle cx="32" cy="15" r="10" fill="#F79E1B" opacity="0.92"/></svg>
               </span>
               <span className="payment-icon" title="Apple Pay">
-                <img src={`${import.meta.env.BASE_URL}images/Apple_Pay.png`} alt="Apple Pay" height="30" style={{borderRadius:'4px',background:'#000',padding:'0 6px'}} />
+                <img src={`${import.meta.env.BASE_URL}images/Apple_Pay.png`} alt="Apple Pay" height="30" style={{borderRadius:'4px',background:'#fff',padding:'0 6px'}} />
               </span>
               <span className="payment-icon" title="Cash">
                 <svg width="50" height="30" viewBox="0 0 50 30" fill="none"><rect width="50" height="30" rx="4" fill="#1a7a4a"/><text x="25" y="21" textAnchor="middle" fill="white" fontFamily="Arial,sans-serif" fontSize="17" fontWeight="700">$</text></svg>

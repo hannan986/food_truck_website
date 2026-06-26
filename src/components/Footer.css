@@ -10,7 +10,7 @@
 .footer-hex { width: 34px; height: 40px; }
 .footer-logo-taste { font-family: var(--font-head); font-size: 1.1rem; letter-spacing: 2px; color: #e3bc32; line-height: 1; }
 .footer-logo-sub { font-size: 0.42rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--white); background: var(--red); padding: 2px 4px; margin-top: 2px; display: inline-block; }
-.footer-tagline { font-size: 0.78rem; color: #e3bc32; line-height: 1.7; margin-bottom: 16px; }
+.footer-tagline { font-size: 0.78rem; color: #ffffff; line-height: 1.7; margin-bottom: 16px; }
 .footer-social { display: flex; gap: 8px; }
 .footer-social a {
   width: 34px; height: 34px; border: 1px solid var(--border);
@@ -22,7 +22,7 @@
 /* columns */
 .footer-col-title {
   display: block; font-size: 0.58rem; font-weight: 700; letter-spacing: 3px;
-  text-transform: uppercase; color: #e3bc32; margin-bottom: 14px;
+  text-transform: uppercase; color: #ffffff; margin-bottom: 14px;
 }
 .footer-links { display: flex; flex-direction: column; gap: 6px; }
 .footer-links a { font-size: 0.8rem; color: #e3bc32; transition: color var(--ease); }

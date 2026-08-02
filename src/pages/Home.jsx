@@ -46,10 +46,6 @@ export default function Home() {
         ))}
         <div className="hero-inner">
           <div className="hero-text">
-            <div className="hero-kicker">
-              <span className="hero-kicker-dot" />
-              <span>FRESH · BOLD</span>
-            </div>
             <h1 className="hero-h1">
               <span>FAST.</span>
               <span className="hero-h1-red">FRESH.</span>

@@ -74,8 +74,6 @@ function ItemCard({ item, delay }) {
         </div>
         <div className="item-body">
           <div className="item-name">{item.name}</div>
-          <p className="item-desc">{item.desc}</p>
-          <div className="item-note">{item.note}</div>
         </div>
         <div className="item-footer">
           <span className="item-price">${item.price.toFixed(2)}</span>

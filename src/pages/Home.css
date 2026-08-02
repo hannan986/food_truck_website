@@ -7,7 +7,7 @@
 }
 .hero-inner {
   flex: 1;
-  display: grid; grid-template-columns: 1fr 3fr;
+  display: grid; grid-template-columns: 2fr 3fr;
   gap: 0; align-items: stretch;
   min-height: calc(100vh - var(--nav-h));
   position: relative; z-index: 1;
@@ -36,7 +36,7 @@
 .hero-h1 { font-family: var(--font-head); line-height: 0.9; margin-bottom: 24px; }
 .hero-h1 span {
   display: block;
-  font-size: clamp(1.8rem, 2.8vw, 3.8rem);
+  font-size: clamp(2.2rem, 3.8vw, 5rem);
   letter-spacing: 1px; text-transform: uppercase; color: var(--white);
 }
 .hero-h1-red { color: #e03c3c !important; }

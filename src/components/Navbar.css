@@ -15,7 +15,7 @@
 }
 
 .nav-logo { display: flex; align-items: center; }
-.nav-logo-img { height: 64px; width: auto; object-fit: contain; display: block; }
+.nav-logo-img { height: 70px; width: auto; object-fit: contain; display: block; }
 
 .nav-links { display: flex; gap: 0; list-style: none; margin-left: auto; }
 .nav-links a {

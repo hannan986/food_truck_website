@@ -10,7 +10,12 @@
       "Bash(git remote *)",
       "Bash(git commit -m ' *)",
       "Bash(gh repo *)",
-      "Bash(gh api *)"
+      "Bash(gh api *)",
+      "PowerShell($r = Invoke-WebRequest -Uri \"https://hannan986.github.io/food_truck_website/\" -UseBasicParsing; $r.Content)",
+      "Bash(git stash *)",
+      "Bash(git pull *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\AbdulHannan\\\\OneDrive - impulsetechnology.net\\\\Desktop\\\\Abdul Personal Folder\\\\abdul_websites\\\\Food_truck_website\\\\\" -Recurse | Where-Object { $_.Extension -in @\\('.jpg','.jpeg','.png','.svg','.webp'\\) } | Select-Object FullName, Name | Sort-Object Name)",
+      "PowerShell(Copy-Item *)"
     ]
   }
 }

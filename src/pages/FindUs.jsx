@@ -18,7 +18,7 @@ export default function FindUs() {
   return (
     <main>
       {/* HERO */}
-      <div className="page-hero finduS-hero">
+      <div className="page-hero finduS-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
         <p className="page-hero-eyebrow">📍 Hagerstown, Maryland</p>
         <h1 className="page-hero-title">FIND <span className="gold">US</span></h1>
         <p className="page-hero-sub">Come taste the difference. We're ready for you.</p>
@@ -140,7 +140,6 @@ export default function FindUs() {
                 <span className="fu-hour-time">{time}</span>
               </div>
             ))}
-            <p className="fu-hours-note">Hours may vary on holidays. Check our Instagram for live updates.</p>
           </Reveal>
         </div>
       </section>

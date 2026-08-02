@@ -1,3 +1,19 @@
+/* ── FIND US HERO BACKGROUND ── */
+.finduS-hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 80px 0 72px;
+}
+.finduS-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.78) 100%);
+  pointer-events: none;
+}
+.finduS-hero > * { position: relative; z-index: 1; }
+
 /* ── BIG CONTACT CARDS ── */
 .fu-cards-section {
   background: var(--black);

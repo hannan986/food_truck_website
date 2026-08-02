@@ -33,14 +33,15 @@
   color: #e3bc32; margin-bottom: 20px;
 }
 .hero-kicker-dot { width: 6px; height: 6px; border-radius: 50%; background: #e3bc32; flex-shrink: 0; }
-.hero-h1 { font-family: var(--font-head); line-height: 0.9; margin-bottom: 24px; }
+.hero-h1 { font-family: var(--font-head); line-height: 1.15; margin-bottom: 40px; }
 .hero-h1 span {
   display: block;
   font-size: clamp(2.2rem, 3.8vw, 5rem);
-  letter-spacing: 1px; text-transform: uppercase; color: var(--white);
+  letter-spacing: 6px; text-transform: uppercase; color: var(--white);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.55);
 }
-.hero-h1-red { color: #e03c3c !important; }
-.hero-h1-gold { color: #e3bc32 !important; }
+.hero-h1-red { color: #e03c3c !important; text-shadow: 0 0 40px rgba(224,60,60,0.25) !important; }
+.hero-h1-gold { color: #e3bc32 !important; text-shadow: 0 0 40px rgba(227,188,50,0.3) !important; }
 .hero-sub {
   font-size: 0.88rem; color: #999; line-height: 1.8;
   max-width: 320px; margin-bottom: 36px;

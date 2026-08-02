@@ -31,11 +31,11 @@ export default function Home() {
           <div className="hero-text">
             <div className="hero-kicker">
               <span className="hero-kicker-dot" />
-              <span>HALAL · FRESH · BOLD</span>
+              <span>FRESH · BOLD</span>
             </div>
             <h1 className="hero-h1">
               <span>FAST.</span>
-              <span>FRESH.</span>
+              <span className="hero-h1-red">FRESH.</span>
               <span className="hero-h1-gold">FLAVORFUL.</span>
             </h1>
             <p className="hero-sub">Bold halal flavors made fresh to order, every single time. Always quality. Always fast.</p>
@@ -81,41 +81,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* COMBO BANNER */}
-      <div className="combo-banner">
-        <div className="container-wide">
-          <div className="combo-inner">
-            <div>
-              <div className="combo-title">MAKE IT A COMBO</div>
-              <div className="combo-desc">Any Main + Regular Fries + Drink — <strong>Only $4.99 extra</strong></div>
-            </div>
-            <div className="combo-price">$4.99</div>
-            <Link to="/order" className="btn btn-outline-white btn-sm">ADD A COMBO →</Link>
-          </div>
-        </div>
-      </div>
+      
 
-      {/* WHY US */}
-      <section className="why-section section">
-        <div className="container" style={{ textAlign: 'center', marginBottom: 48 }}>
-          <span className="eyebrow">Why Choose Us</span>
-          <h2 className="section-title">WHY <span className="gold">TASTE ON WHEELS</span></h2>
-          <div className="divider divider-center" />
-        </div>
-        <div className="container">
-          <div className="why-grid">
-            {WHY.map((w, i) => (
-              <Reveal key={w.title} delay={i}>
-                <div className="why-card">
-                  <span className="why-icon">{w.icon}</span>
-                  <div className="why-title">{w.title}</div>
-                  <p className="why-desc">{w.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* BYOB TEASER */}
       <section className="byob-section section">

@@ -69,7 +69,7 @@ export default function Home() {
       <section className="categories-section">
         <div className="cat-grid">
           {CATEGORIES.map((c, i) => (
-            <Link to={c.to} key={c.label} className={`cat-card reveal reveal-d${i}`}>
+            <Link to={c.to} key={c.label} className="cat-card">
               <img className="cat-bg" src={`images/menu_images/${c.img}`} alt="" onError={e => e.target.style.display='none'} />
               <span className="cat-emoji">{c.emoji}</span>
               <span className="cat-name">{c.label}</span>

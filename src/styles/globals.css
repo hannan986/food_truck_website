@@ -17,7 +17,7 @@
   --font-body: 'Inter', system-ui, sans-serif;
 
   --ease: 0.22s ease;
-  --radius: 2px;
+  --radius: 6px;
 
   --container: 1240px;
   --container-wide: 1400px;
@@ -74,25 +74,25 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ── BUTTONS ── */
 .btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-family: var(--font-body); font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 2px; text-transform: uppercase;
-  padding: 12px 24px; border: 2px solid transparent;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-size: 0.73rem; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 13px 28px; border: 2px solid transparent;
   transition: all var(--ease); cursor: pointer; white-space: nowrap;
   border-radius: var(--radius);
 }
 .btn-gold   { background: #e3bc32; color: var(--black); border-color: #e3bc32; }
-.btn-gold:hover { background: #c9a620; border-color: #c9a620; }
+.btn-gold:hover { background: #d4ae28; border-color: #d4ae28; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(227,188,50,0.3); }
 .btn-red    { background: var(--red); color: var(--white); border-color: var(--red); }
-.btn-red:hover { background: var(--red-dark); border-color: var(--red-dark); }
+.btn-red:hover { background: var(--red-dark); border-color: var(--red-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(192,57,43,0.35); }
 .btn-outline-gold { background: transparent; color: #e3bc32; border-color: #e3bc32; }
-.btn-outline-gold:hover { background: #e3bc32; color: #111111; }
-.btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.35); }
-.btn-outline-white:hover { border-color: var(--white); }
+.btn-outline-gold:hover { background: #e3bc32; color: #111111; transform: translateY(-1px); }
+.btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.4); }
+.btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
 .btn-dark   { background: var(--dark-2); color: var(--white); border-color: var(--border); }
-.btn-dark:hover { border-color: #e3bc32; }
-.btn-lg { padding: 14px 32px; font-size: 0.75rem; }
-.btn-sm { padding: 8px 16px; font-size: 0.65rem; }
+.btn-dark:hover { border-color: #e3bc32; color: #e3bc32; }
+.btn-lg { padding: 16px 36px; font-size: 0.78rem; }
+.btn-sm { padding: 9px 18px; font-size: 0.66rem; }
 .btn-full { width: 100%; justify-content: center; }
 
 /* ── SCROLL REVEAL ── */
@@ -143,15 +143,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ── PAGE HERO ── */
 .page-hero {
-  background: var(--dark); padding: 56px 0 48px;
-  border-bottom: 3px solid var(--gold); text-align: center;
+  background: linear-gradient(to bottom, #111, #161616);
+  padding: 64px 0 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  text-align: center;
 }
-.page-hero-eyebrow { color: #e3bc32; font-size: 0.62rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 8px; }
+.page-hero-eyebrow { color: #e3bc32; font-size: 0.62rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 10px; }
 .page-hero-title {
-  font-family: var(--font-head); font-size: clamp(2.2rem, 6vw, 4.5rem);
-  letter-spacing: 3px; text-transform: uppercase; color: var(--white); line-height: 1;
+  font-family: var(--font-head); font-size: clamp(2.4rem, 6vw, 5rem);
+  letter-spacing: 2px; text-transform: uppercase; color: var(--white); line-height: 0.95;
 }
-.page-hero-sub { font-size: 0.9rem; color: var(--light-gray); margin-top: 12px; max-width: 480px; margin-left: auto; margin-right: auto; }
+.page-hero-sub { font-size: 0.9rem; color: #888; margin-top: 14px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
 
 /* ── PAYMENT BAR ── */
 .payment-bar { background: var(--dark-2); border-top: 1px solid var(--border); padding: 14px 0; }

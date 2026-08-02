@@ -44,6 +44,7 @@
   font-size: clamp(3rem, 6.5vw, 5.8rem);
   letter-spacing: 1px; text-transform: uppercase; color: var(--white);
 }
+.hero-h1-red { color: #e03c3c !important; }
 .hero-h1-gold { color: #e3bc32 !important; }
 .hero-h1-gold { color: #e3bc32 !important; }
 .hero-sub {

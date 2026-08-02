@@ -69,7 +69,7 @@ export default function Order() {
   return (
     <main>
       <div className="page-hero">
-        <p className="page-hero-eyebrow">Fresh. Fast. Halal.</p>
+        <p className="page-hero-eyebrow">Fresh. Fast. Flavorful.</p>
         <h1 className="page-hero-title">ORDER <span className="gold">ONLINE</span></h1>
         <p className="page-hero-sub">Browse our full menu, then tap the button below to place your order through our secure Clover page.</p>
         <button className="btn btn-gold btn-lg order-hero-btn" onClick={() => setOpen(true)}>

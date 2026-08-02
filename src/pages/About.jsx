@@ -5,18 +5,18 @@ import './About.css'
 const VALUES = [
   { icon:'❤️', num:'01', title:'Made With Love', desc:"We put real care into every dish. From the marinade to the plate, every step is done with the intention of making something truly delicious." },
   { icon:'🌱', num:'02', title:'Fresh Every Day', desc:"No reheating. No cutting corners. Our meat is seasoned fresh daily, our falafel is ground and fried to order, and our sauces are made in-house." },
-  { icon:'⭐', num:'03', title:'Halal, Always', desc:"Our entire menu is 100% Halal certified. That's not just a label for us — it's a standard we hold ourselves to with every order, every day." },
+  { icon:'⭐', num:'03', title:'Quality, Always', desc:"We hold every dish to the highest standard. That's not just a promise — it's a standard we hold ourselves to with every order, every day." },
 ]
 
 const TEAM = [
-  { name:'The Founder', role:'Head Chef & Owner', desc:"Started Taste on Wheels with a family recipe and a dream. Handles everything from sourcing our halal meats to designing the menu.", img:'WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM.jpeg' },
+  { name:'The Founder', role:'Head Chef & Owner', desc:"Started Taste on Wheels with a family recipe and a dream. Handles everything from sourcing our meats to designing the menu.", img:'WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM.jpeg' },
   { name:'The Kitchen', role:'Food Prep & Line Cook', desc:"The engine behind the operation. Preps fresh daily, runs the grill during service and ensures every plate meets our quality standards.", img:'menu_images/lamb_over_rice.jpg' },
   { name:'The Face',    role:'Front of House & Social Media', desc:"The smiling face at the window. Also the person behind all our Instagram posts, reels and daily location drops.", img:'WhatsApp%20Image%202026-06-07%20at%208.55.42%20PM.jpeg' },
 ]
 
 const STATS = [
   { num:'2+', label:'Years on the Road' },
-  { num:'100%', label:'Halal Certified' },
+  { num:'100%', label:'Fresh Daily' },
   { num:'1000+', label:'Happy Customers' },
   { num:'♥', label:'Made with Love' },
 ]
@@ -49,18 +49,18 @@ export default function About() {
             <Reveal className="story-img-wrap">
               <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%281%29.jpeg" alt="Food truck" onError={e=>e.target.style.display='none'} />
               <div className="story-stat-bar">
-                <div className="story-stat"><span className="sn">100%</span><span className="sl">Halal</span></div>
+                <div className="story-stat"><span className="sn">100%</span><span className="sl">Fresh</span></div>
                 <div className="story-stat"><span className="sn">Fresh</span><span className="sl">Daily</span></div>
                 <div className="story-stat"><span className="sn">★ 5</span><span className="sl">Flavor</span></div>
               </div>
             </Reveal>
             <Reveal delay={1} className="story-content">
               <div className="story-quote">"Great food should be accessible to everyone — on every corner, every day."</div>
-              <p className="story-p">It started with a dream and a passion for food. We grew up eating incredible halal food at home — rich with spices, layered flavors and cooked with love. We couldn't understand why those flavors never made it to the streets.</p>
+              <p className="story-p">It started with a dream and a passion for food. We grew up eating incredible food at home — rich with spices, layered flavors and cooked with love. We couldn't understand why those flavors never made it to the streets.</p>
               <p className="story-p">So we built Taste on Wheels. We took everything we loved about great Middle Eastern and street food cooking and brought it to where people actually are.</p>
               <p className="story-p">Today we serve hundreds of people every week. We've kept one promise the entire time: every plate that leaves our window is made fresh, made with care, and made to satisfy.</p>
               <div className="story-highlight">
-                <p>Every item on our menu is <strong style={{color:'#e3bc32'}}>100% Halal certified</strong>. Our meat is sourced locally, halal-certified and prepared fresh daily. No shortcuts, no compromise.</p>
+                <p>Every item on our menu is <strong style={{color:'#e3bc32'}}>made fresh daily</strong>. Our meat is sourced locally and prepared fresh every single day. No shortcuts, no compromise.</p>
               </div>
             </Reveal>
           </div>

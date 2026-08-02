@@ -8,36 +8,36 @@ const MENU = {
   bowls: {
     label: 'Bowls', emoji: '🍚', num: '01',
     items: [
-      { name: 'Lamb Over Rice',          price: 10.99, desc: 'Savory seasoned lamb over fluffy rice with fresh veggies and our signature white and hot sauce.', note: '✓ Halal · ✓ Rice Base', img: 'lamb_over_rice.jpg' },
-      { name: 'Chicken Over Rice',        price: 10.99, desc: 'Juicy marinated chicken over fluffy rice with fresh veggies and signature sauces.', note: '✓ Halal · ✓ Rice Base', img: 'Grilled Chicken Salad.jpg' },
-      { name: 'Lamb & Chicken Over Rice', price: 12.99, desc: 'Best of both worlds — seasoned lamb & chicken over rice with fresh veggies and signature sauces.', note: '✓ Halal · ✓ Best Seller', img: 'Chef Salad.jpg' },
+      { name: 'Lamb Over Rice',          price: 10.99, desc: 'Savory seasoned lamb over fluffy rice with fresh veggies and our signature white and hot sauce.', note: '✓ Rice Base', img: 'lamb_over_rice.jpg' },
+      { name: 'Chicken Over Rice',        price: 10.99, desc: 'Juicy marinated chicken over fluffy rice with fresh veggies and signature sauces.', note: '✓ Rice Base', img: 'Grilled Chicken Salad.jpg' },
+      { name: 'Lamb & Chicken Over Rice', price: 12.99, desc: 'Best of both worlds — seasoned lamb & chicken over rice with fresh veggies and signature sauces.', note: '✓ Best Seller', img: 'Chef Salad.jpg' },
       { name: 'Falafel Over Rice',        price:  9.99, desc: 'Crispy golden falafel over fluffy rice with fresh veggies and our tahini signature sauce.', note: '✓ Vegetarian · ✓ Tahini', img: 'Garden Salad.jpg' },
     ]
   },
   wraps: {
     label: 'Wraps', emoji: '🌯', num: '02',
     items: [
-      { name: 'Chicken Gyro Wrap', price: 9.99, desc: 'Marinated chicken, lettuce, tomatoes, onions and signature sauce in warm pita.', note: '✓ Halal · ✓ Pita', img: 'Grilled Chicken Wrap.jpg' },
-      { name: 'Lamb Gyro Wrap',    price: 9.99, desc: 'Savory seasoned lamb, lettuce, tomatoes, onions and signature sauce in warm pita.', note: '✓ Halal · ✓ Pita', img: 'Steak & Cheese Wrap.jpg' },
+      { name: 'Chicken Gyro Wrap', price: 9.99, desc: 'Marinated chicken, lettuce, tomatoes, onions and signature sauce in warm pita.', note: '✓ Pita', img: 'Grilled Chicken Wrap.jpg' },
+      { name: 'Lamb Gyro Wrap',    price: 9.99, desc: 'Savory seasoned lamb, lettuce, tomatoes, onions and signature sauce in warm pita.', note: '✓ Pita', img: 'Steak & Cheese Wrap.jpg' },
       { name: 'Falafel Wrap',      price: 8.99, desc: 'Crispy falafel, fresh lettuce, tomatoes, onions and tahini sauce in warm pita.', note: '✓ Vegetarian · ✓ Tahini', img: 'Veggie Wrap.jpg' },
-      { name: 'Fried Chicken Wrap',price: 9.99, desc: 'Crispy fried chicken, lettuce, tomatoes, pickles and signature sauce in warm tortilla.', note: '✓ Halal · ✓ Tortilla', img: 'Fried Chicken Wrap.jpg' },
+      { name: 'Fried Chicken Wrap',price: 9.99, desc: 'Crispy fried chicken, lettuce, tomatoes, pickles and signature sauce in warm tortilla.', note: '✓ Tortilla', img: 'Fried Chicken Wrap.jpg' },
     ]
   },
   burgers: {
     label: 'Burgers', emoji: '🍔', num: '03',
     items: [
-      { name: 'Hamburger',          price:  7.99, desc: 'Classic juicy beef patty with lettuce, tomato, onion, pickles and signature sauce.', note: '✓ Halal Beef', img: 'hamburger_sub.jpg' },
-      { name: 'Cheeseburger',       price:  8.99, desc: 'Juicy beef patty with melted cheese, fresh veggies, pickles and signature sauce.', note: '✓ Halal Beef · ✓ Cheddar', img: 'cheese_burger_sub.avif' },
-      { name: 'Chicken Sandwich',   price:  9.99, desc: 'Grilled or crispy chicken with lettuce, tomato and signature sauce on toasted bun.', note: '✓ Halal Chicken', img: 'Fried_chicken_sub.jpg' },
+      { name: 'Hamburger',          price:  7.99, desc: 'Classic juicy beef patty with lettuce, tomato, onion, pickles and signature sauce.', note: '✓ Beef', img: 'hamburger_sub.jpg' },
+      { name: 'Cheeseburger',       price:  8.99, desc: 'Juicy beef patty with melted cheese, fresh veggies, pickles and signature sauce.', note: '✓ Cheddar', img: 'cheese_burger_sub.avif' },
+      { name: 'Chicken Sandwich',   price:  9.99, desc: 'Grilled or crispy chicken with lettuce, tomato and signature sauce on toasted bun.', note: '✓ Chicken', img: 'Fried_chicken_sub.jpg' },
       { name: 'Veggie Burger',      price:  8.99, desc: 'Flavorful veggie patty with lettuce, tomato, onion and signature sauce.', note: '✓ Vegetarian', img: 'Veggie_sub.avif' },
-      { name: 'Double Cheeseburger',price: 11.99, desc: 'Double the beef, double the cheese, double the satisfaction — stacked and loaded.', note: '✓ Halal Beef · ✓ Best Seller', img: 'combo_sub.avif' },
+      { name: 'Double Cheeseburger',price: 11.99, desc: 'Double the beef, double the cheese, double the satisfaction — stacked and loaded.', note: '✓ Best Seller', img: 'combo_sub.avif' },
     ]
   },
   steak: {
     label: 'Steak & Cheese', emoji: '🥩', num: '04',
     items: [
-      { name: 'Original Steak or Chicken', price: 11.99, desc: 'Thinly sliced steak or chicken on a toasted hoagie with melted cheese and special sauce.', note: '✓ Halal · ✓ Hoagie Roll', img: 'Grilled_chicken_sub.jpg' },
-      { name: 'Supreme Steak or Chicken',  price: 13.99, desc: 'Loaded with sautéed peppers, onions, mushrooms, melted cheese and premium sauce.', note: '✓ Halal · ✓ Loaded', img: 'Steak & Cheese Wrap.jpg' },
+      { name: 'Original Steak or Chicken', price: 11.99, desc: 'Thinly sliced steak or chicken on a toasted hoagie with melted cheese and special sauce.', note: '✓ Hoagie Roll', img: 'Grilled_chicken_sub.jpg' },
+      { name: 'Supreme Steak or Chicken',  price: 13.99, desc: 'Loaded with sautéed peppers, onions, mushrooms, melted cheese and premium sauce.', note: '✓ Loaded', img: 'Steak & Cheese Wrap.jpg' },
     ]
   },
   sides: {
@@ -54,10 +54,10 @@ const MENU = {
   snacks: {
     label: 'Snacks', emoji: '🍗', num: '06',
     items: [
-      { name: 'Chicken Tenders', price: 7.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Halal', img: 'Chicken Tenders.jpg' },
-      { name: 'Chicken Wings',   price: 8.99, desc: 'Juicy wings — classic, buffalo or honey garlic.', note: '✓ Halal', img: '8_pieces_wings.jpg' },
-      { name: 'Chicken Nuggets', price: 5.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Halal', img: 'Chicken Tenders.jpg' },
-      { name: 'Hot Dogs',        price: 3.99, desc: 'Classic halal hot dog in toasted bun with your choice of toppings.', note: '✓ Halal', img: 'Hot_dog.jpg' },
+      { name: 'Chicken Tenders', price: 7.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
+      { name: 'Chicken Wings',   price: 8.99, desc: 'Juicy wings — classic, buffalo or honey garlic.', note: '✓ Fresh', img: '8_pieces_wings.jpg' },
+      { name: 'Chicken Nuggets', price: 5.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
+      { name: 'Hot Dogs',        price: 3.99, desc: 'Classic hot dog in toasted bun with your choice of toppings.', note: '✓ Fresh', img: 'Hot_dog.jpg' },
       { name: 'Nachos',          price: 5.99, desc: 'Loaded tortilla chips with cheese, jalapeños and sour cream.', note: '✓ Vegetarian', img: 'Funnel Cake Fries.jpg' },
     ]
   },

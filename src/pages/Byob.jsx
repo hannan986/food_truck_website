@@ -5,12 +5,12 @@ import './Byob.css'
 
 const STEPS = [
   { icon:'🛍️', num:'01', title:'BRING YOUR BAG', desc:"Grab your favourite bag of chips — Doritos, Lay's, Takis, Cheetos, or any other brand. Sealed bags preferred." },
-  { icon:'🥩', num:'02', title:'CHOOSE YOUR PROTEIN', desc:'Pick from our seasoned chicken, beef, lamb, gyro meat or crispy falafel. All halal, all made fresh to order.' },
+  { icon:'🥩', num:'02', title:'CHOOSE YOUR PROTEIN', desc:'Pick from our seasoned chicken, beef, lamb, gyro meat or crispy falafel. All made fresh to order.' },
   { icon:'🧀', num:'03', title:'WE FILL IT UP', desc:"We open the bag and fill it with your chosen protein, melted cheese, jalapeños and all our special fixings. Then we seal it and hand it back!" },
 ]
 
 const PROTEINS = [
-  { emoji:'🍗', name:'Chicken / Beef', desc:'Juicy seasoned chicken or halal beef — savory, smoky and satisfying.', price:8.99, img:'Chicken Gyro Wrap.jpg' },
+  { emoji:'🍗', name:'Chicken / Beef', desc:'Juicy seasoned chicken or beef — savory, smoky and satisfying.', price:8.99, img:'Chicken Gyro Wrap.jpg' },
   { emoji:'🍖', name:'Lamb / Gyro',    desc:'Signature seasoned lamb or authentic gyro meat — bold, rich and full of flavor.', price:9.99, img:'Lamb Gyro Wrap.jpg' },
   { emoji:'🧆', name:'Falafel',        desc:'Crispy golden falafel made fresh daily — hearty, flavorful and fully vegetarian.', price:8.49, img:'Falafel Wrap.jpg' },
 ]

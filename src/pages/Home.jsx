@@ -15,7 +15,7 @@ const CATEGORIES = [
 
 const WHY = [
   { icon: '⚡', title: 'Blazing Fast', desc: 'Fresh to order in minutes. We move fast without ever cutting corners on quality.' },
-  { icon: '🌿', title: '100% Halal', desc: 'Every item on our menu is fully halal certified. No compromises, ever.' },
+  { icon: '🌿', title: '100% Fresh', desc: 'Every item on our menu is made fresh to order. No compromises, ever.' },
   { icon: '🔥', title: 'Bold Flavors', desc: 'Made with real spices and real care. Every bite is crafted to satisfy.' },
 ]
 
@@ -94,7 +94,7 @@ export default function Home() {
             <Reveal delay={1} className="byob-text">
               <span className="byob-badge">★ NEW</span>
               <h2 className="byob-title">BRING YOUR OWN<br/><span className="gold">BAG OF CHIPS</span></h2>
-              <p className="byob-desc">Bring any bag of chips and we'll fill it with seasoned halal meat, cheese, and all our signature fixings. It's the most unique street food experience you'll find.</p>
+              <p className="byob-desc">Bring any bag of chips and we'll fill it with seasoned meat, cheese, and all our signature fixings. It's the most unique street food experience you'll find.</p>
               <div className="chip-pills">
                 {['DORITOS','LAY\'S','TAKIS','CHEETOS','ANY BRAND'].map(b => <span key={b} className="chip-pill">{b}</span>)}
               </div>

@@ -12,9 +12,9 @@
   pointer-events: none;
 }
 .hero-inner {
-  display: grid; grid-template-columns: 0.8fr 1.2fr;
-  gap: 40px; align-items: center;
-  padding-top: 60px; padding-bottom: 80px;
+  display: grid; grid-template-columns: 0.7fr 1.3fr;
+  gap: 30px; align-items: center;
+  padding-top: 40px; padding-bottom: 60px;
   position: relative; z-index: 1;
 }
 
@@ -52,11 +52,13 @@
 }
 .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 
-/* visual — square panel, large, fills its half of the grid */
+/* visual — large square, scales with viewport width */
 .hero-visual { display: flex; justify-content: center; align-items: center; width: 100%; }
 .hero-plate {
-  width: 100%; max-width: 100%;
+  width: clamp(360px, 46vw, 680px);
+  max-width: 100%;
   aspect-ratio: 1 / 1;
+  margin-left: auto;
   border-radius: 20px; position: relative;
   background: radial-gradient(circle at 35% 35%, #2a1600, #080500);
   border: 3px solid rgba(227,188,50,0.5);

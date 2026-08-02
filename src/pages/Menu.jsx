@@ -122,7 +122,7 @@ export default function Menu() {
 
   return (
     <main>
-      <div className="page-hero">
+      <div className="page-hero menu-page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
         <p className="page-hero-eyebrow">Taste on Wheels</p>
         <h1 className="page-hero-title">OUR <span className="gold">MENU</span></h1>
         <p className="page-hero-sub">Fresh ingredients. Bold flavors. Made to order every single time.</p>

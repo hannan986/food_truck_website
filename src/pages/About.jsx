@@ -26,7 +26,7 @@ export default function About() {
   return (
     <main>
       {/* HERO */}
-      <section className="about-hero">
+      <section className="about-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
         <div className="container">
           <div className="about-hero-grid">
             <Reveal className="about-hero-text">

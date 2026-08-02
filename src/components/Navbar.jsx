@@ -32,12 +32,12 @@ export default function Navbar() {
   }, [open])
 
   const links = [
-    { to: '/', label: 'Home' },
-    { to: '/menu', label: 'Menu' },
-    { to: '/order', label: 'Order' },
-    { to: '/byob', label: 'BYOB' },
-    { to: '/find-us', label: 'Find Us' },
-    { to: '/about', label: 'About' },
+    { to: '/', label: 'Home', newTab: false },
+    { to: '/menu', label: 'Menu', newTab: true },
+    { to: '/order', label: 'Order', newTab: false },
+    { to: '/byob', label: 'BYOB', newTab: false },
+    { to: '/find-us', label: 'Find Us', newTab: false },
+    { to: '/about', label: 'About', newTab: false },
   ]
 
   return (
@@ -49,9 +49,13 @@ export default function Navbar() {
           <ul className="nav-links">
             {links.map(l => (
               <li key={l.to}>
-                <NavLink to={l.to} end={l.to === '/'} className={({ isActive }) => isActive ? 'active' : ''}>
-                  {l.label}
-                </NavLink>
+                {l.newTab ? (
+                  <a href={l.to} target="_blank" rel="noopener noreferrer">{l.label}</a>
+                ) : (
+                  <NavLink to={l.to} end={l.to === '/'} className={({ isActive }) => isActive ? 'active' : ''}>
+                    {l.label}
+                  </NavLink>
+                )}
               </li>
             ))}
           </ul>
@@ -68,10 +72,14 @@ export default function Navbar() {
 
       <div className={`mobile-overlay${open ? ' open' : ''}`}>
         {links.map(l => (
-          <NavLink key={l.to} to={l.to} end={l.to === '/'} onClick={() => setOpen(false)}
-            className={({ isActive }) => isActive ? 'active' : ''}>
-            {l.label}
-          </NavLink>
+          l.newTab ? (
+            <a key={l.to} href={l.to} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>{l.label}</a>
+          ) : (
+            <NavLink key={l.to} to={l.to} end={l.to === '/'} onClick={() => setOpen(false)}
+              className={({ isActive }) => isActive ? 'active' : ''}>
+              {l.label}
+            </NavLink>
+          )
         ))}
         <NavLink to="/order" className="btn btn-gold" onClick={() => setOpen(false)}>ORDER NOW</NavLink>
       </div>

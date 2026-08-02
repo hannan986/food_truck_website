@@ -38,7 +38,6 @@ export default function Home() {
               <span className="hero-h1-red">FRESH.</span>
               <span className="hero-h1-gold">FLAVORFUL.</span>
             </h1>
-            <p className="hero-sub">Bold halal flavors made fresh to order, every single time. Always quality. Always fast.</p>
             <div className="hero-btns">
               <Link to="/menu" className="btn btn-gold btn-lg">EXPLORE MENU →</Link>
               <Link to="/order" className="btn btn-red btn-lg">ORDER NOW →</Link>

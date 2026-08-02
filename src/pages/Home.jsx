@@ -46,7 +46,7 @@ export default function Home() {
           </div>
           <div className="hero-visual">
             <div className="hero-plate">
-              <img src="images/menu_images/lamb_over_rice.jpg" alt="Lamb Over Rice" className="hero-plate-img" onError={e => e.target.style.display='none'} />
+              <img src="images/menu_images/Food_Truck_Website.jpeg" alt="Lamb Over Rice" className="hero-plate-img" onError={e => e.target.style.display='none'} />
               <div className="hero-plate-glow" />
               <div className="hero-ring" />
               <span className="hero-plate-label">Lamb Over Rice</span>

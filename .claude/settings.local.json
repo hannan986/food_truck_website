@@ -16,7 +16,8 @@
       "Bash(git pull *)",
       "PowerShell(Get-ChildItem \"C:\\\\Users\\\\AbdulHannan\\\\OneDrive - impulsetechnology.net\\\\Desktop\\\\Abdul Personal Folder\\\\abdul_websites\\\\Food_truck_website\\\\\" -Recurse | Where-Object { $_.Extension -in @\\('.jpg','.jpeg','.png','.svg','.webp'\\) } | Select-Object FullName, Name | Sort-Object Name)",
       "PowerShell(Copy-Item *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(git status *)"
     ]
   }
 }

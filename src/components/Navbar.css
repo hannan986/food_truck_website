@@ -15,15 +15,7 @@
 }
 
 .nav-logo { display: flex; align-items: center; }
-.nav-logo-inner { display: flex; align-items: center; gap: 10px; }
-.hex-logo { width: 30px; height: 35px; flex-shrink: 0; }
-.nav-logo-text { display: flex; flex-direction: column; line-height: 1; }
-.nav-logo-taste { font-family: var(--font-head); font-size: 1.1rem; letter-spacing: 3px; color: #e3bc32; }
-.nav-logo-sub {
-  font-size: 0.42rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--white); background: var(--red); padding: 2px 5px; margin-top: 3px;
-  border-radius: 2px;
-}
+.nav-logo-img { height: 54px; width: auto; object-fit: contain; display: block; }
 
 .nav-links { display: flex; gap: 0; list-style: none; margin-left: auto; }
 .nav-links a {

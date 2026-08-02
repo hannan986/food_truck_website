@@ -3,17 +3,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 
 const Logo = () => (
-  <div className="nav-logo-inner">
-    <svg className="hex-logo" viewBox="0 0 38 44" fill="none">
-      <path d="M19 0L38 10.97V33.03L19 44L0 33.03V10.97L19 0Z" fill="#e3bc32"/>
-      <path d="M19 5L33.5 13.5V30.5L19 39L4.5 30.5V13.5L19 5Z" fill="#111111"/>
-      <text x="19" y="28" textAnchor="middle" fill="#e3bc32" fontFamily="Impact,sans-serif" fontSize="17">T</text>
-    </svg>
-    <div className="nav-logo-text">
-      <span className="nav-logo-taste">TASTE</span>
-      <span className="nav-logo-sub">ON WHEELS</span>
-    </div>
-  </div>
+  <img src="images/logo.jpeg" alt="Taste on Wheels" className="nav-logo-img" />
 )
 
 export default function Navbar() {

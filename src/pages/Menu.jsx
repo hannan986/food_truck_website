@@ -4,6 +4,9 @@ import { Reveal } from '../components/useReveal'
 import Footer from '../components/Footer'
 import './Menu.css'
 
+// ← paste your Clover online ordering URL here
+const CLOVER_URL = 'https://www.clover.com/online-ordering/taste-on-wheels'
+
 const MENU = {
   bowls: {
     label: 'Bowls', emoji: '🍚', num: '01',
@@ -77,6 +80,9 @@ function ItemCard({ item, delay }) {
         </div>
         <div className="item-footer">
           <span className="item-price">${item.price.toFixed(2)}</span>
+          <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn-order-item">
+            ORDER →
+          </a>
         </div>
       </div>
     </Reveal>
@@ -86,6 +92,7 @@ function ItemCard({ item, delay }) {
 export default function Menu() {
   const location = useLocation()
   const [active, setActive] = useState(KEYS[0])
+  const [showBar, setShowBar] = useState(false)
   const sectionRefs = useRef({})
 
   useEffect(() => {
@@ -100,6 +107,7 @@ export default function Menu() {
   useEffect(() => {
     const onScroll = () => {
       const scrollY = window.scrollY + 120
+      setShowBar(window.scrollY > 300)
       for (const key of KEYS) {
         const el = sectionRefs.current[key]
         if (el && el.offsetTop <= scrollY && el.offsetTop + el.offsetHeight > scrollY) {
@@ -118,6 +126,9 @@ export default function Menu() {
         <p className="page-hero-eyebrow">Taste on Wheels</p>
         <h1 className="page-hero-title">OUR <span className="gold">MENU</span></h1>
         <p className="page-hero-sub">Fresh ingredients. Bold flavors. Made to order every single time.</p>
+        <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-lg menu-hero-order-btn">
+          🛒 ORDER NOW ON CLOVER →
+        </a>
       </div>
 
      
@@ -169,6 +180,20 @@ export default function Menu() {
         </div>
       </div>
       <Footer />
+
+      {/* STICKY ORDER BAR */}
+      <div className={`sticky-order-bar${showBar ? ' visible' : ''}`}>
+        <div className="sob-left">
+          <span className="sob-icon">🍽️</span>
+          <div>
+            <div className="sob-title">Ready to order?</div>
+            <div className="sob-sub">Tap below — orders through Clover</div>
+          </div>
+        </div>
+        <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn btn-gold sob-btn">
+          ORDER NOW →
+        </a>
+      </div>
     </main>
   )
 }

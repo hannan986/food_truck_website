@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { Reveal } from '../components/useReveal'
 import Footer from '../components/Footer'
 import './Menu.css'
@@ -79,7 +79,6 @@ function ItemCard({ item, delay }) {
         </div>
         <div className="item-footer">
           <span className="item-price">${item.price.toFixed(2)}</span>
-          <Link to="/order" className="btn-add-item">ORDER →</Link>
         </div>
       </div>
     </Reveal>

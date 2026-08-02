@@ -73,7 +73,7 @@ export default function Byob() {
                     <p className="protein-desc">{p.desc}</p>
                     <div className="protein-footer">
                       <span className="protein-price">${p.price.toFixed(2)}</span>
-                      <Link to="/order" className="btn btn-outline-gold btn-sm">ORDER →</Link>
+                      <Link to="/find-us" className="btn btn-outline-gold btn-sm">FIND US →</Link>
                     </div>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ export default function Byob() {
           <h2 className="section-title">READY TO TRY <span className="gold">BYOB</span>?</h2>
           <p className="section-sub" style={{ margin:'14px auto 28px', textAlign:'center' }}>Come find us, bring your bag, and experience the most unique food truck item around.</p>
           <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap' }}>
-            <a href="/order" className="btn btn-gold btn-lg">ORDER NOW →</a>
+            <a href="/find-us" className="btn btn-gold btn-lg">FIND US →</a>
             <a href="/find-us" className="btn btn-outline-white btn-lg">FIND US →</a>
           </div>
         </div>

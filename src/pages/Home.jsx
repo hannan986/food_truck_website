@@ -40,15 +40,14 @@ export default function Home() {
             </h1>
             <div className="hero-btns">
               <Link to="/menu" className="btn btn-gold btn-lg">EXPLORE MENU →</Link>
-              <Link to="/order" className="btn btn-red btn-lg">ORDER NOW →</Link>
+              <Link to="/find-us" className="btn btn-red btn-lg">FIND US →</Link>
             </div>
           </div>
           <div className="hero-visual">
             <div className="hero-plate">
-              <img src="images/menu_images/Food_Truck_Website.jpeg" alt="Lamb Over Rice" className="hero-plate-img" onError={e => e.target.style.display='none'} />
+              <img src="images/Food_Truck_Website.jpeg" alt="Taste on Wheels" className="hero-plate-img" onError={e => e.target.style.display='none'} />
               <div className="hero-plate-glow" />
               <div className="hero-ring" />
-              <span className="hero-plate-label">Lamb Over Rice</span>
             </div>
           </div>
         </div>
@@ -85,7 +84,7 @@ export default function Home() {
       
 
       {/* BYOB TEASER */}
-      <section className="byob-section section">
+      <section id="byob" className="byob-section section">
         <div className="container">
           <div className="byob-inner">
             <Reveal className="byob-img-wrap">
@@ -105,7 +104,7 @@ export default function Home() {
       </section>
 
       {/* SOCIAL PROOF */}
-      <section className="social-section section">
+      <section id="social" className="social-section section">
         <div className="container" style={{ textAlign: 'center', marginBottom: 40 }}>
           <span className="eyebrow">Follow the Truck</span>
           <h2 className="section-title">FIND US ON <span className="gold">INSTAGRAM</span></h2>

@@ -45,8 +45,7 @@ export default function Footer() {
               <span className="footer-col-title">Quick Links</span>
               <div className="footer-links">
                 <Link to="/">Home</Link>
-                <Link to="/menu">Menu</Link>
-                <Link to="/order">Order Online</Link>
+                <a href="#/menu" target="_blank" rel="noopener noreferrer">Menu</a>
                 <Link to="/byob">BYOB</Link>
                 <Link to="/find-us">Find Us</Link>
                 <Link to="/about">About</Link>

@@ -137,9 +137,8 @@ export default function About() {
           <h2 className="section-title">COME <span className="gold">TASTE</span><br/>THE DIFFERENCE</h2>
           <p className="section-sub" style={{ margin:'14px auto 28px', textAlign:'center' }}>Our story is still being written — and we're inviting you to be a part of it.</p>
           <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap' }}>
-            <a href="/order" className="btn btn-gold btn-lg">ORDER ONLINE →</a>
+            <a href="#/menu" target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-lg">VIEW MENU →</a>
             <a href="/find-us" className="btn btn-outline-white btn-lg">FIND US →</a>
-            <a href="/menu" className="btn btn-outline-gold btn-lg">VIEW MENU →</a>
           </div>
         </div>
       </section>

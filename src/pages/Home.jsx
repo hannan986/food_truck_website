@@ -65,6 +65,7 @@ export default function Home() {
               <img src="images/Food_Truck_Website.jpeg" alt="Taste on Wheels" className="hero-plate-img" onError={e => e.target.style.display='none'} />
               <div className="hero-plate-glow" />
               <div className="hero-ring" />
+              <div className="hero-ring-outer" />
             </div>
           </div>
         </div>

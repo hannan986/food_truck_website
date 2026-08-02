@@ -15,16 +15,16 @@
 }
 
 .nav-logo { display: flex; align-items: center; }
-.nav-logo-img { height: 54px; width: auto; object-fit: contain; display: block; }
+.nav-logo-img { height: 64px; width: auto; object-fit: contain; display: block; }
 
 .nav-links { display: flex; gap: 0; list-style: none; margin-left: auto; }
 .nav-links a {
-  font-size: 0.88rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
-  color: #aaa; padding: 10px 16px; position: relative;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+  color: #aaa; padding: 8px 12px; position: relative;
   transition: color var(--ease);
 }
 .nav-links a::after {
-  content: ''; position: absolute; bottom: 0; left: 14px; right: 14px;
+  content: ''; position: absolute; bottom: 0; left: 10px; right: 10px;
   height: 2px; background: #e3bc32;
   transform: scaleX(0); transform-origin: center;
   transition: transform 0.25s ease;

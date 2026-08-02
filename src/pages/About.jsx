@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Reveal } from '../components/useReveal'
 import Footer from '../components/Footer'
 import './About.css'
@@ -138,7 +139,7 @@ export default function About() {
           <p className="section-sub" style={{ margin:'14px auto 28px', textAlign:'center' }}>Our story is still being written — and we're inviting you to be a part of it.</p>
           <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap' }}>
             <a href="#/menu" target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-lg">VIEW MENU →</a>
-            <a href="/find-us" className="btn btn-outline-white btn-lg">FIND US →</a>
+            <Link to="/find-us" className="btn btn-outline-white btn-lg">FIND US →</Link>
           </div>
         </div>
       </section>

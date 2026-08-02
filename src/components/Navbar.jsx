@@ -3,7 +3,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 
 const Logo = () => (
-  <img src="images/logo.jpeg" alt="Taste on Wheels" className="nav-logo-img" />
+  <img src="images/logo.png" alt="Taste on Wheels" className="nav-logo-img" />
 )
 
 export default function Navbar() {

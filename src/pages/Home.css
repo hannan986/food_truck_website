@@ -12,8 +12,8 @@
   pointer-events: none;
 }
 .hero-inner {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 60px; align-items: center;
+  display: grid; grid-template-columns: 0.8fr 1.2fr;
+  gap: 40px; align-items: center;
   padding-top: 60px; padding-bottom: 80px;
   position: relative; z-index: 1;
 }
@@ -55,11 +55,9 @@
 /* visual — square panel, large, fills its half of the grid */
 .hero-visual { display: flex; justify-content: center; align-items: center; width: 100%; }
 .hero-plate {
-  width: 100%;
-  max-width: 620px;
+  width: 100%; max-width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 20px;
-  position: relative;
+  border-radius: 20px; position: relative;
   background: radial-gradient(circle at 35% 35%, #2a1600, #080500);
   border: 3px solid rgba(227,188,50,0.5);
   overflow: hidden;

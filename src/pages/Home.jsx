@@ -44,7 +44,7 @@ export default function Home() {
         {Array.from({ length: 8 }).map((_, i) => (
           <span key={i} className="ember" style={{ left: `${10 + i * 11}%`, animationDuration: `${3.5 + i * 0.5}s`, animationDelay: `${i * 0.4}s` }} />
         ))}
-        <div className="container hero-inner">
+        <div className="hero-inner">
           <div className="hero-text">
             <div className="hero-kicker">
               <span className="hero-kicker-dot" />

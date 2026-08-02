@@ -3,6 +3,8 @@ import { Reveal } from '../components/useReveal'
 import Footer from '../components/Footer'
 import './Byob.css'
 
+const CLOVER_URL = 'https://www.clover.com/online-ordering/taste-on-wheels'
+
 const STEPS = [
   { icon:'🛍️', num:'01', title:'BRING YOUR BAG', desc:"Grab your favourite bag of chips — Doritos, Lay's, Takis, Cheetos, or any other brand. Sealed bags preferred." },
   { icon:'🥩', num:'02', title:'CHOOSE YOUR PROTEIN', desc:'Pick from our seasoned chicken, beef, lamb, gyro meat or crispy falafel. All made fresh to order.' },
@@ -16,6 +18,19 @@ const PROTEINS = [
 ]
 
 const CHIPS = ['DORITOS','LAY\'S','TAKIS','CHEETOS','PRINGLES','ANY BRAND']
+
+const MENU_ITEMS = [
+  { name:'Lamb Over Rice',          price:10.99, img:'lamb_over_rice.jpg' },
+  { name:'Chicken Over Rice',       price:10.99, img:'Grilled Chicken Salad.jpg' },
+  { name:'Lamb & Chicken Over Rice',price:12.99, img:'Chef Salad.jpg' },
+  { name:'Chicken Gyro Wrap',       price: 9.99, img:'Grilled Chicken Wrap.jpg' },
+  { name:'Lamb Gyro Wrap',          price: 9.99, img:'Steak & Cheese Wrap.jpg' },
+  { name:'Hamburger',               price: 7.99, img:'hamburger_sub.jpg' },
+  { name:'Cheeseburger',            price: 8.99, img:'cheese_burger_sub.avif' },
+  { name:'Double Cheeseburger',     price:11.99, img:'combo_sub.avif' },
+  { name:'Original Steak & Cheese', price:11.99, img:'Grilled_chicken_sub.jpg' },
+  { name:'Chicken Tenders',         price: 7.99, img:'Chicken Tenders.jpg' },
+]
 
 export default function Byob() {
   return (
@@ -73,7 +88,7 @@ export default function Byob() {
                     <p className="protein-desc">{p.desc}</p>
                     <div className="protein-footer">
                       <span className="protein-price">${p.price.toFixed(2)}</span>
-                      <Link to="/find-us" className="btn btn-outline-gold btn-sm">FIND US →</Link>
+                      <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-sm">ORDER →</a>
                     </div>
                   </div>
                 </div>
@@ -96,16 +111,32 @@ export default function Byob() {
         </div>
       </section>
 
-      {/* VISUALS */}
-      <section className="section-sm" style={{ background:'var(--dark)' }}>
+      {/* ALSO ORDER FROM OUR MENU */}
+      <section className="section byob-menu-section" style={{ background:'var(--dark)' }}>
+        <div className="container" style={{ textAlign:'center', marginBottom:40 }}>
+          <span className="eyebrow">Also Available</span>
+          <h2 className="section-title">ORDER FROM OUR <span className="gold">MENU</span></h2>
+          <div className="divider divider-center" />
+        </div>
         <div className="container">
-          <div className="byob-vis-grid">
-            <Reveal className="byob-vis">
-              <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%284%29.jpeg" alt="BYOB" onError={e=>e.target.style.display='none'} />
-            </Reveal>
-            <Reveal delay={1} className="byob-vis">
-              <img src="images/WhatsApp%20Image%202026-06-07%20at%208.55.42%20PM.jpeg" alt="Food truck" onError={e=>e.target.style.display='none'} />
-            </Reveal>
+          <div className="byob-item-list">
+            {MENU_ITEMS.map((item, i) => (
+              <Reveal key={item.name} delay={i % 3} className="byob-item-wrap">
+                <div className="byob-item-card">
+                  <div className="byob-item-img">
+                    <img src={`images/menu_images/${item.img}`} alt={item.name} onError={e=>e.target.style.opacity='0'} />
+                  </div>
+                  <div className="byob-item-name">{item.name}</div>
+                  <div className="byob-item-footer">
+                    <span className="byob-item-price">${item.price.toFixed(2)}</span>
+                    <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="byob-order-btn">ORDER →</a>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <div style={{ textAlign:'center', marginTop:32 }}>
+            <a href="#/menu" target="_blank" rel="noopener noreferrer" className="btn btn-outline-gold">VIEW FULL MENU →</a>
           </div>
         </div>
       </section>
@@ -116,8 +147,8 @@ export default function Byob() {
           <h2 className="section-title">READY TO TRY <span className="gold">BYOB</span>?</h2>
           <p className="section-sub" style={{ margin:'14px auto 28px', textAlign:'center' }}>Come find us, bring your bag, and experience the most unique food truck item around.</p>
           <div style={{ display:'flex', gap:12, justifyContent:'center', flexWrap:'wrap' }}>
-            <a href="/find-us" className="btn btn-gold btn-lg">FIND US →</a>
-            <a href="/find-us" className="btn btn-outline-white btn-lg">FIND US →</a>
+            <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-lg">🛒 ORDER ON CLOVER →</a>
+            <Link to="/find-us" className="btn btn-outline-white btn-lg">FIND US →</Link>
           </div>
         </div>
       </section>

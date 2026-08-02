@@ -1,8 +1,10 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Reveal } from '../components/useReveal'
 import './Home.css'
+import Footer from '../components/Footer'
 
-const IMG = (name) => new URL(`../assets/images/${name}`, import.meta.url).href
+const CLOVER_URL = 'https://www.clover.com/online-ordering/taste-on-wheels'
 
 const CATEGORIES = [
   { to: '/menu#steak',   emoji: '🥩', label: 'Steak & Cheese', img: 'combo_sub.avif' },
@@ -20,6 +22,14 @@ const WHY = [
 ]
 
 export default function Home() {
+  const [showBar, setShowBar] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setShowBar(window.scrollY > 400)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <main>
       {/* HERO */}
@@ -39,7 +49,7 @@ export default function Home() {
               <span className="hero-h1-gold">FLAVORFUL.</span>
             </h1>
             <div className="hero-btns">
-              <Link to="/menu" className="btn btn-gold btn-lg">EXPLORE MENU →</Link>
+              <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-lg">🛒 ORDER NOW →</a>
               <Link to="/find-us" className="btn btn-red btn-lg">FIND US →</Link>
             </div>
           </div>
@@ -131,6 +141,21 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
+
+      {/* STICKY ORDER BAR */}
+      <div className={`home-order-bar${showBar ? ' visible' : ''}`}>
+        <div className="home-ob-left">
+          <span className="home-ob-icon">🍽️</span>
+          <div>
+            <div className="home-ob-title">Ready to order?</div>
+            <div className="home-ob-sub">Order online via Clover — fast & easy</div>
+          </div>
+        </div>
+        <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn btn-gold home-ob-btn">
+          ORDER NOW →
+        </a>
+      </div>
     </main>
   )
 }

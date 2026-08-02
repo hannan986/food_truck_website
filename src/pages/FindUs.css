@@ -41,7 +41,7 @@
 .fu-card--phone  { border-top: 3px solid #e3bc32; }
 .fu-card--address { border-top: 3px solid #e3bc32; }
 .fu-card--facebook { border-top: 3px solid #1877F2; }
-.fu-card--insta { border-top: 3px solid #E1306C; }
+.fu-card--tiktok { border-top: 3px solid #69C9D0; }
 
 /* card buttons */
 .fu-card-btn {
@@ -63,8 +63,8 @@
 .fu-btn-blue  { background: #1877F2; color: #fff; }
 .fu-btn-blue:hover { background: #1464d0; box-shadow: 0 6px 20px rgba(24,119,242,0.4); }
 
-.fu-btn-insta { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
-.fu-btn-insta:hover { box-shadow: 0 6px 20px rgba(220,39,67,0.4); }
+.fu-btn-tiktok { background: #010101; color: #fff; border: 1px solid #333; }
+.fu-btn-tiktok:hover { background: #69C9D0; color: #000; box-shadow: 0 6px 20px rgba(105,201,208,0.4); }
 
 /* ── CALL AHEAD BANNER ── */
 .fu-call-banner { background: var(--red); padding: 64px 0; }

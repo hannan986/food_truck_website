@@ -3,13 +3,13 @@ import Footer from '../components/Footer'
 import './FindUs.css'
 
 const HOURS = [
-  ['Monday',    '11:00 AM – 9:00 PM'],
-  ['Tuesday',   '11:00 AM – 9:00 PM'],
-  ['Wednesday', '11:00 AM – 9:00 PM'],
-  ['Thursday',  '11:00 AM – 9:00 PM'],
-  ['Friday',    '11:00 AM – 10:00 PM'],
-  ['Saturday',  '10:00 AM – 10:00 PM'],
-  ['Sunday',    '10:00 AM – 9:00 PM'],
+  ['Monday',    '12:00 PM – 10:00 PM'],
+  ['Tuesday',   '12:00 PM – 10:00 PM'],
+  ['Wednesday', '12:00 PM – 10:00 PM'],
+  ['Thursday',  '12:00 PM – 10:00 PM'],
+  ['Friday',    '12:00 PM – 10:00 PM'],
+  ['Saturday',  '12:00 PM – 10:00 PM'],
+  ['Sunday',    '12:00 PM – 10:00 PM'],
 ]
 
 const today = new Date().toLocaleDateString('en-US', { weekday: 'long' })
@@ -64,14 +64,14 @@ export default function FindUs() {
               </a>
             </Reveal>
 
-            <Reveal delay={3} className="fu-card fu-card--insta">
-              <div className="fu-card-icon">📷</div>
-              <div className="fu-card-label">Instagram</div>
+            <Reveal delay={3} className="fu-card fu-card--tiktok">
+              <div className="fu-card-icon">🎵</div>
+              <div className="fu-card-label">TikTok</div>
               <div className="fu-card-value">@tasteonwheels</div>
               <a
-                href="https://www.instagram.com/tasteonwheels"
+                href="https://www.tiktok.com/@tasteonwheels"
                 target="_blank" rel="noopener noreferrer"
-                className="fu-card-btn fu-btn-insta"
+                className="fu-card-btn fu-btn-tiktok"
               >
                 FOLLOW US →
               </a>

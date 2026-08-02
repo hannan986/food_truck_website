@@ -54,14 +54,13 @@ export default function Footer() {
             <div>
               <span className="footer-col-title">Hours</span>
               <div className="footer-hours">
-                <div className="footer-hour-row"><strong>Mon – Fri</strong><span>11:00 AM – 9:00 PM</span></div>
-                <div className="footer-hour-row"><strong>Sat – Sun</strong><span>10:00 AM – 10:00 PM</span></div>
+                <div className="footer-hour-row"><strong>Mon – Sun</strong><span>12:00 PM – 10:00 PM</span></div>
               </div>
             </div>
             <div>
               <span className="footer-col-title">Contact</span>
               <div className="footer-contact-item"><span>📍</span><span>Check Instagram for today's spot!</span></div>
-              <div className="footer-contact-item"><span>📞</span><a href="tel:+10000000000">[YOUR PHONE]</a></div>
+              <div className="footer-contact-item"><span>📞</span><a href="tel:+12406988849">(240) 698-8849</a></div>
               <div className="footer-contact-item"><span>✉</span><a href="mailto:hello@tasteonwheels.com">hello@tasteonwheels.com</a></div>
             </div>
           </div>

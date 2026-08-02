@@ -120,13 +120,7 @@ export default function Menu() {
         <p className="page-hero-sub">Fresh ingredients. Bold flavors. Made to order every single time.</p>
       </div>
 
-      <div className="combo-banner-sm">
-        <div className="container-wide">
-          <div className="combo-inner">
-            <div><div className="combo-title">MAKE IT A COMBO</div><div className="combo-desc">Any Main + Fries + Drink — <strong>Only $4.99 extra</strong></div></div>
-          </div>
-        </div>
-      </div>
+     
 
       <div className="menu-tab-bar">
         <div className="menu-tab-inner">

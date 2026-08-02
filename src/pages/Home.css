@@ -45,6 +45,7 @@
   letter-spacing: 1px; text-transform: uppercase; color: var(--white);
 }
 .hero-h1-gold { color: #e3bc32 !important; }
+.hero-h1-gold { color: #e3bc32 !important; }
 .hero-sub {
   font-size: 1rem; color: #999; line-height: 1.8;
   max-width: 420px; margin-bottom: 36px;

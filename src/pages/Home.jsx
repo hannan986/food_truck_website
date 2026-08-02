@@ -15,10 +15,17 @@ const CATEGORIES = [
   { to: '/byob',         emoji: '🥔', label: 'BYOB',            img: 'Large_Chip_Bag.jpg' },
 ]
 
-const WHY = [
-  { icon: '⚡', title: 'Blazing Fast', desc: 'Fresh to order in minutes. We move fast without ever cutting corners on quality.' },
-  { icon: '🌿', title: '100% Fresh', desc: 'Every item on our menu is made fresh to order. No compromises, ever.' },
-  { icon: '🔥', title: 'Bold Flavors', desc: 'Made with real spices and real care. Every bite is crafted to satisfy.' },
+const MENU_ITEMS = [
+  { name:'Lamb Over Rice',          price:10.99, img:'lamb_over_rice.jpg' },
+  { name:'Chicken Over Rice',       price:10.99, img:'Grilled Chicken Salad.jpg' },
+  { name:'Lamb & Chicken Over Rice',price:12.99, img:'Chef Salad.jpg' },
+  { name:'Chicken Gyro Wrap',       price: 9.99, img:'Grilled Chicken Wrap.jpg' },
+  { name:'Lamb Gyro Wrap',          price: 9.99, img:'Steak & Cheese Wrap.jpg' },
+  { name:'Hamburger',               price: 7.99, img:'hamburger_sub.jpg' },
+  { name:'Cheeseburger',            price: 8.99, img:'cheese_burger_sub.avif' },
+  { name:'Double Cheeseburger',     price:11.99, img:'combo_sub.avif' },
+  { name:'Original Steak & Cheese', price:11.99, img:'Grilled_chicken_sub.jpg' },
+  { name:'Chicken Tenders',         price: 7.99, img:'Chicken Tenders.jpg' },
 ]
 
 export default function Home() {
@@ -113,31 +120,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOCIAL PROOF */}
-      <section id="social" className="social-section section">
-        <div className="container" style={{ textAlign: 'center', marginBottom: 40 }}>
-          <span className="eyebrow">Follow the Truck</span>
-          <h2 className="section-title">FIND US ON <span className="gold">INSTAGRAM</span></h2>
+      {/* MENU ITEMS */}
+      <section className="home-menu-section section" style={{ background:'var(--black)' }}>
+        <div className="container" style={{ textAlign:'center', marginBottom:36 }}>
+          <span className="eyebrow">Order Online · Ready in Minutes</span>
+          <h2 className="section-title">OUR <span className="gold">MENU</span></h2>
           <div className="divider divider-center" />
-          <p className="social-handle">@tasteonwheels</p>
         </div>
         <div className="container">
-          <div className="social-grid">
-            {[
-              'images/WhatsApp%20Image%202026-06-07%20at%208.55.42%20PM.jpeg',
-              'images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%287%29.jpeg',
-              'images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM.jpeg',
-            ].map((src, i) => (
-              <Reveal key={i} delay={i} className="social-img-wrap">
-                <div className="social-img">
-                  <img src={src} alt="Taste on Wheels" onError={e => e.target.style.display='none'} />
-                  <div className="social-ov">📷</div>
+          <div className="hm-item-list">
+            {MENU_ITEMS.map((item, i) => (
+              <Reveal key={item.name} delay={i % 3} className="hm-item-wrap">
+                <div className="hm-item-card">
+                  <div className="hm-item-img">
+                    <img src={`images/menu_images/${item.img}`} alt={item.name} onError={e => e.target.style.opacity='0'} />
+                  </div>
+                  <div className="hm-item-name">{item.name}</div>
+                  <div className="hm-item-footer">
+                    <span className="hm-item-price">${item.price.toFixed(2)}</span>
+                    <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="hm-order-btn">ORDER →</a>
+                  </div>
                 </div>
               </Reveal>
             ))}
           </div>
-          <div style={{ textAlign: 'center', marginTop: 32 }}>
-            <a href="#" className="btn btn-outline-gold">FOLLOW ON INSTAGRAM 📷</a>
+          <div style={{ textAlign:'center', marginTop:28 }}>
+            <a href="#/menu" target="_blank" rel="noopener noreferrer" className="btn btn-outline-gold">VIEW FULL MENU →</a>
           </div>
         </div>
       </section>

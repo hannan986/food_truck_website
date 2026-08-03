@@ -117,7 +117,7 @@
   .nav-right-group { margin-left: auto; gap: 14px; }
   .nav-badge {
     display: block;
-    height: 72px; width: 170px;
+    height: 66px; width: 158px;
     object-fit: fill;
   }
   .hamburger {

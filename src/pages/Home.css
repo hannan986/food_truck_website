@@ -168,8 +168,6 @@
 .byob-single { display: flex; justify-content: center; }
 .byob-single-link {
   display: block; max-width: 480px; width: 100%;
-  border-radius: var(--radius); overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.06);
   transition: transform .3s ease;
 }
 .byob-single-link:hover { transform: scale(1.02); }

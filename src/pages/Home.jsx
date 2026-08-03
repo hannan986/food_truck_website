@@ -100,9 +100,24 @@ export default function Home() {
       {/* BYOB TEASER */}
       <section id="byob" className="byob-section section">
         <div className="container">
-          <Reveal className="byob-single">
+          <div className="byob-inner byob-desktop-only">
+            <Reveal className="byob-img-wrap">
+              <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%284%29.jpeg" alt="BYOB" onError={e => e.target.style.display='none'} />
+            </Reveal>
+            <Reveal delay={1} className="byob-text">
+              <span className="byob-badge">★ NEW</span>
+              <h2 className="byob-title">BRING YOUR OWN<br/><span className="gold">BAG OF CHIPS</span></h2>
+              <p className="byob-desc">Bring any bag of chips and we'll fill it with seasoned meat, cheese, and all our signature fixings. It's the most unique street food experience you'll find.</p>
+              <div className="chip-pills">
+                {['DORITOS','LAY\'S','TAKIS','CHEETOS','ANY BRAND'].map(b => <span key={b} className="chip-pill">{b}</span>)}
+              </div>
+              <Link to="/byob" className="btn btn-gold">LEARN MORE →</Link>
+            </Reveal>
+          </div>
+
+          <Reveal className="byob-single byob-mobile-only">
             <Link to="/byob" className="byob-single-link">
-              <img src="images/intro_image.png" alt="Introducing Bring Your Own Bag of Chips" className="byob-single-img" />
+              <img src="images/intro_image_1.png" alt="Introducing Bring Your Own Bag of Chips" className="byob-single-img" />
             </Link>
           </Reveal>
         </div>

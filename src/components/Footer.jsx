@@ -65,7 +65,7 @@ export default function Footer() {
               <span className="footer-col-title">Contact</span>
               <div className="footer-contact-item"><span>📍</span><a href="https://maps.google.com/?q=802+Salem+Ave,+Hagerstown,+MD+21740" target="_blank" rel="noopener noreferrer">802 Salem Ave, Hagerstown MD 21740</a></div>
               <div className="footer-contact-item"><span>📞</span><a href="tel:+12406988849">(240) 698-8849</a></div>
-              <div className="footer-contact-item"><span>✉</span><a href="mailto:hello@tasteonwheels.com">hello@tasteonwheels.com</a></div>
+              <div className="footer-contact-item"><span>✉</span><a href="mailto:tasteonwheels@gmail.com">tasteonwheels@gmail.com</a></div>
             </div>
           </div>
           <div className="footer-bottom">

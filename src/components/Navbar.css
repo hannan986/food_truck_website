@@ -110,7 +110,7 @@
   .nav-right-group { margin-left: auto; }
   .nav-badge {
     display: block;
-    height: 44px; width: 44px;
+    height: 56px; width: 56px;
     object-fit: contain;
   }
 }

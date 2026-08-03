@@ -96,23 +96,27 @@ export default function Navbar() {
     <>
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
         <div className="nav-inner container-wide">
-          <NavLink to="/" className="nav-logo" onClick={() => setOpen(false)}><Logo /></NavLink>
+          <div className="nav-left">
+            <NavLink to="/" className="nav-logo" onClick={() => setOpen(false)}><Logo /></NavLink>
+            <div className="nav-social">
+              <a href="https://www.facebook.com/tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="nav-social-link">
+                <img src="images/facebook_icon_image.jpeg" alt="" />
+              </a>
+              <a href="https://www.tiktok.com/@tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="nav-social-link">
+                <img src="images/tiktok_image.jpg" alt="" />
+              </a>
+            </div>
+          </div>
 
           <ul className="nav-links">
             {links.map(l => <li key={l.label}>{renderLink(l)}</li>)}
           </ul>
 
-          <div className="nav-social">
-            <a href="https://www.facebook.com/tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="nav-social-link">
-              <img src="images/facebook_icon_image.jpeg" alt="" />
-            </a>
-            <a href="https://www.tiktok.com/@tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="nav-social-link">
-              <img src="images/tiktok_image.jpg" alt="" />
-            </a>
-            <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
-              <span/><span/><span/>
-            </button>
-          </div>
+          <img src="images/food_truck_logo.jpeg" alt="" className="nav-badge" />
+
+          <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
+            <span/><span/><span/>
+          </button>
         </div>
       </nav>
 

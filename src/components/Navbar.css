@@ -64,6 +64,7 @@
   transition: border-color var(--ease), background var(--ease);
 }
 .nav-social-link:hover { border-color: #e3bc32; background: rgba(227,188,50,0.08); }
+.nav-social-link img { width: 20px; height: 20px; object-fit: cover; border-radius: 50%; }
 
 /* HAMBURGER */
 .hamburger {

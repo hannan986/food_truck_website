@@ -37,8 +37,12 @@ export default function Footer() {
               <p className="footer-tagline">Fast · Fresh · Flavorful<br/>Made Fresh. Made to Satisfy.</p>
               <div className="footer-social">
                 <a href="#" aria-label="Instagram">📷</a>
-                <a href="#" aria-label="Facebook">📘</a>
-                <a href="#" aria-label="TikTok">🎵</a>
+                <a href="https://www.facebook.com/tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <img src="images/facebook_icon_image.jpeg" alt="" />
+                </a>
+                <a href="https://www.tiktok.com/@tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                  <img src="images/tiktok_image.jpg" alt="" />
+                </a>
               </div>
             </div>
             <div className="footer-hide-mobile">

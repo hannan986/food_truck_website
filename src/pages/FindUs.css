@@ -40,6 +40,7 @@
 .fu-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
 
 .fu-card-icon { font-size: 2.4rem; margin-bottom: 4px; }
+.fu-card-icon img { width: 2.4rem; height: 2.4rem; object-fit: cover; border-radius: 50%; display: block; margin: 0 auto; }
 .fu-card-label {
   font-size: .6rem; font-weight: 700; letter-spacing: 3px;
   text-transform: uppercase; color: #e3bc32; margin-bottom: 2px;
@@ -196,6 +197,7 @@
   .fu-cards-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .fu-card { padding: 28px 16px 24px; gap: 8px; }
   .fu-card-icon { font-size: 2rem; }
+  .fu-card-icon img { width: 2rem; height: 2rem; }
   .fu-card-value { font-size: .88rem; }
   .fu-map-wrap iframe { height: 300px; }
   .fu-map-overlay-btn { font-size: .6rem; padding: 10px 14px; }

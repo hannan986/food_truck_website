@@ -103,8 +103,12 @@ export default function Navbar() {
           </ul>
 
           <div className="nav-social">
-            <a href="https://www.facebook.com/tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="nav-social-link">📘</a>
-            <a href="https://www.tiktok.com/@tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="nav-social-link">🎵</a>
+            <a href="https://www.facebook.com/tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="nav-social-link">
+              <img src="images/facebook_icon_image.jpeg" alt="" />
+            </a>
+            <a href="https://www.tiktok.com/@tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="nav-social-link">
+              <img src="images/tiktok_image.jpg" alt="" />
+            </a>
             <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
               <span/><span/><span/>
             </button>

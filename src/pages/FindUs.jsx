@@ -52,7 +52,7 @@ export default function FindUs() {
             </Reveal>
 
             <Reveal delay={2} className="fu-card fu-card--facebook">
-              <div className="fu-card-icon">👍</div>
+              <div className="fu-card-icon"><img src="images/facebook_icon_image.jpeg" alt="" /></div>
               <div className="fu-card-label">Facebook</div>
               <div className="fu-card-value">Taste on Wheels</div>
               <a
@@ -65,7 +65,7 @@ export default function FindUs() {
             </Reveal>
 
             <Reveal delay={3} className="fu-card fu-card--tiktok">
-              <div className="fu-card-icon">🎵</div>
+              <div className="fu-card-icon"><img src="images/tiktok_image.jpg" alt="" /></div>
               <div className="fu-card-label">TikTok</div>
               <div className="fu-card-value">@tasteonwheels</div>
               <a

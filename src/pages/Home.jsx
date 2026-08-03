@@ -12,7 +12,7 @@ const CATEGORIES = [
   { to: '/menu#wraps',   emoji: '🌯', label: 'Wraps',           img: 'Fried_Chicken_Wrap.jpg' },
   { to: '/menu#bowls',   emoji: '🍚', label: 'Bowls',           img: 'lamb_over_rice.jpg' },
   { to: '/menu#sides',   emoji: '🍟', label: 'Fries & Sides',   img: 'French_Fries.jpg' },
-  { to: '/byob',         emoji: '🥔', label: 'BYOB',            img: 'Large_Chip_Bag.jpg' },
+  { to: '/menu#snacks',  emoji: '🍗', label: 'Wings',           img: '8_pieces_wings.jpg' },
 ]
 
 const MENU_ITEMS = [

@@ -118,7 +118,7 @@
     height: 66px; width: 158px;
     object-fit: fill;
   }
-  .nav-logo-img { height: 50px; }
+  .nav-logo-img { height: 66px; }
   .hamburger {
     margin-left: auto;
     width: 46px; height: 46px;
@@ -132,7 +132,7 @@
 }
 @media (max-width: 380px) {
   .nav-badge { width: 108px; height: 46px; }
-  .nav-logo-img { height: 38px; }
+  .nav-logo-img { height: 46px; }
 }
 @media (min-width: 961px) {
   .nav-order-btn { display: inline-flex !important; }

@@ -108,17 +108,25 @@
   .mobile-overlay { display: flex; }
   .nav-social-link {
     display: flex;
-    width: 42px; height: 42px;
+    width: 50px; height: 50px;
     background: var(--red);
     border: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.28);
   }
-  .nav-social-link img { width: 26px; height: 26px; }
-  .nav-right-group { margin-left: auto; }
+  .nav-social-link img { width: 32px; height: 32px; }
+  .nav-right-group { margin-left: auto; gap: 14px; }
   .nav-badge {
     display: block;
-    height: 64px; width: 150px;
+    height: 72px; width: 170px;
     object-fit: fill;
   }
+  .hamburger {
+    width: 46px; height: 46px;
+    background: rgba(0,0,0,0.22);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.28);
+  }
+  .hamburger span { width: 26px; background: #fff; }
   .navbar { background: var(--red); }
   .navbar.scrolled { background: var(--red); }
 }

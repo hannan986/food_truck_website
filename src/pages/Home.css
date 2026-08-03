@@ -165,16 +165,15 @@
 
 /* ── BYOB TEASER ── */
 .byob-section { background: var(--black); }
-.byob-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.byob-img-wrap { aspect-ratio: 4/3; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); }
-.byob-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
-.byob-img-wrap:hover img { transform: scale(1.04); }
-.byob-badge { display: inline-block; background: var(--red); color: var(--white); font-size: .6rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 4px 12px; margin-bottom: 14px; border-radius: 4px; }
-.byob-title { font-family: var(--font-head); font-size: clamp(1.6rem, 3.5vw, 2.6rem); letter-spacing: 2px; text-transform: uppercase; color: var(--white); line-height: 1.05; margin-bottom: 16px; }
-.byob-desc { font-size: 0.88rem; color: #888; line-height: 1.8; margin-bottom: 20px; }
-.chip-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
-.chip-pill { font-size: .62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border: 1px solid rgba(227,188,50,0.35); color: #e3bc32; border-radius: 20px; background: rgba(227,188,50,0.04); transition: background var(--ease), border-color var(--ease); }
-.chip-pill:hover { background: rgba(227,188,50,0.1); border-color: #e3bc32; }
+.byob-single { display: flex; justify-content: center; }
+.byob-single-link {
+  display: block; max-width: 480px; width: 100%;
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform .3s ease;
+}
+.byob-single-link:hover { transform: scale(1.02); }
+.byob-single-img { width: 100%; height: auto; display: block; }
 
 /* ── SOCIAL ── */
 .social-section { background: var(--dark); }
@@ -209,8 +208,6 @@
     width: 100%; height: 100%;
     z-index: 0;
   }
-  .byob-inner { grid-template-columns: 1fr; gap: 32px; }
-  .byob-img-wrap { display: none; }
   .why-grid { grid-template-columns: 1fr; gap: 12px; }
   .social-grid { grid-template-columns: 1fr 1fr; }
 }

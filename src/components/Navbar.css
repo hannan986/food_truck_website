@@ -106,13 +106,21 @@
   .nav-order-btn { display: none !important; }
   .hamburger { display: flex; }
   .mobile-overlay { display: flex; }
-  .nav-social-link { display: flex; }
+  .nav-social-link {
+    display: flex;
+    width: 42px; height: 42px;
+    background: var(--red);
+    border: none;
+  }
+  .nav-social-link img { width: 26px; height: 26px; }
   .nav-right-group { margin-left: auto; }
   .nav-badge {
     display: block;
     height: 64px; width: 150px;
     object-fit: fill;
   }
+  .navbar { background: var(--red); }
+  .navbar.scrolled { background: var(--red); }
 }
 @media (min-width: 961px) {
   .nav-order-btn { display: inline-flex !important; }

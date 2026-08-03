@@ -56,7 +56,7 @@ export default function FindUs() {
               <div className="fu-card-label">Facebook</div>
               <div className="fu-card-value">Taste on Wheels</div>
               <a
-                href="https://www.facebook.com/share/p/1MUqRVzhmj/"
+                href="https://www.facebook.com/share/1FjrAx5iYa/?mibextid=wwXIfr"
                 target="_blank" rel="noopener noreferrer"
                 className="fu-card-btn fu-btn-blue"
               >

@@ -57,8 +57,9 @@
 /* SOCIAL (top bar) */
 .nav-social { display: flex; align-items: center; gap: 14px; }
 .nav-social-link {
+  display: none;
   width: 34px; height: 34px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
+  align-items: center; justify-content: center;
   border: 1px solid rgba(255,255,255,0.12); font-size: 0.85rem; color: #ccc;
   transition: border-color var(--ease), background var(--ease);
 }
@@ -100,6 +101,7 @@
   .hamburger { display: flex; }
   .mobile-overlay { display: flex; }
   .nav-social { margin-left: auto; }
+  .nav-social-link { display: flex; }
 }
 @media (min-width: 961px) {
   .nav-order-btn { display: inline-flex !important; }

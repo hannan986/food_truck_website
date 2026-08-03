@@ -117,7 +117,7 @@ export default function Home() {
 
           <Reveal className="byob-single byob-mobile-only">
             <Link to="/byob" className="byob-single-link">
-              <img src="images/intro_image_1.png" alt="Introducing Bring Your Own Bag of Chips" className="byob-single-img" />
+              <img src="images/intro_image_2.png" alt="Introducing Bring Your Own Bag of Chips" className="byob-single-img" />
             </Link>
           </Reveal>
         </div>

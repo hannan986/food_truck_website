@@ -100,7 +100,7 @@ export default function Navbar() {
             <img src="images/food_truck_logo.png" alt="" className="nav-badge" />
             <NavLink to="/" className="nav-logo" onClick={() => setOpen(false)}><Logo /></NavLink>
             <div className="nav-social">
-              <a href="https://www.facebook.com/tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="nav-social-link">
+              <a href="https://www.facebook.com/share/p/1MUqRVzhmj/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="nav-social-link">
                 <img src="images/facebook_icon_image.jpeg" alt="" />
               </a>
               <a href="https://www.tiktok.com/@tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="nav-social-link">

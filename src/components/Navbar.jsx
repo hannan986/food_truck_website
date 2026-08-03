@@ -112,11 +112,12 @@ export default function Navbar() {
             {links.map(l => <li key={l.label}>{renderLink(l)}</li>)}
           </ul>
 
-          <img src="images/food_truck_logo.jpeg" alt="" className="nav-badge" />
-
-          <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
-            <span/><span/><span/>
-          </button>
+          <div className="nav-right-group">
+            <img src="images/food_truck_logo.jpeg" alt="" className="nav-badge" />
+            <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
+              <span/><span/><span/>
+            </button>
+          </div>
         </div>
       </nav>
 

@@ -20,6 +20,7 @@
 .nav-logo-img { height: 70px; width: auto; object-fit: contain; display: block; }
 
 .nav-badge { display: none; }
+.nav-right-group { display: flex; align-items: center; gap: 12px; }
 
 .nav-links { display: flex; gap: 0; list-style: none; margin-left: auto; }
 .nav-links a {
@@ -103,18 +104,16 @@
 @media (max-width: 960px) {
   .nav-links { display: none; }
   .nav-order-btn { display: none !important; }
-  .hamburger { display: flex; margin-left: auto; }
+  .hamburger { display: flex; }
   .mobile-overlay { display: flex; }
   .nav-social-link { display: flex; }
+  .nav-right-group { margin-left: auto; }
   .nav-badge {
     display: block;
-    position: absolute; left: 50%; top: 50%;
-    transform: translate(-50%, -50%);
-    height: 46px; width: auto;
-    border-radius: 10px;
+    height: 34px; width: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.12);
     object-fit: cover;
-    opacity: 0.5;
-    pointer-events: none;
   }
 }
 @media (min-width: 961px) {

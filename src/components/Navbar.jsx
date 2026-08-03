@@ -102,9 +102,13 @@ export default function Navbar() {
             {links.map(l => <li key={l.label}>{renderLink(l)}</li>)}
           </ul>
 
-          <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
-            <span/><span/><span/>
-          </button>
+          <div className="nav-social">
+            <a href="https://www.facebook.com/tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="nav-social-link">📘</a>
+            <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
+              <span/><span/><span/>
+            </button>
+            <a href="https://www.tiktok.com/@tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="nav-social-link">🎵</a>
+          </div>
         </div>
       </nav>
 

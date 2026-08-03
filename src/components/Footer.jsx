@@ -32,7 +32,7 @@ export default function Footer() {
       <footer className="footer">
         <div className="container-wide">
           <div className="footer-grid">
-            <div className="footer-brand">
+            <div className="footer-brand footer-hide-mobile">
               <Logo />
               <p className="footer-tagline">Fast · Fresh · Flavorful<br/>Made Fresh. Made to Satisfy.</p>
               <div className="footer-social">
@@ -41,7 +41,7 @@ export default function Footer() {
                 <a href="#" aria-label="TikTok">🎵</a>
               </div>
             </div>
-            <div>
+            <div className="footer-hide-mobile">
               <span className="footer-col-title">Quick Links</span>
               <div className="footer-links">
                 <Link to="/">Home</Link>

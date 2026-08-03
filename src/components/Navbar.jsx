@@ -113,7 +113,7 @@ export default function Navbar() {
           </ul>
 
           <div className="nav-right-group">
-            <img src="images/food_truck_logo.jpeg" alt="" className="nav-badge" />
+            <img src="images/food_truck_logo.png" alt="" className="nav-badge" />
             <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
               <span/><span/><span/>
             </button>

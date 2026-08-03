@@ -110,8 +110,8 @@
   .nav-right-group { margin-left: auto; }
   .nav-badge {
     display: block;
-    height: 64px; width: auto;
-    object-fit: contain;
+    height: 64px; width: 150px;
+    object-fit: fill;
   }
 }
 @media (min-width: 961px) {

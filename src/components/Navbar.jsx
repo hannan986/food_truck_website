@@ -97,6 +97,7 @@ export default function Navbar() {
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
         <div className="nav-inner container-wide">
           <div className="nav-left">
+            <img src="images/food_truck_logo.png" alt="" className="nav-badge" />
             <NavLink to="/" className="nav-logo" onClick={() => setOpen(false)}><Logo /></NavLink>
             <div className="nav-social">
               <a href="https://www.facebook.com/tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="nav-social-link">
@@ -112,12 +113,9 @@ export default function Navbar() {
             {links.map(l => <li key={l.label}>{renderLink(l)}</li>)}
           </ul>
 
-          <div className="nav-right-group">
-            <img src="images/food_truck_logo.png" alt="" className="nav-badge" />
-            <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
-              <span/><span/><span/>
-            </button>
-          </div>
+          <button className={`hamburger${open ? ' open' : ''}`} onClick={() => setOpen(v => !v)} aria-label="Toggle menu">
+            <span/><span/><span/>
+          </button>
         </div>
       </nav>
 

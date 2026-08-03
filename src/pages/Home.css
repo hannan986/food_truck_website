@@ -176,13 +176,27 @@
 .chip-pill { font-size: .62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border: 1px solid rgba(227,188,50,0.35); color: #e3bc32; border-radius: 20px; background: rgba(227,188,50,0.04); transition: background var(--ease), border-color var(--ease); }
 .chip-pill:hover { background: rgba(227,188,50,0.1); border-color: #e3bc32; }
 
-.byob-single { display: none; justify-content: center; }
+.byob-single { display: none; justify-content: center; position: relative; }
+.byob-single::before {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 75%; aspect-ratio: 1/1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(192,57,43,0.28) 0%, rgba(227,188,50,0.14) 45%, transparent 72%);
+  filter: blur(24px);
+  z-index: 0;
+}
 .byob-single-link {
   display: block; max-width: 480px; width: 100%;
+  position: relative; z-index: 1;
   transition: transform .3s ease;
+  animation: byobPulse 3.2s ease-in-out infinite;
 }
-.byob-single-link:hover { transform: scale(1.02); }
+.byob-single-link:hover { animation-play-state: paused; transform: scale(1.03); }
 .byob-single-img { width: 100%; height: auto; display: block; }
+@keyframes byobPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(227,188,50,0)); }
+  50% { transform: scale(1.025); filter: drop-shadow(0 0 18px rgba(227,188,50,0.4)); }
+}
 
 /* ── SOCIAL ── */
 .social-section { background: var(--dark); }

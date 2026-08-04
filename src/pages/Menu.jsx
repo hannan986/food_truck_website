@@ -8,26 +8,20 @@ import './Menu.css'
 const CLOVER_URL = 'https://www.clover.com/online-ordering/taste-on-wheels'
 
 const MENU = {
-  sides: {
-    label: 'Fries & Sides', emoji: '🍟', num: '01',
+  bowls: {
+    label: 'Bowls', emoji: '🍚', num: '01',
     items: [
-      { name: 'French Fries',       price: 3.99, desc: 'Crispy golden fries, perfectly seasoned.', note: '✓ Vegan', img: 'French Fries.jpg' },
-      { name: 'Cheese Fries',       price: 5.99, desc: 'Crispy fries topped with warm melted cheese sauce.', note: '✓ Vegetarian', img: 'French Fries.jpg' },
-      { name: 'Chili Cheese Fries', price: 7.99, desc: 'Crispy fries loaded with chili and melted cheese.', note: '✓ Loaded', img: 'Homemade Chili.jpg' },
-      { name: 'Corn on the Cob',    price: 3.99, desc: 'Sweet corn on the cob, buttered and lightly seasoned.', note: '✓ Vegetarian', img: 'French Fries.jpg' },
+      { name: 'Chicken Over Rice',        price:  9.99, desc: 'Juicy marinated chicken over fluffy rice with fresh veggies and signature sauces.', note: '✓ Rice Base', img: 'Grilled Chicken Salad.jpg' },
+      { name: 'Lamb Over Rice',           price: 10.99, desc: 'Savory seasoned lamb over fluffy rice with fresh veggies and our signature white and hot sauce.', note: '✓ Rice Base', img: 'lamb_over_rice.jpg' },
+      { name: 'Lamb & Chicken Over Rice', price: 12.99, desc: 'Best of both worlds — seasoned lamb & chicken over rice with fresh veggies and signature sauces.', note: '✓ Best Seller', img: 'Chef Salad.jpg' },
     ]
   },
-  snacks: {
-    label: 'Snacks', emoji: '🍗', num: '02',
+  wraps: {
+    label: 'Wraps', emoji: '🌯', num: '02',
     items: [
-      { name: 'Chicken Tenders (3pc)',  price:  6.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
-      { name: 'Chicken Tenders (5pc)',  price: 10.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
-      { name: 'Chicken Nuggets (6pc)',  price:  4.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
-      { name: 'Chicken Nuggets (10pc)', price:  6.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
-      { name: 'Chicken Wings (5pc)',    price: 10.99, desc: 'Juicy wings — classic, buffalo or honey garlic.', note: '✓ Fresh', img: '8_pieces_wings.jpg' },
-      { name: 'Corn Dog',               price:  4.99, desc: 'Classic corn dog, golden battered and fried.', note: '✓ Fresh', img: 'Hot_dog.jpg' },
-      { name: 'Hot Dog',                price:  1.99, desc: 'Classic hot dog in toasted bun with your choice of toppings.', note: '✓ Fresh', img: 'Hot_dog.jpg' },
-      { name: 'Nachos',                 price:  9.99, desc: 'Loaded tortilla chips with cheese, jalapeños and sour cream.', note: '✓ Vegetarian', img: 'Funnel Cake Fries.jpg' },
+      { name: 'Chicken Wrap',       price:  9.99, desc: 'Marinated chicken, lettuce, tomatoes, onions and signature sauce in warm pita.', note: '✓ Pita', img: 'Grilled Chicken Wrap.jpg' },
+      { name: 'Lamb Wrap',          price: 10.99, desc: 'Savory seasoned lamb, lettuce, tomatoes, onions and signature sauce in warm pita.', note: '✓ Pita', img: 'Steak & Cheese Wrap.jpg' },
+      { name: 'Fried Chicken Wrap', price:  9.99, desc: 'Crispy fried chicken, lettuce, tomatoes, pickles and signature sauce in warm tortilla.', note: '✓ Tortilla', img: 'Fried Chicken Wrap.jpg' },
     ]
   },
   burgers: {
@@ -40,29 +34,32 @@ const MENU = {
       { name: 'Veggie Burger',      price: 5.99, desc: 'Flavorful veggie patty with lettuce, tomato, onion and signature sauce.', note: '✓ Vegetarian', img: 'Veggie_sub.avif' },
     ]
   },
-  wraps: {
-    label: 'Wraps', emoji: '🌯', num: '04',
-    items: [
-      { name: 'Chicken Wrap',       price:  9.99, desc: 'Marinated chicken, lettuce, tomatoes, onions and signature sauce in warm pita.', note: '✓ Pita', img: 'Grilled Chicken Wrap.jpg' },
-      { name: 'Lamb Wrap',          price: 10.99, desc: 'Savory seasoned lamb, lettuce, tomatoes, onions and signature sauce in warm pita.', note: '✓ Pita', img: 'Steak & Cheese Wrap.jpg' },
-      { name: 'Falafel Wrap',       price:  9.99, desc: 'Crispy falafel, fresh lettuce, tomatoes, onions and tahini sauce in warm pita.', note: '✓ Vegetarian · ✓ Tahini', img: 'Falafel Wrap.jpg' },
-      { name: 'Fried Chicken Wrap', price:  9.99, desc: 'Crispy fried chicken, lettuce, tomatoes, pickles and signature sauce in warm tortilla.', note: '✓ Tortilla', img: 'Fried Chicken Wrap.jpg' },
-    ]
-  },
-  bowls: {
-    label: 'Bowls', emoji: '🍚', num: '05',
-    items: [
-      { name: 'Chicken Over Rice',        price:  9.99, desc: 'Juicy marinated chicken over fluffy rice with fresh veggies and signature sauces.', note: '✓ Rice Base', img: 'Grilled Chicken Salad.jpg' },
-      { name: 'Lamb Over Rice',           price: 10.99, desc: 'Savory seasoned lamb over fluffy rice with fresh veggies and our signature white and hot sauce.', note: '✓ Rice Base', img: 'lamb_over_rice.jpg' },
-      { name: 'Lamb & Chicken Over Rice', price: 12.99, desc: 'Best of both worlds — seasoned lamb & chicken over rice with fresh veggies and signature sauces.', note: '✓ Best Seller', img: 'Chef Salad.jpg' },
-      { name: 'Falafel Over Rice',        price:  9.99, desc: 'Crispy golden falafel over fluffy rice with fresh veggies and our tahini signature sauce.', note: '✓ Vegetarian · ✓ Tahini', img: 'Garden Salad.jpg' },
-    ]
-  },
   steak: {
-    label: 'Steak & Cheese', emoji: '🥩', num: '06',
+    label: 'Steak & Cheese', emoji: '🥩', num: '04',
     items: [
       { name: 'Original Steak & Cheese', price:  9.99, desc: 'Thinly sliced steak on a toasted hoagie with melted cheese and special sauce.', note: '✓ Hoagie Roll', img: 'Grilled_chicken_sub.jpg' },
       { name: 'Supreme Steak & Cheese',  price: 11.99, desc: 'Loaded with sautéed peppers, onions, mushrooms, melted cheese and premium sauce.', note: '✓ Loaded', img: 'Steak & Cheese Wrap.jpg' },
+    ]
+  },
+  snacks: {
+    label: 'Snacks', emoji: '🍗', num: '05',
+    items: [
+      { name: 'Chicken Tenders (3pc)',  price:  6.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
+      { name: 'Chicken Tenders (5pc)',  price: 10.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
+      { name: 'Chicken Nuggets (6pc)',  price:  4.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
+      { name: 'Chicken Nuggets (10pc)', price:  6.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
+      { name: 'Chicken Wings (5pc)',    price: 10.99, desc: 'Juicy wings — classic, buffalo or honey garlic.', note: '✓ Fresh', img: '8_pieces_wings.jpg' },
+      { name: 'Hot Dog',                price:  1.99, desc: 'Classic hot dog in toasted bun with your choice of toppings.', note: '✓ Fresh', img: 'Hot_dog.jpg' },
+      { name: 'Nachos',                 price:  9.99, desc: 'Loaded tortilla chips with cheese, jalapeños and sour cream.', note: '✓ Vegetarian', img: 'Funnel Cake Fries.jpg' },
+    ]
+  },
+  sides: {
+    label: 'Fries & Sides', emoji: '🍟', num: '06',
+    items: [
+      { name: 'French Fries',       price: 3.99, desc: 'Crispy golden fries, perfectly seasoned.', note: '✓ Vegan', img: 'French Fries.jpg' },
+      { name: 'Cheese Fries',       price: 5.99, desc: 'Crispy fries topped with warm melted cheese sauce.', note: '✓ Vegetarian', img: 'French Fries.jpg' },
+      { name: 'Chili Cheese Fries', price: 7.99, desc: 'Crispy fries loaded with chili and melted cheese.', note: '✓ Loaded', img: 'Homemade Chili.jpg' },
+      { name: 'Corn on the Cob',    price: 3.99, desc: 'Sweet corn on the cob, buttered and lightly seasoned.', note: '✓ Vegetarian', img: 'French Fries.jpg' },
     ]
   },
 }
@@ -126,9 +123,8 @@ export default function Menu() {
       <div className="page-hero menu-page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
         <p className="page-hero-eyebrow">Taste on Wheels</p>
         <h1 className="page-hero-title">OUR <span className="gold">MENU</span></h1>
-        <p className="page-hero-sub">Fresh ingredients. Bold flavors. Made to order every single time.</p>
         <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-lg menu-hero-order-btn">
-          🛒 ORDER NOW ON CLOVER →
+          ORDER NOW →
         </a>
       </div>
 

@@ -5,7 +5,7 @@ import './About.css'
 
 const VALUES = [
   { icon:'❤️', num:'01', title:'Made With Love', desc:"We put real care into every dish. From the marinade to the plate, every step is done with the intention of making something truly delicious." },
-  { icon:'🌱', num:'02', title:'Fresh Every Day', desc:"No reheating. No cutting corners. Our meat is seasoned fresh daily, our falafel is ground and fried to order, and our sauces are made in-house." },
+  { icon:'🌱', num:'02', title:'Fresh Every Day', desc:"No reheating. No cutting corners. Our meat is seasoned fresh daily, and our sauces are made in-house." },
   { icon:'⭐', num:'03', title:'Quality, Always', desc:"We hold every dish to the highest standard. That's not just a promise — it's a standard we hold ourselves to with every order, every day." },
 ]
 

@@ -7,29 +7,28 @@ const CLOVER_URL = 'https://www.clover.com/online-ordering/taste-on-wheels'
 
 const STEPS = [
   { icon:'🛍️', num:'01', title:'BRING YOUR BAG', desc:"Grab your favourite bag of chips — Doritos, Lay's, Takis, Cheetos, or any other brand. Sealed bags preferred." },
-  { icon:'🥩', num:'02', title:'CHOOSE YOUR PROTEIN', desc:'Pick from our seasoned chicken, beef, lamb, gyro meat or crispy falafel. All made fresh to order.' },
+  { icon:'🥩', num:'02', title:'PICK FROM OUR SEASONED CHICKEN OR LAMB', desc:'Pick from our seasoned chicken or lamb, gyro meat. All made fresh to order.' },
   { icon:'🧀', num:'03', title:'WE FILL IT UP', desc:"We open the bag and fill it with your chosen protein, melted cheese, jalapeños and all our special fixings. Then we seal it and hand it back!" },
 ]
 
 const PROTEINS = [
-  { emoji:'🍗', name:'Chicken / Beef', desc:'Juicy seasoned chicken or beef — savory, smoky and satisfying.', price:8.99, img:'Chicken Gyro Wrap.jpg' },
-  { emoji:'🍖', name:'Lamb / Gyro',    desc:'Signature seasoned lamb or authentic gyro meat — bold, rich and full of flavor.', price:9.99, img:'Lamb Gyro Wrap.jpg' },
-  { emoji:'🧆', name:'Falafel',        desc:'Crispy golden falafel made fresh daily — hearty, flavorful and fully vegetarian.', price:8.49, img:'Falafel Wrap.jpg' },
+  { emoji:'🍗', name:'Chicken',     desc:'Juicy seasoned chicken — savory, smoky and satisfying.', price:8.99, img:'Chicken Gyro Wrap.jpg' },
+  { emoji:'🍖', name:'Lamb / Gyro', desc:'Signature seasoned lamb or authentic gyro meat — bold, rich and full of flavor.', price:9.99, img:'Lamb Gyro Wrap.jpg' },
 ]
 
 const CHIPS = ['DORITOS','LAY\'S','TAKIS','CHEETOS','PRINGLES','ANY BRAND']
 
 const MENU_ITEMS = [
   { name:'Lamb Over Rice',          price:10.99, img:'lamb_over_rice.jpg' },
-  { name:'Chicken Over Rice',       price:10.99, img:'Grilled Chicken Salad.jpg' },
+  { name:'Chicken Over Rice',       price: 9.99, img:'Grilled Chicken Salad.jpg' },
   { name:'Lamb & Chicken Over Rice',price:12.99, img:'Chef Salad.jpg' },
-  { name:'Chicken Gyro Wrap',       price: 9.99, img:'Grilled Chicken Wrap.jpg' },
-  { name:'Lamb Gyro Wrap',          price: 9.99, img:'Steak & Cheese Wrap.jpg' },
-  { name:'Hamburger',               price: 7.99, img:'hamburger_sub.jpg' },
-  { name:'Cheeseburger',            price: 8.99, img:'cheese_burger_sub.avif' },
-  { name:'Double Cheeseburger',     price:11.99, img:'combo_sub.avif' },
-  { name:'Original Steak & Cheese', price:11.99, img:'Grilled_chicken_sub.jpg' },
-  { name:'Chicken Tenders',         price: 7.99, img:'Chicken Tenders.jpg' },
+  { name:'Chicken Wrap',            price: 9.99, img:'Grilled Chicken Wrap.jpg' },
+  { name:'Lamb Wrap',               price:10.99, img:'Steak & Cheese Wrap.jpg' },
+  { name:'Hamburger',               price: 4.99, img:'hamburger_sub.jpg' },
+  { name:'Cheeseburger',            price: 5.99, img:'cheese_burger_sub.avif' },
+  { name:'Double Cheeseburger',     price: 6.99, img:'combo_sub.avif' },
+  { name:'Original Steak & Cheese', price: 9.99, img:'Grilled_chicken_sub.jpg' },
+  { name:'Chicken Wings (5pc)',     price:10.99, img:'8_pieces_wings.jpg' },
 ]
 
 export default function Byob() {

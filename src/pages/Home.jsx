@@ -7,12 +7,12 @@ import Footer from '../components/Footer'
 const CLOVER_URL = 'https://www.clover.com/online-ordering/taste-on-wheels'
 
 const CATEGORIES = [
-  { to: '/menu#steak',   emoji: '🥩', label: 'Steak & Cheese', img: 'combo_sub.avif' },
-  { to: '/menu#burgers', emoji: '🍔', label: 'Burgers',         img: 'cheese_burger_sub.avif' },
-  { to: '/menu#wraps',   emoji: '🌯', label: 'Wraps',           img: 'Fried_Chicken_Wrap.jpg' },
   { to: '/menu#bowls',   emoji: '🍚', label: 'Bowls',           img: 'lamb_over_rice.jpg' },
-  { to: '/menu#sides',   emoji: '🍟', label: 'Fries & Sides',   img: 'French_Fries.jpg' },
+  { to: '/menu#wraps',   emoji: '🌯', label: 'Wraps',           img: 'Fried_Chicken_Wrap.jpg' },
+  { to: '/menu#burgers', emoji: '🍔', label: 'Burgers',         img: 'cheese_burger_sub.avif' },
+  { to: '/menu#steak',   emoji: '🥩', label: 'Steak & Cheese', img: 'combo_sub.avif' },
   { to: '/menu#snacks',  emoji: '🍗', label: 'Wings',           img: '8_pieces_wings.jpg' },
+  { to: '/menu#sides',   emoji: '🍟', label: 'Fries & Sides',   img: 'French_Fries.jpg' },
 ]
 
 const MENU_ITEMS = [

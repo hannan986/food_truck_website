@@ -108,7 +108,7 @@ export default function FindUs() {
       <section className="section fu-hours-section" style={{ background:'var(--black)' }}>
         <div className="container" style={{ textAlign:'center', marginBottom:40 }}>
           <span className="eyebrow">When We're Open</span>
-          <h2 className="section-title">OUR <span className="gold">HOURS</span></h2>
+          <h2 className="section-title">OUR <span className="red">HOURS</span></h2>
           <div className="divider divider-center" />
         </div>
         <div className="container">

@@ -10,7 +10,7 @@ export default function About() {
         <div className="container">
           <div className="about-hero-grid">
             <Reveal className="about-hero-text">
-              <h1 className="about-hero-title">OUR<br/><span className="gold">STORY</span></h1>
+              <h1 className="about-hero-title">OUR<br/><span className="red">STORY</span></h1>
               <p className="about-hero-lead">Taste on Wheels started with one simple belief: street food should be extraordinary. Not fast-food throwaway — but genuinely great food made with care, served with pride, right from a truck.</p>
             </Reveal>
             <Reveal delay={1} className="about-hero-img">

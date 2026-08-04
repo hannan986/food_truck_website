@@ -128,7 +128,7 @@ export default function Home() {
       {/* MENU ITEMS */}
       <section className="home-menu-section section" style={{ background:'var(--black)' }}>
         <div className="container" style={{ textAlign:'center', marginBottom:36 }}>
-          <h2 className="section-title home-menu-title" style={{ fontSize: 'clamp(5rem, 9vw, 7rem)', lineHeight: 0.95 }}>
+          <h2 className="section-title home-menu-title" style={{ fontSize: 'clamp(3.5rem, 9vw, 7rem)', lineHeight: 0.95 }}>
   OUR <span className="red">MENU</span>
 </h2>
           <div className="divider divider-center" />

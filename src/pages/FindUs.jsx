@@ -19,9 +19,7 @@ export default function FindUs() {
     <main>
       {/* HERO */}
       <div className="page-hero finduS-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
-        <p className="page-hero-eyebrow">📍 Hagerstown, Maryland</p>
         <h1 className="page-hero-title">FIND <span className="gold">US</span></h1>
-        <p className="page-hero-sub">Come taste the difference. We're ready for you.</p>
       </div>
 
       {/* BIG CONTACT CARDS */}
@@ -29,16 +27,7 @@ export default function FindUs() {
         <div className="container">
           <div className="fu-cards-grid">
 
-            <Reveal delay={0} className="fu-card fu-card--phone">
-              <div className="fu-card-icon">📞</div>
-              <div className="fu-card-label">Call Us</div>
-              <div className="fu-card-value">(240) 698-8849</div>
-              <a href="tel:+12406988849" className="fu-card-btn fu-btn-gold">
-                CALL NOW →
-              </a>
-            </Reveal>
-
-            <Reveal delay={1} className="fu-card fu-card--address">
+            <Reveal delay={0} className="fu-card fu-card--address">
               <div className="fu-card-icon">📍</div>
               <div className="fu-card-label">Our Location</div>
               <div className="fu-card-value">802 Salem Ave<br/>Hagerstown, MD 21740</div>
@@ -51,7 +40,7 @@ export default function FindUs() {
               </a>
             </Reveal>
 
-            <Reveal delay={2} className="fu-card fu-card--facebook">
+            <Reveal delay={1} className="fu-card fu-card--facebook">
               <div className="fu-card-icon"><img src="images/facebook_icon_image.jpeg" alt="" /></div>
               <div className="fu-card-label">Facebook</div>
               <div className="fu-card-value">Taste on Wheels</div>
@@ -64,7 +53,7 @@ export default function FindUs() {
               </a>
             </Reveal>
 
-            <Reveal delay={3} className="fu-card fu-card--tiktok">
+            <Reveal delay={2} className="fu-card fu-card--tiktok">
               <div className="fu-card-icon"><img src="images/tiktok_image.jpg" alt="" /></div>
               <div className="fu-card-label">TikTok</div>
               <div className="fu-card-value">@tasteonwheels</div>
@@ -74,6 +63,15 @@ export default function FindUs() {
                 className="fu-card-btn fu-btn-tiktok"
               >
                 FOLLOW US →
+              </a>
+            </Reveal>
+
+            <Reveal delay={3} className="fu-card fu-card--phone">
+              <div className="fu-card-icon">📞</div>
+              <div className="fu-card-label">Call Us</div>
+              <div className="fu-card-value">(240) 698-8849</div>
+              <a href="tel:+12406988849" className="fu-card-btn fu-btn-gold">
+                CALL NOW →
               </a>
             </Reveal>
 

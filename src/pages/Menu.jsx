@@ -160,7 +160,8 @@ export default function Menu() {
               </section>
               {ki < KEYS.length - 1 && (
                 <div className="combo-upsell">
-                  <span>MAKE IT A COMBO FOR JUST <strong style={{color:'#e3bc32'}}>$4.99</strong> — ADD REGULAR FRIES + DRINK</span>
+                  MAKE IT A COMBO FOR JUST <strong style={{color:'var(--red)'}}>$4.99</strong>
+                  <span className="combo-upsell-sub">REGULAR FRIES + DRINK</span>
                 </div>
               )}
             </div>

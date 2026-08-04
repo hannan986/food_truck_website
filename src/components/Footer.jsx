@@ -69,22 +69,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="footer-bottom">
-            <p className="footer-copy">© 2025 Taste on Wheels. All Rights Reserved.</p>
-            <div className="footer-payment">
-              <span className="payment-label">We Accept:</span>
-              <span className="payment-icon" title="Visa">
-                <svg width="50" height="30" viewBox="0 0 50 30" fill="none"><rect width="50" height="30" rx="4" fill="#1a1f71"/><text x="25" y="20" textAnchor="middle" fill="white" fontFamily="Arial,sans-serif" fontSize="13" fontWeight="700" fontStyle="italic">VISA</text></svg>
-              </span>
-              <span className="payment-icon" title="Mastercard">
-                <svg width="50" height="30" viewBox="0 0 50 30" fill="none"><rect width="50" height="30" rx="4" fill="#1c1c1c"/><circle cx="18" cy="15" r="10" fill="#EB001B"/><circle cx="32" cy="15" r="10" fill="#F79E1B" opacity="0.92"/></svg>
-              </span>
-              <span className="payment-icon" title="Apple Pay">
-                <img src={`${import.meta.env.BASE_URL}images/Apple_Pay.png`} alt="Apple Pay" height="30" style={{borderRadius:'4px',background:'#fff',padding:'0 6px'}} />
-              </span>
-              <span className="payment-icon" title="Cash">
-                <svg width="50" height="30" viewBox="0 0 50 30" fill="none"><rect width="50" height="30" rx="4" fill="#1a7a4a"/><text x="25" y="21" textAnchor="middle" fill="white" fontFamily="Arial,sans-serif" fontSize="17" fontWeight="700">$</text></svg>
-              </span>
-            </div>
+            <p className="footer-copy">© 2026 Taste on Wheels. All Rights Reserved.</p>
           </div>
         </div>
       </footer>

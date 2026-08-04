@@ -235,6 +235,7 @@
   .social-grid { grid-template-columns: 1fr 1fr; }
   .byob-desktop-only { display: none; }
   .byob-single.byob-mobile-only { display: flex; }
+  .home-menu-title { font-size: clamp(2.8rem, 9vw, 3.4rem); }
 }
 @media (max-width: 520px) {
   .cat-grid { grid-template-columns: repeat(2,1fr); }

@@ -17,15 +17,15 @@ const CATEGORIES = [
 
 const MENU_ITEMS = [
   { name:'Lamb Over Rice',          price:10.99, img:'lamb_over_rice.jpg' },
-  { name:'Chicken Over Rice',       price:10.99, img:'Grilled Chicken Salad.jpg' },
+  { name:'Chicken Over Rice',       price: 9.99, img:'Grilled Chicken Salad.jpg' },
   { name:'Lamb & Chicken Over Rice',price:12.99, img:'Chef Salad.jpg' },
-  { name:'Chicken Gyro Wrap',       price: 9.99, img:'Grilled Chicken Wrap.jpg' },
-  { name:'Lamb Gyro Wrap',          price: 9.99, img:'Steak & Cheese Wrap.jpg' },
-  { name:'Hamburger',               price: 7.99, img:'hamburger_sub.jpg' },
-  { name:'Cheeseburger',            price: 8.99, img:'cheese_burger_sub.avif' },
-  { name:'Double Cheeseburger',     price:11.99, img:'combo_sub.avif' },
-  { name:'Original Steak & Cheese', price:11.99, img:'Grilled_chicken_sub.jpg' },
-  { name:'Chicken Tenders',         price: 7.99, img:'Chicken Tenders.jpg' },
+  { name:'Chicken Wrap',            price: 9.99, img:'Grilled Chicken Wrap.jpg' },
+  { name:'Lamb Wrap',               price:10.99, img:'Steak & Cheese Wrap.jpg' },
+  { name:'Hamburger',               price: 4.99, img:'hamburger_sub.jpg' },
+  { name:'Cheeseburger',            price: 5.99, img:'cheese_burger_sub.avif' },
+  { name:'Double Cheeseburger',     price: 6.99, img:'combo_sub.avif' },
+  { name:'Original Steak & Cheese', price: 9.99, img:'Grilled_chicken_sub.jpg' },
+  { name:'Chicken Wings (5pc)',     price:10.99, img:'8_pieces_wings.jpg' },
 ]
 
 export default function Home() {

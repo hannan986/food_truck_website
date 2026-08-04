@@ -242,7 +242,6 @@
 }
 
 /* ── HOME MENU ITEMS ── */
-.home-menu-title { font-size: clamp(2.4rem, 5vw, 3.6rem); }
 .hm-item-list { display:flex; flex-direction:column; gap:2px; border-radius:8px; overflow:hidden; }
 .hm-item-wrap { display:flex; width:100%; }
 .hm-item-card {

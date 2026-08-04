@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import './Navbar.css'
 
 const Logo = () => (
@@ -11,7 +11,6 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const location = useLocation()
-  const navigate = useNavigate()
   const isHome = location.pathname === '/'
 
   useEffect(() => {
@@ -43,27 +42,15 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
-  const handleByob = (e) => {
-    e.preventDefault()
-    setOpen(false)
-    if (isHome) {
-      document.getElementById('byob')?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      navigate('/byob')
-    }
-  }
-
   const links = [
     { label: 'Home',    type: 'route',    to: '/' },
     { label: 'Menu',    type: 'external', href: '#/menu' },
-    { label: 'BYOB',    type: 'scroll',   sectionId: 'byob' },
     { label: 'Find Us', type: 'route',    to: '/find-us' },
     { label: 'About',   type: 'route',    to: '/about' },
   ]
 
   const linkClass = (link) => {
     if (link.type === 'external') return ''
-    if (link.type === 'scroll') return isHome && activeSection === 'byob' ? 'active' : ''
     if (link.to === '/') return isHome && activeSection !== 'byob' ? 'active' : ''
     return location.pathname === link.to ? 'active' : ''
   }
@@ -73,13 +60,6 @@ export default function Navbar() {
     if (link.type === 'external') {
       return (
         <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" onClick={close}>
-          {link.label}
-        </a>
-      )
-    }
-    if (link.type === 'scroll') {
-      return (
-        <a key={link.label} href="#byob" className={linkClass(link)} onClick={handleByob}>
           {link.label}
         </a>
       )

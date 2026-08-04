@@ -11,7 +11,9 @@ const CATEGORIES = [
   { to: '/menu#wraps',   emoji: '🌯', label: 'Wraps',           img: 'Fried_Chicken_Wrap.jpg' },
   { to: '/menu#burgers', emoji: '🍔', label: 'Burgers',         img: 'cheese_burger_sub.avif' },
   { to: '/menu#steak',   emoji: '🥩', label: 'Steak & Cheese', img: 'combo_sub.avif' },
-  { to: '/menu#snacks',  emoji: '🍗', label: 'Wings',           img: '8_pieces_wings.jpg' },
+  { to: '/menu#chicken', emoji: '🍗', label: 'Chicken',         img: '8_pieces_wings.jpg' },
+  { to: '/menu#snacks',  emoji: '🌭', label: 'Snacks',          img: 'Hot_dog.jpg' },
+  { to: '/byob',         emoji: '🛍️', label: 'BYOB',            img: 'Large Chip Bag.jpg' },
   { to: '/menu#sides',   emoji: '🍟', label: 'Fries & Sides',   img: 'French_Fries.jpg' },
 ]
 

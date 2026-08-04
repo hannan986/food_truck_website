@@ -41,20 +41,25 @@ const MENU = {
       { name: 'Supreme Steak & Cheese',  price: 11.99, desc: 'Loaded with sautéed peppers, onions, mushrooms, melted cheese and premium sauce.', note: '✓ Loaded', img: 'Steak & Cheese Wrap.jpg' },
     ]
   },
-  snacks: {
-    label: 'Snacks', emoji: '🍗', num: '05',
+  chicken: {
+    label: 'Chicken', emoji: '🍗', num: '05',
     items: [
       { name: 'Chicken Tenders (3pc)',  price:  6.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
       { name: 'Chicken Tenders (5pc)',  price: 10.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
       { name: 'Chicken Nuggets (6pc)',  price:  4.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
       { name: 'Chicken Nuggets (10pc)', price:  6.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
       { name: 'Chicken Wings (5pc)',    price: 10.99, desc: 'Juicy wings — classic, buffalo or honey garlic.', note: '✓ Fresh', img: '8_pieces_wings.jpg' },
-      { name: 'Hot Dog',                price:  1.99, desc: 'Classic hot dog in toasted bun with your choice of toppings.', note: '✓ Fresh', img: 'Hot_dog.jpg' },
-      { name: 'Nachos',                 price:  9.99, desc: 'Loaded tortilla chips with cheese, jalapeños and sour cream.', note: '✓ Vegetarian', img: 'Funnel Cake Fries.jpg' },
+    ]
+  },
+  snacks: {
+    label: 'Snacks', emoji: '🌭', num: '06',
+    items: [
+      { name: 'Hot Dog', price: 1.99, desc: 'Classic hot dog in toasted bun with your choice of toppings.', note: '✓ Fresh', img: 'Hot_dog.jpg' },
+      { name: 'Nachos',  price: 9.99, desc: 'Loaded tortilla chips with cheese, jalapeños and sour cream.', note: '✓ Vegetarian', img: 'Funnel Cake Fries.jpg' },
     ]
   },
   sides: {
-    label: 'Fries & Sides', emoji: '🍟', num: '06',
+    label: 'Fries & Sides', emoji: '🍟', num: '07',
     items: [
       { name: 'French Fries',       price: 3.99, desc: 'Crispy golden fries, perfectly seasoned.', note: '✓ Vegan', img: 'French Fries.jpg' },
       { name: 'Cheese Fries',       price: 5.99, desc: 'Crispy fries topped with warm melted cheese sauce.', note: '✓ Vegetarian', img: 'French Fries.jpg' },

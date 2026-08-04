@@ -126,20 +126,6 @@ export default function FindUs() {
         </div>
       </section>
 
-      {/* PAYMENTS */}
-      <section className="section" style={{ background:'var(--dark)', textAlign:'center' }}>
-        <div className="container">
-          <span className="eyebrow">How To Pay</span>
-          <h2 className="section-title">WE ACCEPT <span className="gold">ALL MAJOR PAYMENTS</span></h2>
-          <div className="divider divider-center" />
-          <div className="fu-pay-row">
-            {['💳 VISA','💳 MASTERCARD','🍎 APPLE PAY','📱 GOOGLE PAY','💵 CASH','🔍 DISCOVER'].map((p, i) => (
-              <Reveal key={p} delay={i % 4} className="fu-pay-pill">{p}</Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </main>
   )

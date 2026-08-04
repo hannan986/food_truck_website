@@ -242,7 +242,7 @@
 }
 
 /* ── HOME MENU ITEMS ── */
-.home-menu-title { font-size: clamp(5rem, 8.5vw, 6.2rem); line-height: 0.95; }
+.home-menu-title { font-size: clamp(5.4rem, 9vw, 6.6rem); line-height: 0.95; }
 .hm-item-list { display:flex; flex-direction:column; gap:2px; border-radius:8px; overflow:hidden; }
 .hm-item-wrap { display:flex; width:100%; }
 .hm-item-card {

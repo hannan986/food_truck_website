@@ -79,22 +79,6 @@ export default function FindUs() {
         </div>
       </section>
 
-      {/* CALL AHEAD BANNER */}
-      <section className="fu-call-banner">
-        <div className="container fu-call-inner">
-          <div className="fu-call-left">
-            <span className="fu-call-badge">★ PRO TIP</span>
-            <h2 className="fu-call-title">CALL AHEAD &<br/>SKIP THE WAIT</h2>
-            <p className="fu-call-desc">Heading over? Give us a call and your order will be hot and ready when you arrive.</p>
-          </div>
-          <Reveal delay={1} className="fu-call-right">
-            <div className="fu-call-num">(240) 698-8849</div>
-            <div className="fu-call-note">TAP TO CALL · WE'LL HAVE IT READY</div>
-            <a href="tel:+12406988849" className="fu-call-btn">📞 CALL NOW →</a>
-          </Reveal>
-        </div>
-      </section>
-
       {/* MAP */}
       <section className="fu-map-section">
         <div className="fu-map-header">

@@ -173,14 +173,6 @@ export default function Menu() {
         </div>
       </div>
 
-      <div className="payment-bar">
-        <div className="container-wide">
-          <div className="payment-bar-inner">
-            <span className="payment-label">We Accept:</span>
-            {['VISA','MASTERCARD','DISCOVER','APPLE PAY','CASH'].map(p=><span key={p} className="payment-item">{p}</span>)}
-          </div>
-        </div>
-      </div>
       <Footer />
 
       {/* STICKY ORDER BAR */}

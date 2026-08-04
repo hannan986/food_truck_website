@@ -126,8 +126,7 @@ export default function Menu() {
   return (
     <main>
       <div className="page-hero menu-page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
-        <p className="page-hero-eyebrow">Taste on Wheels</p>
-        <h1 className="page-hero-title">OUR <span className="gold">MENU</span></h1>
+        <h1 className="page-hero-title">OUR <span style={{ color: 'var(--red)' }}>MENU</span></h1>
         <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-lg menu-hero-order-btn">
           ORDER NOW →
         </a>

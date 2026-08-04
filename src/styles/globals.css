@@ -71,6 +71,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .divider-center { margin-left: auto; margin-right: auto; }
 .gold { color: #e3bc32; }
+.red { color: var(--red); }
 
 /* ── BUTTONS ── */
 .btn {

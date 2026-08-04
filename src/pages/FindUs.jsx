@@ -83,7 +83,7 @@ export default function FindUs() {
       <section className="fu-map-section">
         <div className="fu-map-header">
           <span className="eyebrow">802 Salem Ave, Hagerstown MD 21740</span>
-          <h2 className="section-title">WE'RE RIGHT <span className="gold">HERE</span></h2>
+          <h2 className="section-title">WE'RE RIGHT <span className="red">HERE</span></h2>
           <div className="divider divider-center" />
         </div>
         <div className="fu-map-wrap">

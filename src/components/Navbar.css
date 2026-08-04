@@ -127,8 +127,8 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.28);
   }
   .hamburger span { width: 26px; background: #111; }
-  .navbar { background: #fff; border-top: 2px solid #e3bc32; border-bottom: 2px solid #e3bc32; }
-  .navbar.scrolled { background: #fff; border-top: 2px solid #e3bc32; border-bottom: 2px solid #e3bc32; }
+  .navbar { background: #e3bc32; border-top: 2px solid var(--red); border-bottom: 2px solid var(--red); }
+  .navbar.scrolled { background: #e3bc32; border-top: 2px solid var(--red); border-bottom: 2px solid var(--red); }
 }
 @media (max-width: 380px) {
   .nav-badge { width: 108px; height: 46px; }

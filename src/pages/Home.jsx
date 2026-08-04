@@ -126,7 +126,7 @@ export default function Home() {
       {/* MENU ITEMS */}
       <section className="home-menu-section section" style={{ background:'var(--black)' }}>
         <div className="container" style={{ textAlign:'center', marginBottom:36 }}>
-          <h2 className="section-title home-menu-title">OUR <span className="gold">MENU</span></h2>
+          <h2 className="section-title">OUR <span className="gold">MENU</span></h2>
           <div className="divider divider-center" />
         </div>
         <div className="container">

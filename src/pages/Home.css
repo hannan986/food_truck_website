@@ -235,7 +235,6 @@
   .social-grid { grid-template-columns: 1fr 1fr; }
   .byob-desktop-only { display: none; }
   .byob-single.byob-mobile-only { display: flex; }
-  .home-menu-title { font-size: clamp(2.8rem, 9vw, 3.4rem); }
 }
 @media (max-width: 520px) {
   .cat-grid { grid-template-columns: repeat(2,1fr); }
@@ -243,7 +242,6 @@
 }
 
 /* ── HOME MENU ITEMS ── */
-.home-menu-title { font-size: clamp(2rem, 4.5vw, 3.4rem); }
 .hm-item-list { display:flex; flex-direction:column; gap:2px; border-radius:8px; overflow:hidden; }
 .hm-item-wrap { display:flex; width:100%; }
 .hm-item-card {
@@ -272,7 +270,6 @@
 }
 .hm-order-btn:hover { background:#a93226; transform:translateY(-1px); box-shadow:0 4px 14px rgba(192,57,43,0.4); }
 @media (max-width:600px) {
-  .home-menu-title { font-size: 3.2rem; }
   .hm-item-img { width:82px; min-width:82px; height:72px; }
   .hm-item-name { font-size:.78rem; padding:0 12px; }
   .hm-item-footer { padding:0 12px; gap:8px; }

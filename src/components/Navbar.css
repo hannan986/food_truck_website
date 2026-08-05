@@ -132,7 +132,6 @@
 }
 @media (max-width: 380px) {
   .nav-badge { width: 108px; height: 46px; }
-  .nav-logo-img { height: 46px; }
 }
 @media (min-width: 961px) {
   .nav-order-btn { display: inline-flex !important; }

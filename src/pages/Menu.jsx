@@ -11,9 +11,9 @@ const MENU = {
   bowls: {
     label: 'Bowls', emoji: '🍚', num: '01',
     items: [
-      { name: 'Chicken Over Rice',        price:  9.99, desc: 'Juicy marinated chicken over fluffy rice with fresh veggies and signature sauces.', note: '✓ Rice Base', img: 'Grilled Chicken Salad.jpg' },
+      { name: 'Chicken Over Rice',        price:  9.99, desc: 'Juicy marinated chicken over fluffy rice with fresh veggies and signature sauces.', note: '✓ Rice Base', img: 'lamb_over_rice01.jpg' },
       { name: 'Lamb Over Rice',           price: 10.99, desc: 'Savory seasoned lamb over fluffy rice with fresh veggies and our signature white and hot sauce.', note: '✓ Rice Base', img: 'lamb_over_rice.jpg' },
-      { name: 'Lamb & Chicken Over Rice', price: 12.99, desc: 'Best of both worlds — seasoned lamb & chicken over rice with fresh veggies and signature sauces.', note: '✓ Best Seller', img: 'Chef Salad.jpg' },
+      { name: 'Lamb & Chicken Over Rice', price: 12.99, desc: 'Best of both worlds — seasoned lamb & chicken over rice with fresh veggies and signature sauces.', note: '✓ Best Seller', img: 'lamb_over_rice01.jpg' },
     ]
   },
   wraps: {

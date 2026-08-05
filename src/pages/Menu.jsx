@@ -44,10 +44,10 @@ const MENU = {
   chicken: {
     label: 'Chicken', emoji: '🍗', num: '05',
     items: [
-      { name: 'Chicken Tenders (3pc)',  price:  6.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
-      { name: 'Chicken Tenders (5pc)',  price: 10.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
-      { name: 'Chicken Nuggets (6pc)',  price:  4.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
-      { name: 'Chicken Nuggets (10pc)', price:  6.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Fresh', img: 'Chicken Tenders.jpg' },
+      { name: 'Chicken Tenders (3pc)',  price:  6.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Fresh', img: 'Chicken Tenders.webp' },
+      { name: 'Chicken Tenders (5pc)',  price: 10.99, desc: 'Golden crispy chicken tenders with choice of dipping sauce.', note: '✓ Fresh', img: 'Chicken Tenders.webp' },
+      { name: 'Chicken Nuggets (6pc)',  price:  4.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Fresh', img: 'Chicken Nuggets.jpg' },
+      { name: 'Chicken Nuggets (10pc)', price:  6.99, desc: 'Classic crispy chicken nuggets, crowd pleaser every time.', note: '✓ Fresh', img: 'Chicken Nuggets.jpg' },
       { name: 'Chicken Wings (5pc)',    price: 10.99, desc: 'Juicy wings — classic, buffalo or honey garlic.', note: '✓ Fresh', img: '8_pieces_wings.jpg' },
     ]
   },
@@ -62,9 +62,9 @@ const MENU = {
     label: 'Fries & Sides', emoji: '🍟', num: '07',
     items: [
       { name: 'French Fries',       price: 3.99, desc: 'Crispy golden fries, perfectly seasoned.', note: '✓ Vegan', img: 'French Fries.jpg' },
-      { name: 'Cheese Fries',       price: 5.99, desc: 'Crispy fries topped with warm melted cheese sauce.', note: '✓ Vegetarian', img: 'French Fries.jpg' },
-      { name: 'Chili Cheese Fries', price: 7.99, desc: 'Crispy fries loaded with chili and melted cheese.', note: '✓ Loaded', img: 'Homemade Chili.jpg' },
-      { name: 'Corn on the Cob',    price: 3.99, desc: 'Sweet corn on the cob, buttered and lightly seasoned.', note: '✓ Vegetarian', img: 'French Fries.jpg' },
+      { name: 'Cheese Fries',       price: 5.99, desc: 'Crispy fries topped with warm melted cheese sauce.', note: '✓ Vegetarian', img: 'cheese_fries.jpeg' },
+      { name: 'Chili Cheese Fries', price: 7.99, desc: 'Crispy fries loaded with chili and melted cheese.', note: '✓ Loaded', img: 'chili_cheese_fries.jpeg' },
+      { name: 'Corn on the Cob',    price: 3.99, desc: 'Sweet corn on the cob, buttered and lightly seasoned.', note: '✓ Vegetarian', img: 'corn_on_the_cob.jpeg' },
     ]
   },
 }

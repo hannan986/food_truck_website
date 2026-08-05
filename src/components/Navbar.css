@@ -118,7 +118,7 @@
     height: 54px; width: 130px;
     object-fit: fill;
   }
-  .nav-logo-img { height: 70px !important; }
+  .nav-logo-img { height: 70px !important; width: 70px !important; }
   .hamburger {
     margin-left: auto;
     width: 46px; height: 46px;

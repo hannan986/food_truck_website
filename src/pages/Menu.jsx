@@ -37,8 +37,8 @@ const MENU = {
   steak: {
     label: 'Steak & Cheese', emoji: '🥩', num: '04',
     items: [
-      { name: 'Original Steak & Cheese', price:  9.99, desc: 'Thinly sliced steak on a toasted hoagie with melted cheese and special sauce.', note: '✓ Hoagie Roll', img: 'Grilled_chicken_sub.jpg' },
-      { name: 'Supreme Steak & Cheese',  price: 11.99, desc: 'Loaded with sautéed peppers, onions, mushrooms, melted cheese and premium sauce.', note: '✓ Loaded', img: 'Steak & Cheese Wrap.jpg' },
+      { name: 'Original Steak & Cheese', price:  9.99, desc: 'Thinly sliced steak on a toasted hoagie with melted cheese and special sauce.', note: '✓ Hoagie Roll', img: 'original_steak_and_chease.jpeg' },
+      { name: 'Supreme Steak & Cheese',  price: 11.99, desc: 'Loaded with sautéed peppers, onions, mushrooms, melted cheese and premium sauce.', note: '✓ Loaded', img: 'supreme_steak_and_chease.jpeg' },
     ]
   },
   chicken: {

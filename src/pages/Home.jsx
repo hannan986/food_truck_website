@@ -24,7 +24,7 @@ const MENU_ITEMS = [
   { name:'Chicken Wrap',            price: 9.99, img:'Grilled Chicken Wrap.jpg' },
   { name:'Lamb Wrap',               price:10.99, img:'Steak & Cheese Wrap.jpg' },
   { name:'Hamburger',               price: 4.99, img:'hamburger_sub.jpg' },
-  { name:'Cheeseburger',            price: 5.99, img:'cheese_burger_sub.avif' },
+  { name:'Cheeseburger',            price: 5.99, img:'cheese_burger.jpeg' },
   { name:'Double Cheeseburger',     price: 6.99, img:'combo_sub.avif' },
   { name:'Original Steak & Cheese', price: 9.99, img:'Grilled_chicken_sub.jpg' },
   { name:'Chicken Wings (5pc)',     price:10.99, img:'8_pieces_wings.jpg' },

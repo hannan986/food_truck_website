@@ -28,7 +28,7 @@ const MENU = {
     label: 'Burgers', emoji: '🍔', num: '03',
     items: [
       { name: 'Hamburger',          price: 4.99, desc: 'Classic juicy beef patty with lettuce, tomato, onion, pickles and signature sauce.', note: '✓ Beef', img: 'hamburger_sub.jpg' },
-      { name: 'Cheeseburger',       price: 5.99, desc: 'Juicy beef patty with melted cheese, fresh veggies, pickles and signature sauce.', note: '✓ Cheddar', img: 'cheese_burger_sub.avif' },
+      { name: 'Cheeseburger',       price: 5.99, desc: 'Juicy beef patty with melted cheese, fresh veggies, pickles and signature sauce.', note: '✓ Cheddar', img: 'cheese_burger.jpeg' },
       { name: 'Double Cheeseburger',price: 6.99, desc: 'Double the beef, double the cheese, double the satisfaction — stacked and loaded.', note: '✓ Best Seller', img: 'combo_sub.avif' },
       { name: 'Chicken Sandwich',   price: 5.99, desc: 'Grilled or crispy chicken with lettuce, tomato and signature sauce on toasted bun.', note: '✓ Chicken', img: 'Fried_chicken_sub.jpg' },
       { name: 'Veggie Burger',      price: 5.99, desc: 'Flavorful veggie patty with lettuce, tomato, onion and signature sauce.', note: '✓ Vegetarian', img: 'Veggie_sub.avif' },

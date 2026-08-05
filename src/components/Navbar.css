@@ -130,9 +130,7 @@
   .navbar { background: #e3bc32; border-top: 2px solid var(--red); border-bottom: 2px solid var(--red); }
   .navbar.scrolled { background: #e3bc32; border-top: 2px solid var(--red); border-bottom: 2px solid var(--red); }
 }
-@media (max-width: 380px) {
-  .nav-badge { width: 108px; height: 46px; }
-}
+
 @media (min-width: 961px) {
   .nav-order-btn { display: inline-flex !important; }
 }

@@ -26,7 +26,7 @@ const MENU_ITEMS = [
   { name:'Hamburger',               price: 4.99, img:'hamburger.jpeg' },
   { name:'Cheeseburger',            price: 5.99, img:'cheese_burger.jpeg' },
   { name:'Double Cheeseburger',     price: 6.99, img:'double_cheese_burger.jpeg' },
-  { name:'Original Steak & Cheese', price: 9.99, img:'Grilled_chicken_sub.jpg' },
+  { name:'Original Steak & Cheese', price: 9.99, img:'original_steak_and_chease.jpeg' },
   { name:'Chicken Wings (5pc)',     price:10.99, img:'8_pieces_wings.jpg' },
 ]
 

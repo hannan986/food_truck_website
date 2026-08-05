@@ -17,7 +17,7 @@
 
 .nav-left { display: flex; align-items: center; gap: 12px; }
 .nav-logo { display: flex; align-items: center; }
-.nav-logo-img { height: 70px; width: auto; object-fit: contain; display: block; }
+.nav-logo-img { height: 70px !important; width: auto; object-fit: contain; display: block; }
 
 .nav-badge { display: none; }
 
@@ -118,7 +118,7 @@
     height: 54px; width: 130px;
     object-fit: fill;
   }
-  .nav-logo-img { height: 70px; }
+  .nav-logo-img { height: 70px !important; }
   .hamburger {
     margin-left: auto;
     width: 46px; height: 46px;

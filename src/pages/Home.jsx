@@ -7,14 +7,14 @@ import Footer from '../components/Footer'
 const CLOVER_URL = 'https://www.clover.com/online-ordering/taste-on-wheels'
 
 const CATEGORIES = [
-  { to: '/menu#bowls',   emoji: '🍚', label: 'Bowls',           img: 'lamb_over_rice.jpg' },
-  { to: '/menu#wraps',   emoji: '🌯', label: 'Wraps',           img: 'Fried_Chicken_Wrap.jpg' },
-  { to: '/menu#burgers', emoji: '🍔', label: 'Burgers',         img: 'cheese_burger_sub.avif' },
-  { to: '/menu#steak',   emoji: '🥩', label: 'Steak & Cheese', img: 'combo_sub.avif' },
-  { to: '/menu#chicken', emoji: '🍗', label: 'Chicken',         img: '8_pieces_wings.jpg' },
-  { to: '/menu#snacks',  emoji: '🌭', label: 'Snacks',          img: 'Hot_dog.jpg' },
-  { to: '/byob',         emoji: '🛍️', label: 'BYOB',            img: 'Large Chip Bag.jpg' },
-  { to: '/menu#sides',   emoji: '🍟', label: 'Fries & Sides',   img: 'French_Fries.jpg' },
+  { to: '/menu#bowls',   icon: 'bowls.jpg',   label: 'Bowls',           img: 'lamb_over_rice.jpg' },
+  { to: '/menu#wraps',   icon: 'wraps.jpg',   label: 'Wraps',           img: 'Fried Chicken Wrap.jpg' },
+  { to: '/menu#burgers', icon: 'burgers.jpg', label: 'Burgers',         img: 'cheese_burger_sub.avif' },
+  { to: '/menu#steak',   icon: 'steak.jpg',   label: 'Steak & Cheese', img: 'combo_sub.avif' },
+  { to: '/menu#chicken', icon: 'chicken.jpg', label: 'Chicken',         img: '8_pieces_wings.jpg' },
+  { to: '/menu#snacks',  icon: 'snacks.jpg',  label: 'Snacks',          img: 'Hot_dog.jpg' },
+  { to: '/byob',         icon: 'byob.jpg',    label: 'BYOB',            img: 'Large Chip Bag.jpg' },
+  { to: '/menu#sides',   icon: 'sides.jpg',   label: 'Fries & Sides',   img: 'French Fries.jpg' },
 ]
 
 const MENU_ITEMS = [
@@ -87,7 +87,7 @@ export default function Home() {
           {CATEGORIES.map((c, i) => (
             <Link to={c.to} key={c.label} className="cat-card">
               <img className="cat-bg" src={`images/menu_images/${c.img}`} alt="" onError={e => e.target.style.display='none'} />
-              <span className="cat-emoji">{c.emoji}</span>
+              <img className="cat-icon" src={`images/cat_icons/${c.icon}`} alt="" />
               <span className="cat-name">{c.label}</span>
               <div className="cat-overlay"><span>VIEW ALL →</span></div>
             </Link>

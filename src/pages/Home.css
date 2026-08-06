@@ -120,7 +120,13 @@
   text-transform: uppercase; color: #e3bc32;
 }
 .cat-card:hover .cat-overlay { opacity: 1; }
-.cat-emoji { font-size: 2.2rem; position: relative; z-index: 1; }
+.cat-icon {
+  width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  object-fit: cover; position: relative; z-index: 1;
+  border: 2px solid rgba(255,255,255,0.15);
+  transition: border-color var(--ease), transform var(--ease);
+}
+.cat-card:hover .cat-icon { border-color: #e3bc32; transform: scale(1.08); }
 .cat-name {
   font-family: var(--font-head); font-size: 0.7rem; letter-spacing: 2px;
   text-transform: uppercase; color: #ccc; position: relative; z-index: 1;

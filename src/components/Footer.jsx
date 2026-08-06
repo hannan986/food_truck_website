@@ -36,7 +36,6 @@ export default function Footer() {
               <Logo />
               <p className="footer-tagline">Fast · Fresh · Flavorful<br/>Made Fresh. Made to Satisfy.</p>
               <div className="footer-social">
-                <a href="#" aria-label="Instagram">📷</a>
                 <a href="https://www.facebook.com/share/1FjrAx5iYa/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <img src="images/facebook_icon_image.jpeg" alt="" />
                 </a>

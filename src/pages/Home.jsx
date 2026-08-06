@@ -18,7 +18,7 @@ const CATEGORIES = [
 ]
 
 const MENU_ITEMS = [
-  { name:'Lamb Over Rice',          price:10.99, img:'lamb_over_rice.jpg' },
+  { name:'Lamb Over Rice',          price:10.99, img:'lamb_over_rice_01.avif' },
   { name:'Chicken Over Rice',       price: 9.99, img:'chicken_over_rice_01.png' },
   { name:'Lamb & Chicken Over Rice',price:12.99, img:'lam_over_rice.jpg' },
   { name:'Chicken Wrap',            price: 9.99, img:'Grilled Chicken Wrap.jpg' },

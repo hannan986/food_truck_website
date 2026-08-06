@@ -12,7 +12,7 @@ const MENU = {
     label: 'Bowls', emoji: '🍚', num: '01',
     items: [
       { name: 'Chicken Over Rice',        price:  9.99, desc: 'Juicy marinated chicken over fluffy rice with fresh veggies and signature sauces.', note: '✓ Rice Base', img: 'chicken_over_rice_01.png' },
-      { name: 'Lamb Over Rice',           price: 10.99, desc: 'Savory seasoned lamb over fluffy rice with fresh veggies and our signature white and hot sauce.', note: '✓ Rice Base', img: 'lamb_over_rice.jpg' },
+      { name: 'Lamb Over Rice',           price: 10.99, desc: 'Savory seasoned lamb over fluffy rice with fresh veggies and our signature white and hot sauce.', note: '✓ Rice Base', img: 'lamb_over_rice_01.avif' },
       { name: 'Lamb & Chicken Over Rice', price: 12.99, desc: 'Best of both worlds — seasoned lamb & chicken over rice with fresh veggies and signature sauces.', note: '✓ Best Seller', img: 'lam_over_rice.jpg' },
     ]
   },
@@ -55,7 +55,7 @@ const MENU = {
     label: 'Snacks', emoji: '🌭', num: '06',
     items: [
       { name: 'Hot Dog', price: 1.99, desc: 'Classic hot dog in toasted bun with your choice of toppings.', note: '✓ Fresh', img: 'Hot_dog.jpg' },
-      { name: 'Nachos',  price: 9.99, desc: 'Loaded tortilla chips with cheese, jalapeños and sour cream.', note: '✓ Vegetarian', img: 'Funnel Cake Fries.jpg' },
+      { name: 'Nachos',  price: 9.99, desc: 'Loaded tortilla chips with cheese, jalapeños and sour cream.', note: '✓ Vegetarian', img: 'nachos_01.webp' },
     ]
   },
   sides: {
@@ -139,7 +139,7 @@ export default function Menu() {
           {KEYS.map(k => (
             <button key={k} className={`tab-btn${active===k?' active':''}`}
               onClick={() => sectionRefs.current[k]?.scrollIntoView({ behavior:'smooth', block:'start' })}>
-              {MENU[k].emoji} {MENU[k].label}
+              <span className="tab-emoji">{MENU[k].emoji}</span> {MENU[k].label}
             </button>
           ))}
         </div>

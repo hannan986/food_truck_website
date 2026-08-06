@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Select-String -Path \"C:\\\\Users\\\\AbdulHannan\\\\OneDrive - impulsetechnology.net\\\\Desktop\\\\Abdul Personal Folder\\\\abdul_websites\\\\Food_truck_website\\\\index.html\" -Pattern \"addToCart\\\\\\(\")",
+      "Bash(Measure-Object)",
+      "Bash(Select-Object -ExpandProperty Count)",
+      "Bash(Select-String -Path \"C:\\\\Users\\\\AbdulHannan\\\\OneDrive - impulsetechnology.net\\\\Desktop\\\\Abdul Personal Folder\\\\abdul_websites\\\\Food_truck_website\\\\index.html\" -Pattern \"tab-panel\")",
+      "Bash(python -c ' *)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)",
+      "PowerShell($r = Invoke-WebRequest -Uri \"https://hannan986.github.io/food_truck_website/\" -UseBasicParsing; $r.Content)",
+      "Bash(git stash *)",
+      "Bash(git pull *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\AbdulHannan\\\\OneDrive - impulsetechnology.net\\\\Desktop\\\\Abdul Personal Folder\\\\abdul_websites\\\\Food_truck_website\\\\\" -Recurse | Where-Object { $_.Extension -in @\\('.jpg','.jpeg','.png','.svg','.webp'\\) } | Select-Object FullName, Name | Sort-Object Name)",
+      "PowerShell(Copy-Item *)",
+      "Bash(git commit *)",
+      "Bash(git status *)",
+      "Bash(ssh *)",
+      "Bash(npm run *)",
+      "Read(//tmp/**)",
+      "Bash(git revert *)"
+    ]
+  }
+}

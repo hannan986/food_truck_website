@@ -54,7 +54,7 @@ const MENU = {
   snacks: {
     label: 'Snacks', emoji: '🌭', num: '06',
     items: [
-      { name: 'Hot Dog', price: 1.99, desc: 'Classic hot dog in toasted bun with your choice of toppings.', note: '✓ Fresh', img: 'Hot_dog.jpg' },
+      { name: 'Hot Dog', price: 1.99, desc: 'Classic hot dog in toasted bun with your choice of toppings.', note: '✓ Fresh', img: 'hot_dog_01.png' },
       { name: 'Nachos',  price: 9.99, desc: 'Loaded tortilla chips with cheese, jalapeños and sour cream.', note: '✓ Vegetarian', img: 'nachos_01.webp' },
     ]
   },

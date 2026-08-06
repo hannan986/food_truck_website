@@ -12,7 +12,7 @@ const CATEGORIES = [
   { to: '/menu#burgers', label: 'Burgers',         img: 'double_cheese_burger.jpeg' },
   { to: '/menu#steak',   label: 'Steak & Cheese', img: 'supreme_steak_and_chease.jpeg' },
   { to: '/menu#chicken', label: 'Chicken',         img: '8_pieces_wings.jpg' },
-  { to: '/menu#snacks',  label: 'Snacks',          img: 'nachos_01.webp' },
+  { to: '/menu#snacks',  label: 'Snacks',          img: 'hot_dog_01.png' },
   { to: '/byob',         label: 'BYOB',            img: 'dorritos_loaded.png' },
   { to: '/menu#sides',   label: 'Fries & Sides',   img: 'French Fries.jpg' },
 ]

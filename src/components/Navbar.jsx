@@ -77,9 +77,8 @@ export default function Navbar() {
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
         <div className="nav-inner container-wide">
           <div className="nav-left">
-            <img src="images/food_truck_logo.png" alt="" className="nav-badge" />
             <img src="images/logo.png" alt="Taste on Wheels" className="nav-logo-img" />
-           
+            <img src="images/food_truck_logo.png" alt="" className="nav-badge" />
             <div className="nav-social">
               <a href="https://www.facebook.com/share/1FjrAx5iYa/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="nav-social-link">
                 <img src="images/facebook_icon_image.jpeg" alt="" />

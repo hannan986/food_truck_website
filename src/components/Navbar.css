@@ -15,7 +15,7 @@
   position: relative;
 }
 
-.nav-left { display: flex; align-items: center; gap: 12px; }
+.nav-left { display: flex; align-items: center; gap: 9px; }
 .nav-logo { display: flex; align-items: center; }
 .nav-logo-img { height: 70px !important; width: 70px !important; object-fit: contain; display: block; }
 

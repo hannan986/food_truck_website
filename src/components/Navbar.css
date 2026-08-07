@@ -105,6 +105,7 @@
   .nav-order-btn { display: none !important; }
   .hamburger { display: flex; }
   .mobile-overlay { display: flex; }
+  .nav-inner.container-wide { padding-left: 8px; }
   .nav-social-link {
     display: flex;
     width: 50px; height: 50px;

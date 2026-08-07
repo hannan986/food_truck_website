@@ -252,9 +252,11 @@
   transition:background .2s, border-color .2s, transform .2s;
 }
 .hm-item-card:hover { background:#1a1a1a; border-color:rgba(227,188,50,0.15); transform:translateX(3px); }
-.hm-item-img { width:110px; min-width:110px; height:82px; overflow:hidden; background:var(--white); flex-shrink:0; }
+.hm-item-img { width:110px; min-width:110px; height:82px; overflow:hidden; background:var(--dark); flex-shrink:0; }
 .hm-item-img img {
-  width:100%; height:100%; object-fit:contain; transition:transform .5s;
+  width:100%; height:100%; object-fit:cover; transition:transform .5s;
+  -webkit-mask-image: radial-gradient(ellipse 68% 68% at center, #000 60%, transparent 100%);
+  mask-image: radial-gradient(ellipse 68% 68% at center, #000 60%, transparent 100%);
 }
 .hm-item-card:hover .hm-item-img img { transform:scale(1.08); }
 .hm-item-name {

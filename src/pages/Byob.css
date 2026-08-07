@@ -15,7 +15,8 @@
 .byob-hero-sub { font-family:var(--font-head); font-size:clamp(1rem,2.5vw,1.6rem); letter-spacing:2px; text-transform:uppercase; color:var(--white); margin-bottom:16px; }
 .byob-hero-desc { font-size:.88rem; color:var(--light-gray); max-width:520px; margin:0 auto; line-height:1.75; }
 
-.byob-promo-section { background:#f9f6ef; padding:56px 0; }
+.how-section { padding-bottom: 0; }
+.byob-promo-section { background:#f9f6ef; padding:6px 0 56px; }
 .byob-single { display:flex; justify-content:center; position:relative; }
 .byob-single::before {
   content:''; position:absolute; top:50%; left:50%;

@@ -38,7 +38,7 @@ export default function Byob() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="section" style={{ background:'var(--black)' }}>
+      <section className="section how-section" style={{ background:'var(--black)' }}>
         <div className="container" style={{ textAlign:'center', marginBottom:48 }}>
           <span className="eyebrow">The Process</span>
           <h2 className="section-title">HOW IT <span className="gold">WORKS</span></h2>

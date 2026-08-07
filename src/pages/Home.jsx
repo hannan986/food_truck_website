@@ -105,7 +105,7 @@ export default function Home() {
             <Reveal className="byob-img-wrap">
               <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM%20%284%29.jpeg" alt="BYOB" onError={e => e.target.style.display='none'} />
             </Reveal>
-            <Reveal delay={1} className="byob-text">
+            {/* <Reveal delay={1} className="byob-text">
               <span className="byob-badge">★ NEW</span>
               <h2 className="byob-title">BRING YOUR OWN<br/><span className="gold">BAG OF CHIPS</span></h2>
               <p className="byob-desc">Bring any bag of chips and we'll fill it with seasoned meat, cheese, and all our signature fixings. It's the most unique street food experience you'll find.</p>
@@ -113,7 +113,7 @@ export default function Home() {
                 {['DORITOS','LAY\'S','TAKIS','CHEETOS','ANY BRAND'].map(b => <span key={b} className="chip-pill">{b}</span>)}
               </div>
               <Link to="/byob" className="btn btn-gold">LEARN MORE →</Link>
-            </Reveal>
+            </Reveal> */}
           </div>
 
           <Reveal className="byob-single byob-mobile-only">

@@ -78,7 +78,8 @@ export default function Navbar() {
         <div className="nav-inner container-wide">
           <div className="nav-left">
             <img src="images/food_truck_logo.png" alt="" className="nav-badge" />
-            <NavLink to="/" className="nav-logo" onClick={() => setOpen(false)}><Logo /></NavLink>
+            <img src="images/logo.png" alt="Taste on Wheels" className="nav-logo-img" />
+           
             <div className="nav-social">
               <a href="https://www.facebook.com/share/1FjrAx5iYa/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="nav-social-link">
                 <img src="images/facebook_icon_image.jpeg" alt="" />

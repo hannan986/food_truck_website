@@ -8,7 +8,7 @@ const CLOVER_URL = 'https://www.clover.com/online-ordering/taste-on-wheels'
 const STEPS = [
   {  num:'01', title:'BRING YOUR BAG', desc:"Bring your favourite bag of chips or buy from us — Doritos, Lay's, Takis, Cheetos, Tostitos or any other brand. Sealed bags preferred." },
   {  num:'02', title:'PICK PROTEIN OF YOUR CHOICE', desc:'Pick from our seasoned chicken, beef, lamb or gyro meat. All made fresh to order.' },
-  {  num:'03', title:'WE FILL IT UP', desc:"We open the bag and fill it with your chosen protein, veggies and our signature sauses." },
+  {  num:'03', title:'WE FILL IT UP', desc:"We open the bag and fill it with your chosen protein, veggies and signature sauses." },
 ]
 
 const MENU_ITEMS = [
@@ -33,7 +33,7 @@ export default function Byob() {
           <span className="byob-badge">★ NEW AT TASTE ON WHEELS</span>
           <h1 className="byob-hero-title">BYOB</h1>
           <p className="byob-hero-sub">Bring Your Own Bag of Chips</p>
-          <p className="byob-hero-desc">Bring any bag of your favourite chips and we'll fill it with your choice of seasoned meat, melted cheese and all our signature fixings.</p>
+          <p className="byob-hero-desc">Bring any bag of your favourite chips or buy from us, and we'll fill it with your choice of seasoned meat, and all our signature fixings.</p>
         </div>
       </section>
 

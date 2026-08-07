@@ -71,9 +71,9 @@
 .byob-item-card:hover { background: #1a1a1a; border-color: rgba(227,188,50,0.15); transform: translateX(3px); }
 .byob-item-img {
   width: 110px; min-width: 110px; height: 80px;
-  overflow: hidden; background: var(--dark); flex-shrink: 0;
+  overflow: hidden; background: var(--white); flex-shrink: 0;
 }
-.byob-item-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.byob-item-img img { width: 100%; height: 100%; object-fit: contain; transition: transform .5s ease; }
 .byob-item-card:hover .byob-item-img img { transform: scale(1.08); }
 .byob-item-name {
   flex: 1;

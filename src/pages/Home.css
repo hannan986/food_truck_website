@@ -163,7 +163,7 @@
 .why-desc { font-size: 0.85rem; color: #888; line-height: 1.75; }
 
 /* ── BYOB TEASER ── */
-.byob-section { background: #f9f6ef; }
+.byob-section { background: #f9f6ef; padding-top: 11px; }
 .byob-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .byob-img-wrap { aspect-ratio: 4/3; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); border-radius: var(--radius); }
 .byob-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }

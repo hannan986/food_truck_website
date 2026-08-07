@@ -3,13 +3,13 @@ import Footer from '../components/Footer'
 import './FindUs.css'
 
 const HOURS = [
-  ['Monday',    '12:00 PM – 10:00 PM'],
-  ['Tuesday',   '12:00 PM – 10:00 PM'],
-  ['Wednesday', '12:00 PM – 10:00 PM'],
-  ['Thursday',  '12:00 PM – 10:00 PM'],
-  ['Friday',    '12:00 PM – 10:00 PM'],
-  ['Saturday',  '12:00 PM – 10:00 PM'],
-  ['Sunday',    '12:00 PM – 10:00 PM'],
+  ['Monday',    '11:30 AM – 10:30 PM'],
+  ['Tuesday',   '11:30 AM – 10:30 PM'],
+  ['Wednesday', '11:30 AM – 10:30 PM'],
+  ['Thursday',  '11:30 AM – 10:30 PM'],
+  ['Friday',    '11:30 AM – 10:30 PM'],
+  ['Saturday',  '11:30 AM – 10:30 PM'],
+  ['Sunday',    '11:30 AM – 10:30 PM'],
 ]
 
 const today = new Date().toLocaleDateString('en-US', { weekday: 'long' })

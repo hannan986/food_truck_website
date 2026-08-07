@@ -12,15 +12,15 @@ const STEPS = [
 ]
 
 const MENU_ITEMS = [
-  { name:'Lamb Over Rice',          price:10.99, img:'lamb_over_rice.jpg' },
-  { name:'Chicken Over Rice',       price: 9.99, img:'Grilled Chicken Salad.jpg' },
-  { name:'Lamb & Chicken Over Rice',price:12.99, img:'Chef Salad.jpg' },
+  { name:'Lamb Over Rice',          price:10.99, img:'lam_over_rice.jpg' },
+  { name:'Chicken Over Rice',       price: 9.99, img:'chicken_over_rice_01.png' },
+  { name:'Lamb & Chicken Over Rice',price:12.99, img:'combo_over_rice.avif' },
   { name:'Chicken Wrap',            price: 9.99, img:'Grilled Chicken Wrap.jpg' },
   { name:'Lamb Wrap',               price:10.99, img:'Steak & Cheese Wrap.jpg' },
-  { name:'Hamburger',               price: 4.99, img:'hamburger_sub.jpg' },
-  { name:'Cheeseburger',            price: 5.99, img:'cheese_burger_sub.avif' },
-  { name:'Double Cheeseburger',     price: 6.99, img:'combo_sub.avif' },
-  { name:'Original Steak & Cheese', price: 9.99, img:'Grilled_chicken_sub.jpg' },
+  { name:'Hamburger',               price: 4.99, img:'hamburger.jpeg' },
+  { name:'Cheeseburger',            price: 5.99, img:'cheese_burger.jpeg' },
+  { name:'Double Cheeseburger',     price: 6.99, img:'double_cheese_burger.jpeg' },
+  { name:'Original Steak & Cheese', price: 9.99, img:'original_steak_and_chease.jpeg' },
   { name:'Chicken Wings (5pc)',     price:10.99, img:'8_pieces_wings.jpg' },
 ]
 

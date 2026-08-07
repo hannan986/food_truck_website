@@ -45,9 +45,6 @@ export default function Byob() {
           <div className="divider divider-center" />
         </div>
         <div className="container">
-          <Reveal className="how-promo">
-            <img src="images/bring-your-own-bag-of-chips-01-transparent.png" alt="Bring Your Own Bag of Chips" className="how-promo-img" />
-          </Reveal>
           <div className="how-grid">
             {STEPS.map((s,i) => (
               <Reveal key={s.num} delay={i} className="how-card-wrap">
@@ -59,6 +56,15 @@ export default function Byob() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* BYOB PROMO IMAGE */}
+      <section className="byob-promo-section">
+        <div className="container">
+          <Reveal className="byob-single">
+            <img src="images/bring-your-own-bag-of-chips-01-transparent.png" alt="Bring Your Own Bag of Chips" className="byob-single-img" />
+          </Reveal>
         </div>
       </section>
 

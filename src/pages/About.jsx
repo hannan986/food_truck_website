@@ -11,7 +11,7 @@ export default function About() {
           <div className="about-hero-grid">
             <Reveal className="about-hero-text">
               <h1 className="about-hero-title">OUR<br/><span className="red">STORY</span></h1>
-              <p className="about-hero-lead">Taste on Wheels started with one simple belief: street food should be extraordinary. Not fast-food throwaway — but genuinely great food made with care, served with pride, right from a truck.</p>
+              <p className="about-hero-lead">Taste on Wheels started with one simple belief: street food should be extraordinary. Not fast-food throwaway — but genuinely great food made with care, served with pride, right from a food truck.</p>
             </Reveal>
             <Reveal delay={1} className="about-hero-img">
               <img src="images/WhatsApp%20Image%202026-06-07%20at%208.56.19%20PM.jpeg" alt="Taste on Wheels" onError={e=>e.target.style.display='none'} />

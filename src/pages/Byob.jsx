@@ -3,7 +3,7 @@ import { Reveal } from '../components/useReveal'
 import Footer from '../components/Footer'
 import './Byob.css'
 
-const CLOVER_URL = 'https://www.clover.com/online-ordering/taste-on-wheels'
+const CLOVER_URL = 'https://tasteonwheels.cloveronline.com/menu/all'
 
 const STEPS = [
   {  num:'01', title:'BRING YOUR BAG', desc:"Bring your favourite bag of chips or buy from us — Doritos, Lay's, Takis, Cheetos, Tostitos or any other brand. Sealed bags preferred." },

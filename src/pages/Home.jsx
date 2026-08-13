@@ -4,7 +4,7 @@ import { Reveal } from '../components/useReveal'
 import './Home.css'
 import Footer from '../components/Footer'
 
-const CLOVER_URL = 'https://www.clover.com/online-ordering/taste-on-wheels'
+const CLOVER_URL = 'https://tasteonwheels.cloveronline.com/menu/all'
 
 const CATEGORIES = [
   { to: '/menu#bowls',   label: 'Bowls',           img: 'combo_over_rice.avif' },

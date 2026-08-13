@@ -2,8 +2,7 @@ import { useState } from 'react'
 import Footer from '../components/Footer'
 import './Order.css'
 
-// ← paste your Clover link here when you have it
-const CLOVER_URL = '#'
+const CLOVER_URL = 'https://tasteonwheels.cloveronline.com/menu/all'
 
 const MENU = [
   {

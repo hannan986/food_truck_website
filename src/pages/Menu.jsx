@@ -4,8 +4,7 @@ import { Reveal } from '../components/useReveal'
 import Footer from '../components/Footer'
 import './Menu.css'
 
-// ← paste your Clover online ordering URL here
-const CLOVER_URL = 'https://www.clover.com/online-ordering/taste-on-wheels'
+const CLOVER_URL = 'https://tasteonwheels.cloveronline.com/menu/all'
 
 const MENU = {
   bowls: {

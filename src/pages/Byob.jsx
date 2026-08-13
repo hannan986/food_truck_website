@@ -63,7 +63,7 @@ export default function Byob() {
       <section className="byob-promo-section">
         <div className="container">
           <Reveal className="byob-single">
-            <img src="images/bring-your-own-bag-of-chips-01.png" alt="Bring Your Own Bag of Chips" className="byob-single-img" />
+            <img src="images/bring-your-own-bag-of-chips-01.jpeg" alt="Bring Your Own Bag of Chips" className="byob-single-img" />
           </Reveal>
         </div>
       </section>

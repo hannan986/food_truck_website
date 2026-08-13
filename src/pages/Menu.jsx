@@ -4,7 +4,7 @@ import { Reveal } from '../components/useReveal'
 import Footer from '../components/Footer'
 import './Menu.css'
 
-const CLOVER_URL = 'https://tasteonwheels.cloveronline.com/menu/all'
+const CLOVER_URL = 'https://www.doordash.com/store/taste-on-wheels-hagerstown-51037422/116956550/?event_type=autocomplete&pickup=false'
 
 const MENU = {
   bowls: {

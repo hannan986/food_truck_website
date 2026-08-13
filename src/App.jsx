@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import Menu from './pages/Menu'
 import Byob from './pages/Byob'
@@ -10,6 +11,7 @@ import './styles/globals.css'
 export default function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

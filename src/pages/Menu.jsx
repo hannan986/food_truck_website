@@ -64,7 +64,6 @@ const MENU = {
       { name: 'French Fries',       price: 3.99, desc: 'Crispy golden fries, perfectly seasoned.', note: '✓ Vegan', img: 'French Fries.jpg' },
       { name: 'Cheese Fries',       price: 5.99, desc: 'Crispy fries topped with warm melted cheese sauce.', note: '✓ Vegetarian', img: 'cheese_fries.jpeg' },
       { name: 'Chili Cheese Fries', price: 7.99, desc: 'Crispy fries loaded with chili and melted cheese.', note: '✓ Loaded', img: 'chili_cheese_fries.jpeg' },
-      { name: 'Corn on the Cob',    price: 3.99, desc: 'Sweet corn on the cob, buttered and lightly seasoned.', note: '✓ Vegetarian', img: 'corn_on_the_cob.jpeg' },
     ]
   },
 }
@@ -125,7 +124,7 @@ export default function Menu() {
 
   return (
     <main>
-      <div className="page-hero menu-page-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
+      <div className="page-hero menu-page-hero" style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.78) 100%), url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
         <h1 className="page-hero-title">OUR <span style={{ color: 'var(--white)' }}>MENU</span></h1>
         <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn btn-gold btn-lg menu-hero-order-btn">
           ORDER NOW →

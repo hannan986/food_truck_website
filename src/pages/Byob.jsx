@@ -28,7 +28,7 @@ export default function Byob() {
   return (
     <main>
       {/* HERO */}
-      <section className="byob-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
+      <section className="byob-hero" style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.80) 100%), url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
         <div className="container byob-hero-inner">
           <span className="byob-badge">★ NEW AT TASTE ON WHEELS</span>
           <h1 className="byob-hero-title">BYOB</h1>

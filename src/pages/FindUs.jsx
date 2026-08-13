@@ -18,7 +18,7 @@ export default function FindUs() {
   return (
     <main>
       {/* HERO */}
-      <div className="page-hero finduS-hero" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
+      <div className="page-hero finduS-hero" style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.78) 100%), url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}>
         <h1 className="page-hero-title">FIND <span className="gold">US</span></h1>
       </div>
 

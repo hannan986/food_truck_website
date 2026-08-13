@@ -59,9 +59,10 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual">
-            <div className="hero-plate">
-              <img src="images/Food_Truck_Website.jpeg" alt="Taste on Wheels" className="hero-plate-img" onError={e => e.target.style.display='none'} />
-              <div className="hero-plate-glow" />
+            <div
+              className="hero-plate"
+              style={{ backgroundImage: `linear-gradient(to right, rgba(8,4,0,0.55) 0%, transparent 30%), linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%), url(${import.meta.env.BASE_URL}images/Food_Truck_Website.jpeg)` }}
+            >
               <div className="hero-ring" />
               <div className="hero-ring-outer" />
             </div>

@@ -17,10 +17,21 @@
 
 .nav-left { display: flex; align-items: center; gap: 9px; }
 .nav-logo-link { display: contents; }
-.nav-logo { display: flex; align-items: center; }
 .nav-logo-img { height: 70px !important; width: 70px !important; object-fit: contain; display: block; }
-
 .nav-badge { display: none; }
+
+/* text logo — web (desktop) only, see min-width:961px block below */
+.nav-logo-text { display: none; }
+.nav-logo-title {
+  font-family: var(--font-head); font-size: 1.1rem; letter-spacing: 0.5px;
+  text-transform: uppercase; white-space: nowrap;
+}
+.nav-logo-taste { color: var(--white); }
+.nav-logo-wheels { color: #e3bc32; }
+.nav-logo-tag {
+  font-family: var(--font-head); font-size: 0.4rem; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #e03c3c; margin-top: 3px; white-space: nowrap;
+}
 
 .nav-links { display: flex; gap: 0; list-style: none; margin-left: auto; }
 .nav-links a {
@@ -120,7 +131,6 @@
     height: 54px; width: 130px;
     object-fit: fill;
   }
-  .nav-logo-img { height: 70px !important; width: 70px !important; }
   .hamburger {
     margin-left: auto;
     width: 40px; height: 40px;
@@ -134,6 +144,9 @@
 }
 @media (min-width: 961px) {
   .nav-order-btn { display: inline-flex !important; }
-  .nav-logo-img { height: 84px !important; width: 84px !important; }
+  .nav-logo-img, .nav-badge { display: none; }
+  .nav-logo-text { display: flex; flex-direction: column; justify-content: center; line-height: 1.1; }
+  .nav-logo-title { font-size: 1.55rem; letter-spacing: 1px; }
+  .nav-logo-tag { font-size: 0.54rem; letter-spacing: 2px; margin-top: 4px; }
   .nav-links a { font-size: 0.86rem; padding: 8px 14px; }
 }

@@ -3,7 +3,12 @@ import { NavLink, useLocation } from 'react-router-dom'
 import './Navbar.css'
 
 const Logo = () => (
-  <img src="images/logo.png" alt="Taste on Wheels" className="nav-logo-img" />
+  <div className="nav-logo-text">
+    <div className="nav-logo-title">
+      <span className="nav-logo-taste">TASTE</span> <span className="nav-logo-wheels">ON WHEELS</span>
+    </div>
+    <div className="nav-logo-tag">FAST · FRESH · FLAVORFUL</div>
+  </div>
 )
 
 export default function Navbar() {
@@ -80,6 +85,7 @@ export default function Navbar() {
             <NavLink to="/" className="nav-logo-link" onClick={() => setOpen(false)} aria-label="Taste on Wheels home">
               <img src="images/logo.png" alt="Taste on Wheels" className="nav-logo-img" />
               <img src="images/food_truck_logo.png" alt="" className="nav-badge" />
+              <Logo />
             </NavLink>
             <div className="nav-social">
               <a href="https://www.facebook.com/share/1FjrAx5iYa/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="nav-social-link">

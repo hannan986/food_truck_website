@@ -51,7 +51,10 @@ const MENU = {
     ]
   },
   byob: {
-    label: 'BYOB', emoji: '🥡', num: '06', promo: true,
+    label: 'BYOB', emoji: '🥡', num: '06',
+    items: [
+      { name: 'Bring Your Own Bag of Chips', desc: "Bring any bag of your favourite chips or buy from us, and we'll fill it with your choice of seasoned meat and all our signature fixings.", note: '✓ Build Your Own', img: 'byob.png', link: '/byob' },
+    ]
   },
   snacks: {
     label: 'Snacks', emoji: '🌭', num: '07',
@@ -94,10 +97,14 @@ function ItemCard({ item, delay }) {
           <div className="item-name">{item.name}</div>
         </div>
         <div className="item-footer">
-          <span className="item-price">${item.price.toFixed(2)}</span>
-          <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn-order-item">
-            ORDER →
-          </a>
+          {item.price != null && <span className="item-price">${item.price.toFixed(2)}</span>}
+          {item.link ? (
+            <Link to={item.link} className="btn-order-item">VIEW →</Link>
+          ) : (
+            <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn-order-item">
+              ORDER →
+            </a>
+          )}
         </div>
       </div>
     </Reveal>
@@ -168,27 +175,11 @@ export default function Menu() {
                   <h2 className="cat-title">{MENU[key].label.toUpperCase()}</h2>
                   <div className="cat-rule" />
                 </div>
-                {MENU[key].promo ? (
-                  <Reveal className="byob-menu-promo">
-                    <div className="byob-menu-promo-img">
-                      <img src={`${import.meta.env.BASE_URL}images/bring-your-own-bag-of-chips-01.png`} alt="Bring Your Own Bag of Chips" onError={e => { e.target.style.display='none' }} />
-                    </div>
-                    <div className="byob-menu-promo-body">
-                      <span className="byob-menu-badge">★ NEW</span>
-                      <p className="byob-menu-desc">Bring any bag of your favourite chips or buy from us, and we'll fill it with your choice of seasoned meat, and all our signature fixings.</p>
-                      <div className="byob-menu-btns">
-                        <Link to="/byob" className="btn btn-outline-gold">SEE HOW IT WORKS →</Link>
-                        <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn btn-gold">ORDER →</a>
-                      </div>
-                    </div>
-                  </Reveal>
-                ) : (
-                  <div className="item-grid">
-                    {MENU[key].items.map((item, i) => (
-                      <ItemCard key={item.name} item={item} delay={i % 3} />
-                    ))}
-                  </div>
-                )}
+                <div className="item-grid">
+                  {MENU[key].items.map((item, i) => (
+                    <ItemCard key={item.name} item={item} delay={i % 3} />
+                  ))}
+                </div>
               </section>
               {ki < KEYS.length - 1 && (
                 <div className="combo-upsell">

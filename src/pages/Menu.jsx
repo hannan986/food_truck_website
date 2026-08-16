@@ -53,7 +53,7 @@ const MENU = {
   byob: {
     label: 'BYOB', emoji: '🥡', num: '06',
     items: [
-      { name: 'Bring Your Own Bag of Chips', desc: "Bring any bag of your favourite chips or buy from us, and we'll fill it with your choice of seasoned meat and all our signature fixings.", note: '✓ Build Your Own', img: 'byob.png', link: '/byob' },
+      { name: 'Bring Your Own Bag of Chips', desc: "Bring any bag of your favourite chips or buy from us, and we'll fill it with your choice of seasoned meat and all our signature fixings.", note: '✓ Build Your Own', img: 'dorritos_loaded.png', link: '/byob' },
     ]
   },
   snacks: {

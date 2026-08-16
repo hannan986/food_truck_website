@@ -36,7 +36,7 @@
 .hero-h1 { font-family: var(--font-head); line-height: 1.15; margin-bottom: 40px; }
 .hero-h1 span {
   display: block;
-  font-size: clamp(2.86rem, 4.94vw, 6.5rem);
+  font-size: clamp(3.3rem, 5.7vw, 7.5rem);
   letter-spacing: 6px; text-transform: uppercase; color: var(--white);
   text-shadow: 0 2px 24px rgba(0,0,0,0.55);
 }

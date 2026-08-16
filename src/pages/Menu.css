@@ -211,22 +211,6 @@
 }
 .btn-add-item:hover { background: var(--red-dark); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(192,57,43,0.4); }
 
-/* ── combo upsell strip ── */
-.combo-upsell {
-  background: #e3bc32;
-  border: 1px solid rgba(0,0,0,0.15);
-  border-radius: var(--radius);
-  margin: 8px 0;
-  padding: 13px 20px;
-  font-size: .75rem;
-  color: #1a1a1a;
-  font-family: var(--font-head);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-align: center;
-}
-.combo-upsell-sub { display: block; margin-top: 4px; }
-
 /* ── payment bar ── */
 .payment-bar { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 0; }
 .payment-bar-inner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; }

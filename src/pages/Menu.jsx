@@ -167,27 +167,19 @@ export default function Menu() {
       <div className="menu-layout">
         {/* menu body */}
         <div className="menu-body">
-          {KEYS.map((key, ki) => (
-            <div key={key}>
-              <section className="menu-cat" id={key} ref={el => sectionRefs.current[key] = el}>
-                <div className="cat-header">
-                  <span className="cat-num">No. {MENU[key].num}</span>
-                  <h2 className="cat-title">{MENU[key].label.toUpperCase()}</h2>
-                  <div className="cat-rule" />
-                </div>
-                <div className="item-grid">
-                  {MENU[key].items.map((item, i) => (
-                    <ItemCard key={item.name} item={item} delay={i % 3} />
-                  ))}
-                </div>
-              </section>
-              {ki < KEYS.length - 1 && (
-                <div className="combo-upsell">
-                  MAKE IT A COMBO FOR JUST <strong style={{color:'var(--red)'}}>$4.99</strong>
-                  <span className="combo-upsell-sub">REGULAR FRIES + DRINK</span>
-                </div>
-              )}
-            </div>
+          {KEYS.map(key => (
+            <section key={key} className="menu-cat" id={key} ref={el => sectionRefs.current[key] = el}>
+              <div className="cat-header">
+                <span className="cat-num">No. {MENU[key].num}</span>
+                <h2 className="cat-title">{MENU[key].label.toUpperCase()}</h2>
+                <div className="cat-rule" />
+              </div>
+              <div className="item-grid">
+                {MENU[key].items.map((item, i) => (
+                  <ItemCard key={item.name} item={item} delay={i % 3} />
+                ))}
+              </div>
+            </section>
           ))}
         </div>
       </div>

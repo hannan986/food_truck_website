@@ -26,7 +26,7 @@ export default function About() {
         <div className="container">
           <div className="about-owner-grid">
             <Reveal className="about-owner-img">
-              <img src="images/owner.jpg" alt="Owner, Taste on Wheels" onError={e=>e.target.style.display='none'} />
+              <img src="images/owner.png" alt="Owner, Taste on Wheels" onError={e=>e.target.style.display='none'} />
             </Reveal>
             <Reveal delay={1}>
               <span className="eyebrow">Meet The Owner</span>

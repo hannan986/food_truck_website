@@ -29,10 +29,11 @@ export default function About() {
               <img src="images/owner.png" alt="Owner, Taste on Wheels" onError={e=>e.target.style.display='none'} />
             </Reveal>
             <Reveal delay={1}>
-              <span className="eyebrow">Meet The Owner</span>
+              <span className="eyebrow">A Message From CEO &amp; Founder</span>
               <h2 className="about-owner-name">Furrukh Jamil</h2>
-              <p className="story-quote">Determination. Success. Perseverance.</p>
-              <p className="story-p">Taste on Wheels is built on hard work, patience and a genuine love for great food — proudly serving our community one plate at a time.</p>
+              <p className="story-p">What started as a passion for great food and a dream of bringing people together has grown into something I'm incredibly proud of. Taste On Wheels - Food Truck is more than just a place to grab a meal — it's a way for us to connect with our community, share food we love, and create memorable experiences wherever we go.</p>
+              <p className="story-p">We believe great food should be fresh, flavorful, and made with care. Every dish we serve represents our commitment to quality and our appreciation for the customers who continue to support us.</p>
+              <p className="story-p">As we grow, our mission remains simple: serve delicious food, treat people like family, and bring a little more joy to every stop we make.</p>
             </Reveal>
           </div>
         </div>

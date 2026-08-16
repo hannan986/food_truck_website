@@ -34,6 +34,9 @@ export default function Footer() {
                 <a href="https://www.tiktok.com/t/ZP8Wk8R88/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                   <img src="images/tiktok_image.jpg" alt="" />
                 </a>
+                <span className="footer-social-badge" aria-label="Halal Certified">
+                  <img src="images/halal.jpeg" alt="Halal Certified" />
+                </span>
               </div>
             </div>
             <div className="footer-hide-mobile">

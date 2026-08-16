@@ -9,12 +9,13 @@ const CLOVER_URL = 'https://www.doordash.com/store/taste-on-wheels-hagerstown-51
 const CATEGORIES = [
   { to: '/menu#bowls',   label: 'Bowls',           img: 'combo_over_rice.avif' },
   { to: '/menu#wraps',   label: 'Wraps',           img: 'Fried Chicken Wrap.jpg' },
+  { to: '/byob',         label: 'BYOB',            img: 'dorritos_loaded.png' },
+  { to: '/menu#snacks',  label: 'Snacks',          img: 'hot_dog_01.png' },
   { to: '/menu#burgers', label: 'Burgers',         img: 'double_cheese_burger.jpeg' },
   { to: '/menu#steak',   label: 'Steak & Cheese', img: 'supreme_steak_and_chease.jpeg' },
   { to: '/menu#chicken', label: 'Chicken',         img: '8_pieces_wings.jpg' },
-  { to: '/menu#snacks',  label: 'Snacks',          img: 'hot_dog_01.png' },
-  { to: '/byob',         label: 'BYOB',            img: 'dorritos_loaded.png' },
   { to: '/menu#sides',   label: 'Fries & Sides',   img: 'French Fries.jpg' },
+  { to: '/menu#drinks',  label: 'Drinks',          img: 'drinks.webp' },
 ]
 
 const MENU_ITEMS = [
@@ -87,7 +88,11 @@ export default function Home() {
         <div className="cat-grid">
           {CATEGORIES.map((c, i) => (
             <Link to={c.to} key={c.label} className="cat-card">
-              <img className="cat-bg" src={`images/menu_images/${c.img}`} alt="" onError={e => e.target.style.display='none'} />
+              {c.img ? (
+                <img className="cat-bg" src={`images/menu_images/${c.img}`} alt="" onError={e => e.target.style.display='none'} />
+              ) : (
+                <span className="cat-emoji" aria-hidden="true">{c.emoji}</span>
+              )}
               <span className="cat-name">{c.label}</span>
               <div className="cat-overlay"><span>VIEW ALL →</span></div>
             </Link>

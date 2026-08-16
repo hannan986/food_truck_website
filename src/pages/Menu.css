@@ -136,6 +136,12 @@
   -webkit-mask-image: radial-gradient(ellipse 68% 68% at center, #000 60%, transparent 100%);
   mask-image: radial-gradient(ellipse 68% 68% at center, #000 60%, transparent 100%);
 }
+.item-emoji {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.6rem;
+}
+.item-card:hover .item-emoji { transform: scale(1.08); }
 .item-card:hover .item-visual img { transform: scale(1.08); }
 
 /* ── middle: text content ── */

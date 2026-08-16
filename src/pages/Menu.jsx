@@ -65,6 +65,13 @@ const MENU = {
       { name: 'Chili Cheese Fries', price: 7.99, desc: 'Crispy fries loaded with chili and melted cheese.', note: '✓ Loaded', img: 'chili_cheese_fries.jpeg' },
     ]
   },
+  drinks: {
+    label: 'Drinks', emoji: '🥤', num: '08',
+    items: [
+      { name: 'Can Soda',     price: 1.99, desc: 'Ice-cold canned soda — grab your favorite flavor.', note: '✓ Chilled', img: 'can_soda.webp' },
+      { name: 'Bottled Soda', price: 2.99, desc: 'Ice-cold bottled soda — grab your favorite flavor.', note: '✓ Chilled', img: 'bottle_soda.jpg' },
+    ]
+  },
 }
 
 const KEYS = Object.keys(MENU)
@@ -74,7 +81,11 @@ function ItemCard({ item, delay }) {
     <Reveal delay={delay} className="item-card-wrap">
       <div className="item-card">
         <div className="item-visual">
-          <img src={`${import.meta.env.BASE_URL}images/menu_images/${item.img}`} alt={item.name} onError={e => { e.target.style.opacity='0' }} />
+          {item.img ? (
+            <img src={`${import.meta.env.BASE_URL}images/menu_images/${item.img}`} alt={item.name} onError={e => { e.target.style.opacity='0' }} />
+          ) : (
+            <span className="item-emoji" aria-hidden="true">{item.emoji}</span>
+          )}
         </div>
         <div className="item-body">
           <div className="item-name">{item.name}</div>

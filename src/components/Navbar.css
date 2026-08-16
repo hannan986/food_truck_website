@@ -132,14 +132,8 @@
   .navbar { background: #e3bc32; border-top: 2px solid var(--red); border-bottom: 2px solid var(--red); }
   .navbar.scrolled { background: #e3bc32; border-top: 2px solid var(--red); border-bottom: 2px solid var(--red); }
 }
-.nav-center-badge { display: none; }
 @media (min-width: 961px) {
   .nav-order-btn { display: inline-flex !important; }
-  .nav-center-badge {
-    display: block;
-    position: absolute; left: 50%; top: 50%;
-    transform: translate(-50%, -50%);
-    height: 48px; width: auto; object-fit: contain;
-    pointer-events: none;
-  }
+  .nav-logo-img { height: 84px !important; width: 84px !important; }
+  .nav-links a { font-size: 0.86rem; padding: 8px 14px; }
 }

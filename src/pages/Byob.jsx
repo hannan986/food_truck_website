@@ -5,6 +5,8 @@ import './Byob.css'
 
 const CLOVER_URL = 'https://www.doordash.com/store/taste-on-wheels-hagerstown-51037422/116956550/?event_type=autocomplete&pickup=false'
 
+
+
 const STEPS = [
   {  num:'01', title:'BRING YOUR BAG', desc:"Bring your favourite bag of chips or buy from us — Doritos, Lay's, Takis, Cheetos, Tostitos or any other brand. Sealed bags preferred." },
   {  num:'02', title:'PICK PROTEIN OF YOUR CHOICE', desc:'Pick from our seasoned chicken, beef, lamb or gyro meat. All made fresh to order.' },

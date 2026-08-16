@@ -91,8 +91,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          <img src="images/food_truck_logo.png" alt="Taste on Wheels Food Truck" className="nav-center-badge" />
-
           <ul className="nav-links">
             {links.map(l => <li key={l.label}>{renderLink(l)}</li>)}
           </ul>

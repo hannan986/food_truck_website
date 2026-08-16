@@ -31,7 +31,7 @@ export default function Footer() {
                 <a href="https://www.facebook.com/share/1FjrAx5iYa/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <img src="images/facebook_icon_image.jpeg" alt="" />
                 </a>
-                <a href="https://www.tiktok.com/@tasteonwheels" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <a href="https://www.tiktok.com/t/ZP8Wk8R88/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                   <img src="images/tiktok_image.jpg" alt="" />
                 </a>
               </div>

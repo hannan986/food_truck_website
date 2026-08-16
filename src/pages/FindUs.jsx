@@ -58,7 +58,7 @@ export default function FindUs() {
               <div className="fu-card-label">TikTok</div>
               <div className="fu-card-value">@tasteonwheels</div>
               <a
-                href="https://www.tiktok.com/@tasteonwheels"
+                href="https://www.tiktok.com/t/ZP8Wk8R88/"
                 target="_blank" rel="noopener noreferrer"
                 className="fu-card-btn fu-btn-tiktok"
               >

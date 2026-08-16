@@ -60,6 +60,17 @@ export default function Footer() {
               <div className="footer-contact-item"><span>📍</span><a href="https://maps.google.com/?q=802+Salem+Ave,+Hagerstown,+MD+21740" target="_blank" rel="noopener noreferrer">802 Salem Ave, Hagerstown MD 21740</a></div>
               <div className="footer-contact-item"><span>📞</span><a href="tel:+12406988849">(240) 698-8849</a></div>
               <div className="footer-contact-item"><span>✉</span><a href="mailto:tasteonwheels@gmail.com">tasteonwheels@gmail.com</a></div>
+              <div className="footer-social-mobile">
+                <a href="https://www.facebook.com/share/1FjrAx5iYa/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <img src="images/facebook_icon_image.jpeg" alt="" />
+                </a>
+                <a href="https://www.tiktok.com/t/ZP8Wk8R88/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                  <img src="images/tiktok_image.jpg" alt="" />
+                </a>
+                <span className="footer-social-badge" aria-label="Halal Certified">
+                  <img src="images/green_halal.png" alt="Halal Certified" />
+                </span>
+              </div>
             </div>
           </div>
           <div className="footer-bottom">

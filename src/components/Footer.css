@@ -46,6 +46,7 @@
 .footer-contact-item { display: flex; gap: 10px; align-items: flex-start; font-size: 0.8rem; color: #888; margin-bottom: 12px; }
 .footer-contact-item a { color: #888; transition: color var(--ease); }
 .footer-contact-item a:hover { color: #e3bc32; }
+.footer-social-mobile { display: none; }
 
 /* bottom */
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 22px 0; }
@@ -59,4 +60,14 @@
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .footer-hide-mobile { display: none; }
+  .footer-social-mobile { display: flex; gap: 10px; margin-top: 6px; }
+  .footer-social-mobile a, .footer-social-mobile .footer-social-badge {
+    width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .footer-social-mobile .footer-social-badge { background: #fff; }
+  .footer-social-mobile a img, .footer-social-mobile .footer-social-badge img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+  }
 }

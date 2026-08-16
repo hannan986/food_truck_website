@@ -5,9 +5,8 @@ import './Navbar.css'
 const Logo = () => (
   <div className="nav-logo-text">
     <div className="nav-logo-title">
-      <span className="nav-logo-taste">TASTE</span> <span className="nav-logo-wheels">ON WHEELS</span>
+      <span className="nav-logo-taste">TASTE</span> <span className="nav-logo-on">ON</span> <span className="nav-logo-wheels">WHEELS</span>
     </div>
-    <div className="nav-logo-tag">FAST · FRESH · FLAVORFUL</div>
   </div>
 )
 

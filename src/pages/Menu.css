@@ -278,6 +278,25 @@
 .sob-sub { font-size: .72rem; color: #666; margin-top: 2px; }
 .sob-btn { font-size: .78rem; letter-spacing: 2px; padding: 12px 28px; white-space: nowrap; }
 
+/* ── BYOB promo card (replaces item grid in the byob section) ── */
+.byob-menu-promo {
+  display: flex; background: var(--dark-2);
+  border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius);
+  overflow: hidden;
+}
+.byob-menu-promo-img { width: 240px; min-width: 240px; flex-shrink: 0; }
+.byob-menu-promo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.byob-menu-promo-body {
+  padding: 28px 28px 28px 26px; display: flex; flex-direction: column; gap: 14px; justify-content: center;
+}
+.byob-menu-badge {
+  align-self: flex-start; background: #e3bc32; color: #111;
+  font-family: var(--font-head); font-size: .62rem; letter-spacing: 2px;
+  padding: 5px 10px; border-radius: 3px;
+}
+.byob-menu-desc { color: #bbb; font-size: .92rem; line-height: 1.6; max-width: 520px; }
+.byob-menu-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
 /* ── responsive ── */
 @media (max-width: 700px) {
   .item-visual { width: 95px; min-width: 95px; height: 100px; }
@@ -285,6 +304,9 @@
   .item-desc { white-space: normal; }
   .item-footer { padding: 12px 14px; gap: 8px; }
   .tab-btn { padding: 7px 14px; font-size: .62rem; }
+  .byob-menu-promo { flex-direction: column; }
+  .byob-menu-promo-img { width: 100%; min-width: 0; height: 180px; }
+  .byob-menu-promo-body { padding: 20px; }
 }
 @media (max-width: 480px) {
   .item-visual { width: 80px; min-width: 80px; height: 90px; }

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Reveal } from '../components/useReveal'
 import Footer from '../components/Footer'
 import './Menu.css'
@@ -50,15 +50,18 @@ const MENU = {
       { name: 'Chicken Wings (5pc)',    price: 10.99, desc: 'Juicy wings — classic, buffalo or honey garlic.', note: '✓ Fresh', img: '8_pieces_wings.jpg' },
     ]
   },
+  byob: {
+    label: 'BYOB', emoji: '🥡', num: '06', promo: true,
+  },
   snacks: {
-    label: 'Snacks', emoji: '🌭', num: '06',
+    label: 'Snacks', emoji: '🌭', num: '07',
     items: [
       { name: 'Hot Dog', price: 1.99, desc: 'Classic hot dog in toasted bun with your choice of toppings.', note: '✓ Fresh', img: 'hot_dog_01.png' },
       { name: 'Nachos',  price: 9.99, desc: 'Loaded tortilla chips with cheese, jalapeños and sour cream.', note: '✓ Vegetarian', img: 'nachos_01.webp' },
     ]
   },
   sides: {
-    label: 'Fries & Sides', emoji: '🍟', num: '07',
+    label: 'Fries & Sides', emoji: '🍟', num: '08',
     items: [
       { name: 'French Fries',       price: 3.99, desc: 'Crispy golden fries, perfectly seasoned.', note: '✓ Vegan', img: 'French Fries.jpg' },
       { name: 'Cheese Fries',       price: 5.99, desc: 'Crispy fries topped with warm melted cheese sauce.', note: '✓ Vegetarian', img: 'cheese_fries.jpeg' },
@@ -66,7 +69,7 @@ const MENU = {
     ]
   },
   drinks: {
-    label: 'Drinks', emoji: '🥤', num: '08',
+    label: 'Drinks', emoji: '🥤', num: '09',
     items: [
       { name: 'Can Soda',     price: 1.99, desc: 'Ice-cold canned soda — grab your favorite flavor.', note: '✓ Chilled', img: 'can_soda.webp' },
       { name: 'Bottled Soda', price: 2.99, desc: 'Ice-cold bottled soda — grab your favorite flavor.', note: '✓ Chilled', img: 'bottle_soda.jpg' },
@@ -165,11 +168,27 @@ export default function Menu() {
                   <h2 className="cat-title">{MENU[key].label.toUpperCase()}</h2>
                   <div className="cat-rule" />
                 </div>
-                <div className="item-grid">
-                  {MENU[key].items.map((item, i) => (
-                    <ItemCard key={item.name} item={item} delay={i % 3} />
-                  ))}
-                </div>
+                {MENU[key].promo ? (
+                  <Reveal className="byob-menu-promo">
+                    <div className="byob-menu-promo-img">
+                      <img src={`${import.meta.env.BASE_URL}images/bring-your-own-bag-of-chips-01.png`} alt="Bring Your Own Bag of Chips" onError={e => { e.target.style.display='none' }} />
+                    </div>
+                    <div className="byob-menu-promo-body">
+                      <span className="byob-menu-badge">★ NEW</span>
+                      <p className="byob-menu-desc">Bring any bag of your favourite chips or buy from us, and we'll fill it with your choice of seasoned meat, and all our signature fixings.</p>
+                      <div className="byob-menu-btns">
+                        <Link to="/byob" className="btn btn-outline-gold">SEE HOW IT WORKS →</Link>
+                        <a href={CLOVER_URL} target="_blank" rel="noopener noreferrer" className="btn btn-gold">ORDER →</a>
+                      </div>
+                    </div>
+                  </Reveal>
+                ) : (
+                  <div className="item-grid">
+                    {MENU[key].items.map((item, i) => (
+                      <ItemCard key={item.name} item={item} delay={i % 3} />
+                    ))}
+                  </div>
+                )}
               </section>
               {ki < KEYS.length - 1 && (
                 <div className="combo-upsell">

@@ -20,6 +20,24 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* OWNER */}
+      <section className="section" style={{ background: 'var(--black)' }}>
+        <div className="container">
+          <div className="about-owner-grid">
+            <Reveal className="about-owner-img">
+              <img src="images/owner.jpg" alt="Owner, Taste on Wheels" onError={e=>e.target.style.display='none'} />
+            </Reveal>
+            <Reveal delay={1}>
+              <span className="eyebrow">Meet The Owner</span>
+              <h2 className="about-owner-name">Furrukh Jamil</h2>
+              <p className="story-quote">Determination. Success. Perseverance.</p>
+              <p className="story-p">Taste on Wheels is built on hard work, patience and a genuine love for great food — proudly serving our community one plate at a time.</p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   )

@@ -35,7 +35,7 @@ export default function Footer() {
                   <img src="images/tiktok_image.jpg" alt="" />
                 </a>
                 <span className="footer-social-badge" aria-label="Halal Certified">
-                  <img src="images/halal.jpeg" alt="Halal Certified" />
+                  <img src="images/green_halal.png" alt="Halal Certified" />
                 </span>
               </div>
             </div>

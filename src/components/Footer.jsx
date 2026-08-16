@@ -3,15 +3,7 @@ import './Footer.css'
 
 const Logo = () => (
   <div className="footer-logo-inner">
-    <svg className="footer-hex" viewBox="0 0 38 44" fill="none">
-      <path d="M19 0L38 10.97V33.03L19 44L0 33.03V10.97L19 0Z" fill="#F5C107"/>
-      <path d="M19 5L33.5 13.5V30.5L19 39L4.5 30.5V13.5L19 5Z" fill="#111111"/>
-      <text x="19" y="28" textAnchor="middle" fill="#F5C107" fontFamily="Impact,sans-serif" fontSize="17">T</text>
-    </svg>
-    <div>
-      <div className="footer-logo-taste">TASTE</div>
-      <div className="footer-logo-sub">ON WHEELS</div>
-    </div>
+    <span className="footer-logo-taste">TASTE</span> <span className="footer-logo-on">ON</span> <span className="footer-logo-wheels">WHEELS</span>
   </div>
 )
 

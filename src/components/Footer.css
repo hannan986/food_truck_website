@@ -5,11 +5,14 @@
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-/* brand */
-.footer-logo-inner { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-.footer-hex { width: 34px; height: 40px; }
-.footer-logo-taste { font-family: var(--font-head); font-size: 1.1rem; letter-spacing: 2px; color: #e3bc32; line-height: 1; }
-.footer-logo-sub { font-size: 0.42rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--white); background: var(--red); padding: 2px 5px; margin-top: 3px; display: inline-block; border-radius: 2px; }
+/* brand — matches navbar logo text exactly */
+.footer-logo-inner {
+  font-family: var(--font-head); font-size: 1.55rem; letter-spacing: 1px;
+  text-transform: uppercase; white-space: nowrap; margin-bottom: 16px;
+}
+.footer-logo-taste { color: var(--white); }
+.footer-logo-on { color: #e03c3c; }
+.footer-logo-wheels { color: #e3bc32; }
 .footer-tagline { font-size: 0.82rem; color: #999; line-height: 1.75; margin-bottom: 20px; }
 .footer-social { display: flex; gap: 8px; }
 .footer-social a {

@@ -277,9 +277,10 @@
 }
 .hm-order-btn:hover { background:#a93226; transform:translateY(-1px); box-shadow:0 4px 14px rgba(192,57,43,0.4); }
 @media (max-width:600px) {
-  .hm-item-img { width:90px; min-width:90px; height:78px; }
-  .hm-item-name { font-size:.85rem; padding:0 12px; }
-  .hm-item-footer { padding:0 12px; gap:8px; }
+  .hm-item-card { align-items:stretch; min-height:96px; }
+  .hm-item-img { width:90px; min-width:90px; height:auto; }
+  .hm-item-name { font-size:.85rem; padding:14px 12px; }
+  .hm-item-footer { padding:14px 12px; gap:8px; align-items:flex-start; }
   .hm-item-price { font-size:1.1rem; }
 }
 

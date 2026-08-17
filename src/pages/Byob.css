@@ -107,8 +107,9 @@
 
 @media (max-width:800px) { .how-grid { grid-template-columns:1fr; } }
 @media (max-width:600px) {
-  .byob-item-img { width: 80px; min-width: 80px; height: 70px; }
-  .byob-item-name { font-size: .78rem; padding: 0 12px; }
-  .byob-item-footer { padding: 0 12px; gap: 10px; }
+  .byob-item-card { align-items: stretch; min-height: 90px; }
+  .byob-item-img { width: 80px; min-width: 80px; height: auto; }
+  .byob-item-name { font-size: .78rem; padding: 14px 12px; }
+  .byob-item-footer { padding: 14px 12px; gap: 10px; align-items: flex-start; }
   .byob-item-price { font-size: 1rem; }
 }

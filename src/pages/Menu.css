@@ -162,6 +162,12 @@
   margin-bottom: 6px;
   line-height: 1.2;
 }
+.item-sub {
+  font-size: .72rem;
+  color: #999;
+  font-style: italic;
+  margin-top: 2px;
+}
 .item-desc {
   font-size: .8rem;
   color: #777;

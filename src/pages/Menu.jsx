@@ -53,7 +53,7 @@ const MENU = {
   byob: {
     label: 'BYOB', emoji: '🥡', num: '06',
     items: [
-      { name: 'Bring Your Own Bag of Chips', price: 9.99, desc: "Bring any bag of your favourite chips or buy from us, and we'll fill it with your choice of seasoned meat and all our signature fixings.", note: '✓ Build Your Own', img: 'dorritos_loaded.png' },
+      { name: 'Bring Your Own Bag of Chips', sub: 'OR Buy From Us', price: 9.99, desc: "Bring any bag of your favourite chips or buy from us, and we'll fill it with your choice of seasoned meat and all our signature fixings.", note: '✓ Build Your Own', img: 'dorritos_loaded.png' },
     ]
   },
   snacks: {
@@ -95,6 +95,7 @@ function ItemCard({ item, delay }) {
         </div>
         <div className="item-body">
           <div className="item-name">{item.name}</div>
+          {item.sub && <div className="item-sub">{item.sub}</div>}
         </div>
         <div className="item-footer">
           {item.price != null && <span className="item-price">${item.price.toFixed(2)}</span>}
